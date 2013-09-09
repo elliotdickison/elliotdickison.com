@@ -1,0 +1,19 @@
+<% post ||= @post %>
+<a class="button" href="/posts">Back to all posts</a>
+<div class="post">
+	<%= erb :'posts/post' %>
+</div>
+<div id="comments">
+	<h3>Comments</h3>
+	<% 
+	alternate = ''
+	post.comments.each do |comment| %>
+		<div class="comment<%= alternate %>">
+			<%= erb :'comments/comment', locals: {comment: comment} %>
+		</div>
+		<% 
+		alternate = alternate == '' ? ' alternate' : '';
+	end %>
+	<%= erb :'comments/form', locals: {post: post} %>
+</div>
+<a class="button" href="/posts">Back to all posts</a>
