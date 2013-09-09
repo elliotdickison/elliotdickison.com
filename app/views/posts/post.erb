@@ -1,0 +1,6 @@
+<% post ||= @post %>
+<div class="header">
+	<h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+	<div class="meta"><%= post.created_at.strftime("%B %-d, %Y") %></div>
+</div>
+<div class="body"><%= post %></div>

@@ -1,0 +1,17 @@
+<h2>Files</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @files.each do |file| %>
+			<tr>
+				<td><%= file.id %></td>
+				<td><a href="/files/<%=file.id%>"><%= file %></td>
+			</tr>
+		<% end %>
+	<tbody>
+</table>

@@ -1,0 +1,7 @@
+<% comment ||= @comment %>
+<img class="avatar" src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest(comment.email.downcase) %>?d=retro" />
+<div class="header">
+	<div class="commenter"><%= comment.commenter %></div>
+	<div class="meta"><%= comment.created_at.strftime("%B %-d, %Y at %l:%M:%P") %></div>
+</div>
+<div class="body"><%= comment %></div>

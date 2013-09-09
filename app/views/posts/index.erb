@@ -1,0 +1,12 @@
+<% @posts.each do |post|
+	comment_count = post.comments.count
+	comment_text = case comment_count
+		when 0 then 'No Comments'
+		when 1 then '1 Comment'
+		else "#{comment_count} Comments"
+	end %>
+	<div class="post">
+		<%= erb :'posts/post', locals: {post: post} %>
+		<a class="button" href="/posts/<%= post.id %>#comments"><%= comment_text %></a>
+	</div>
+<% end %>
