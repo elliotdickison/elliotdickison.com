@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20130917022738) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20130917022738) do
     t.datetime "updated_at"
   end
 
-  add_index "user_files", ["name", "extension"], name: "by_file_name", unique: true
+  add_index "user_files", ["name", "extension"], name: "by_file_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
