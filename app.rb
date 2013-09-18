@@ -18,17 +18,24 @@
 
 # app.rb
 require 'sinatra'
-require 'sinatra/activerecord'
+require 'active_record'
 require 'digest/md5'
 
-set :database, 'sqlite3:///blog.db'
+ActiveRecord::Base.establish_connection(
+  :adapter  => 'mysql',
+  :host     => 'localhost',
+  :username => 'root',
+  :password => '',
+  :database => 'elliotjames'
+)
 
 # Set the views folder
 set :views, Proc.new { File.join(root, 'app', 'views') }
 
+# Turn on sessions
 enable :sessions
 
-# Require all model
+# Require all models
 Dir['./app/models/*.rb'].each {|file| require file }
 
 register do
