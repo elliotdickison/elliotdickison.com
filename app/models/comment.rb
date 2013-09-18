@@ -5,6 +5,10 @@ class Comment < ActiveRecord::Base
 
   belongs_to :post
 
+  def gravatar_src
+  	'http://www.gravatar.com/avatar/' << Digest::MD5.hexdigest(self.email.downcase) << '?d=retro'
+  end
+
   def to_s
     self.body
   end

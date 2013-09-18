@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Elliot Dickison</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/css/login.css">
+        
+        <script type="text/javascript" src="//use.typekit.net/vmc7ddm.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    </head>
+    <body>
+      <div class="login">
+        <% if @error %>
+          <div class="error"><%= @error %></div>
+        <% end %>
+        <h2>Login</h2>
+        <form action="/login" method="post">
+          <label for="user_name" >Username:</label><br />
+          <input id="user_name" name="name" type="text" />
+          <br />
+
+          <label for="user_password" >Password:</label><br />
+          <input id="user_password" name="password" type="password" />
+          <br />
+         
+          <input type="submit" value="Login" />
+        </form>
+      </div>
+    </body>
+</html>

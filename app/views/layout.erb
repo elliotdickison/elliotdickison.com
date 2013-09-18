@@ -6,21 +6,28 @@
     <head>
         <meta charset="utf-8">
         <title>Elliot Dickison</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/img/favicon.png" />
+
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/app.css">
+        
         <script type="text/javascript" src="//use.typekit.net/vmc7ddm.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     </head>
     <body>
-        <header>
+        <div id="top_bar"></div>
+        <header class="cf">
             <h1>
-                <a href="/posts">elliot james</a>
+                <a href="/blog">elliot james</a>
             </h1>
             <nav>
-                <a href="/posts">blog<%='<div class="arrow"></div>' if @selected_tab == :posts%></a>
-                <a href="/code">code<%='<div class="arrow"></div>' if @selected_tab == :code%></a>
-                <a href="/about">about<%='<div class="arrow"></div>' if @selected_tab == :about%></a>
-                <a href="/contact">contact<%='<div class="arrow"></div>' if @selected_tab == :contact%></a>
+                <% ['blog', 'code', 'about', 'contact'].each do |page| page_sym = page.to_sym%>
+                    <a href="/<%= page %>"<%=' class="selected"' if @selected_tab == page_sym %>><%= page %><%='<div class="arrow"></div>' if @selected_tab == page_sym%></a>
+                <% end %>
             </nav>
         </header>
         <div id="content">
