@@ -1,10 +1,10 @@
 get '/files' do
   @files = UserFile.order('created_at DESC')
-  erb :'files/index'
+  erb :'user_files/index'
 end
 
 get '/files/new' do
-  erb :'files/new'
+  erb :'user_files/new'
 end
 
 post '/files' do
@@ -12,8 +12,8 @@ post '/files' do
 
   if params[:file]
     info = params[:file][:filename].split('.')
-    @file.name = info.first
-    @file.extension = info.last
+    @file.name = info.first.downcase
+    @file.extension = info.last.downcase
     @file.content = params[:file][:tempfile].read
   end
 
@@ -24,9 +24,15 @@ post '/files' do
   end
 end
 
-get '/files/:id' do
-  #todo - cache this
-  @file = UserFile.find(params[:id])
-  content_type 'image/jpg'
-  @file.content
+get '/files/:name.:extension' do
+
+  @file = UserFile.find_by(name: params[:name].downcase, extension: params[:extension].downcase)
+  
+  if @file
+    content_type mime_type(@file.extension)
+    cache_control :public, :must_revalidate, max_age: 604800
+    @file.content
+  else
+    halt 404
+  end
 end

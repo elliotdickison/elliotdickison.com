@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907214613) do
+ActiveRecord::Schema.define(version: 20130917022738) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 20130907214613) do
     t.string   "name"
     t.string   "extension"
     t.binary   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_files", ["name", "extension"], name: "by_file_name", unique: true
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.string   "first"
+    t.string   "last"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

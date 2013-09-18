@@ -1,148 +1,169 @@
-html {
-	/* background: #dd4b39; */
-	background: #3A4A5D;
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
 }
 
 body {
 	font-size: 19px;
 	color: #444;
 	font-family: serif;
+	padding-top: 5px;
+}
+
+#top_bar {
+	position: fixed;
+	top: 0; right: 0; left: 0;
+	height: 5px;
+	background: #de5950;
+	z-index: 999;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: #40b0f0;
+	text-decoration: none;
+	transition: color 0.2s linear;
+}
+
+a:hover {
+	color: #de5950;
 }
 
 h1 {
-	font-size: 56px;
-	margin: 0 0 30px 0;
 	font-weight: normal;
+	margin: 0;
 }
 
 h2, h3 {
-	border-bottom: 4px solid #1bbc9b;
-	font-size: 50px;
-	margin: 0 0 10px 0;
+	border-bottom: 4px solid #999;
+	font-size: 54px;
+	margin: 0 0 15px 0;
 	font-weight: bold;
 	font-family: sans-serif;
 }
 
 h3 {
 	font-size: 36px;
-	margin-bottom: 20px;
-}
-
-h1 a,
-h1 a:hover {
-	background: #1bbc9b;
-	padding: 0 15px;
-	border-radius: 3px;
+	margin-bottom: 0;
 }
 
 h2 a {
-	color: #444;
-}
-
-h2 a:hover {
-	color: #1bbc9b;
-	text-decoration: none;
+	color: inherit;
 }
 
 blockquote {
-	margin: 30px 40px;
-	border-left: 8px solid #1bbc9b;
+	margin: 0 40px;
+	border-left: 8px solid #999;
 	padding: 10px 20px;
 	background: #EEE;
 }
 
 header {
-	background: #3A4A5D;
-	color: #fff;
-	position: fixed;
-	top: 0; bottom: 0; left: 0;
-	width: 30%;
-	text-align: right;
-	padding: 40px;
-	overflow: hidden;
+	background: #dfdfdf;
 	letter-spacing: 1px;
-}
-
-a {
-	text-decoration: none;
+	color: #555;
 }
 
 header a {
-	color: #fff;
-	border-bottom: 4px solid transparent;
+	color: inherit;
 }
 
-header a:hover {
-	color: #fff;
-	border-bottom: 4px solid #1bbc9b;
-	text-decoration: none;
-}
-
-nav a {
-	float: right;
-	clear: right;
-	font-size: 30px;
-	margin-bottom: 12px;
-}
-
-nav .arrow {
-	position: absolute;
-	margin-top: -45px;
-	right: 0;
-	width: 0; 
-	height: 0; 
-	border-top: 25px solid transparent;
-	border-bottom: 25px solid transparent; 
-	border-right: 25px solid #fff; 
+header a.selected {
+	color: #de5950;
 }
 
 footer {
-	margin: 0 0 0 30%;
-	padding: 15px 0 15px 80px;
-	width: 720px;
-	color: #FFF;
+	background: #dfdfdf;
 	letter-spacing: 1px;
 }
 
 button, .button, input[type=submit] {
 	line-height: 100%;
 	border: 0;
-	background: #1bbc9b;
-	color: white;
+	background: #de5950;
+	color: #fff !important;
 	padding: 6px 12px;
 	font-size: 18px;
 	text-decoration: none;
 	display: inline-block; /* needed for anchors */
 	position: relative;
-	box-shadow: 1px 0px #188367, 0px 1px #1C9A78,
-		2px 1px #188367, 1px 2px #1C9A78,
-		3px 2px #188367, 2px 3px #1C9A78,
-		4px 3px #188367, 3px 4px #1C9A78,
-		5px 4px #188367, 4px 5px #1C9A78;
+	box-shadow: 1px 0px #913a34, 0px 1px #b84a42,
+		2px 1px #913a34, 1px 2px #b84a42,
+		3px 2px #913a34, 2px 3px #b84a42,
+		4px 3px #913a34, 3px 4px #b84a42,
+		5px 4px #913a34, 4px 5px #b84a42;
 	border-radius: 3px;
-}
-
-button:hover, .button:hover, input[type=submit]:hover {
-	/* background: #22C498; */
 }
 
 button:active, .button:active, input[type=submit]:active {
 	-webkit-transform: translate(3px, 3px);
-	box-shadow: 1px 0px #188367, 0px 1px #1C9A78,
-		2px 1px #188367, 1px 2px #1C9A78;
+	box-shadow: 1px 0px #913a34, 0px 1px #b84a42,
+		2px 1px #913a34, 1px 2px #b84a42;
 }
 
-#content {
-	background: #fff;
-	margin: 0 0 0 30%;
-	padding: 50px 60px 50px 140px;
-	width: 800px;
-	min-height: 400px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
+button.left, .button.left, input[type=submit].left {
+	float: left;
+	margin-right: 15px;
+}
+
+button.right, .button.right, input[type=submit].right {
+	float: right;
+	margin-left: 15px;
+}
+
+button.facebook, .button.facebook, input[type=submit].facebook {
+	background: #3b5998;
+	box-shadow: 1px 0px #1E2D4C, 0px 1px #2D4373,
+		2px 1px #1E2D4C, 1px 2px #2D4373,
+		3px 2px #1E2D4C, 2px 3px #2D4373,
+		4px 3px #1E2D4C, 3px 4px #2D4373,
+		5px 4px #1E2D4C, 4px 5px #2D4373;
+}
+
+button.facebook:active, .button.facebook:active, input[type=submit].facebook:active {
+	-webkit-transform: translate(3px, 3px);
+	box-shadow: 1px 0px #1E2D4C, 0px 1px #2D4373,
+		2px 1px #1E2D4C, 1px 2px #2D4373;
+}
+
+button.twitter, .button.twitter, input[type=submit].twitter {
+	background: #00ACED;
+	box-shadow: 1px 0px #0075A1, 0px 1px #0090C7,
+		2px 1px #0075A1, 1px 2px #0090C7,
+		3px 2px #0075A1, 2px 3px #0090C7,
+		4px 3px #0075A1, 3px 4px #0090C7,
+		5px 4px #0075A1, 4px 5px #0090C7;
+}
+
+button.twitter:active, .button.twitter:active, input[type=submit].twitter:active {
+	-webkit-transform: translate(3px, 3px);
+	box-shadow: 1px 0px #0075A1, 0px 1px #0090C7,
+		2px 1px #0075A1, 1px 2px #0090C7;
 }
 
 #content > *:first-child {
@@ -150,73 +171,59 @@ button:active, .button:active, input[type=submit]:active {
 }
 
 .meta {
-	font-size: 17px;
 	color: #999;
 	margin: 0;
 	font-family: sans-serif;
 }
 
 .post {
-	margin: 60px 0 0 0;
+	margin: 90px auto 0 auto;
+	width: 600px;
 }
 
 .post .body {
 	margin-top: 20px;
 }
 
-.post .body {
-	
-}
-
 .post .body a {
-	color: #1bbc9b;
 	font-weight: bold;
 }
 
-.post .body a:hover {
-	border-bottom: 2px solid #1bbc9b;
+.post .body > * {
+	margin-top: 30px;
 }
-
-footer a {
-	color: #1bbc9b;
-	font-weight: bold;
-}
-
-footer a:hover {
-	border-bottom: 2px solid #1bbc9b;
-}
-
-
 
 .post .body > *:first-child {
 	margin-top: 0;
 }
 
-.post .body p {
-	margin-top: 30px;
-}
-
 .post .footer {
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
 .post img {
 	display: block;
-	width: 600px;
+	width: 100%;
 }
 
 #comments {
+	margin: 30px auto;
+	padding: 30px 0;
+	width: 600px;
+}
+
+#comments form {
+	margin-top: 30px;
+}
+
+#comments form input[type=submit] {
 	margin-top: 30px;
 }
 
 .comment {
 	min-height: 80px;
 	padding: 20px;
-}
-
-.comment.alternate {
-	background: #EEE;
-	border-radius: 3px;
+	border-bottom: 4px solid #EEE;
 }
 
 .comment .avatar {
@@ -236,4 +243,160 @@ footer a:hover {
 
 .comment .body {
 	margin-left: 100px;
+}
+
+@media all and (min-width: 916px) {
+
+	h1 {
+		font-size: 54px;
+		float: left;
+		margin-top: -5px;
+	}
+
+	header {
+		position: relative;
+		height: 65px;
+		padding: 30px 60px;
+	}
+
+	nav {
+		line-height: 65px;
+		float: right;
+		font-size: 32px;
+	}
+
+	nav a {
+		margin-left: 25px;
+		position: relative;
+	}
+
+	nav .arrow {
+		position: absolute;
+		bottom: -44px;
+		left: 50%;
+		margin-left: -25px;
+		width: 0; 
+		height: 0; 
+		border-left: 25px solid transparent;
+		border-bottom: 25px solid #FFF; 
+		border-right: 25px solid transparent; 
+	}
+
+	#content {
+		padding: 50px 60px;
+		min-height: 400px;
+	}
+
+	footer {
+		padding: 30px 60px;
+	}
+}
+
+@media all and (max-width: 915px) and (min-width: 481px) {
+
+	h1 {
+		font-size: 42px;
+		float: left;
+	}
+
+	header {
+		position: relative;
+		width: 720px;
+		margin: 45px auto 24px auto;
+		height: 65px;
+		background: red;
+	}
+
+	nav {
+		line-height: 65px;
+		float: right;
+		font-size: 28px;
+	}
+
+	nav a {
+		margin-left: 25px;
+		position: relative;
+	}
+
+	nav .arrow {
+		position: absolute;
+		bottom: -38px;
+		left: 50%;
+		margin-left: -25px;
+		width: 0; 
+		height: 0; 
+		border-left: 25px solid transparent;
+		border-bottom: 25px solid #FFF; 
+		border-right: 25px solid transparent; 
+	}
+
+	#content {
+		background: #fff;
+		padding: 50px 60px;
+		width: 600px;
+		margin: 0 auto;
+		min-height: 400px;
+	}
+
+	footer {
+		margin: 0 auto;
+		padding: 15px 0 15px 0;
+		width: 720px;
+	}
+}
+
+@media all and (max-width: 480px) {
+
+	h1 {
+		font-size: 42px;
+		float: left;
+	}
+
+	header {
+		position: relative;
+		width: 720px;
+		margin: 45px auto 24px auto;
+		height: 65px;
+		background: green;
+	}
+
+	nav {
+		line-height: 65px;
+		float: right;
+		font-size: 28px;
+	}
+
+	nav a {
+		margin-left: 25px;
+		position: relative;
+	}
+
+	nav .arrow {
+		position: absolute;
+		bottom: -38px;
+		left: 50%;
+		margin-left: -25px;
+		width: 0; 
+		height: 0; 
+		border-left: 25px solid transparent;
+		border-bottom: 25px solid #FFF; 
+		border-right: 25px solid transparent; 
+	}
+
+	#content {
+		background: #fff;
+		padding: 20px 30px;
+		width: 100%;
+		margin: 0 auto;
+		min-height: 400px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	footer {
+		margin: 0 auto;
+		padding: 15px 0 15px 0;
+		width: 720px;
+	}
 }
