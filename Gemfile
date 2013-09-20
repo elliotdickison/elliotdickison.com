@@ -4,8 +4,8 @@ ruby '1.9.3'
 # Gemfile
 gem 'sinatra'
 gem 'haml'
-gem 'mysql'
-gem 'activerecord'
+gem 'pg'
+gem 'sinatra-activerecord'
 
 group :development do
   gem 'tux'

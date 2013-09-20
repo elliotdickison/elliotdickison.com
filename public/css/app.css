@@ -166,6 +166,10 @@ button.twitter:active, .button.twitter:active, input[type=submit].twitter:active
 		2px 1px #0075A1, 1px 2px #0090C7;
 }
 
+button i, .button i, input[type=submit] i {
+	padding-right: 5px;
+}
+
 #content > *:first-child {
 	margin-top: 0;
 }
@@ -270,7 +274,8 @@ button.twitter:active, .button.twitter:active, input[type=submit].twitter:active
 		position: relative;
 	}
 
-	nav .arrow {
+	nav .selected:after {
+		content: '';
 		position: absolute;
 		bottom: -44px;
 		left: 50%;

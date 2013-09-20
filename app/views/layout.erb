@@ -22,11 +22,11 @@
         <div id="top_bar"></div>
         <header class="cf">
             <h1>
-                <a href="/blog">elliot james</a>
+                <a href="/blog"><i class="icon-rocket"></i> elliot james</a>
             </h1>
             <nav>
                 <% ['blog', 'code', 'about', 'contact'].each do |page| page_sym = page.to_sym%>
-                    <a href="/<%= page %>"<%=' class="selected"' if @selected_tab == page_sym %>><%= page %><%='<div class="arrow"></div>' if @selected_tab == page_sym%></a>
+                    <a href="/<%= page %>"<%=' class="selected"' if @selected_tab == page_sym %>><%= page %></a>
                 <% end %>
             </nav>
         </header>

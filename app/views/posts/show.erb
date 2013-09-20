@@ -1,5 +1,5 @@
 <% post ||= @post %>
-<a class="button" href="/blog">Back to all posts</a>
+<a class="button" href="/blog"><i class="icon-double-angle-left"></i> Back to all posts</a>
 <div class="post">
 	<%= erb :'posts/post' %>
 </div>
@@ -12,4 +12,4 @@
 	<% end %>
 	<%= erb :'comments/form', locals: {post: post} %>
 </div>
-<a class="button" href="/blog">Back to all posts</a>
+<a class="button" href="/blog"><i class="icon-double-angle-left"></i> Back to all posts</a>
