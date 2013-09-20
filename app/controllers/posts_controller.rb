@@ -38,7 +38,7 @@ get '/posts/:id' do
   erb :'posts/show'
 end
 
-put '/posts/:id' do
+put '/posts/:id', :auth => :admin do
   @post = Post.find(params[:id])
   if @post.update_attributes(params[:post])
     erb :'posts/show'
@@ -47,7 +47,7 @@ put '/posts/:id' do
   end
 end
 
-delete '/posts/:id' do
+delete '/posts/:id', :auth => :admin do
   if Post.find(params[:id]).destroy
     redirect '/blog'
   else
@@ -55,7 +55,7 @@ delete '/posts/:id' do
   end
 end
 
-get '/posts/:id/edit' do
+get '/posts/:id/edit', :auth => :admin do
   @selected_tab = :blog
   @post = Post.find(params[:id])
   erb :'posts/edit'
