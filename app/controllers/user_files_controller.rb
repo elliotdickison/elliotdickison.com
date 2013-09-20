@@ -1,13 +1,13 @@
-get '/files' do
+get '/files', :auth => :admin do
   @files = UserFile.order('created_at DESC')
   erb :'user_files/index'
 end
 
-get '/files/new' do
+get '/files/new', :auth => :admin do
   erb :'user_files/new'
 end
 
-post '/files' do
+post '/files', :auth => :admin do
   @file = UserFile.new
 
   if params[:file]

@@ -7,14 +7,13 @@
 # responsive layout
 # tourguide & notify
 # create a github repo
-# add users
-# permissions/admin
 # convert from classic to modular app
 # add comment numbers (& links)
 # give user ownership of posts, files, etc.
 # email confirmation for comments? probably not...
 # fix indentation
 # implement html5 & hardboiled markup (header/footer/section/rel)
+# test ie...
 
 # app.rb
 require 'sinatra'
