@@ -18,7 +18,7 @@ post '/files', :auth => :admin do
   end
 
   if @file.save
-    redirect "files/#{@file.id}"
+    redirect "files/#{@file}"
   else
     redirect 'files/new'
   end
