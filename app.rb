@@ -18,16 +18,11 @@
 
 # app.rb
 require 'sinatra'
-require 'active_record'
+require 'sinatra/activerecord'
 require 'digest/md5'
 
-ActiveRecord::Base.establish_connection(
-  :adapter  => 'mysql',
-  :host     => 'localhost',
-  :username => 'root',
-  :password => '',
-  :database => 'elliotjames'
-)
+# Set the database
+set :database, ENV['DATABASE_URL'] || 'postgresql://elliot.dickison:iamaskier@localhost/elliot.dickison'
 
 # Set the views folder
 set :views, Proc.new { File.join(root, 'app', 'views') }

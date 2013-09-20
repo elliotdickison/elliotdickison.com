@@ -1,5 +1,5 @@
-<%= "<a class='button left' href='/blog?page=#{@older_page}'>Older posts</a>" if @older_page %>
-<%= "<a class='button right' href='/blog?page=#{@newer_page}'>Newer posts</a>" if @newer_page %>
+<%= "<a class='button left' href='/blog?page=#{@older_page}'><i class='icon-double-angle-left'></i> Older posts</a>" if @older_page %>
+<%= "<a class='button right' href='/blog?page=#{@newer_page}'><i class='icon-double-angle-right'></i> Newer posts</a>" if @newer_page %>
 <% @posts.each do |post|
 	comment_count = post.comments.count
 	comment_text = case comment_count
@@ -10,11 +10,11 @@
 	<div class="post">
 		<%= erb :'posts/post', locals: {post: post} %>
 		<div class="footer">
-			<a class="button" href="/posts/<%= post.id %>#comments"><%= comment_text %></a>
-			<a class="button facebook right" href="#">Facebook</a>
-			<a class="button twitter right" href="#">Twitter</a>
+			<a class="button" href="/posts/<%= post.id %>#comments"><i class="icon-comment"></i> <%= comment_text %></a>
+			<a class="button facebook right" href="#"><i class="icon-facebook"></i> Facebook</a>
+			<a class="button twitter right" href="#"><i class="icon-twitter"></i> Twitter</a>
 		</div>
 	</div>
 <% end %>
-<%= "<a class='button left' href='/blog?page=#{@older_page}'>Older posts</a>" if @older_page %>
-<%= "<a class='button right' href='/blog?page=#{@newer_page}'>Newer posts</a>" if @newer_page %>
+<%= "<a class='button left' href='/blog?page=#{@older_page}'><i class='icon-double-angle-left'></i> Older posts</a>" if @older_page %>
+<%= "<a class='button right' href='/blog?page=#{@newer_page}'><i class='icon-double-angle-right'></i> Newer posts</a>" if @newer_page %>
