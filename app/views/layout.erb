@@ -15,17 +15,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Elliot Dickison</title>
-
-        <!-- Favicon -->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="/img/favicon.png" />
-
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/app.css">
-        
         <script type="text/javascript" src="//use.typekit.net/vmc7ddm.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     </head>
     <body>
@@ -35,6 +33,7 @@
                 <a href="/blog"><i class="icon-rocket"></i> elliot james</a>
             </h1>
             <nav>
+                <a href="#" class='menu-toggle'>menu</a>
                 <ul>
                     <% ['blog', 'code', 'about', 'contact'].each do |page| page_sym = page.to_sym%>
                         <li<%=' class="selected"' if @selected_tab == page_sym %>><a href="/<%= page %>"><%= page %></a></li>
@@ -42,6 +41,9 @@
                 </ul>
             </nav>
         </header>
+        <!--[if lt IE 7]>
+            <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="browserhappy">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
         <div id="content">
             <%=yield%>
         </div>

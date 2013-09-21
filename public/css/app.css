@@ -301,6 +301,14 @@ nav li {
 		border-right: 25px solid transparent; 
 	}
 
+	.menu-toggle {
+		display: none;
+	}
+
+	.browse-happy {
+		padding: 20px 60px;
+	}
+
 	#content {
 		padding: 60px;
 		min-height: 400px;
@@ -363,8 +371,16 @@ nav li {
 		border-right: 20px solid transparent; 
 	}
 
+	.menu-toggle {
+		display: none;
+	}
+
 	#top_bar {
 		height: 3px;
+	}
+
+	.browse-happy {
+		padding: 20px 40px;
 	}
 
 	#content {
@@ -434,6 +450,10 @@ nav li {
 
 	#top_bar {
 		height: 3px;
+	}
+
+	.browse-happy {
+		padding: 20px;
 	}
 
 	#content {
