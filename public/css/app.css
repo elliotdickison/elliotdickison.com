@@ -26,8 +26,8 @@
 }
 
 body {
-	font-size: 19px;
-	color: #444;
+	font-size: 20px;
+	color: #333;
 	font-family: serif;
 	padding-top: 5px;
 }
@@ -54,22 +54,28 @@ a:hover {
 	color: #e34f49;
 }
 
+nav ul, li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
 h1 {
 	font-weight: normal;
 	margin: 0;
 }
 
 h2, h3 {
-	border-bottom: 4px solid #999;
-	font-size: 54px;
-	margin: 0 0 15px 0;
+	font-size: 58px;
+	margin: 0;
 	font-weight: bold;
 	font-family: sans-serif;
 }
 
 h3 {
-	font-size: 36px;
-	margin-bottom: 0;
+	text-align: center;
+	font-size: 48px;
+	margin-bottom: 30px;
 }
 
 h2 a {
@@ -78,12 +84,13 @@ h2 a {
 
 blockquote {
 	margin: 0 40px;
-	border-left: 8px solid #999;
+	border-left: 8px solid #888;
 	padding: 10px 20px;
 	background: #EEE;
 }
 
 header {
+	color: #444;
 	background: #dfdfdf;
 	/*letter-spacing: 1px;
 	color: #555;
@@ -103,11 +110,12 @@ header a {
 	color: inherit;
 }
 
-header a.selected {
+header .selected {
 	color: #e34f49;
 }
 
 footer {
+	color: #444;
 	background: #dfdfdf;
 	letter-spacing: 1px;
 }
@@ -184,15 +192,14 @@ button i, .button i, input[type=submit] i {
 	margin-top: 0;
 }
 
-.meta {
-	color: #999;
-	margin: 0;
-	font-family: sans-serif;
+nav li {
+	position: relative;
 }
 
-.post {
-	margin: 90px auto 0 auto;
-	width: 600px;
+.meta {
+	color: #888;
+	margin: 0;
+	font-family: sans-serif;
 }
 
 .post .body {
@@ -248,7 +255,7 @@ button i, .button i, input[type=submit] i {
 }
 
 .comment .commenter {
-	font-size: 23px;
+	font-size: 26px;
 }
 
 .comment .header {
@@ -259,24 +266,152 @@ button i, .button i, input[type=submit] i {
 	margin-left: 100px;
 }
 
-@media all and (min-width: 916px) {
+@media all and (min-width: 971px) {
 
 	h1 {
 		font-size: 54px;
 		float: left;
-		margin-top: -5px;
 	}
 
 	header {
 		position: relative;
-		height: 65px;
-		padding: 30px 60px;
+		padding: 25px 60px;
 	}
 
 	nav {
-		line-height: 65px;
+		line-height: 72px;
 		float: right;
 		font-size: 32px;
+	}
+
+	nav li {
+		margin-left: 25px;
+	}
+
+	nav .selected:after {
+		content: '';
+		position: absolute;
+		bottom: -40px;
+		left: 50%;
+		margin-left: -25px;
+		width: 0; 
+		height: 0; 
+		border-left: 25px solid transparent;
+		border-bottom: 25px solid #FFF; 
+		border-right: 25px solid transparent; 
+	}
+
+	#content {
+		padding: 60px;
+		min-height: 400px;
+	}
+
+	.post {
+		margin: 90px auto 0 auto;
+		width: 650px;
+	}
+
+	.post .body {
+		line-height: 35px;
+	}
+
+	footer {
+		padding: 30px 60px;
+	}
+}
+
+@media all and (max-width: 970px) and (min-width: 481px) {
+
+	body {
+		font-size: 18px;
+		padding-top: 3px;
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+
+	h2 {
+		font-size: 48px;
+	}
+
+	header {
+		position: relative;
+		padding: 20px 40px;
+		text-align: center;
+	}
+
+	nav {
+		line-height: 48px;
+		font-size: 24px;
+	}
+
+	nav li {
+		margin-left: 25px;
+	}
+
+	nav .selected:after {
+		content: '';
+		position: absolute;
+		bottom: -29px;
+		left: 50%;
+		margin-left: -20px;
+		width: 0; 
+		height: 0; 
+		border-left: 20px solid transparent;
+		border-bottom: 20px solid #FFF; 
+		border-right: 20px solid transparent; 
+	}
+
+	#top_bar {
+		height: 3px;
+	}
+
+	#content {
+		padding: 40px;
+		min-height: 400px;
+	}
+
+	.post {
+		margin: 90px auto 0 auto;
+		max-width: 550px;
+	}
+
+	button, .button, input[type=submit] {
+		font-size: 15px;
+		padding: 5px 11px;
+	}
+
+	footer {
+		padding: 30px 40px;
+	}
+}
+
+@media all and (max-width: 480px) {
+
+	body {
+		font-size: 16px;
+		padding-top: 3px;
+	}
+
+	h1 {
+		font-size: 36px;
+		float: left;
+	}
+
+	h2 {
+		font-size: 38px;
+	}
+
+	header {
+		position: relative;
+		padding: 20px 20px;
+		text-align: center;
+	}
+
+	nav {
+		line-height: 48px;
+		font-size: 24px;
 	}
 
 	nav a {
@@ -287,131 +422,36 @@ button i, .button i, input[type=submit] i {
 	nav .selected:after {
 		content: '';
 		position: absolute;
-		bottom: -44px;
+		bottom: -29px;
 		left: 50%;
-		margin-left: -25px;
+		margin-left: -20px;
 		width: 0; 
 		height: 0; 
-		border-left: 25px solid transparent;
-		border-bottom: 25px solid #FFF; 
-		border-right: 25px solid transparent; 
+		border-left: 20px solid transparent;
+		border-bottom: 20px solid #FFF; 
+		border-right: 20px solid transparent; 
+	}
+
+	#top_bar {
+		height: 3px;
 	}
 
 	#content {
-		padding: 50px 60px;
+		padding: 20px;
 		min-height: 400px;
 	}
 
-	footer {
-		padding: 30px 60px;
-	}
-}
-
-@media all and (max-width: 915px) and (min-width: 481px) {
-
-	h1 {
-		font-size: 42px;
-		float: left;
+	.post {
+		margin: 90px auto 0 auto;
+		max-width: 500px;
 	}
 
-	header {
-		position: relative;
-		width: 720px;
-		margin: 45px auto 24px auto;
-		height: 65px;
-		background: red;
-	}
-
-	nav {
-		line-height: 65px;
-		float: right;
-		font-size: 28px;
-	}
-
-	nav a {
-		margin-left: 25px;
-		position: relative;
-	}
-
-	nav .arrow {
-		position: absolute;
-		bottom: -38px;
-		left: 50%;
-		margin-left: -25px;
-		width: 0; 
-		height: 0; 
-		border-left: 25px solid transparent;
-		border-bottom: 25px solid #FFF; 
-		border-right: 25px solid transparent; 
-	}
-
-	#content {
-		background: #fff;
-		padding: 50px 60px;
-		width: 600px;
-		margin: 0 auto;
-		min-height: 400px;
+	button, .button, input[type=submit] {
+		font-size: 15px;
+		padding: 5px 11px;
 	}
 
 	footer {
-		margin: 0 auto;
-		padding: 15px 0 15px 0;
-		width: 720px;
-	}
-}
-
-@media all and (max-width: 480px) {
-
-	h1 {
-		font-size: 42px;
-		float: left;
-	}
-
-	header {
-		position: relative;
-		width: 720px;
-		margin: 45px auto 24px auto;
-		height: 65px;
-		background: green;
-	}
-
-	nav {
-		line-height: 65px;
-		float: right;
-		font-size: 28px;
-	}
-
-	nav a {
-		margin-left: 25px;
-		position: relative;
-	}
-
-	nav .arrow {
-		position: absolute;
-		bottom: -38px;
-		left: 50%;
-		margin-left: -25px;
-		width: 0; 
-		height: 0; 
-		border-left: 25px solid transparent;
-		border-bottom: 25px solid #FFF; 
-		border-right: 25px solid transparent; 
-	}
-
-	#content {
-		background: #fff;
-		padding: 20px 30px;
-		width: 100%;
-		margin: 0 auto;
-		min-height: 400px;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-	}
-
-	footer {
-		margin: 0 auto;
-		padding: 15px 0 15px 0;
-		width: 720px;
+		padding: 30px 40px;
 	}
 }
