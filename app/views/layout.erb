@@ -33,8 +33,8 @@
                 <a href="/blog"><i class="icon-rocket"></i> elliot james</a>
             </h1>
             <nav>
-                <a href="#" class='menu-toggle'>menu</a>
-                <ul>
+                <a href="#" class="menu-toggle" onclick="toggleMenu(); return false;"><i class="icon-reorder"></i></a>
+                <ul id="js-menu">
                     <% ['blog', 'code', 'about', 'contact'].each do |page| page_sym = page.to_sym%>
                         <li<%=' class="selected"' if @selected_tab == page_sym %>><a href="/<%= page %>"><%= page %></a></li>
                     <% end %>
