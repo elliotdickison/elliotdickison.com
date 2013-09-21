@@ -1,19 +1,19 @@
 # TODO
 # better route names (blog/year/post-name/)
 # cache user_files in tmp folder
-# blog order/limit
 # comment spam filtering (moderator approval)
-# spacing/margins...
-# responsive layout
 # tourguide & notify
-# create a github repo
-# convert from classic to modular app
 # add comment numbers (& links)
 # give user ownership of posts, files, etc.
-# email confirmation for comments? probably not...
-# fix indentation
-# implement html5 & hardboiled markup (header/footer/section/rel)
 # test ie...
+# blog archive
+
+# REFACTOR
+# clean up css -> mobile first!
+# implement html5 & hardboiled markup (header/footer/section/rel)
+# fix indentation
+# create a github repo
+# convert from classic to modular app
 
 # app.rb
 require 'sinatra'
@@ -51,21 +51,6 @@ before do
     @user = User.find(session[:user_id])
   rescue ActiveRecord::RecordNotFound
     @user = nil
-  end
-end
-
-get '/login' do
-  erb :login, layout: nil
-end
-
-post '/login' do
-  @user = User.authenticate(params[:name], params[:password])
-  if @user
-    session[:user_id] = @user.id
-    redirect '/'
-  else
-    @error = 'Invalid username or password.'
-    erb :login, layout: nil
   end
 end
 
