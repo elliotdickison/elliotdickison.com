@@ -2,6 +2,6 @@
 <img class="avatar" src="<%= comment.gravatar_src %>" />
 <div class="header">
 	<div class="commenter"><%= comment.commenter %></div>
-	<div class="meta"><%= comment.created_at.strftime("%B %-d, %Y at %l:%M:%P") %></div>
+	<div class="time"><i class="icon-time"></i> <%= comment.created_at.strftime("%B %-d, %Y at %l:%M:%P") %></div>
 </div>
 <div class="body"><%= comment %></div>

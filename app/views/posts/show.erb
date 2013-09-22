@@ -1,11 +1,11 @@
 <% post ||= @post %>
 <a class="button" href="/blog"><i class="icon-double-angle-left"></i> Back to all posts</a>
-<div class="post">
+<div class="post constrain min">
 	<%= erb :'posts/post' %>
 </div>
-<div id="comments">
+<div id="comments" class="constrain min square">
 	<h3>Comments</h3>
-	<% post.comments.each do |comment| %>
+	<% post.comments.order('created_at ASC').each do |comment| %>
 		<div class="comment">
 			<%= erb :'comments/comment', locals: {comment: comment} %>
 		</div>
