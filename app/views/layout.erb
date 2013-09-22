@@ -28,7 +28,7 @@
     </head>
     <body ontouchstart>
         <div id="top_bar"></div>
-        <header class="cf">
+        <header class="cf constrain max">
             <h1>
                 <a href="/blog"><i class="icon-rocket"></i> elliot james</a>
             </h1>
@@ -44,10 +44,10 @@
         <!--[if lt IE 7]>
             <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="browserhappy">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div id="content">
+        <div id="content" class="constrain max square">
             <%=yield%>
         </div>
-        <footer>
+        <footer class="constrain max square">
             <a href="/code/elliotjames">Hand Made</a> in <a href="#">Idaho</a> by Elliot Dickison
         </footer>
         <script src="/js/app.js"></script>

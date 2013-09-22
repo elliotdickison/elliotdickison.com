@@ -7,7 +7,7 @@
 		when 1 then '1 Comment'
 		else "#{comment_count} Comments"
 	end %>
-	<div class="post">
+	<div class="post constrain min">
 		<%= erb :'posts/post', locals: {post: post} %>
 		<div class="footer">
 			<a class="button" href="/posts/<%= post.id %>#comments"><i class="icon-comment"></i> <%= comment_text %></a>

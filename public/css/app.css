@@ -32,6 +32,10 @@ body {
 	padding-top: 5px;
 }
 
+img {
+	display: block;
+}
+
 #top_bar {
 	position: fixed;
 	top: 0; right: 0; left: 0;
@@ -90,7 +94,6 @@ blockquote {
 }
 
 header {
-	color: #444;
 	background: #dfdfdf;
 	/*letter-spacing: 1px;
 	color: #555;
@@ -115,7 +118,6 @@ header .selected {
 }
 
 footer {
-	color: #444;
 	background: #dfdfdf;
 	letter-spacing: 1px;
 }
@@ -126,7 +128,6 @@ button, .button, input[type=submit] {
 	background: #e34f49;
 	color: #fff !important;
 	padding: 6px 12px;
-	font-size: 18px;
 	text-decoration: none;
 	display: inline-block; /* needed for anchors */
 	position: relative;
@@ -196,9 +197,8 @@ nav li {
 	position: relative;
 }
 
-.meta {
+.time {
 	color: #888;
-	margin: -10px 0 0 0;
 	font-family: sans-serif;
 }
 
@@ -237,7 +237,7 @@ nav li {
 
 .comment {
 	min-height: 80px;
-	padding: 30px 20px;
+	padding: 30px 0;
 }
 
 .comment .avatar {
@@ -261,17 +261,33 @@ nav li {
 }
 
 .about img {
-	width: 200px;
-	height: 200px;
-	border-radius: 100px;
-	float: left;
-}
-
-.about p {
-	margin-left: 250px;
+	border-radius: 50%;
 }
 
 @media all and (min-width: 971px) {
+
+	.constrain.max {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	.constrain.max.square {
+		padding: 60px;
+	}
+
+	.constrain.min {
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 30px;
+		padding-right: 30px;
+		width: 600px;
+	}
+
+	.constrain.min.square {
+		padding: 30px;
+	}
 
 	h1 {
 		font-size: 54px;
@@ -279,8 +295,9 @@ nav li {
 	}
 
 	header {
+		padding-bottom: 25px;
+		padding-top: 25px;
 		position: relative;
-		padding: 25px 60px;
 	}
 
 	nav {
@@ -315,14 +332,11 @@ nav li {
 	}
 
 	#content {
-		padding: 60px;
 		min-height: 400px;
 	}
 
-	.post,
-	.about {
-		margin: 90px auto 0 auto;
-		width: 600px;
+	.post {
+		margin-top: 90px;
 	}
 
 	.post .body {
@@ -330,21 +344,52 @@ nav li {
 	}
 
 	#comments {
-		margin: 40px auto;
-		padding: 30px 0;
-		width: 600px;
+		margin-top: 40px;
 	}
 
 	.commenter {
-		font-size: 24px;
+		font-size: 22px;
+	}
+
+	.about img {
+		width: 200px;
+		height: 200px;
+		float: left;
+	}
+
+	.about p {
+		margin-left: 250px;
 	}
 
 	footer {
-		padding: 30px 60px;
+		text-align: center;
 	}
 }
 
 @media all and (max-width: 970px) and (min-width: 481px) {
+
+	.constrain.max {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	.constrain.max.square {
+		padding: 30px;
+	}
+
+	.constrain.min {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 500px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.constrain.min.square {
+		padding: 0;
+	}
 
 	body {
 		font-size: 18px;
@@ -365,7 +410,8 @@ nav li {
 
 	header {
 		position: relative;
-		padding: 20px 40px;
+		padding-bottom: 20px;
+		padding-top: 20px;
 		text-align: center;
 	}
 
@@ -404,14 +450,7 @@ nav li {
 	}
 
 	#content {
-		padding: 40px;
 		min-height: 400px;
-	}
-
-	#comments {
-		margin: 40px auto;
-		padding: 40px 0;
-		max-width: 500px;
 	}
 
 	.commenter {
@@ -419,21 +458,45 @@ nav li {
 	}
 
 	.post {
-		margin: 90px auto 0 auto;
-		max-width: 550px;
+		margin-top: 90px;
+	}
+
+	.about img {
+		width: 150px;
+		height: 150px;
+		float: left;
+	}
+
+	.about p {
+		margin-left: 180px;
 	}
 
 	button, .button, input[type=submit] {
-		font-size: 15px;
 		padding: 5px 11px;
-	}
-
-	footer {
-		padding: 30px 40px;
 	}
 }
 
 @media all and (max-width: 480px) {
+
+	.constrain.max {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.constrain.max.square {
+		padding: 20px;
+	}
+
+	.constrain.min {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.constrain.min.square {
+		padding: 0;
+	}
 
 	body {
 		font-size: 16px;
@@ -455,7 +518,8 @@ nav li {
 
 	header {
 		position: relative;
-		padding: 20px 20px;
+		padding-bottom: 20px;
+		padding-top: 20px;
 		text-align: center;
 	}
 
@@ -481,7 +545,7 @@ nav li {
 
 	nav li a {
 		display: block;
-		transition: none;
+		transition: color 0.2s linear, background 0.2s linear;
 	}
 
 	nav li a:hover {
@@ -497,30 +561,25 @@ nav li {
 	}
 
 	#content {
-		padding: 20px;
 		min-height: 400px;
-	}
-
-	#comments {
-		margin: 20px auto;
-		padding: 20px 0;
 	}
 
 	.commenter {
 		font-size: 18px;
 	}
 
-	.post {
-		margin: 90px auto 0 auto;
-		max-width: 500px;
+	.post,
+	#comments {
+		margin-top: 60px;
+	}
+
+	.about img {
+		width: 130px;
+		height: 130px;
+		margin: 0 auto 20px auto;
 	}
 
 	button, .button, input[type=submit] {
-		font-size: 15px;
 		padding: 5px 11px;
-	}
-
-	footer {
-		padding: 30px 40px;
 	}
 }
