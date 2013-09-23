@@ -7,6 +7,8 @@
 # give user ownership of posts, files, etc.
 # test ie...
 # blog archive
+# contact form
+# github/twitter/instagram links
 
 # REFACTOR
 # clean up css -> mobile first!

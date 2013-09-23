@@ -70,7 +70,7 @@ h1 {
 }
 
 h2, h3 {
-	font-size: 58px;
+	font-size: 56px;
 	margin: 0;
 	font-weight: bold;
 	font-family: sans-serif;
@@ -78,7 +78,7 @@ h2, h3 {
 
 h3 {
 	text-align: center;
-	font-size: 48px;
+	font-size: 46px;
 	margin-bottom: 20px;
 }
 
@@ -264,7 +264,28 @@ nav li {
 	border-radius: 50%;
 }
 
+label {
+	color: #999;
+}
+
+input[type=text],
+input[type=password],
+textarea {
+	width: 100%;
+	border: 1px solid #999;
+	padding: 0px 5px;
+	display: block;
+	box-sizing: border-box;
+	margin: 0 0 10px 0;
+}
+
 @media all and (min-width: 971px) {
+
+	input[type=text],
+	input[type=password],
+	textarea {
+		font-size: 22px;
+	}
 
 	.constrain.max {
 		margin-left: 0;
@@ -348,7 +369,7 @@ nav li {
 	}
 
 	.commenter {
-		font-size: 22px;
+		font-size: 24px;
 	}
 
 	.about img {
@@ -367,6 +388,12 @@ nav li {
 }
 
 @media all and (max-width: 970px) and (min-width: 481px) {
+
+	input[type=text],
+	input[type=password],
+	textarea {
+		font-size: 20px;
+	}
 
 	.constrain.max {
 		margin-left: 0;
@@ -401,11 +428,11 @@ nav li {
 	}
 
 	h2 {
-		font-size: 48px;
+		font-size: 46px;
 	}
 
 	h3 {
-		font-size: 38px;
+		font-size: 36px;
 	}
 
 	header {
@@ -454,7 +481,7 @@ nav li {
 	}
 
 	.commenter {
-		font-size: 20px;
+		font-size: 22px;
 	}
 
 	.post {
@@ -477,6 +504,12 @@ nav li {
 }
 
 @media all and (max-width: 480px) {
+
+	input[type=text],
+	input[type=password],
+	textarea {
+		font-size: 18px;
+	}
 
 	.constrain.max {
 		margin-left: 0;
@@ -509,11 +542,11 @@ nav li {
 	}
 
 	h2 {
-		font-size: 38px;
+		font-size: 36px;
 	}
 
 	h3 {
-		font-size: 28px;
+		font-size: 26px;
 	}
 
 	header {
@@ -565,7 +598,7 @@ nav li {
 	}
 
 	.commenter {
-		font-size: 18px;
+		font-size: 20px;
 	}
 
 	.post,
