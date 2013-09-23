@@ -190,7 +190,7 @@ button i, .button i, input[type=submit] i {
 }
 
 #content > *:first-child,
-.posts > *:first-child,
+.posts .post:first-child,
 .post .body > *:first-child {
 	margin-top: 0;
 }
