@@ -356,16 +356,12 @@ textarea {
 		min-height: 400px;
 	}
 
-	.post {
+	.posts .post {
 		margin-top: 90px;
 	}
 
 	.post .body {
 		line-height: 35px;
-	}
-
-	#comments {
-		margin-top: 40px;
 	}
 
 	.commenter {
@@ -415,7 +411,8 @@ textarea {
 	}
 
 	.constrain.min.square {
-		padding: 0;
+		padding-bottom: 30px;
+		padding-top: 30px;
 	}
 
 	body {
@@ -484,7 +481,7 @@ textarea {
 		font-size: 22px;
 	}
 
-	.post {
+	.posts .post {
 		margin-top: 90px;
 	}
 
@@ -528,7 +525,8 @@ textarea {
 	}
 
 	.constrain.min.square {
-		padding: 0;
+		padding-bottom: 20px;
+		padding-top: 20px;
 	}
 
 	body {
@@ -601,8 +599,7 @@ textarea {
 		font-size: 20px;
 	}
 
-	.post,
-	#comments {
+	.posts .post {
 		margin-top: 60px;
 	}
 
