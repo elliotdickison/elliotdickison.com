@@ -189,7 +189,9 @@ button i, .button i, input[type=submit] i {
 	padding-right: 5px;
 }
 
-#content > *:first-child {
+#content > *:first-child,
+.posts > *:first-child,
+.post .body > *:first-child {
 	margin-top: 0;
 }
 
@@ -212,10 +214,6 @@ nav li {
 
 .post .body > * {
 	margin-top: 30px;
-}
-
-.post .body > *:first-child {
-	margin-top: 0;
 }
 
 .post .footer {
