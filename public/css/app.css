@@ -254,6 +254,11 @@ nav li {
 	font-weight: bold;
 }
 
+.comment .commenter a {
+	font-weight: normal;
+	float: right;
+}
+
 .comment .header {
 	margin: 0 0 10px 100px;
 }
@@ -625,6 +630,7 @@ textarea {
 	}
 
 	button, .button, input[type=submit] {
-		padding: 5px 11px;
+		padding: 4px 10px;
+		font-size: 15px;
 	}
 }

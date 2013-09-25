@@ -1,7 +1,11 @@
 <% comment ||= @comment %>
-<img class="avatar" src="<%= comment.gravatar_src %>" />
-<div class="header">
-	<div class="commenter"><%= comment.commenter %></div>
-	<div class="time"><i class="icon-time"></i> <%= comment.created_at.strftime("%B %-d, %Y") %></div>
+<% number ||= 1 %>
+<div class="comment" id="comment<%= comment.id %>">
+	<img class="avatar" src="<%= comment.gravatar_src %>" />
+	<div class="header">
+		<div class="commenter"><%= comment.commenter %><a href="#comment<%= comment.id %>">#<%= number %></a></div>
+		<div class="time"><i class="icon-time"></i> <%= comment.created_at.strftime("%B %-d, %Y") %></div>
+	</div>
+	<div class="body"><%= comment %></div>
+	<!-- Delete link here if logged in as admin -->
 </div>
-<div class="body"><%= comment %></div>
