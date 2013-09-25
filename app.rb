@@ -1,15 +1,17 @@
 # TODO
 # cache user_files in tmp folder
 # email about comments (for moderation)
-# add comment numbers (& links)
+# delete comments
 # test ie...
 # contact form
 # github/twitter/instagram links
-# comment scrubbing
 # delayed publishing of posts
 # code page
+# 404 page
+# ajax load more posts
 
 # SOME DAY...
+# comment website
 # clean up css -> mobile first!
 # implement html5 & hardboiled markup (header/footer/section/rel)
 # fix indentation
@@ -21,6 +23,8 @@
 # give user ownership of posts, files, etc.
 # tourguide & notify
 # reroute after login
+# error headers/display
+# better facebook/twitter share meta data
 
 # app.rb
 require 'sinatra'
@@ -54,6 +58,14 @@ end
 helpers do
   def is_user?
     @user != nil
+  end
+
+  def facebook_share_link(link)
+    'https://www.facebook.com/sharer/sharer.php?u=' << URI.escape('http://elliotjam.es' << link)
+  end
+
+  def twitter_share_link(link)
+    'https://twitter.com/share?url=' << URI.escape('http://elliotjam.es' << link)
   end
 end
 

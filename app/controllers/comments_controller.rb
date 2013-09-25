@@ -6,3 +6,9 @@ post '/comments' do
     redirect '/blog'
   end
 end
+
+delete '/comments/:id', :auth => :admin do
+  @comment = Comment.find(params[:id])
+  @comment.destroy
+  redirect "#{@comment.post.link}#comments"
+end
