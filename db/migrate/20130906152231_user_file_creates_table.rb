@@ -1,4 +1,4 @@
-class CreateUserFilesTable < ActiveRecord::Migration
+class UserFilesCreateTable < ActiveRecord::Migration
   def up
   	create_table :user_files do |t|
   	  t.string :name

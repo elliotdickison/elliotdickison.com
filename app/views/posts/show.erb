@@ -1,9 +1,12 @@
 <% post ||= @post %>
-<a class="button" href="/blog"><i class="icon-double-angle-left"></i> Back to all posts</a>
-<div class="post constrain min square">
+<div class="post constrain min">
 	<%= erb :'posts/post' %>
+	<div class="footer cf">
+		<a class="button twitter left" href="#"><i class="icon-twitter"></i> Twitter</a>
+		<a class="button facebook left" href="#"><i class="icon-facebook"></i> Facebook</a>
+	</div>
 </div>
-<div id="comments" class="constrain min square">
+<div id="comments" class="constrain min">
 	<h3>Comments</h3>
 	<% post.comments.order('created_at ASC').each do |comment| %>
 		<div class="comment">
@@ -12,4 +15,3 @@
 	<% end %>
 	<%= erb :'comments/form', locals: {post: post} %>
 </div>
-<a class="button" href="/blog"><i class="icon-double-angle-left"></i> Back to all posts</a>
