@@ -1,7 +1,6 @@
 # TODO
 # cache user_files in tmp folder
 # email about comments (for moderation)
-# delete comments
 # test ie...
 # contact form
 # github/twitter/instagram links
@@ -9,6 +8,7 @@
 # code page
 # 404 page
 # ajax load more posts
+# implement sinatra bundles
 
 # SOME DAY...
 # comment website
@@ -17,7 +17,7 @@
 # fix indentation
 # create a github repo
 # convert from classic to modular app
-# validate post reference ids
+# validate post reference id uniqueness
 # blog archive
 # post preview
 # give user ownership of posts, files, etc.
@@ -44,13 +44,13 @@ enable :sessions
 Dir['./app/models/*.rb'].each {|file| require file }
 
 configure do
-  set :posts_per_page, 5
+  set :posts_per_page, 1
 end
 
 register do
   def auth (type)
     condition do
-      # redirect '/login' unless @user and @user.send("is_#{type}?")
+      redirect '/login' unless @user && @user.send("is_#{type}?")
     end
   end
 end
@@ -71,7 +71,11 @@ end
 
 before do
   begin
-    @user = User.find(session[:user_id])
+    if Sinatra::Base.development?
+      @user = User.first
+    else
+      @user = User.find(session[:user_id])
+    end
   rescue ActiveRecord::RecordNotFound
     @user = nil
   end
@@ -83,16 +87,19 @@ Dir['./app/controllers/*.rb'].each {|file| require file }
 # MISC
 
 get '/code' do
+  @page_title = 'Code'
   @selected_tab = :code
   erb :code
 end
 
 get '/about' do
+  @page_title = 'About'
   @selected_tab = :about
   erb :about
 end
 
 get '/contact' do
+  @page_title = 'Contact'
   @selected_tab = :contact
   erb :contact
 end

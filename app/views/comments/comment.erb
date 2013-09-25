@@ -7,5 +7,10 @@
 		<div class="time"><i class="icon-time"></i> <%= comment.created_at.strftime("%B %-d, %Y") %></div>
 	</div>
 	<div class="body"><%= comment %></div>
-	<!-- Delete link here if logged in as admin -->
+	<% if @user && @user.is_admin? %>
+		<form action="/comments/<%= comment.id %>" method="post">
+		  <input type="hidden" name="_method" value="delete" /> 
+		  <input type="submit" value="delete" />
+		</form>
+	<% end %>
 </div>

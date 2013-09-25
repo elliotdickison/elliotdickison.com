@@ -3,17 +3,7 @@ function toggleMenu(evt) {
 
 	menu.className = menu.className == 'show' ? '' : 'show';
 
-	preventDefault(evt);
-}
-
-function preventDefault(evt) {
-    evt = evt || window.event;
-
-    if (evt.preventDefault) {
-        evt.preventDefault();
-    } else {
-        evt.returnValue = false;
-    }
+	evt.preventDefault();
 }
 
 function enforceUrlFriendly(input_elem, output_elem, trim) {
@@ -33,3 +23,19 @@ function getUrlFriendly(text, trim) {
 
 	return text;
 }
+
+$(document).ready(function(){
+	$('a.js-ajax-replace').on('click', function(evt){
+		var $link = $(this);
+
+		$.ajax({
+			"type": "GET",
+			"url": $link.attr('href')
+		})
+		.done(function(data){
+			$link.replaceWith(data);
+		});
+
+		evt.preventDefault();
+	});
+});

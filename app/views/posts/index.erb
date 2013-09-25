@@ -14,3 +14,6 @@
 		</div>
 	</div>
 <% end %>
+<% if @show_more_link %>
+	<a class="load-more js-ajax-replace" href="/blog?page=<%= @current_page + 1 %>"><i class="icon-plus-sign"></i> Load older posts</a>
+<% end %>

@@ -3,18 +3,21 @@ get '/' do
 end
 
 get '/blog' do
+  @page_title = 'Blog'
   @selected_tab = :blog
-
-  page_offset = params[:page].to_i * settings.posts_per_page
+  @current_page = params[:page].to_i
+  page_offset = @current_page * settings.posts_per_page
+  @show_more_link = (Post.count / settings.posts_per_page).ceil > page_offset + 1
 
   @posts = Post.order('created_at DESC').offset(page_offset).limit(settings.posts_per_page)
 
-	erb :'posts/index'
+	erb :'posts/index', layout: @current_page == 0
 end
 
 get '/blog/*/*' do |year, reference_id|
   @selected_tab = :blog
   @post = Post.where("date_part('year', created_at) = ? AND reference_id = ?", year, reference_id).first
+  @page_title = @post.reference_id
   erb :'posts/show'
 end
 
