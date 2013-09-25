@@ -5,6 +5,12 @@ class Comment < ActiveRecord::Base
 
   belongs_to :post
 
+  before_validation do
+    self.commenter = Rack::Utils.escape_html commenter if attribute_present?('commenter')
+    self.email = Rack::Utils.escape_html email if attribute_present?('email')
+    self.body = Rack::Utils.escape_html body if attribute_present?('body')
+  end
+
   def gravatar_src
   	'http://www.gravatar.com/avatar/' << Digest::MD5.hexdigest(self.email.downcase) << '?d=retro'
   end
