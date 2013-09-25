@@ -77,9 +77,11 @@ h2, h3 {
 }
 
 h3 {
-	text-align: center;
+	background: #dfdfdf;
 	font-size: 46px;
 	margin-bottom: 20px;
+	padding: 5px 0;
+	text-align: center;
 }
 
 h2 a {
@@ -630,7 +632,19 @@ textarea {
 	}
 
 	button, .button, input[type=submit] {
-		padding: 4px 10px;
-		font-size: 15px;
+		padding: 5px 11px;
+	}
+
+	.button.no-text-mobile {
+		width: 30px;
+		text-align: center;
+	}
+
+	.button.no-text-mobile i {
+		padding-right: 0;
+	}
+
+	.button.no-text-mobile span {
+		display: none;
 	}
 }
