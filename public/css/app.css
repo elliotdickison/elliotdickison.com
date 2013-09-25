@@ -129,9 +129,9 @@ button, .button, input[type=submit] {
 	border: 0;
 	background: #e34f49;
 	color: #fff !important;
+	display: inline-block;
 	padding: 6px 12px;
 	text-decoration: none;
-	display: inline-block; /* needed for anchors */
 	position: relative;
 	box-shadow: 1px 0px #963430, 0px 1px #bd413c,
 		2px 1px #963430, 1px 2px #bd413c,
@@ -228,6 +228,13 @@ nav li {
 
 .post img {
 	display: block;
+	width: 100%;
+}
+
+.load-more {
+	display: block;
+	margin-top: 40px;
+	text-align: center;
 	width: 100%;
 }
 
@@ -367,7 +374,7 @@ textarea {
 	}
 
 	#comments {
-		margin-top: 60px;
+		padding-top: 60px;
 	}
 
 	.post {
@@ -492,7 +499,7 @@ textarea {
 	}
 
 	#comments {
-		margin-top: 60px;
+		padding-top: 60px;
 	}
 
 	.commenter {
@@ -614,7 +621,7 @@ textarea {
 	}
 
 	#comments {
-		margin-top: 40px;
+		padding-top: 40px;
 	}
 
 	.commenter {
