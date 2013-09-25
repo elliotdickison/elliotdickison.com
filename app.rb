@@ -1,21 +1,26 @@
 # TODO
-# better route names (blog/year/post-name/)
 # cache user_files in tmp folder
-# comment spam filtering (moderator approval)
-# tourguide & notify
+# email about comments (for moderation)
 # add comment numbers (& links)
-# give user ownership of posts, files, etc.
 # test ie...
-# blog archive
 # contact form
 # github/twitter/instagram links
+# comment scrubbing
+# delayed publishing of posts
+# code page
 
-# REFACTOR
+# SOME DAY...
 # clean up css -> mobile first!
 # implement html5 & hardboiled markup (header/footer/section/rel)
 # fix indentation
 # create a github repo
 # convert from classic to modular app
+# validate post reference ids
+# blog archive
+# post preview
+# give user ownership of posts, files, etc.
+# tourguide & notify
+# reroute after login
 
 # app.rb
 require 'sinatra'
@@ -34,10 +39,14 @@ enable :sessions
 # Require all models
 Dir['./app/models/*.rb'].each {|file| require file }
 
+configure do
+  set :posts_per_page, 5
+end
+
 register do
   def auth (type)
     condition do
-      redirect '/login' unless @user and @user.send("is_#{type}?")
+      # redirect '/login' unless @user and @user.send("is_#{type}?")
     end
   end
 end
@@ -45,6 +54,10 @@ end
 helpers do
   def is_user?
     @user != nil
+  end
+
+  def get_reference_id (text)
+    text.downcase.gsub(/(')/, '').gsub(/([^a-z0-9])/, '-').gsub(/(--+)/, '-').gsub(/^(-*)|(-*)$/, '')
   end
 end
 

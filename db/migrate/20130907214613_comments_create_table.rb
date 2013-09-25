@@ -1,4 +1,4 @@
-class CreateCommentsTable < ActiveRecord::Migration
+class CommentsCreateTable < ActiveRecord::Migration
   def up
   	create_table :comments do |t|
   	  t.string :commenter

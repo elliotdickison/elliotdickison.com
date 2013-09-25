@@ -1,8 +1,8 @@
 post '/comments' do
   @comment = Comment.new(params[:comment])
   if @comment.save
-    redirect "/posts/#{@comment.post.id}#comments"
+    redirect "#{@comment.post.link}#comments"
   else
-    redirect '/posts'
+    redirect '/blog'
   end
 end

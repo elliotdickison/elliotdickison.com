@@ -137,6 +137,7 @@ button, .button, input[type=submit] {
 		4px 3px #963430, 3px 4px #bd413c,
 		5px 4px #963430, 4px 5px #bd413c;
 	border-radius: 3px;
+	margin-bottom: 5px;
 }
 
 button:active, .button:active, input[type=submit]:active {
@@ -190,7 +191,6 @@ button i, .button i, input[type=submit] i {
 }
 
 #content > *:first-child,
-.posts .post:first-child,
 .post .body > *:first-child {
 	margin-top: 0;
 }
@@ -202,6 +202,10 @@ nav li {
 .time {
 	color: #888;
 	font-family: sans-serif;
+}
+
+.post {
+	clear: both;
 }
 
 .post .body {
@@ -290,6 +294,7 @@ textarea {
 		margin-right: 0;
 		padding-left: 60px;
 		padding-right: 60px;
+		max-width: 1300px;
 	}
 
 	.constrain.max.square {
@@ -322,7 +327,7 @@ textarea {
 	nav {
 		line-height: 72px;
 		float: right;
-		font-size: 32px;
+		font-size: 33px;
 	}
 
 	nav li {
@@ -354,7 +359,11 @@ textarea {
 		min-height: 400px;
 	}
 
-	.posts .post {
+	#comments {
+		margin-top: 60px;
+	}
+
+	.post {
 		margin-top: 90px;
 	}
 
@@ -475,12 +484,16 @@ textarea {
 		min-height: 400px;
 	}
 
+	#comments {
+		margin-top: 60px;
+	}
+
 	.commenter {
 		font-size: 22px;
 	}
 
-	.posts .post {
-		margin-top: 90px;
+	.post {
+		margin-top: 70px;
 	}
 
 	.about img {
@@ -593,12 +606,16 @@ textarea {
 		min-height: 400px;
 	}
 
+	#comments {
+		margin-top: 40px;
+	}
+
 	.commenter {
 		font-size: 20px;
 	}
 
-	.posts .post {
-		margin-top: 60px;
+	.post {
+		margin-top: 50px;
 	}
 
 	.about img {

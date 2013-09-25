@@ -5,16 +5,17 @@ end
 get '/blog' do
   @selected_tab = :blog
 
-  cur_page = params[:page].to_i
-  posts_per_page = 5
-  page_offset = cur_page * posts_per_page
+  page_offset = params[:page].to_i * settings.posts_per_page
 
-  @posts = Post.limit(posts_per_page).offset(page_offset).order('created_at DESC')
-  
-  @newer_page = cur_page - 1 if cur_page > 0
-  @older_page = cur_page + 1 if page_offset + posts_per_page < Post.count
+  @posts = Post.order('created_at DESC').offset(page_offset).limit(settings.posts_per_page)
 
 	erb :'posts/index'
+end
+
+get '/blog/*/*' do |year, reference_id|
+  @selected_tab = :blog
+  @post = Post.where("date_part('year', created_at) = ? AND reference_id = ?", year, reference_id).first
+  erb :'posts/show'
 end
 
 post '/posts' do
