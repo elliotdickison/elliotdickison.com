@@ -55,10 +55,6 @@ helpers do
   def is_user?
     @user != nil
   end
-
-  def get_reference_id (text)
-    text.downcase.gsub(/(')/, '').gsub(/([^a-z0-9])/, '-').gsub(/(--+)/, '-').gsub(/^(-*)|(-*)$/, '')
-  end
 end
 
 before do
