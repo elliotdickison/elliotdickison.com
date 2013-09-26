@@ -7,14 +7,13 @@
 # delayed publishing of posts
 # code page
 # 404 page
-# ajax load more posts
 # implement sinatra bundles
 
 # SOME DAY...
 # comment website
 # clean up css -> mobile first!
 # implement html5 & hardboiled markup (header/footer/section/rel)
-# fix indentation
+# fix indentation (2 spaces?)
 # create a github repo
 # convert from classic to modular app
 # validate post reference id uniqueness
@@ -44,7 +43,7 @@ enable :sessions
 Dir['./app/models/*.rb'].each {|file| require file }
 
 configure do
-  set :posts_per_page, 1
+  set :posts_per_page, 5
 end
 
 register do

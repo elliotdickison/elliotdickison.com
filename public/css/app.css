@@ -58,6 +58,14 @@ a:hover {
 	color: #e34f49;
 }
 
+a.loading,
+a.loading:hover {
+	color: #999;
+	cursor: default;
+	font-size: 24px;
+	transition: none;
+}
+
 nav ul, li {
 	display: inline;
 	margin: 0;

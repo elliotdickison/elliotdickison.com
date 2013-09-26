@@ -28,6 +28,8 @@ $(document).ready(function(){
 	$('a.js-ajax-replace').on('click', function(evt){
 		var $link = $(this);
 
+		$link.text('Loading...').addClass('loading');
+		
 		$.ajax({
 			"type": "GET",
 			"url": $link.attr('href')
