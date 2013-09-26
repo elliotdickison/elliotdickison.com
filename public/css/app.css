@@ -86,9 +86,10 @@ h2, h3 {
 
 h3 {
 	background: #dfdfdf;
-	font-size: 46px;
+	border-radius: 3px;
+	font-size: 38px;
 	margin-bottom: 20px;
-	padding: 5px 0;
+	padding: 3px 0;
 	text-align: center;
 }
 
@@ -299,6 +300,7 @@ textarea {
 	border: 1px solid #999;
 	padding: 0px 5px;
 	display: block;
+	border-radius: 3px;
 	box-sizing: border-box;
 	margin: 0 0 10px 0;
 }
@@ -446,7 +448,6 @@ textarea {
 
 	body {
 		font-size: 18px;
-		padding-top: 3px;
 	}
 
 	h1 {
@@ -458,7 +459,7 @@ textarea {
 	}
 
 	h3 {
-		font-size: 36px;
+		font-size: 32px;
 	}
 
 	header {
@@ -492,10 +493,6 @@ textarea {
 
 	.menu-toggle {
 		display: none;
-	}
-
-	#top_bar {
-		height: 3px;
 	}
 
 	.browse-happy {
@@ -564,7 +561,6 @@ textarea {
 
 	body {
 		font-size: 16px;
-		padding-top: 3px;
 	}
 
 	h1 {
@@ -577,7 +573,7 @@ textarea {
 	}
 
 	h3 {
-		font-size: 26px;
+		font-size: 30px;
 	}
 
 	header {
@@ -614,10 +610,6 @@ textarea {
 
 	nav li a:hover {
 		background: #ccc;
-	}
-
-	#top_bar {
-		height: 3px;
 	}
 
 	.browse-happy {
