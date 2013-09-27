@@ -7,7 +7,7 @@ get '/blog' do
   @selected_tab = :blog
   @current_page = params[:page].to_i
   page_offset = @current_page * settings.posts_per_page
-  @show_more_link = (Post.count / settings.posts_per_page).ceil > page_offset + 1
+  @show_more_link = (Post.count.to_f / settings.posts_per_page.to_f).ceil > page_offset + 1
 
   @posts = Post.order('created_at DESC').offset(page_offset).limit(settings.posts_per_page)
 

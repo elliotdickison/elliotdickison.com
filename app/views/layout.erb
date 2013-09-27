@@ -48,8 +48,13 @@
         <div id="content" class="constrain max square">
             <%=yield%>
         </div>
-        <footer class="constrain max square">
-            <a href="/code/elliotjames">Hand Made</a> in <a href="#">Idaho</a> by Elliot Dickison
+        <footer class="constrain max cf">
+            <div class="left">
+                <a href="/code/elliotjames">Hand Made</a> in <a href="#">Idaho</a> by Elliot Dickison
+            </div>
+            <a href="//instagram.com/<%= settings.instagram_id %>" target="ej_instagram" class="icon-instagram right" title="instagram"></a>
+            <a href="//twitter.com/<%= settings.twitter_id %>" target="ej_twitter" class="icon-twitter right" title="twitter"></a>
+            <a href="//github.com/<%= settings.github_id %>" target="ej_github" class="icon-github right" title="github"></a>
         </footer>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script src="/js/app.js"></script>
