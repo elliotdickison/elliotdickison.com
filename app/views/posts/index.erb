@@ -7,10 +7,10 @@
 	end %>
 	<div class="post constrain min">
 		<%= erb :'posts/post', locals: {post: post} %>
-		<div class="footer">
-			<a class="button" href="<%= post.link %>#comments"><i class="icon-comment"></i> <%= comment_text %></a>
-			<a class="button facebook right no-text-mobile" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i><span> Facebook</span></a>
-			<a class="button twitter right no-text-mobile" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i><span> Twitter</span></a>
+		<div class="footer cf">
+			<a class="button left" href="<%= post.link %>#comments"><i class="icon-comment"></i> <%= comment_text %></a>
+			<a class="button twitter left no-text-mobile" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i><span> Twitter</span></a>
+			<a class="button facebook left no-text-mobile" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i><span> Facebook</span></a>
 		</div>
 	</div>
 <% end %>

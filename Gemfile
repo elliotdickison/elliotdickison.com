@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'haml'
 gem 'pg'
 gem 'sinatra-activerecord'
+gem 'pony'
 
 group :development do
   gem 'tux'

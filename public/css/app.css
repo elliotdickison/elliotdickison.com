@@ -26,7 +26,7 @@
 }
 
 body {
-	font-size: 20px;
+	font-size: 22px;
 	color: #333;
 	font-family: serif;
 	padding-top: 5px;
@@ -62,7 +62,6 @@ a.loading,
 a.loading:hover {
 	color: #999;
 	cursor: default;
-	font-size: 24px;
 	transition: none;
 }
 
@@ -78,7 +77,7 @@ h1 {
 }
 
 h2, h3 {
-	font-size: 56px;
+	font-size: 58px;
 	margin: 0;
 	font-weight: bold;
 	font-family: sans-serif;
@@ -131,6 +130,45 @@ header .selected {
 footer {
 	background: #dfdfdf;
 	letter-spacing: 1px;
+	line-height: 60px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+footer a.right {
+	font-size: 60px;
+	color: #999;
+	margin-left: 40px;
+}
+
+footer a.right:hover {
+	color: #e34f49;
+}
+
+form {
+	margin-top: 30px;
+}
+
+form input[type=submit] {
+	margin-top: 30px;
+}
+
+.left {
+	float: left;
+	margin-right: 15px;
+}
+
+.right {
+	float: right;
+	margin-left: 15px;
+}
+
+.message {
+	background: #ffc;
+	border: 1px solid #eeb;
+	padding: 10px 20px;
+	border-radius: 3px;
+	margin-bottom: 30px;
 }
 
 button, .button, input[type=submit] {
@@ -155,16 +193,6 @@ button:active, .button:active, input[type=submit]:active {
 	-webkit-transform: translate(3px, 3px);
 	box-shadow: 1px 0px #963430, 0px 1px #bd413c,
 		2px 1px #963430, 1px 2px #bd413c;
-}
-
-button.left, .button.left, input[type=submit].left {
-	float: left;
-	margin-right: 15px;
-}
-
-button.right, .button.right, input[type=submit].right {
-	float: right;
-	margin-left: 15px;
 }
 
 button.facebook, .button.facebook, input[type=submit].facebook {
@@ -242,17 +270,8 @@ nav li {
 
 .load-more {
 	display: block;
-	margin-top: 40px;
 	text-align: center;
 	width: 100%;
-}
-
-#comments form {
-	margin-top: 30px;
-}
-
-#comments form input[type=submit] {
-	margin-top: 30px;
 }
 
 .comment {
@@ -287,6 +306,10 @@ nav li {
 
 .about img {
 	border-radius: 50%;
+}
+
+.about h2 {
+	margin-bottom: 30px;
 }
 
 label {
@@ -330,7 +353,7 @@ textarea {
 		margin-right: auto;
 		padding-left: 30px;
 		padding-right: 30px;
-		width: 600px;
+		width: 620px;
 	}
 
 	.constrain.min.square {
@@ -407,6 +430,11 @@ textarea {
 
 	.about p {
 		margin-left: 250px;
+	}
+
+	.load-more {
+		font-size: 24px;
+		margin-top: 40px;
 	}
 
 	footer {
@@ -525,6 +553,11 @@ textarea {
 		margin-left: 180px;
 	}
 
+	.load-more {
+		font-size: 22px;
+		margin-top: 30px;
+	}
+
 	button, .button, input[type=submit] {
 		padding: 5px 11px;
 	}
@@ -638,6 +671,10 @@ textarea {
 		margin: 0 auto 20px auto;
 	}
 
+	.about h2 {
+		text-align: center;
+	}
+
 	button, .button, input[type=submit] {
 		padding: 5px 11px;
 	}
@@ -653,5 +690,10 @@ textarea {
 
 	.button.no-text-mobile span {
 		display: none;
+	}
+
+	.load-more {
+		font-size: 20px;
+		margin-top: 20px;
 	}
 }
