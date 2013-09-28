@@ -40,4 +40,10 @@ $(document).ready(function(){
 
 		evt.preventDefault();
 	});
+
+	$('a.js-close').on('click', function(evt){
+		$(this).parent().remove();
+
+		evt.preventDefault();
+	});
 });

@@ -5,33 +5,19 @@ get '/contact' do
 end
 
 post '/contact' do
-  Pony.options = case settings.environment
-  when :development
-  	{
-  		via: :sendmail
-  	}
-  when :production
-	  {
-	  	:via => :smtp,
-		  :via_options => {
-		    :address => 'smtp.sendgrid.net',
-		    :port => '587',
-		    :domain => 'heroku.com',
-		    :user_name => ENV['SENDGRID_USERNAME'],
-		    :password => ENV['SENDGRID_PASSWORD'],
-		    :authentication => :plain,
-		    :enable_starttls_auto => true
-		  }
-	  }
+  
+	# TODO: Fix mail on develop
+	if settings.environment == :production
+		Pony.mail({
+	  	from: params[:name] << "<" << params[:email] << ">",
+	  	to: settings.contact_email,
+	  	subject: "Contact Form at elliotjam.es",
+	    body: params[:body]
+	  })
 	end
 
-	Pony.mail({
-  	from: params[:email],
-  	to: settings.contact_email,
-  	subject: params[:name] << " via elliotjam.es",
-    body: params[:body]
-  })
-
-	@message = "Thanks, I'll get back to as soon as I can.";
+	@page_title = 'Contact'
+	@selected_tab = :contact
+	@message = "Thanks, I'll get back to you as soon as I can.";
   erb :contact
 end

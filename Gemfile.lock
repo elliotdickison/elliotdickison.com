@@ -53,6 +53,8 @@ GEM
     sinatra-activerecord (1.2.3)
       activerecord (>= 3.0)
       sinatra (~> 1.0)
+    sinatra-subdomain (0.1.2)
+      sinatra
     thread_safe (0.1.2)
       atomic
     tilt (1.4.1)
@@ -75,4 +77,5 @@ DEPENDENCIES
   pony
   sinatra
   sinatra-activerecord
+  sinatra-subdomain
   tux

@@ -1,4 +1,5 @@
 <% @page_title = "elliotjam.es" << (@page_title ? "/#{@page_title.downcase}" : '') %>
+<% @message ||= params[:message] %>
 <!DOCTYPE html>
 <!--
 
@@ -46,6 +47,11 @@
             <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="browserhappy">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div id="content" class="constrain max square">
+            <% if @message %>
+                <div class="constrain min">
+                    <div class="message"><%= @message %><a href="#" class="js-close right">Close</a></div>
+                </div>
+            <% end %>
             <%=yield%>
         </div>
         <footer class="constrain max cf">

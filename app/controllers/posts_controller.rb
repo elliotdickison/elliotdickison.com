@@ -21,7 +21,7 @@ get '/blog/*/*' do |year, reference_id|
   erb :'posts/show'
 end
 
-post '/posts' do
+post '/posts', :auth => :admin do
   @post = Post.new(params[:post])
   if @post.save
     redirect "/posts/#{@post.id}"
@@ -36,7 +36,7 @@ get '/posts/new', :auth => :admin do
   erb :'posts/new'
 end
 
-get '/posts/:id' do
+get '/posts/:id', :auth => :admin do
   @selected_tab = :blog
   @post = Post.find(params[:id])
   erb :'posts/show'
