@@ -1,15 +1,15 @@
 # TODO
-# cache user_files in tmp folder
 # email about comments (for moderation)
 # test ie...
-# contact form
 # delayed publishing of posts
 # code page
-# 404 page
 # comment website
 # don't store comment emails (and say so)
+# better content (about, contact, 404)
+# blog styles (blockquote, sub-header, code)
 
 # SOME DAY...
+# cache user_files in tmp folder
 # implement asset bundler
 # add better admin links
 # clean up css -> mobile first!
@@ -29,6 +29,7 @@
 # app.rb
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/subdomain'
 require 'digest/md5'
 require 'pony'
 
@@ -52,17 +53,38 @@ configure do
   set :contact_email, 'ejdickison@gmail.com'
 end
 
+# Setup pony mail
+Pony.options = case settings.environment
+when :development
+  {
+    via: :sendmail
+  }
+when :production
+  {
+    :via => :smtp,
+    :via_options => {
+      :address => 'smtp.sendgrid.net',
+      :port => '587',
+      :domain => 'heroku.com',
+      :user_name => ENV['SENDGRID_USERNAME'],
+      :password => ENV['SENDGRID_PASSWORD'],
+      :authentication => :plain,
+      :enable_starttls_auto => true
+    }
+  }
+end
+
 register do
   def auth (type)
     condition do
-      redirect '/login' unless @user && @user.send("is_#{type}?")
+      redirect '/' unless send("#{type}_mode?")
     end
   end
 end
 
 helpers do
-  def is_user?
-    @user != nil
+  def admin_mode?
+    @user && @user.is_admin? && subdomain == 'admin'
   end
 
   def facebook_share_link(link)
@@ -76,7 +98,7 @@ end
 
 before do
   begin
-    if Sinatra::Base.development?
+    if settings.environment == :development
       @user = User.first
     else
       @user = User.find(session[:user_id])
@@ -101,4 +123,8 @@ get '/about' do
   @page_title = 'About'
   @selected_tab = :about
   erb :about
+end
+
+not_found do
+  redirect '/404.html'
 end

@@ -17,10 +17,12 @@ post '/files', :auth => :admin do
     @file.content = params[:file][:tempfile].read
   end
 
-  if @file.save
+  begin
+    @file.save
     redirect "files/#{@file}"
-  else
-    redirect 'files/new'
+  rescue ActiveRecord::RecordNotUnique
+    @message = 'A file with that name already exists!'
+    erb :'user_files/new'
   end
 end
 
