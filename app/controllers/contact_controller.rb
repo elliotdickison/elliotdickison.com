@@ -5,13 +5,13 @@ get '/contact' do
 end
 
 post '/contact' do
-  case settings.environment
+  Pony.options = case settings.environment
   when :development
-  	Pony.options({
+  	{
   		via: :sendmail
-  	})
+  	}
   when :production
-	  Pony.options({
+	  {
 	  	:via => :smtp,
 		  :via_options => {
 		    :address => 'smtp.sendgrid.net',
@@ -22,7 +22,7 @@ post '/contact' do
 		    :authentication => :plain,
 		    :enable_starttls_auto => true
 		  }
-	  })
+	  }
 	end
 
 	Pony.mail({
