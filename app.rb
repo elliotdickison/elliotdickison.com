@@ -1,5 +1,4 @@
 # TODO
-# email about comments (for moderation)
 # test ie...
 # delayed publishing of posts
 # code page
@@ -7,6 +6,7 @@
 # don't store comment emails (and say so)
 # better content (about, contact, 404)
 # blog styles (blockquote, sub-header, code)
+# figure out sub-domains (admin)
 
 # SOME DAY...
 # cache user_files in tmp folder
@@ -51,6 +51,7 @@ configure do
   set :instagram_id, '_elliotjames_'
   set :posts_per_page, 5
   set :contact_email, 'ejdickison@gmail.com'
+  set :send_mail, settings.environment == :production
 end
 
 # Setup pony mail
