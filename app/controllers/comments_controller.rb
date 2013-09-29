@@ -7,7 +7,7 @@ post '/comments' do
 		  	from: "#{@comment.commenter} <#{@comment.email}>",
 		  	to: settings.contact_email,
 		  	subject: "Comment #{@comment.id} at elliotjam.es",
-		    body: "#{@comment.body} <a href='#{request.host}/posts/#{@comment.post.id}#comment#{@comment.id}'>original</a>"
+		    body: "#{@comment.body}\n\nadmin.#{request.host}/posts/#{@comment.post.id}#comment#{@comment.id}"
 		  })
   	end
 
