@@ -6,18 +6,22 @@ end
 
 post '/contact' do
   
-	# TODO: Fix mail on develop
-	if settings.environment == :production
-		Pony.mail({
-	  	from: params[:name] << "<" << params[:email] << ">",
-	  	to: settings.contact_email,
-	  	subject: "Contact Form at elliotjam.es",
-	    body: params[:body]
-	  })
+  if settings.send_mail
+		begin
+			Pony.mail({
+		  	from: "#{params[:name]} <#{params[:email]}>",
+		  	to: settings.contact_email,
+		  	subject: "Contact Form at elliotjam.es",
+		    body: params[:body]
+		  })
+		  @message = "Thanks, I'll get back to you as soon as I can.";
+		rescue
+			# Error message below
+		end
 	end
 
 	@page_title = 'Contact'
 	@selected_tab = :contact
-	@message = "Thanks, I'll get back to you as soon as I can.";
+	@message ||= "Sorry, seems a mouse has chewed through the wires someplace. Maybe again later."
   erb :contact
 end
