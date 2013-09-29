@@ -1,6 +1,6 @@
 # TODO
 # test ie...
-# delayed publishing of posts
+# delayed publishing of posts (PublishedAt set on publish)
 # code page
 # comment website
 # don't store comment emails (and say so)
