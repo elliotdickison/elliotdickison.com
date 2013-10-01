@@ -403,7 +403,7 @@ textarea {
     float: right;
     font-size: 60px;
     margin-left: 40px; } }
-@media all and (max-width: 970px) and (min-width: 481px) {
+@media all and (max-width: 970px) and (min-width: 461px) {
   input[type=text],
   input[type=email],
   input[type=password],
@@ -519,7 +519,7 @@ textarea {
   .page-footer .links a {
     font-size: 40px;
     margin: 0 10px; } }
-@media all and (max-width: 480px) {
+@media all and (max-width: 460px) {
   input[type=text],
   input[type=email],
   input[type=password],
