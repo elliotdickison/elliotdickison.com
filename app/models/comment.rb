@@ -8,6 +8,7 @@ class Comment < ActiveRecord::Base
   before_validation do
     self.commenter = Rack::Utils.escape_html commenter if attribute_present?('commenter')
     self.email = Rack::Utils.escape_html email if attribute_present?('email')
+    self.website = Rack::Utils.escape_html website if attribute_present?('website')
     self.body = Rack::Utils.escape_html body if attribute_present?('body')
   end
 

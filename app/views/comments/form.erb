@@ -1,9 +1,11 @@
 <form action="/comments" method="post">
-  <label for="comment_commenter">Name:</label><br />
+  <label for="comment_commenter">Name:</label>
   <input id="comment_commenter" name="comment[commenter]" type="text" value="" />
-  <label for="comment_email">Email:</label><br />
-  <input id="comment_email" name="comment[email]" type="text" value="" />
-  <label for="comment_body">Comment:</label><br />
+  <label for="comment_email">Email:</label>
+  <input id="comment_email" name="comment[email]" type="email" value="" />
+  <label for="comment_website">Website (optional):</label>
+  <input id="comment_website" name="comment[website]" type="text" value="" />
+  <label for="comment_body">Comment:</label>
   <textarea id="comment_body" name="comment[body]" rows="5"></textarea>
   <input type="hidden" name="comment[post_id]" value="<%= post.id %>" />
   <input type="submit" value="Post comment" />
