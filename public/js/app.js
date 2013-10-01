@@ -24,7 +24,7 @@ function getUrlFriendly(text, trim) {
 	return text;
 }
 
-$(document).ready(function(){
+$(function(){
 	$('a.js-ajax-replace').on('click', function(evt){
 		var $link = $(this);
 

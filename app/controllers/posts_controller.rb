@@ -30,6 +30,13 @@ post '/posts', :auth => :admin do
   end
 end
 
+get '/posts', :auth => :admin do
+  @posts = Post.all.order('id ASC')
+  @selected_tab = :blog
+  @page_title = 'All Posts'
+  erb :'posts/list'
+end
+
 get '/posts/new', :auth => :admin do
   @selected_tab = :blog
   @post = Post.new
@@ -53,7 +60,7 @@ end
 
 delete '/posts/:id', :auth => :admin do
   if Post.find(params[:id]).destroy
-    redirect '/blog'
+    redirect '/posts'
   else
     redirect "/posts/#{@post.id}"
   end

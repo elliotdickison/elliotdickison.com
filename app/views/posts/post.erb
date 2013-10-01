@@ -1,6 +1,6 @@
 <% post ||= @post %>
-<div class="header">
+<header>
 	<h2><a href="<%= post.link %>"><%= post.title %></a></h2>
-	<div class="time"><i class="icon-time"></i> <%= post.created_at.strftime("%B %-d, %Y") %></div>
-</div>
+	<time datetime="<%= post.created_at.strftime("%Y-%m-%d") %>" pubdate><i class="icon-time"></i> <%= post.created_at.strftime("%B %-d, %Y") %></time>
+</header>
 <div class="body"><%= post %></div>

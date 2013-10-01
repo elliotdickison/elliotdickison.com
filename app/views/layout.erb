@@ -1,5 +1,6 @@
 <% @page_title = "elliotjam.es" << (@page_title ? "/#{@page_title.downcase}" : '') %>
 <% @message ||= params[:message] %>
+<% links = ['blog', 'code', 'about', 'contact'] %>
 <!DOCTYPE html>
 <!--
 
@@ -26,47 +27,51 @@
         <link rel="stylesheet" href="/css/app.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
         <!--[if lte IE 8]>
-            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-            <script src="/js/respond.js"></script>
+            <script type="text/javascript" src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script type="text/javascript" src="/js/respond.js"></script>
         <![endif]-->
-        <script src="//use.typekit.net/vmc7ddm.js"></script>
+        <script type="text/javascript" src="//use.typekit.net/vmc7ddm.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body ontouchstart>
-        <div id="top_bar"></div>
-        <header class="cf constrain max">
+        <div class="top-bar"></div>
+        <header class="page-header cf constrain max">
             <h1>
                 <a href="/blog"><i class="icon-rocket"></i> elliot james</a>
             </h1>
             <nav>
                 <a href="#" class="menu-toggle" onclick="toggleMenu(event)"><i class="icon-reorder"></i></a>
-                <ul id="js-menu">
-                    <% ['blog', 'code', 'about', 'contact'].each do |page| page_sym = page.to_sym%>
-                        <li<%=' class="selected"' if @selected_tab == page_sym %>><a href="/<%= page %>"><%= page %></a></li>
-                    <% end %>
-                </ul>
+                <ul id="js-menu"><%=
+                    links.inject('') do |str, page|
+                        klass = @selected_tab == page.to_sym ? 'selected' : ''
+                        str << "<li class='#{klass}'><a href='/#{page}'>#{page}</a></li>"
+                    end
+                %></ul>
             </nav>
         </header>
         <!--[if lt IE 7]>
             <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="browserhappy">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div id="content" class="constrain max square">
+        <div class="page-body constrain max square">
             <% if @message %>
                 <div class="constrain min">
                     <div class="message"><%= @message %><a href="#" class="js-close right">Close</a></div>
                 </div>
             <% end %>
-            <%=yield%>
+            <%= yield %>
         </div>
-        <footer class="constrain max cf">
-            <div class="left">
-                <a href="/code/elliotjames">Hand Made</a> in <a href="#">Idaho</a> by Elliot Dickison
+        <footer class="page-footer constrain max cf">
+            <div class="meta">
+                Hand Made in <a href="#">Idaho</a> by <a href="/about" rel="author">Elliot Dickison</a>
             </div>
-            <a href="//instagram.com/<%= settings.instagram_id %>" target="ej_instagram" class="icon-instagram right" title="instagram"></a>
-            <a href="//twitter.com/<%= settings.twitter_id %>" target="ej_twitter" class="icon-twitter right" title="twitter"></a>
-            <a href="//github.com/<%= settings.github_id %>" target="ej_github" class="icon-github right" title="github"></a>
+            <div class="links">
+                <a href="//instagram.com/<%= settings.instagram_id %>" target="ej_instagram" class="icon-instagram" title="instagram"></a>
+                <a href="//twitter.com/<%= settings.twitter_id %>" target="ej_twitter" class="icon-twitter" title="twitter"></a>
+                <a href="//github.com/<%= settings.github_id %>" target="ej_github" class="icon-github" title="github"></a>
+            </div>
         </footer>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script src="/js/app.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=javascript&skin=desert"></script>
     </body>
 </html>

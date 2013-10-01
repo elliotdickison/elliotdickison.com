@@ -1,0 +1,802 @@
+$fg-dark: #333;
+$fg-light: #999;
+$bg-light: #fff;
+$bg-dark: #dfdfdf;
+$highlight: #e34f49;
+$link: #40b0f0;
+$facebook: #3b5998;
+$twitter: #00ACED;
+
+$prefixes: webkit moz ms o;
+
+@mixin prefixed-property($property, $value){
+    @each $prefix in $prefixes {
+        -#{$prefix}-#{$property}: #{$value};
+    }
+    #{$property}: #{$value};
+}
+
+@mixin button($fg-color, $bg-color, $height: 6, $active-height: 2){
+	background: $bg-color;
+	border-radius: 3px;
+	border: 0;
+
+	$shadows: ();
+	@for $i from 1 through $height {
+		$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
+		$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 20%), comma);
+	}
+	box-shadow: $shadows;
+
+	color: $fg-color;
+	margin-bottom: #{$height}px;
+
+	&:hover {
+		color: $fg-color;
+	}
+
+	&:active {
+		@include prefixed-property(transform, translate(3px, 3px));
+		
+		$shadows: ();
+		@for $i from 1 through $active-height {
+			$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
+			$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 20%), comma);
+		}
+		box-shadow: $shadows;
+	}
+}
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.lt-ie8 .cf {
+    *zoom: 1;
+}
+
+body {
+	font-size: 22px;
+	color: $fg-dark;
+	font-family: serif;
+	padding-top: 5px;
+}
+
+img {
+	display: block;
+}
+
+.top-bar {
+	position: fixed;
+	top: 0; right: 0; left: 0;
+	height: 5px;
+	background: $highlight;
+	z-index: 999;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: $link;
+	text-decoration: none;
+	transition: color 0.2s linear;
+}
+
+a:hover {
+	color: $highlight;
+}
+
+a.loading,
+a.loading:hover {
+	color: $fg-light;
+	cursor: default;
+	transition: none;
+}
+
+nav ul, li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-weight: normal;
+	margin: 0;
+}
+
+h2,
+h3 {
+	font-size: 58px;
+	margin: 0;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+h2 a,
+h5 a {
+	color: inherit;
+}
+
+h3 {
+	font-size: 38px;
+	margin-bottom: 20px;
+	padding: 10px 0;
+	text-align: center;
+}
+
+h4 {
+	font-size: 32px;
+	margin-bottom: 0;
+}
+
+h5 {
+	font-weight: bold;
+	margin: 0;
+}
+
+blockquote {
+	color: $fg-light;
+}
+
+blockquote i {
+	float: left;
+}
+
+.page-header {
+	background: $bg-dark;
+}
+
+.page-header a {
+	color: inherit;
+}
+
+.page-header a:hover {
+	color: $highlight;
+}
+
+.page-header .selected {
+	color: $highlight;
+}
+
+.page-footer {
+	background: $bg-dark;
+	letter-spacing: 1px;
+	line-height: 60px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.page-footer .links a {
+	color: $fg-light;
+}
+
+.page-footer .links a:hover {
+	color: $highlight;
+}
+
+form {
+	margin-top: 30px;
+}
+
+form input[type=submit] {
+	margin-top: 30px;
+}
+
+.left {
+	float: left;
+	margin-right: 15px;
+}
+
+.right {
+	float: right;
+	margin-left: 15px;
+}
+
+.message {
+	background: #ffc;
+	border: 1px solid #eeb;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-bottom: 30px;
+}
+
+button, .button, input[type=submit] {
+	@include button($bg-light, $highlight);
+
+	display: inline-block;
+	line-height: 100%;
+	padding: 6px 12px;
+	position: relative;
+	text-decoration: none;
+}
+
+button.facebook, .button.facebook, input[type=submit].facebook {
+	@include button($bg-light, $facebook);
+}
+
+button.twitter, .button.twitter, input[type=submit].twitter {
+	@include button($bg-light, $twitter);
+}
+
+button i, .button i, input[type=submit] i {
+	padding-right: 5px;
+}
+
+.page-body > *:first-child,
+.post .body > *:first-child {
+	margin-top: 0;
+}
+
+nav li {
+	position: relative;
+}
+
+time {
+	color: $fg-light;
+	font-family: sans-serif;
+}
+
+.post {
+	clear: both;
+}
+
+.post .body {
+	margin-top: 20px;
+}
+
+.post .body a {
+	font-weight: bold;
+}
+
+.post .body > * {
+	margin-top: 30px;
+}
+
+.post footer {
+	margin-top: 30px;
+}
+
+.post img {
+	display: block;
+	width: 100%;
+}
+
+.load-more {
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.comment {
+	min-height: 80px;
+	padding: 30px 0;
+}
+
+.comment .avatar {
+	float: left;
+	width: 80px;
+	height: 80px;
+	border-radius: 40px;
+	margin-top: 10px;
+}
+
+.comment header {
+	margin: 0 0 10px 100px;
+}
+
+.comment .body {
+	margin-left: 100px;
+}
+
+.comment h5 {
+	float: left;
+}
+
+.comment .number {
+	float: right;
+}
+
+.comment time {
+	display: block;
+	clear: right;
+}
+
+.about img {
+	border-radius: 50%;
+}
+
+.about h2 {
+	margin-bottom: 30px;
+}
+
+label {
+	color: $fg-light;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+	width: 100%;
+	border: 1px solid $fg-light;
+	padding: 5px 10px;
+	display: block;
+	border-radius: 5px;
+	box-sizing: border-box;
+	margin: 0 0 10px 0;
+}
+
+.prettyprint {
+	border-radius: 5px;
+	background: $fg-dark;
+	overflow-x: auto;
+	line-height: 100%;
+	color: $bg-light;
+}
+
+@media all and (min-width: 971px) {
+
+	input[type=text],
+	input[type=email],
+	input[type=password],
+	textarea {
+		font-size: 22px;
+	}
+		
+
+	.prettyprint {
+		padding: 15px;
+		font-size: 18px;
+	}
+
+	.constrain.max {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 60px;
+		padding-right: 60px;
+		max-width: 1300px;
+	}
+
+	.constrain.max.square {
+		padding: 60px;
+	}
+
+	.constrain.min {
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 30px;
+		padding-right: 30px;
+		width: 620px;
+	}
+
+	.constrain.min.square {
+		padding: 30px;
+	}
+
+	h1 {
+		font-size: 54px;
+		float: left;
+	}
+
+	.page-header {
+		padding-bottom: 25px;
+		padding-top: 25px;
+		position: relative;
+	}
+
+	nav {
+		line-height: 72px;
+		float: right;
+		font-size: 33px;
+	}
+
+	nav li {
+		margin-left: 25px;
+	}
+
+	nav .selected:after {
+		content: '';
+		position: absolute;
+		bottom: -40px;
+		left: 50%;
+		margin-left: -25px;
+		width: 0; 
+		height: 0; 
+		border-left: 25px solid transparent;
+		border-bottom: 25px solid $bg-light; 
+		border-right: 25px solid transparent; 
+	}
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.browse-happy {
+		padding: 20px 60px;
+	}
+
+	.page-body {
+		min-height: 400px;
+	}
+
+	#comments {
+		padding-top: 60px;
+	}
+
+	.post {
+		margin-top: 90px;
+	}
+
+	.post .body {
+		line-height: 35px;
+	}
+
+	h5 {
+		font-size: 26px;
+	}
+
+	.about img {
+		width: 200px;
+		height: 200px;
+		float: left;
+	}
+
+	.about p {
+		margin-left: 250px;
+	}
+
+	.load-more {
+		font-size: 24px;
+		margin-top: 40px;
+	}
+
+	blockquote {
+		font-size: 28px;
+		margin: 0 40px;
+		padding-left: 40px;
+	}
+
+	blockquote i {
+		margin-left: -40px;
+	}
+
+	.page-footer .meta {
+		float: left;
+	}
+
+	.page-footer .links a {
+		float: right;
+		font-size: 60px;
+		margin-left: 40px;
+	}
+}
+
+@media all and (max-width: 970px) and (min-width: 481px) {
+
+	input[type=text],
+	input[type=email],
+	input[type=password],
+	textarea {
+		font-size: 20px;
+	}
+
+	.prettyprint {
+		padding: 10px;
+		font-size: 16px;
+	}
+
+	.constrain.max {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	.constrain.max.square {
+		padding: 30px;
+	}
+
+	.constrain.min {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 500px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.constrain.min.square {
+		padding-bottom: 30px;
+		padding-top: 30px;
+	}
+
+	body {
+		font-size: 18px;
+	}
+
+	h4 {
+		font-size: 28px;
+		margin-bottom: 0;
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+
+	h2 {
+		font-size: 46px;
+	}
+
+	h3 {
+		font-size: 32px;
+	}
+
+	.page-header {
+		position: relative;
+		padding-bottom: 20px;
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	nav {
+		line-height: 48px;
+		font-size: 24px;
+	}
+
+	nav li {
+		margin-left: 25px;
+	}
+
+	nav .selected:after {
+		content: '';
+		position: absolute;
+		bottom: -29px;
+		left: 50%;
+		margin-left: -20px;
+		width: 0; 
+		height: 0; 
+		border-left: 20px solid transparent;
+		border-bottom: 20px solid $bg-light; 
+		border-right: 20px solid transparent; 
+	}
+
+	blockquote {
+		font-size: 24px;
+		margin: 0 30px;
+		padding-left: 35px;
+	}
+
+	blockquote i {
+		margin-left: -35px;
+	}
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.browse-happy {
+		padding: 20px 40px;
+	}
+
+	.page-body {
+		min-height: 400px;
+	}
+
+	#comments {
+		padding-top: 60px;
+	}
+
+	h5 {
+		font-size: 24px;
+	}
+
+	.post {
+		margin-top: 70px;
+	}
+
+	.about img {
+		width: 150px;
+		height: 150px;
+		float: left;
+	}
+
+	.about p {
+		margin-left: 180px;
+	}
+
+	.load-more {
+		font-size: 22px;
+		margin-top: 30px;
+	}
+
+	button, .button, input[type=submit] {
+		padding: 5px 11px;
+	}
+
+	.page-footer .links a {
+		font-size: 40px;
+		margin: 0 10px;
+	}
+}
+
+@media all and (max-width: 480px) {
+
+	input[type=text],
+	input[type=email],
+	input[type=password],
+	textarea {
+		font-size: 18px;
+	}
+
+	.prettyprint {
+		padding: 10px;
+		font-size: 14px;
+	}
+
+	.constrain.max {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.constrain.max.square {
+		padding: 20px;
+	}
+
+	.constrain.min {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.constrain.min.square {
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+
+	body {
+		font-size: 16px;
+	}
+
+	h4 {
+		font-size: 22px;
+		margin-bottom: 0;
+	}
+
+	h1 {
+		font-size: 32px;
+		float: left;
+	}
+
+	h2 {
+		font-size: 36px;
+	}
+
+	h3 {
+		font-size: 30px;
+	}
+
+	.page-header {
+		position: relative;
+		padding-bottom: 20px;
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	nav {
+		line-height: 48px;
+		font-size: 24px;
+		text-align: right;
+	}
+
+	nav ul {
+		margin-top: 20px;
+		display: none;
+		text-align: center;
+	}
+
+	nav ul.show {
+		display: block;
+	}
+
+	nav li {
+		display: block;
+	}
+
+	nav li a {
+		display: block;
+		transition: color 0.2s linear, background 0.2s linear;
+	}
+
+	nav li a:hover {
+		background: #ccc;
+	}
+
+	blockquote {
+		font-size: 20px;
+		margin: 0 20px;
+		padding-left: 30px;
+	}
+
+	blockquote i {
+		margin-left: -30px;
+	}
+
+	.browse-happy {
+		padding: 20px;
+	}
+
+	.page-body {
+		min-height: 400px;
+	}
+
+	#comments {
+		padding-top: 40px;
+	}
+
+	h5 {
+		font-size: 22px;
+	}
+
+	.post {
+		margin-top: 50px;
+	}
+
+	.about img {
+		width: 130px;
+		height: 130px;
+		margin: 0 auto 20px auto;
+	}
+
+	.about h2 {
+		text-align: center;
+	}
+
+	button, .button, input[type=submit] {
+		padding: 5px 11px;
+	}
+
+	.button.no-text-mobile {
+		width: 20px;
+		text-align: center;
+	}
+
+	.button.no-text-mobile i {
+		padding-right: 0;
+	}
+
+	.button.no-text-mobile span {
+		display: none;
+	}
+
+	.load-more {
+		font-size: 20px;
+		margin-top: 20px;
+	}
+
+	.page-footer .links a {
+		font-size: 40px;
+		margin: 0 10px;
+	}
+}

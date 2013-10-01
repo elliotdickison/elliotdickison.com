@@ -2,13 +2,15 @@
 # test ie...
 # delayed publishing of posts (PublishedAt set on publish)
 # code page
-# comment website
-# don't store comment emails (and say so)
 # better content (about, contact, 404)
-# blog styles (blockquote, sub-header, code)
 # figure out sub-domains (admin)
+# clean up css
+# comment markdown of some sort
 
 # SOME DAY...
+# offer rss feed
+# post tags (remember rel-tag microformat)
+# better admin controls
 # cache user_files in tmp folder
 # implement asset bundler
 # add better admin links
@@ -89,11 +91,11 @@ helpers do
   end
 
   def facebook_share_link(link)
-    'https://www.facebook.com/sharer/sharer.php?u=' << URI.escape('http://elliotjam.es' << link)
+    'https://www.facebook.com/sharer/sharer.php?u=' << URI.escape(request.scheme + '://' + request.host + link)
   end
 
   def twitter_share_link(link)
-    'https://twitter.com/share?url=' << URI.escape('http://elliotjam.es' << link)
+    'https://twitter.com/share?url=' << URI.escape(request.scheme + '://' + request.host + link)
   end
 end
 
