@@ -8,6 +8,7 @@
 # comment markdown of some sort
 
 # SOME DAY...
+# clickable images in posts
 # offer rss feed
 # post tags (remember rel-tag microformat)
 # better admin controls
