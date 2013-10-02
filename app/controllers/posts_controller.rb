@@ -7,16 +7,16 @@ get '/blog' do
   @selected_tab = :blog
   @current_page = params[:page].to_i
   page_offset = @current_page * settings.posts_per_page
-  @show_more_link = (Post.count.to_f / settings.posts_per_page.to_f).ceil > page_offset + 1
+  @show_more_link = (Post.where('published_at IS NOT NULL').count.to_f / settings.posts_per_page.to_f).ceil > page_offset + 1
 
-  @posts = Post.order('created_at DESC').offset(page_offset).limit(settings.posts_per_page)
+  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC').offset(page_offset).limit(settings.posts_per_page)
 
 	erb :'posts/index', layout: @current_page == 0
 end
 
 get '/blog/*/*' do |year, reference_id|
   @selected_tab = :blog
-  @post = Post.where("date_part('year', created_at) = ? AND reference_id = ?", year, reference_id).first
+  @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", year, reference_id).first
   @page_title = @post.reference_id
   erb :'posts/show'
 end
@@ -24,6 +24,7 @@ end
 post '/posts', :auth => :admin do
   @post = Post.new(params[:post])
   if @post.save
+    @post.publish if params[:publish] == 'on'
     redirect "/posts/#{@post.id}"
   else
     redirect '/posts/new'
@@ -40,7 +41,7 @@ end
 get '/posts/new', :auth => :admin do
   @selected_tab = :blog
   @post = Post.new
-  erb :'posts/new'
+  erb :'posts/form'
 end
 
 get '/posts/:id', :auth => :admin do
@@ -52,6 +53,7 @@ end
 put '/posts/:id', :auth => :admin do
   @post = Post.find(params[:id])
   if @post.update_attributes(params[:post])
+    @post.publish if params[:publish] == 'on'
     erb :'posts/show'
   else
     redirect "/posts/#{@post.id}/edit"
@@ -69,5 +71,5 @@ end
 get '/posts/:id/edit', :auth => :admin do
   @selected_tab = :blog
   @post = Post.find(params[:id])
-  erb :'posts/edit'
+  erb :'posts/form'
 end

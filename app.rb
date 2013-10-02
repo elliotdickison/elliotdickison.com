@@ -1,6 +1,5 @@
 # TODO
 # test ie...
-# delayed publishing of posts (PublishedAt set on publish)
 # code page
 # better content (about, contact, 404)
 # figure out sub-domains (admin)
@@ -8,6 +7,7 @@
 # comment markdown of some sort
 
 # SOME DAY...
+# timezone
 # clickable images in posts
 # offer rss feed
 # post tags (remember rel-tag microformat)
