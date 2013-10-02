@@ -1,0 +1,25 @@
+<h2><%= @post.new_record? ? 'New' : 'Edit' %> Post</h2>
+<form action="/posts<%= "/#{@post.id}" unless @post.new_record? %>" method="post">
+  <% unless @post.new_record? %>
+    <input type="hidden" name="_method" value="put" />
+  <% end %>
+  <label for="post_title">Title:</label>
+  <input id="post_title" name="post[title]" type="text" value="<%= @post.title %>" <%= 'onkeyup="enforceUrlFriendly(this, document.getElementById(\'post_reference_id\'))"' unless @post.published_at %>/>
+  <% unless @post.published_at %>
+  	<label for="post_reference_id">Reference Id:</label>
+  	<input id="post_reference_id" name="post[reference_id]" type="text" onkeyup="enforceUrlFriendly(this, this, false)" onblur="enforceUrlFriendly(this, this)" value="<%= @post.reference_id %>" />
+  <% end %>
+  <label for="post_body">Body:</label>
+  <textarea id="post_body" name="post[body]" rows="20"><%= @post.body %></textarea>
+  <% unless @post.published_at %>
+  	<label for="post_publish">Publish:</label>
+  	<input id="post_publish" name="publish" type="checkbox" /><br />
+  <% end %>
+  <input type="submit" value="Save" />
+</form>
+<% unless @post.new_record? %>
+  <form action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="delete" /> 
+    <input type="submit" value="Delete" />
+  </form>
+<% end %>
