@@ -16,25 +16,46 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Uh Oh SpaghettiO</title>
+        <title>404 Not Found</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="/img/favicon.png" />
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/app.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <style>
+            html {
+                background: url(img/seaturtle.jpg) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                color: #fff;
+            }
+
+            h1 {
+                font-size: 200px;
+                text-shadow: 0 0 18px #000;
+                padding: 40px;
+                margin: 0;
+            }
+
+            p {
+                bottom: 0;
+                font-size: 45px;
+                padding: 40px;
+                margin: 0;
+                position: absolute;
+                right: 0;
+                text-align: right;
+                text-shadow: 0 0 18px #000;
+                width: 50%;
+            }
+        </style>
         <script src="//use.typekit.net/vmc7ddm.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body ontouchstart>
-        <div id="top_bar"></div>
-        <header class="cf constrain max">
-            <h2>
-                ¡Oh No!
-            </h2>
+        <header class="app-header">
+            <h1>404</h1>
+            <p>Oh no! I couldn't find what you're looking for, but here's a sea turtle instead.</p>
         </header>
-        <div id="content" class="constrain max square">
-            Try as we might, we couldn't find the page you requested.
-        </div>
     </body>
 </html>
