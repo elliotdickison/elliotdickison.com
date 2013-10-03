@@ -3,9 +3,7 @@
 # code page
 # better content (about, contact, 404)
 # figure out sub-domains (admin)
-# clean up css
 # comment markdown of some sort
-# switch to em font sizes
 
 # SOME DAY...
 # timezone
