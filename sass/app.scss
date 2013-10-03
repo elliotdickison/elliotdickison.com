@@ -263,9 +263,7 @@ time {
 	background: $bg-dark;
 	font-family: "adelle", sans-serif;
 	letter-spacing: 1px;
-	line-height: 60px;
-	padding-bottom: 20px;
-	padding-top: 20px;
+	padding: 1em 2em;
 	text-align: center;
 }
 
@@ -459,6 +457,10 @@ time {
 		margin-left: 250px;
 	}
 
+	.page-footer {
+		line-height: 60px;
+	}
+
 	.page-footer .meta {
 		float: left;
 	}
@@ -525,6 +527,10 @@ time {
 
 	.about p {
 		margin-left: 180px;
+	}
+
+	.page-footer .links {
+		margin-top: 1em;
 	}
 
 	.page-footer .links a {
@@ -606,6 +612,10 @@ time {
 
 	.button.no-text-mobile span {
 		display: none;
+	}
+
+	.page-footer .links {
+		margin-top: 1em;
 	}
 
 	.page-footer .links a {
