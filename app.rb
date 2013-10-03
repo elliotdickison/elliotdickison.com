@@ -1,10 +1,11 @@
 # TODO
-# test ie...
+# test ie... (block below ie8?)
 # code page
 # better content (about, contact, 404)
 # figure out sub-domains (admin)
 # clean up css
 # comment markdown of some sort
+# switch to em font sizes
 
 # SOME DAY...
 # timezone
@@ -22,7 +23,6 @@
 # convert from classic to modular app
 # validate post reference id uniqueness
 # blog archive
-# post preview
 # give user ownership of posts, files, etc.
 # tourguide & notify
 # reroute after login

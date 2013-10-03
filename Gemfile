@@ -8,6 +8,7 @@ gem 'pg'
 gem 'sinatra-activerecord'
 gem 'pony'
 gem 'sinatra-subdomain'
+gem 'rdiscount'
 
 group :development do
   gem 'tux'
