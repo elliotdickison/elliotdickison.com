@@ -35,7 +35,7 @@
     </head>
     <body ontouchstart>
         <div class="top-bar"></div>
-        <header class="page-header cf constrain max">
+        <header class="page-header cf">
             <h1>
                 <a href="/blog"><i class="icon-rocket"></i> elliot james</a>
             </h1>
@@ -52,15 +52,13 @@
         <!--[if lt IE 7]>
             <p class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="browserhappy">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="page-body constrain max square">
+        <div class="page-body">
             <% if @message %>
-                <div class="constrain min">
-                    <div class="message"><%= @message %><a href="#" class="js-close right">Close</a></div>
-                </div>
+                <div class="message"><%= @message %><a href="#" class="js-close right">Close</a></div>
             <% end %>
             <%= yield %>
         </div>
-        <footer class="page-footer constrain max cf">
+        <footer class="page-footer cf">
             <div class="meta">
                 Hand Made in <a href="#">Idaho</a> by <a href="/about" rel="author">Elliot Dickison</a>
             </div>

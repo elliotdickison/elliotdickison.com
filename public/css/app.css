@@ -67,6 +67,12 @@ nav ul, li {
   margin: 0;
   padding: 0; }
 
+nav li {
+  margin-left: 1em; }
+
+nav li:first-child {
+  margin-left: 0; }
+
 h1, h2, h3, h4, h5 {
   font-weight: bold;
   margin: 0; }
@@ -82,13 +88,13 @@ h2 {
 h3 {
   font-family: "futura-pt", sans-serif;
   font-size: 1.7em;
-  margin-bottom: 1em;
-  padding: 0.5em 0;
+  padding-top: 1em;
   text-align: center; }
 
 h4 {
   font-family: "futura-pt", sans-serif;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  margin-bottom: -0.5em; }
 
 h5 {
   font-family: "futura-pt", sans-serif;
@@ -100,10 +106,13 @@ h5 a {
 
 blockquote {
   color: #999999;
-  font-size: 1.3em; }
+  font-size: 1.3em;
+  margin: 0 1.5em;
+  padding-left: 1.5em; }
 
 blockquote i {
-  float: left; }
+  float: left;
+  margin-left: -1.5em; }
 
 form {
   margin-top: 30px; }
@@ -242,24 +251,33 @@ time {
   border-radius: 5px;
   margin-bottom: 30px; }
 
-.page-body > *:first-child,
+.page-body {
+  min-height: 400px;
+  padding: 2em 1em; }
+
+.constrain {
+  margin-left: auto;
+  margin-right: auto; }
+
+.post {
+  clear: both;
+  margin-top: 5em; }
+
+.post:first-child {
+  margin-top: 0; }
+
+.post .body,
+.post .body > * {
+  margin-top: 1.5em; }
+
 .post .body > *:first-child {
   margin-top: 0; }
 
-.post {
-  clear: both; }
-
-.post .body {
-  margin-top: 20px; }
+.post footer {
+  margin-top: 2em; }
 
 .post .body a {
   font-weight: bold; }
-
-.post .body > * {
-  margin-top: 30px; }
-
-.post footer {
-  margin-top: 30px; }
 
 .post img {
   display: block;
@@ -268,8 +286,12 @@ time {
 .load-more {
   display: block;
   font-size: 1.1em;
+  margin-top: 1.8em;
   text-align: center;
   width: 100%; }
+
+#comments {
+  margin-top: 2em; }
 
 .comment {
   min-height: 80px;
@@ -311,6 +333,7 @@ time {
   overflow-x: auto;
   font-size: 0.8em;
   line-height: 100%;
+  padding: 1em;
   color: white; }
 
 .footnote {
@@ -322,16 +345,12 @@ time {
     float: left; }
 
   nav {
-    line-height: 72px;
     float: right; }
-
-  nav li {
-    margin-left: 25px; }
 
   nav .selected:after {
     content: '';
     position: absolute;
-    bottom: -40px;
+    bottom: -34px;
     left: 50%;
     margin-left: -25px;
     width: 0;
@@ -340,58 +359,19 @@ time {
     border-bottom: 25px solid white;
     border-right: 25px solid transparent; }
 
-  blockquote {
-    margin: 0 40px;
-    padding-left: 40px; }
-
-  blockquote i {
-    margin-left: -40px; }
-
-  .prettyprint {
-    padding: 15px; }
-
-  .constrain.max {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 60px;
-    padding-right: 60px;
-    max-width: 1300px; }
-
-  .constrain.max.square {
-    padding: 60px; }
-
-  .constrain.min {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 30px;
-    padding-right: 30px;
-    width: 620px; }
-
-  .constrain.min.square {
-    padding: 30px; }
+  .constrain {
+    max-width: 600px; }
 
   .page-header {
-    padding-bottom: 25px;
-    padding-top: 25px;
-    position: relative; }
+    height: 5em;
+    line-height: 5em;
+    padding: 0 2em; }
 
   .menu-toggle {
     display: none; }
 
   .browse-happy {
     padding: 20px 60px; }
-
-  .page-body {
-    min-height: 400px; }
-
-  #comments {
-    padding-top: 60px; }
-
-  .post {
-    margin-top: 90px; }
-
-  .post .body {
-    line-height: 35px; }
 
   .about img {
     width: 200px;
@@ -401,9 +381,6 @@ time {
   .about p {
     margin-left: 250px; }
 
-  .load-more {
-    margin-top: 40px; }
-
   .page-footer .meta {
     float: left; }
 
@@ -412,13 +389,13 @@ time {
     margin-left: 40px; } }
 @media all and (max-width: 970px) and (min-width: 461px) {
   body {
-    font-size: 19px; }
+    font-size: 18px; }
+
+  h1 {
+    font-size: 2.1em; }
 
   nav {
     line-height: 48px; }
-
-  nav li {
-    margin-left: 25px; }
 
   nav .selected:after {
     content: '';
@@ -432,43 +409,11 @@ time {
     border-bottom: 20px solid white;
     border-right: 20px solid transparent; }
 
-  blockquote {
-    margin: 0 30px;
-    padding-left: 35px; }
-
-  blockquote i {
-    margin-left: -35px; }
-
   button, .button, input[type=submit] {
     padding: 5px 11px; }
 
-  .prettyprint {
-    padding: 10px; }
-
-  .constrain.max {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 30px;
-    padding-right: 30px; }
-
-  .constrain.max.square {
-    padding: 30px; }
-
-  .constrain.min {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
-    padding-left: 0;
-    padding-right: 0; }
-
-  .constrain.min.square {
-    padding-bottom: 30px;
-    padding-top: 30px; }
-
   .page-header {
-    position: relative;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 1em 0;
     text-align: center; }
 
   .menu-toggle {
@@ -477,14 +422,8 @@ time {
   .browse-happy {
     padding: 20px 40px; }
 
-  .page-body {
-    min-height: 400px; }
-
-  #comments {
-    padding-top: 60px; }
-
-  .post {
-    margin-top: 70px; }
+  .constrain {
+    max-width: 500px; }
 
   .about img {
     width: 150px;
@@ -493,9 +432,6 @@ time {
 
   .about p {
     margin-left: 180px; }
-
-  .load-more {
-    margin-top: 30px; }
 
   .page-footer .links a {
     margin: 0 10px; } }
@@ -519,7 +455,8 @@ time {
     display: block; }
 
   nav li {
-    display: block; }
+    display: block;
+    margin: 0; }
 
   nav li a {
     display: block;
@@ -528,54 +465,16 @@ time {
   nav li a:hover {
     background: #ccc; }
 
-  blockquote {
-    margin: 0 20px;
-    padding-left: 30px; }
-
-  blockquote i {
-    margin-left: -30px; }
-
   button, .button, input[type=submit] {
     padding: 5px 11px; }
 
-  .prettyprint {
-    padding: 10px; }
-
-  .constrain.max {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 20px;
-    padding-right: 20px; }
-
-  .constrain.max.square {
-    padding: 20px; }
-
-  .constrain.min {
-    padding-left: 0;
-    padding-right: 0; }
-
-  .constrain.min.square {
-    padding-bottom: 20px;
-    padding-top: 20px; }
-
   .page-header {
     line-height: 40px;
-    position: relative;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 1em 1.3em;
     text-align: center; }
 
   .browse-happy {
     padding: 20px; }
-
-  .page-body {
-    min-height: 400px; }
-
-  #comments {
-    padding-top: 40px; }
-
-  .post {
-    margin-top: 50px; }
 
   .about img {
     width: 130px;
@@ -594,9 +493,6 @@ time {
 
   .button.no-text-mobile span {
     display: none; }
-
-  .load-more {
-    margin-top: 20px; }
 
   .page-footer .links a {
     margin: 0 10px; } }

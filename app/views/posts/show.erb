@@ -1,5 +1,5 @@
 <% post ||= @post %>
-<article class="post constrain min">
+<article class="post constrain">
 	<a href="/blog" class="back-link"><i class="icon-double-angle-left"></i> Back to all posts</a>
 	<%= erb :'posts/post' %>
 	<footer class="cf">
@@ -7,7 +7,7 @@
 		<a class="button facebook left" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i> Facebook</a>
 	</footer>
 </article>
-<div id="comments" class="constrain min">
+<div id="comments" class="constrain">
 	<h3>Comments</h3>
 	<% post.comments.order('created_at ASC').each_with_index do |comment, i| %>
 		<%= erb :'comments/comment', locals: {comment: comment, number: i + 1} %>
