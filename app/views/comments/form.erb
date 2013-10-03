@@ -7,6 +7,9 @@
   <input id="comment_website" name="comment[website]" type="text" value="" />
   <label for="comment_body">Comment:</label>
   <textarea id="comment_body" name="comment[body]" rows="5"></textarea>
+  <div class="footnote">
+    Note: You can use <a href="http://daringfireball.net/projects/markdown/syntax" target="df_markdown">Markdown</a> in your comment.
+  </div>
   <input type="hidden" name="comment[post_id]" value="<%= post.id %>" />
   <input type="submit" value="Post comment" />
 </form>

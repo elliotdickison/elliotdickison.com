@@ -3,8 +3,7 @@
 <div class="comment" id="comment<%= comment.id %>">
 	<img class="avatar" src="<%= comment.gravatar_src %>" />
 	<header>
-		<h5><%= comment.website.blank? ? comment.commenter : "<a href='#{comment.website}' target='_blank'>#{comment.commenter}</a>" %></h5>
-		<a class="number" href="#comment<%= comment.id %>">#<%= number %></a>
+		<h5><%= comment.website.blank? ? comment.commenter : "<a href='#{comment.website}' target='_blank'>#{comment.commenter}</a>" %><a class="number" href="#comment<%= comment.id %>">#<%= number %></a></h5>
 		<time datetime="<%= comment.created_at.strftime("%Y-%m-%d") %>"><i class="icon-time"></i> <%= comment.created_at.strftime("%B %-d, %Y") %></time>
 	</header>
 	<div class="body"><%= comment %></div>

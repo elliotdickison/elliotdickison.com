@@ -29,6 +29,7 @@ $prefixes: webkit moz ms o;
 	box-shadow: $shadows;
 
 	color: $fg-color;
+	font-family: "futura-pt", sans-serif;
 	margin-bottom: #{$height}px;
 
 	&:hover {
@@ -36,7 +37,7 @@ $prefixes: webkit moz ms o;
 	}
 
 	&:active {
-		@include prefixed-property(transform, translate(3px, 3px));
+		@include prefixed-property(transform, translate(#{$height - $active-height}px, #{$height - $active-height}px));
 		
 		$shadows: ();
 		@for $i from 1 through $active-height {
@@ -75,9 +76,9 @@ $prefixes: webkit moz ms o;
 }
 
 body {
+	font-family: "ff-tisa-web-pro", serif;
 	font-size: 22px;
 	color: $fg-dark;
-	font-family: serif;
 	padding-top: 5px;
 }
 
@@ -114,23 +115,47 @@ a.loading:hover {
 	transition: none;
 }
 
+nav {
+	font-size: 1.5em;
+}
+
 nav ul, li {
 	display: inline;
 	margin: 0;
 	padding: 0;
 }
 
-h1 {
-	font-weight: normal;
+h1, h2, h3, h4, h5 {
+	font-weight: bold;
 	margin: 0;
 }
 
-h2,
+h1 {
+	font-size: 2.4em;
+	font-weight: normal;
+}
+
+h2 {
+	font-family: "futura-pt", sans-serif;
+	font-size: 2.6em;
+}
+
 h3 {
-	font-size: 58px;
-	margin: 0;
-	font-weight: bold;
-	font-family: sans-serif;
+	font-family: "futura-pt", sans-serif;
+	font-size: 1.7em;
+	margin-bottom: 1em;
+	padding: 0.5em 0;
+	text-align: center;
+}
+
+h4 {
+	font-family: "futura-pt", sans-serif;
+	font-size: 1.5em;
+}
+
+h5 {
+	font-family: "futura-pt", sans-serif;
+	font-size: 1.2em;
 }
 
 h2 a,
@@ -138,62 +163,13 @@ h5 a {
 	color: inherit;
 }
 
-h3 {
-	font-size: 38px;
-	margin-bottom: 20px;
-	padding: 10px 0;
-	text-align: center;
-}
-
-h4 {
-	font-size: 32px;
-	margin-bottom: 0;
-}
-
-h5 {
-	font-weight: bold;
-	margin: 0;
-}
-
 blockquote {
 	color: $fg-light;
+	font-size: 1.3em;
 }
 
 blockquote i {
 	float: left;
-}
-
-.page-header {
-	background: $bg-dark;
-}
-
-.page-header a {
-	color: inherit;
-}
-
-.page-header a:hover {
-	color: $highlight;
-}
-
-.page-header .selected {
-	color: $highlight;
-}
-
-.page-footer {
-	background: $bg-dark;
-	letter-spacing: 1px;
-	line-height: 60px;
-	padding-bottom: 20px;
-	padding-top: 20px;
-	text-align: center;
-}
-
-.page-footer .links a {
-	color: $fg-light;
-}
-
-.page-footer .links a:hover {
-	color: $highlight;
 }
 
 form {
@@ -204,22 +180,24 @@ form input[type=submit] {
 	margin-top: 30px;
 }
 
-.left {
-	float: left;
-	margin-right: 15px;
+label {
+	color: $fg-light;
+	font-family: "futura-pt", sans-serif;
 }
 
-.right {
-	float: right;
-	margin-left: 15px;
-}
-
-.message {
-	background: #ffc;
-	border: 1px solid #eeb;
-	padding: 10px 20px;
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
 	border-radius: 5px;
-	margin-bottom: 30px;
+	border: 1px solid $fg-light;
+	box-sizing: border-box;
+	display: block;
+	font-family: "ff-tisa-web-pro", serif;
+	font-size: 1em;
+	margin: 0 0 10px 0;
+	padding: 5px 10px;
+	width: 100%;
 }
 
 button, .button, input[type=submit] {
@@ -244,18 +222,72 @@ button i, .button i, input[type=submit] i {
 	padding-right: 5px;
 }
 
-.page-body > *:first-child,
-.post .body > *:first-child {
-	margin-top: 0;
-}
-
 nav li {
 	position: relative;
 }
 
 time {
 	color: $fg-light;
-	font-family: sans-serif;
+	font-family: "futura-pt", sans-serif;
+}
+
+.page-header {
+	background: $bg-dark;
+	font-family: "adelle", sans-serif;
+}
+
+.page-header a {
+	color: inherit;
+}
+
+.page-header a:hover {
+	color: $highlight;
+}
+
+.page-header .selected {
+	color: $highlight;
+}
+
+.page-footer {
+	background: $bg-dark;
+	font-family: "adelle", sans-serif;
+	letter-spacing: 1px;
+	line-height: 60px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.page-footer .links a {
+	color: $fg-light;
+	font-size: 2.7em;
+}
+
+.page-footer .links a:hover {
+	color: $highlight;
+}
+
+.left {
+	float: left;
+	margin-right: 15px;
+}
+
+.right {
+	float: right;
+	margin-left: 15px;
+}
+
+.message {
+	background: #ffc;
+	border: 1px solid #eeb;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-bottom: 30px;
+}
+
+.page-body > *:first-child,
+.post .body > *:first-child {
+	margin-top: 0;
 }
 
 .post {
@@ -285,6 +317,7 @@ time {
 
 .load-more {
 	display: block;
+	font-size: 1.1em;
 	text-align: center;
 	width: 100%;
 }
@@ -310,17 +343,18 @@ time {
 	margin-left: 100px;
 }
 
-.comment h5 {
-	float: left;
+.comment .number {
+	color: $link;
+	float: right;
+	font-weight: normal;
 }
 
-.comment .number {
-	float: right;
+.comment .number:hover {
+	color: $highlight;
 }
 
 .comment time {
 	display: block;
-	clear: right;
 }
 
 .about img {
@@ -331,44 +365,59 @@ time {
 	margin-bottom: 30px;
 }
 
-label {
-	color: $fg-light;
-}
-
-input[type=text],
-input[type=email],
-input[type=password],
-textarea {
-	width: 100%;
-	border: 1px solid $fg-light;
-	padding: 5px 10px;
-	display: block;
-	border-radius: 5px;
-	box-sizing: border-box;
-	margin: 0 0 10px 0;
-}
-
 .prettyprint {
 	border-radius: 5px;
 	background: $fg-dark;
 	overflow-x: auto;
+	font-size: 0.8em;
 	line-height: 100%;
 	color: $bg-light;
 }
 
+.footnote {
+	color: $fg-light;
+	font-size: 0.8em;
+}
+
 @media all and (min-width: 971px) {
 
-	input[type=text],
-	input[type=email],
-	input[type=password],
-	textarea {
-		font-size: 22px;
+	h1 {
+		float: left;
 	}
-		
+
+	nav {
+		line-height: 72px;
+		float: right;
+	}
+
+	nav li {
+		margin-left: 25px;
+	}
+
+	nav .selected:after {
+		content: '';
+		position: absolute;
+		bottom: -40px;
+		left: 50%;
+		margin-left: -25px;
+		width: 0; 
+		height: 0; 
+		border-left: 25px solid transparent;
+		border-bottom: 25px solid $bg-light; 
+		border-right: 25px solid transparent; 
+	}
+
+	blockquote {
+		margin: 0 40px;
+		padding-left: 40px;
+	}
+
+	blockquote i {
+		margin-left: -40px;
+	}
 
 	.prettyprint {
 		padding: 15px;
-		font-size: 18px;
 	}
 
 	.constrain.max {
@@ -395,38 +444,12 @@ textarea {
 		padding: 30px;
 	}
 
-	h1 {
-		font-size: 54px;
-		float: left;
-	}
+	
 
 	.page-header {
 		padding-bottom: 25px;
 		padding-top: 25px;
 		position: relative;
-	}
-
-	nav {
-		line-height: 72px;
-		float: right;
-		font-size: 33px;
-	}
-
-	nav li {
-		margin-left: 25px;
-	}
-
-	nav .selected:after {
-		content: '';
-		position: absolute;
-		bottom: -40px;
-		left: 50%;
-		margin-left: -25px;
-		width: 0; 
-		height: 0; 
-		border-left: 25px solid transparent;
-		border-bottom: 25px solid $bg-light; 
-		border-right: 25px solid transparent; 
 	}
 
 	.menu-toggle {
@@ -453,10 +476,6 @@ textarea {
 		line-height: 35px;
 	}
 
-	h5 {
-		font-size: 26px;
-	}
-
 	.about img {
 		width: 200px;
 		height: 200px;
@@ -468,18 +487,7 @@ textarea {
 	}
 
 	.load-more {
-		font-size: 24px;
 		margin-top: 40px;
-	}
-
-	blockquote {
-		font-size: 28px;
-		margin: 0 40px;
-		padding-left: 40px;
-	}
-
-	blockquote i {
-		margin-left: -40px;
 	}
 
 	.page-footer .meta {
@@ -488,23 +496,52 @@ textarea {
 
 	.page-footer .links a {
 		float: right;
-		font-size: 60px;
 		margin-left: 40px;
 	}
 }
 
 @media all and (max-width: 970px) and (min-width: 461px) {
 
-	input[type=text],
-	input[type=email],
-	input[type=password],
-	textarea {
-		font-size: 20px;
+	body {
+		font-size: 19px;
+	}
+
+	nav {
+		line-height: 48px;
+	}
+
+	nav li {
+		margin-left: 25px;
+	}
+
+	nav .selected:after {
+		content: '';
+		position: absolute;
+		bottom: -25px;
+		left: 50%;
+		margin-left: -20px;
+		width: 0; 
+		height: 0; 
+		border-left: 20px solid transparent;
+		border-bottom: 20px solid $bg-light; 
+		border-right: 20px solid transparent; 
+	}
+
+	blockquote {
+		margin: 0 30px;
+		padding-left: 35px;
+	}
+
+	blockquote i {
+		margin-left: -35px;
+	}
+
+	button, .button, input[type=submit] {
+		padding: 5px 11px;
 	}
 
 	.prettyprint {
 		padding: 10px;
-		font-size: 16px;
 	}
 
 	.constrain.max {
@@ -531,64 +568,11 @@ textarea {
 		padding-top: 30px;
 	}
 
-	body {
-		font-size: 18px;
-	}
-
-	h4 {
-		font-size: 28px;
-		margin-bottom: 0;
-	}
-
-	h1 {
-		font-size: 36px;
-	}
-
-	h2 {
-		font-size: 46px;
-	}
-
-	h3 {
-		font-size: 32px;
-	}
-
 	.page-header {
 		position: relative;
 		padding-bottom: 20px;
 		padding-top: 20px;
 		text-align: center;
-	}
-
-	nav {
-		line-height: 48px;
-		font-size: 24px;
-	}
-
-	nav li {
-		margin-left: 25px;
-	}
-
-	nav .selected:after {
-		content: '';
-		position: absolute;
-		bottom: -29px;
-		left: 50%;
-		margin-left: -20px;
-		width: 0; 
-		height: 0; 
-		border-left: 20px solid transparent;
-		border-bottom: 20px solid $bg-light; 
-		border-right: 20px solid transparent; 
-	}
-
-	blockquote {
-		font-size: 24px;
-		margin: 0 30px;
-		padding-left: 35px;
-	}
-
-	blockquote i {
-		margin-left: -35px;
 	}
 
 	.menu-toggle {
@@ -607,10 +591,6 @@ textarea {
 		padding-top: 60px;
 	}
 
-	h5 {
-		font-size: 24px;
-	}
-
 	.post {
 		margin-top: 70px;
 	}
@@ -626,91 +606,30 @@ textarea {
 	}
 
 	.load-more {
-		font-size: 22px;
 		margin-top: 30px;
 	}
 
-	button, .button, input[type=submit] {
-		padding: 5px 11px;
-	}
-
 	.page-footer .links a {
-		font-size: 40px;
 		margin: 0 10px;
 	}
 }
 
 @media all and (max-width: 460px) {
 
-	input[type=text],
-	input[type=email],
-	input[type=password],
-	textarea {
-		font-size: 18px;
-	}
-
-	.prettyprint {
-		padding: 10px;
-		font-size: 14px;
-	}
-
-	.constrain.max {
-		margin-left: 0;
-		margin-right: 0;
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-
-	.constrain.max.square {
-		padding: 20px;
-	}
-
-	.constrain.min {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	.constrain.min.square {
-		padding-bottom: 20px;
-		padding-top: 20px;
-	}
-
 	body {
 		font-size: 16px;
 	}
 
-	h4 {
-		font-size: 22px;
-		margin-bottom: 0;
-	}
-
 	h1 {
-		font-size: 32px;
 		float: left;
 	}
 
-	h2 {
-		font-size: 36px;
-	}
-
-	h3 {
-		font-size: 30px;
-	}
-
-	.page-header {
-		position: relative;
-		padding-bottom: 20px;
-		padding-top: 20px;
-		text-align: center;
-	}
-
 	nav {
-		line-height: 48px;
-		font-size: 24px;
 		text-align: right;
 	}
 
 	nav ul {
+		line-height: 48px;
 		margin-top: 20px;
 		display: none;
 		text-align: center;
@@ -734,13 +653,49 @@ textarea {
 	}
 
 	blockquote {
-		font-size: 20px;
 		margin: 0 20px;
 		padding-left: 30px;
 	}
 
 	blockquote i {
 		margin-left: -30px;
+	}
+
+	button, .button, input[type=submit] {
+		padding: 5px 11px;
+	}
+
+	.prettyprint {
+		padding: 10px;
+	}
+
+	.constrain.max {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.constrain.max.square {
+		padding: 20px;
+	}
+
+	.constrain.min {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.constrain.min.square {
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+
+	.page-header {
+		line-height: 40px;
+		position: relative;
+		padding-bottom: 20px;
+		padding-top: 20px;
+		text-align: center;
 	}
 
 	.browse-happy {
@@ -753,10 +708,6 @@ textarea {
 
 	#comments {
 		padding-top: 40px;
-	}
-
-	h5 {
-		font-size: 22px;
 	}
 
 	.post {
@@ -773,10 +724,6 @@ textarea {
 		text-align: center;
 	}
 
-	button, .button, input[type=submit] {
-		padding: 5px 11px;
-	}
-
 	.button.no-text-mobile {
 		width: 20px;
 		text-align: center;
@@ -791,12 +738,10 @@ textarea {
 	}
 
 	.load-more {
-		font-size: 20px;
 		margin-top: 20px;
 	}
 
 	.page-footer .links a {
-		font-size: 40px;
 		margin: 0 10px;
 	}
 }
