@@ -105,8 +105,8 @@ helpers do
   end
 
   def get_message(target = nil)
-    if @message and @message_target == target
-      message = @message
+    if @user_message and @user_message_target == target
+      message = @user_message
     elsif cookies[:message] and cookies[:message_target] == target
       message = cookies[:message]
     end
@@ -123,6 +123,14 @@ helpers do
       cookies[k.to_sym] = v
       @tmp_cookie_keys.push k.to_sym
     end
+  end
+
+  def build_error_message(model, attribute_aliases = {})
+    message = 'Uh oh, that didn\'t quite work. '
+    model.errors.messages.each do |(attr, errors)|
+      message << "#{(attribute_aliases[attr] || attr).capitalize} #{nice_list errors}. "
+    end
+    message << 'Please try again.'
   end
 end
 

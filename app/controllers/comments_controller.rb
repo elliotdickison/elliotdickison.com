@@ -4,12 +4,7 @@ post '/comments' do
   if @comment.invalid?
     
     # Throw together a readable error message
-    param_names = {commenter: 'name', email: 'email', website: 'website', body: 'comment'}
-    message = 'Uh oh, that didn\'t quite work. '
-    @comment.errors.messages.each do |(param, errors)|
-      message << "The #{param_names[param]} field #{nice_list errors}. "
-    end
-    message << 'Please try again.'
+    message = build_error_message @comment, {commenter: 'your name', email: 'your email address', website: 'your website', body: 'the comment body'}
 
     # Pass the error message along via a cookie
     set_tmp_cookie message: message, message_target: 'comment_form'
