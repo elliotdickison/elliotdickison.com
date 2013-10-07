@@ -51,6 +51,7 @@ configure do
   set :posts_per_page, 5
   set :contact_email, 'ejdickison@gmail.com'
   set :send_mail, settings.environment == :production
+  set :generic_error_message, 'Sorry, seems a mouse has chewed through the wires someplace. Please try again later.'
 end
 
 # Setup pony mail
