@@ -4,7 +4,7 @@ post '/comments' do
   if @comment.invalid?
 
     # Throw together a readable error message
-    error_message = build_error_message @comment, {commenter: 'your name', email: 'your email address', website: 'your website', body: 'the comment body'}
+    error_message = build_error_message @comment, {commenter: 'your name', email: 'your email address', website: 'the website field', body: 'the comment body'}
   
   elsif @comment.save
     
