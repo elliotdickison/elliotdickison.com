@@ -9,6 +9,7 @@ gem 'sinatra-activerecord'
 gem 'pony'
 gem 'sinatra-subdomain'
 gem 'rdiscount'
+gem 'sinatra-contrib'
 
 group :development do
   gem 'tux'

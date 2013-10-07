@@ -24,6 +24,15 @@
 .lt-ie8 .cf {
   *zoom: 1; }
 
+::selection {
+  background: #da5b54;
+  color: white; }
+
+::-moz-selection {
+  background: #da5b54;
+  /* Firefox */
+  color: white; }
+
 body {
   font-family: "ff-tisa-web-pro", serif;
   font-size: 22px;
@@ -39,7 +48,7 @@ img {
   right: 0;
   left: 0;
   height: 5px;
-  background: #e34f49;
+  background: #da5b54;
   z-index: 999; }
 
 p {
@@ -51,7 +60,7 @@ a {
   transition: color 0.2s linear; }
 
 a:hover {
-  color: #e34f49; }
+  color: #da5b54; }
 
 a.loading,
 a.loading:hover {
@@ -62,7 +71,8 @@ a.loading:hover {
 nav {
   font-size: 1.5em; }
 
-nav ul, li {
+nav ul,
+nav li {
   display: inline;
   margin: 0;
   padding: 0; }
@@ -88,7 +98,7 @@ h2 {
 h3 {
   font-family: "futura-pt", sans-serif;
   font-size: 1.7em;
-  padding-top: 1em;
+  padding: 1em 0;
   text-align: center; }
 
 h4 {
@@ -139,10 +149,10 @@ textarea {
   width: 100%; }
 
 button, .button, input[type=submit] {
-  background: #e34f49;
+  background: #da5b54;
   border-radius: 3px;
   border: 0;
-  box-shadow: 1px 0px #98322e, 0px 1px #bf3f3a, 2px 1px #98322e, 1px 2px #bf3f3a, 3px 2px #98322e, 2px 3px #bf3f3a, 4px 3px #98322e, 3px 4px #bf3f3a, 5px 4px #98322e, 4px 5px #bf3f3a, 6px 5px #98322e, 5px 6px #bf3f3a;
+  box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   color: white;
   font-family: "futura-pt", sans-serif;
   margin-bottom: 6px;
@@ -159,13 +169,13 @@ button, .button, input[type=submit] {
     -ms-transform: translate(4px, 4px);
     -o-transform: translate(4px, 4px);
     transform: translate(4px, 4px);
-    box-shadow: 1px 0px #98322e, 0px 1px #bf3f3a, 2px 1px #98322e, 1px 2px #bf3f3a; }
+    box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039; }
 
 button.facebook, .button.facebook, input[type=submit].facebook {
   background: #3b5998;
   border-radius: 3px;
   border: 0;
-  box-shadow: 1px 0px #293244, 0px 1px #3d4963, 2px 1px #293244, 1px 2px #3d4963, 3px 2px #293244, 2px 3px #3d4963, 4px 3px #293244, 3px 4px #3d4963, 5px 4px #293244, 4px 5px #3d4963, 6px 5px #293244, 5px 6px #3d4963;
+  box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
   color: white;
   font-family: "futura-pt", sans-serif;
   margin-bottom: 6px; }
@@ -177,13 +187,13 @@ button.facebook, .button.facebook, input[type=submit].facebook {
     -ms-transform: translate(4px, 4px);
     -o-transform: translate(4px, 4px);
     transform: translate(4px, 4px);
-    box-shadow: 1px 0px #293244, 0px 1px #3d4963, 2px 1px #293244, 1px 2px #3d4963; }
+    box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b; }
 
 button.twitter, .button.twitter, input[type=submit].twitter {
   background: #00aced;
   border-radius: 3px;
   border: 0;
-  box-shadow: 1px 0px #0d5c7a, 0px 1px #137fa7, 2px 1px #0d5c7a, 1px 2px #137fa7, 3px 2px #0d5c7a, 2px 3px #137fa7, 4px 3px #0d5c7a, 3px 4px #137fa7, 5px 4px #0d5c7a, 4px 5px #137fa7, 6px 5px #0d5c7a, 5px 6px #137fa7;
+  box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
   color: white;
   font-family: "futura-pt", sans-serif;
   margin-bottom: 6px; }
@@ -195,7 +205,7 @@ button.twitter, .button.twitter, input[type=submit].twitter {
     -ms-transform: translate(4px, 4px);
     -o-transform: translate(4px, 4px);
     transform: translate(4px, 4px);
-    box-shadow: 1px 0px #0d5c7a, 0px 1px #137fa7, 2px 1px #0d5c7a, 1px 2px #137fa7; }
+    box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1; }
 
 button i, .button i, input[type=submit] i {
   padding-right: 5px; }
@@ -215,10 +225,10 @@ time {
   color: inherit; }
 
 .page-header a:hover {
-  color: #e34f49; }
+  color: #da5b54; }
 
 .page-header .selected {
-  color: #e34f49; }
+  color: #da5b54; }
 
 .page-footer {
   background: #dfdfdf;
@@ -232,7 +242,7 @@ time {
   font-size: 2.7em; }
 
 .page-footer .links a:hover {
-  color: #e34f49; }
+  color: #da5b54; }
 
 .left {
   float: left;
@@ -288,25 +298,38 @@ time {
   text-align: center;
   width: 100%; }
 
-#comments {
+#comments,
+#comment_form {
   margin-top: 2em; }
 
+#comment_form h4 {
+  margin-bottom: 0.5em; }
+
+.sad {
+  color: #999999;
+  font-size: 1.1em;
+  text-align: center; }
+
 .comment {
-  min-height: 80px;
-  padding: 30px 0; }
+  margin: 1em 0;
+  min-height: 3.6em;
+  padding: 1em; }
+
+.comment.alternate {
+  background: #efefef;
+  border-radius: 5px; }
 
 .comment .avatar {
   float: left;
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  margin-top: 10px; }
+  width: 3.6em;
+  height: 3.6em;
+  border-radius: 2.3em; }
 
 .comment header {
-  margin: 0 0 10px 100px; }
+  margin: 0 0 1em 4.6em; }
 
 .comment .body {
-  margin-left: 100px; }
+  margin-left: 4.6em; }
 
 .comment .number {
   color: #40b0f0;
@@ -314,7 +337,7 @@ time {
   font-weight: normal; }
 
 .comment .number:hover {
-  color: #e34f49; }
+  color: #da5b54; }
 
 .comment time {
   display: block; }
@@ -323,7 +346,8 @@ time {
   border-radius: 50%; }
 
 .about h2 {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  text-align: center; }
 
 .prettyprint {
   border-radius: 5px;
@@ -422,6 +446,9 @@ time {
 
   .browse-happy {
     padding: 20px 40px; }
+
+  .page-body {
+    padding: 1em; }
 
   .constrain {
     max-width: 500px; }

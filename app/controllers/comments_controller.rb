@@ -1,6 +1,26 @@
 post '/comments' do
   @comment = Comment.new(params[:comment])
-  if @comment.save
+
+  if @comment.invalid?
+    
+    # Throw together a readable error message
+    param_names = {commenter: 'name', email: 'email', website: 'website', body: 'comment'}
+    message = 'Uh oh, that didn\'t quite work. '
+    @comment.errors.messages.each do |(param, errors)|
+      message << "The #{param_names[param]} field #{nice_list errors}. "
+    end
+    message << 'Please try again.'
+
+    # Pass the error message along via a cookie
+    set_tmp_cookie message: message, message_target: 'comment_form'
+
+    # Pass along the current values so we can re-populate the form
+    set_tmp_cookie params[:comment]
+
+    @post = Post.find(params[:comment][:post_id])
+    redirect "#{@post.link}#comment_form"
+
+  elsif @comment.save
   	
   	if settings.send_mail
   		Pony.mail({

@@ -9,8 +9,8 @@
 		<%= erb :'posts/post', locals: {post: post} %>
 		<footer class="cf">
 			<a class="button left" href="<%= post.link %>#comments"><i class="icon-comment"></i> <%= comment_text %></a>
-			<a class="button twitter left no-text-mobile" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i><span> Twitter</span></a>
-			<a class="button facebook left no-text-mobile" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i><span> Facebook</span></a>
+			<a class="button twitter left no-text-mobile" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i><span> Tweet</span></a>
+			<a class="button facebook left no-text-mobile" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i><span> Share</span></a>
 		</footer>
 	</article>
 <% end %>

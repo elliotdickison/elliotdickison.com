@@ -1,16 +1,22 @@
 <% post ||= @post %>
+<% comments = post.comments.order('created_at ASC') %>
 <article class="post constrain">
 	<a href="/blog" class="back-link"><i class="icon-double-angle-left"></i> Back to all posts</a>
 	<%= erb :'posts/post' %>
 	<footer class="cf">
-		<a class="button twitter left" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i> Twitter</a>
-		<a class="button facebook left" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i> Facebook</a>
+		<a class="button twitter left" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i> Tweet</a>
+		<a class="button facebook left" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i> Share</a>
 	</footer>
 </article>
 <div id="comments" class="constrain">
 	<h3>Comments</h3>
-	<% post.comments.order('created_at ASC').each_with_index do |comment, i| %>
+	<%= '<div class="sad">Sad, no one has commented yet. A pity comment from you, quisáz?</div>' if comments.empty? %>
+	<% comments.each_with_index do |comment, i| %>
 		<%= erb :'comments/comment', locals: {comment: comment, number: i + 1} %>
 	<% end %>
+</div>
+<div id="comment_form" class="constrain">
+	<h4>Leave your own!</h4>
+	<%= get_message 'comment_form' %>
 	<%= erb :'comments/form', locals: {post: post} %>
 </div>
