@@ -17,22 +17,22 @@ post '/contact' do
     if settings.send_mail
 	  begin
 	    Pony.mail({
-	  	  from: "#{params[:name]} <#{params[:email]}>",
+	  	  from: "#{@message.name} <#{@message.email}>",
 	  	  to: settings.contact_email,
 	  	  subject: "Contact Form at elliotjam.es",
-	      body: params[:body]
+	      body: @message.body
 	    })
+
 	    @user_message = "Thanks, I'll get back to you as soon as I can.";
 	    @message = nil
 	  rescue
-		# Error message below
+		@user_message = settings.generic_error_message
 	  end
 	end
   end
 
   @page_title = 'Contact'
   @selected_tab = :contact
-  @user_message ||= 'Sorry, seems a mouse has chewed through the wires someplace. Please try again later.'
   @user_message_target = 'contact_form'
 
   erb :contact
