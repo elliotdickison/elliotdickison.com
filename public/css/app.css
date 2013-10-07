@@ -98,7 +98,7 @@ h2 {
 h3 {
   font-family: "futura-pt", sans-serif;
   font-size: 1.7em;
-  padding: 1em 0;
+  padding: 1em 0 0.5em 0;
   text-align: center; }
 
 h4 {
@@ -124,12 +124,6 @@ blockquote i {
   float: left;
   margin-left: -1.5em; }
 
-form {
-  margin-top: 30px; }
-
-form input[type=submit] {
-  margin-top: 30px; }
-
 label {
   color: #999999;
   font-family: "futura-pt", sans-serif; }
@@ -144,9 +138,12 @@ textarea {
   display: block;
   font-family: "ff-tisa-web-pro", serif;
   font-size: 1em;
-  margin: 0 0 10px 0;
+  margin: 0 0 0.5em 0;
   padding: 5px 10px;
   width: 100%; }
+
+input[type=submit] {
+  margin-top: 1em; }
 
 button, .button, input[type=submit] {
   background: #da5b54;
@@ -298,12 +295,11 @@ time {
   text-align: center;
   width: 100%; }
 
-#comments,
-#comment_form {
-  margin-top: 2em; }
+#comments {
+  margin-top: 1em; }
 
-#comment_form h4 {
-  margin-bottom: 0.5em; }
+#comment_form h3 {
+  text-align: left; }
 
 .sad {
   color: #999999;
@@ -361,6 +357,9 @@ time {
 .footnote {
   color: #999999;
   font-size: 0.8em; }
+
+.contact p {
+  margin-bottom: 0.5em; }
 
 @media all and (min-width: 971px) {
   h1 {
