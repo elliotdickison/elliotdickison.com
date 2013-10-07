@@ -1,14 +1,14 @@
 class Comment < ActiveRecord::Base
   validates :commenter, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, email: true
+  validates :website, url: true, allow_blank: true
   validates :body, presence: true
 
   belongs_to :post
 
   before_validation do
     self.commenter = Rack::Utils.escape_html commenter if attribute_present?('commenter')
-    self.email = Rack::Utils.escape_html email if attribute_present?('email')
-    self.website = Rack::Utils.escape_html website if attribute_present?('website')
+    self.website = 'http://' << website if attribute_present?('website') and not website.blank? and not website.start_with?('http')
   end
 
   def body

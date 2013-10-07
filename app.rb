@@ -3,7 +3,6 @@
 # code page
 # better content (about, contact, 404)
 # figure out sub-domains (admin)
-# comment markdown of some sort
 
 # SOME DAY...
 # timezone
@@ -31,8 +30,10 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/subdomain'
+require 'sinatra/cookies'
 require 'digest/md5'
 require 'pony'
+require 'uri'
 
 # Set the database
 set :database, ENV['DATABASE_URL'] || 'postgresql://elliot.dickison:iamaskier@localhost/elliot.dickison'
@@ -42,9 +43,6 @@ set :views, Proc.new { File.join(root, 'app', 'views') }
 
 # Turn on sessions
 enable :sessions
-
-# Require all models
-Dir['./app/models/*.rb'].each {|file| require file }
 
 configure do
   set :github_id, 'elliotjames'
@@ -76,11 +74,9 @@ when :production
   }
 end
 
-register do
-  def auth (type)
-    condition do
-      redirect '/' unless send("#{type}_mode?")
-    end
+set :auth do |type|
+  condition do
+    redirect '/', 303 unless send("#{type}_mode?")
   end
 end
 
@@ -96,9 +92,42 @@ helpers do
   def twitter_share_link(link)
     'https://twitter.com/share?url=' << URI.escape(request.scheme + '://' + request.host + link)
   end
+
+  def nice_list(arr, separator = ', ', connector = ' and ', oxford_comma = true)
+    if arr.empty?
+      ''
+    elsif arr.size == 1
+      arr.first.to_s
+    else
+      connector = (separator << connector).gsub!(/ +/, ' ') if oxford_comma and arr.size > 2
+      [arr[0...-1].join(separator), arr.last].join(connector)
+    end
+  end
+
+  def get_message(target = nil)
+    if @message and @message_target == target
+      message = @message
+    elsif cookies[:message] and cookies[:message_target] == target
+      message = cookies[:message]
+    end
+
+    if message
+      '<div class="message">' << message << '<a href="#" class="js-close right">Close</a></div>'
+    else
+      ''
+    end
+  end
+
+  def set_tmp_cookie(opts)
+    opts.each do |(k, v)|
+      cookies[k.to_sym] = v
+      @tmp_cookie_keys.push k.to_sym
+    end
+  end
 end
 
 before do
+
   begin
     if settings.environment == :development
       @user = User.first
@@ -108,7 +137,21 @@ before do
   rescue ActiveRecord::RecordNotFound
     @user = nil
   end
+
+  @tmp_cookie_keys = [];
 end
+
+after do
+  cookies.delete_if do |k|
+    not @tmp_cookie_keys.include? k.to_sym
+  end
+end
+
+# Require all validators
+Dir['./app/validators/*.rb'].each {|file| require file }
+
+# Require all models
+Dir['./app/models/*.rb'].each {|file| require file }
 
 # Require all controllers
 Dir['./app/controllers/*.rb'].each {|file| require file }

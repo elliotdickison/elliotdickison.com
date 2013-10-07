@@ -1,15 +1,21 @@
+<%
+commenter = cookies[:commenter] || ''
+email = cookies[:email] || ''
+website = cookies[:website] || ''
+body = cookies[:body] || ''
+%>
 <form action="/comments" method="post">
-  <label for="comment_commenter">Name:</label>
-  <input id="comment_commenter" name="comment[commenter]" type="text" value="" />
-  <label for="comment_email">Email:</label>
-  <input id="comment_email" name="comment[email]" type="email" value="" />
-  <label for="comment_website">Website (optional):</label>
-  <input id="comment_website" name="comment[website]" type="text" value="" />
-  <label for="comment_body">Comment:</label>
-  <textarea id="comment_body" name="comment[body]" rows="5"></textarea>
+  <label for="comment_commenter">Name</label>
+  <input id="comment_commenter" name="comment[commenter]" type="text" value="<%= commenter %>" />
+  <label for="comment_email">Email (kept private)</label>
+  <input id="comment_email" name="comment[email]" type="email" value="<%= email %>" />
+  <label for="comment_website">Website (optional)</label>
+  <input id="comment_website" name="comment[website]" type="text" value="<%= website %>" />
+  <label for="comment_body">Comment</label>
+  <textarea id="comment_body" name="comment[body]" rows="5"><%= body %></textarea>
   <div class="footnote">
-    Note: You can use <a href="http://daringfireball.net/projects/markdown/syntax" target="df_markdown">Markdown</a> in your comment.
+    Note: You can use <a href="http://daringfireball.net/projects/markdown/syntax" target="df_markdown">Markdown</a> to format your comment.
   </div>
   <input type="hidden" name="comment[post_id]" value="<%= post.id %>" />
-  <input type="submit" value="Post comment" />
+  <input type="submit" value="Post Comment" />
 </form>

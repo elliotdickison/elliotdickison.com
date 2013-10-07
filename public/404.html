@@ -20,42 +20,112 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="/img/favicon.png" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <!--[if lte IE 8]>
+            <script type="text/javascript" src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script type="text/javascript" src="/js/respond.js"></script>
+        <![endif]-->
         <style>
             html {
+                background: #333;
+                color: #FFF;
+                font-size: 16px;
+            }
+
+            i {
+                position: absolute;
+            }
+
+            .icon-globe {
+                font-size: 10em;
+                top: 50%;
+                left: 50%;
+                margin-left: -0.5em;
+                margin-top: -0.5em;
+            }
+
+            .icon-rocket {
+                font-size: 5em;
+                top: 65%;
+                left: 20%;
+            }
+
+            .icon-star {
+                font-size: 1.5em;
+            }
+
+            .star-1 {
+                top: 20%;
+                left: 20%;
+            }
+            /*html {
                 background: url(img/seaturtle.jpg) no-repeat center center fixed; 
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
                 background-size: cover;
-                color: #fff;
+                font-family: adelle;
             }
 
             h1 {
-                font-size: 200px;
-                text-shadow: 0 0 18px #000;
-                padding: 40px;
+                padding: 0;
                 margin: 0;
             }
 
+            h1 a {
+                font-size: 60px;
+                text-shadow: 0 0 18px #000;
+                color: #fff;
+                text-decoration: none;
+            }
+
             p {
-                bottom: 0;
-                font-size: 45px;
-                padding: 40px;
+                color: #444;
+                background: #fff;
+                bottom: 10%;
+                font-size: 36px;
+                padding: 20px 40px;
+                left: 0;
                 margin: 0;
                 position: absolute;
                 right: 0;
-                text-align: right;
-                text-shadow: 0 0 18px #000;
-                width: 50%;
-            }
+                text-align: left;
+            }*/
         </style>
         <script src="//use.typekit.net/vmc7ddm.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body ontouchstart>
-        <header class="app-header">
-            <h1>404</h1>
-            <p>Oh no! I couldn't find what you're looking for, but here's a sea turtle instead.</p>
-        </header>
+        <i class="icon-globe" data-xrange="20" data-yrange="20"></i>
+        <i class="icon-rocket" data-xrange="200" data-yrange="200"></i>
+        <i class="icon-star star-1" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star star-2"></i>
+        <i class="icon-star star-3"></i>
+        <i class="icon-star star-4"></i>
+        <i class="icon-star star-5"></i>
+        <i class="icon-star star-6"></i>
+        <i class="icon-star star-7"></i>
+        <i class="icon-star star-8"></i>
+        <i class="icon-star star-9"></i>
+        <i class="icon-star star-10"></i>
+        <i class="icon-star star-11"></i>
+        <i class="icon-star star-12"></i>
+        <i class="icon-star star-13"></i>
+        <i class="icon-star star-14"></i>
+        <i class="icon-star star-15"></i>
+        <i class="icon-star star-16"></i>
+        <i class="icon-star star-17"></i>
+        <i class="icon-star star-18"></i>
+        <i class="icon-star star-19"></i>
+        <i class="icon-star star-20"></i>
+        
+        <i class="icon-sun"></i>
+        <i class="icon-moon"></i>
+        <script type="text/javascript" src="/js/jquery-2.0.2.min.js"></script>
+        <script type="text/javascript" src="/js/plax.js"></script>
+        <script type="text/javascript">
+            $('i').plaxify()
+            $.plax.enable()
+        </script>
     </body>
 </html>

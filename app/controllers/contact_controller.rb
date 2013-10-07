@@ -22,6 +22,7 @@ post '/contact' do
 
 	@page_title = 'Contact'
 	@selected_tab = :contact
-	@message ||= "Sorry, seems a mouse has chewed through the wires someplace. Maybe again later."
+	@message ||= 'Sorry, seems a mouse has chewed through the wires someplace. Please try again later.'
+	@message_target = 'contact_form'
   erb :contact
 end

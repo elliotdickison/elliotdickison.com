@@ -2,7 +2,8 @@ $fg-dark: #333;
 $fg-light: #999;
 $bg-light: #fff;
 $bg-dark: #dfdfdf;
-$highlight: #e34f49;
+$bg-medium: mix($bg-light, $bg-dark, 50%);
+$highlight: #DA5B54;
 $link: #40b0f0;
 $facebook: #3b5998;	
 $twitter: #00aced;
@@ -24,7 +25,7 @@ $prefixes: webkit moz ms o;
 	$shadows: ();
 	@for $i from 1 through $height {
 		$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
-		$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 20%), comma);
+		$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
 	}
 	box-shadow: $shadows;
 
@@ -42,7 +43,7 @@ $prefixes: webkit moz ms o;
 		$shadows: ();
 		@for $i from 1 through $active-height {
 			$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
-			$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 20%), comma);
+			$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
 		}
 		box-shadow: $shadows;
 	}
@@ -73,6 +74,16 @@ $prefixes: webkit moz ms o;
  */
 .lt-ie8 .cf {
     *zoom: 1;
+}
+
+::selection {
+	background: $highlight;
+	color: $bg-light;
+}
+
+::-moz-selection {
+	background: $highlight; /* Firefox */
+	color: $bg-light;
 }
 
 body {
@@ -119,7 +130,8 @@ nav {
 	font-size: 1.5em;
 }
 
-nav ul, li {
+nav ul,
+nav li {
 	display: inline;
 	margin: 0;
 	padding: 0;
@@ -151,7 +163,7 @@ h2 {
 h3 {
 	font-family: "futura-pt", sans-serif;
 	font-size: 1.7em;
-	padding-top: 1em;
+	padding: 1em 0;
 	text-align: center;
 }
 
@@ -344,29 +356,45 @@ time {
 	width: 100%;
 }
 
-#comments {
+#comments,
+#comment_form {
 	margin-top: 2em;
 }
 
+#comment_form h4 {
+	margin-bottom: 0.5em;
+}
+
+.sad {
+	color: $fg-light;
+	font-size: 1.1em;
+	text-align: center;
+}
+
 .comment {
-	min-height: 80px;
-	padding: 30px 0;
+	margin: 1em 0;
+	min-height: 3.6em;
+	padding: 1em;
+}
+
+.comment.alternate {
+	background: $bg-medium;
+	border-radius: 5px;
 }
 
 .comment .avatar {
 	float: left;
-	width: 80px;
-	height: 80px;
-	border-radius: 40px;
-	margin-top: 10px;
+	width: 3.6em;
+	height: 3.6em;
+	border-radius: 2.3em;
 }
 
 .comment header {
-	margin: 0 0 10px 100px;
+	margin: 0 0 1em 4.6em;
 }
 
 .comment .body {
-	margin-left: 100px;
+	margin-left: 4.6em;
 }
 
 .comment .number {
@@ -389,6 +417,7 @@ time {
 
 .about h2 {
 	margin-bottom: 30px;
+	text-align: center;
 }
 
 .prettyprint {
@@ -513,6 +542,10 @@ time {
 
 	.browse-happy {
 		padding: 20px 40px;
+	}
+
+	.page-body {
+		padding: 1em;
 	}
 
 	.constrain {
