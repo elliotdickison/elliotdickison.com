@@ -314,12 +314,19 @@ time {
 }
 
 .post {
+	border-bottom: 3px dashed $bg-dark;
 	clear: both;
-	margin-top: 5em;
+	margin-top: 1em;
+	padding-bottom: 2em;
 }
 
 .post:first-child {
 	margin-top: 0
+}
+
+.post:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
 }
 
 .post .body,
@@ -350,10 +357,6 @@ time {
 	margin-top: 1.8em;
 	text-align: center;
 	width: 100%;
-}
-
-#comments {
-	margin-top: 1em;
 }
 
 #comment_form h3 {
