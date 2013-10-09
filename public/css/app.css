@@ -57,6 +57,10 @@ p {
 a {
   color: #40b0f0;
   text-decoration: none;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -ms-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
   transition: color 0.2s linear; }
 
 a:hover {
@@ -265,11 +269,17 @@ time {
   margin-right: auto; }
 
 .post {
+  border-bottom: 3px dashed #dfdfdf;
   clear: both;
-  margin-top: 5em; }
+  margin-top: 1em;
+  padding-bottom: 2em; }
 
 .post:first-child {
   margin-top: 0; }
+
+.post:last-child {
+  border-bottom: none;
+  padding-bottom: 0; }
 
 .post .body,
 .post .body > * {
@@ -294,9 +304,6 @@ time {
   margin-top: 1.8em;
   text-align: center;
   width: 100%; }
-
-#comments {
-  margin-top: 1em; }
 
 #comment_form h3 {
   text-align: left; }
