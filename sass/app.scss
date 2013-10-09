@@ -3,7 +3,7 @@ $fg-light: #999;
 $bg-light: #fff;
 $bg-dark: #dfdfdf;
 $bg-medium: mix($bg-light, $bg-dark, 50%);
-$highlight: #DA5B54;
+$highlight: #da5b54;
 $link: #40b0f0;
 $facebook: #3b5998;	
 $twitter: #00aced;
@@ -112,7 +112,7 @@ p {
 a {
 	color: $link;
 	text-decoration: none;
-	transition: color 0.2s linear;
+	@include prefixed-property(transition, color 0.2s linear);
 }
 
 a:hover {
