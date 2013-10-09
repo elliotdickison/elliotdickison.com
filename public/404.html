@@ -21,10 +21,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="/img/favicon.png" />
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-        <!--[if lte IE 8]>
-            <script type="text/javascript" src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-            <script type="text/javascript" src="/js/respond.js"></script>
-        <![endif]-->
         <style>
             html {
                 background: #333;
@@ -32,99 +28,263 @@
                 font-size: 16px;
             }
 
-            i {
-                position: absolute;
-            }
-
-            .icon-globe {
-                font-size: 10em;
-                top: 50%;
-                left: 50%;
-                margin-left: -0.5em;
-                margin-top: -0.5em;
-            }
-
-            .icon-rocket {
-                font-size: 5em;
-                top: 65%;
-                left: 20%;
-            }
-
-            .icon-star {
+            h1 {
                 font-size: 1.5em;
             }
 
+            a {
+                color: #40b0f0;
+                text-decoration: none;
+                -webkit-transition: color 0.2s linear;
+                -moz-transition: color 0.2s linear;
+                -ms-transition: color 0.2s linear;
+                -o-transition: color 0.2s linear;
+                transition: color 0.2s linear;
+            }
+
+            a:hover {
+                color: #da5b54;
+            }
+
+            body > i {
+                position: absolute;
+            }
+
+            .content {
+                background: #fff;
+                color: #333;
+                border-radius: 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -140px;
+                margin-top: -150px;
+                width: 220px;
+                height: 280px;
+                padding: 10px 30px;
+                font-family: Adelle;
+                font-size: 1.2em;
+            }
+
+            .content > a {
+                position: absolute;
+                bottom: 30px;
+                left: 30px;
+            }
+
+            .icon-rocket {
+                color: #da5b54;
+                font-size: 5em;
+                top: 65%;
+                left: 30%;
+            }
+
+            .icon-star {
+                font-size: 1em;
+            }
+
+            .smaller {
+                font-size: 0.75em;
+            }
+
+            .larger {
+                font-size: 1.25em;
+            }
+
             .star-1 {
+                top: 80%;
+                left: 10%;
+            }
+
+            .star-2 {
+                top: 10%;
+                left: 30%;
+            }
+
+            .star-3 {
+                top: 30%;
+                left: 40%;
+            }
+
+            .star-4 {
+                top: 10%;
+                left: 70%;
+            }
+
+            .star-5 {
                 top: 20%;
+                left: 80%;
+            }
+
+            .star-6 {
+                top: 95%;
+                left: 35%;
+            }
+
+            .star-7 {
+                top: 5%;
                 left: 20%;
             }
-            /*html {
-                background: url(img/seaturtle.jpg) no-repeat center center fixed; 
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
-                font-family: adelle;
+
+            .star-8 {
+                top: 90%;
+                left: 90%;
             }
 
-            h1 {
-                padding: 0;
-                margin: 0;
+            .star-9 {
+                top: 30%;
+                left: 60%;
             }
 
-            h1 a {
-                font-size: 60px;
-                text-shadow: 0 0 18px #000;
-                color: #fff;
-                text-decoration: none;
+            .star-10 {
+                top: 50%;
+                left: 10%;
             }
 
-            p {
-                color: #444;
-                background: #fff;
-                bottom: 10%;
-                font-size: 36px;
-                padding: 20px 40px;
-                left: 0;
-                margin: 0;
-                position: absolute;
-                right: 0;
-                text-align: left;
-            }*/
+            .star-11 {
+                top: 60%;
+                left: 20%;
+            }
+
+            .star-12 {
+                top: 50%;
+                left: 80%;
+            }
+
+            .star-13 {
+                top: 3%;
+                left: 90%;
+            }
+
+            .star-14 {
+                top: 70%;
+                left: 70%;
+            }
+
+            .star-15 {
+                top: 40%;
+                left: 30%;
+            }
+
+            .star-16 {
+                top: 30%;
+                left: 95%;
+            }
+
+            .star-17 {
+                top: 20%;
+                left: 5%;
+            }
+
+            .star-18 {
+                top: 15%;
+                left: 50%;
+            }
+
+            .star-19 {
+                top: 70%;
+                left: 40%;
+            }
+
+            .star-20 {
+                top: 90%;
+                left: 60%;
+            }
+
+            .star-21 {
+                top: 18%;
+                left: 21%;
+            }
+
+            .star-22 {
+                top: 62%;
+                left: 53%;
+            }
+
+            .star-23 {
+                top: 12%;
+                left: 73%;
+            }
+
+            .star-24 {
+                top: 83%;
+                left: 14%;
+            }
+
+            .star-25 {
+                top: 87%;
+                left: 66%;
+            }
+
+            .star-26 {
+                top: 6%;
+                left: 47%;
+            }
+
+            .star-27 {
+                top: 53%;
+                left: 91%;
+            }
+
+            .star-28 {
+                top: 54%;
+                left: 8%;
+            }
+
+            .star-29 {
+                top: 85%;
+                left: 21%;
+            }
+
+            .star-30 {
+                top: 63%;
+                left: 62%;
+            }
         </style>
         <script src="//use.typekit.net/vmc7ddm.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body ontouchstart>
-        <i class="icon-globe" data-xrange="20" data-yrange="20"></i>
+        <i class="icon-star smaller star-1" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-2" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-3" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-4" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-5" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-6" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-7" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-8" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-9" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-10" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star star-11" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-12" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-13" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-14" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-15" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-16" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-17" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-18" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-19" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star star-20" data-xrange="20" data-yrange="20" data-invert="true"></i>
+        <i class="icon-star larger star-21" data-xrange="30" data-yrange="30" data-invert="true"></i>
+        <i class="icon-star larger star-22" data-xrange="30" data-yrange="30" data-invert="true"></i>
+        <i class="icon-star larger star-23" data-xrange="30" data-yrange="30" data-invert="true"></i>
+        <i class="icon-star larger star-24" data-xrange="30" data-yrange="30" data-invert="true"></i>
+        <i class="icon-star larger star-25" data-xrange="30" data-yrange="30" data-invert="true"></i>
+        <i class="icon-star larger star-26" data-xrange="30" data-yrange="30" data-invert="true"></i>
+        <i class="icon-star larger star-27" data-xrange="30" data-yrange="30" data-invert="true"></i>
+        <i class="icon-star larger star-28" data-xrange="30" data-yrange="30" data-invert="true"></i>
+        <i class="icon-star smaller star-29" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <i class="icon-star smaller star-30" data-xrange="10" data-yrange="10" data-invert="true"></i>
+        <div class="content" data-xrange="10" data-yrange="10">
+            <h1>Lost in Space...</h1>
+            <p>Uh oh, looks like you've lost your way. Check the url or link that got you here and <a href="/contact">let me know</a> if it's my fault.</p>
+            <a href="/"><i class="icon-double-angle-left"></i> Back home</a>
+        </div>
         <i class="icon-rocket" data-xrange="200" data-yrange="200"></i>
-        <i class="icon-star star-1" data-xrange="10" data-yrange="10" data-invert="true"></i>
-        <i class="icon-star star-2"></i>
-        <i class="icon-star star-3"></i>
-        <i class="icon-star star-4"></i>
-        <i class="icon-star star-5"></i>
-        <i class="icon-star star-6"></i>
-        <i class="icon-star star-7"></i>
-        <i class="icon-star star-8"></i>
-        <i class="icon-star star-9"></i>
-        <i class="icon-star star-10"></i>
-        <i class="icon-star star-11"></i>
-        <i class="icon-star star-12"></i>
-        <i class="icon-star star-13"></i>
-        <i class="icon-star star-14"></i>
-        <i class="icon-star star-15"></i>
-        <i class="icon-star star-16"></i>
-        <i class="icon-star star-17"></i>
-        <i class="icon-star star-18"></i>
-        <i class="icon-star star-19"></i>
-        <i class="icon-star star-20"></i>
-        
-        <i class="icon-sun"></i>
-        <i class="icon-moon"></i>
         <script type="text/javascript" src="/js/jquery-2.0.2.min.js"></script>
         <script type="text/javascript" src="/js/plax.js"></script>
         <script type="text/javascript">
-            $('i').plaxify()
+            $('i, .content').plaxify()
             $.plax.enable()
         </script>
     </body>

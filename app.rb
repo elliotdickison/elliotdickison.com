@@ -1,7 +1,6 @@
 # TODO
 # test ie... (block below ie8?)
 # code page
-# better content (about, contact, 404)
 # figure out sub-domains (admin)
 
 # SOME DAY...
