@@ -29,12 +29,9 @@ end
 get '/files/:name.:extension' do
 
   @file = UserFile.find_by(name: params[:name].downcase, extension: params[:extension].downcase)
+  halt 404 if !@file
   
-  if @file
-    content_type mime_type(@file.extension)
-    cache_control :public, :must_revalidate, max_age: 604800
-    @file.content
-  else
-    halt 404
-  end
+  content_type mime_type(@file.extension)
+  cache_control :public, :must_revalidate, max_age: 604800
+  @file.content
 end

@@ -24,7 +24,7 @@
         <link rel="icon" type="image/png" href="/img/favicon.png" />
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/app.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/fontawesome.css">
         <!--[if lte IE 8]>
             <script type="text/javascript" src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script type="text/javascript" src="/js/respond.js"></script>
@@ -56,9 +56,9 @@
             <%= yield %>
         </div>
         <footer class="page-footer cf">
-            <div class="meta">
+            <p class="meta">
                 Hand Made in <a href="#">Idaho</a> by <a href="/about" rel="author">Elliot Dickison</a>
-            </div>
+            </p>
             <div class="links">
                 <a href="//instagram.com/<%= settings.instagram_id %>" target="ej_instagram" class="icon-instagram" title="instagram"></a>
                 <a href="//twitter.com/<%= settings.twitter_id %>" target="ej_twitter" class="icon-twitter" title="twitter"></a>
