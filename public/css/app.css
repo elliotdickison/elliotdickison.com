@@ -151,8 +151,16 @@ input[type=submit] {
 
 button, .button, input[type=submit] {
   background: #da5b54;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   border: 0;
+  -webkit-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
+  -moz-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
+  -ms-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
+  -o-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   color: white;
   font-family: "futura-pt", sans-serif;
@@ -170,12 +178,24 @@ button, .button, input[type=submit] {
     -ms-transform: translate(4px, 4px);
     -o-transform: translate(4px, 4px);
     transform: translate(4px, 4px);
+    -webkit-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
+    -moz-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
+    -ms-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
+    -o-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
     box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039; }
 
 button.facebook, .button.facebook, input[type=submit].facebook {
   background: #3b5998;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   border: 0;
+  -webkit-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
+  -moz-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
+  -ms-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
+  -o-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
   box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
   color: white;
   font-family: "futura-pt", sans-serif;
@@ -188,12 +208,24 @@ button.facebook, .button.facebook, input[type=submit].facebook {
     -ms-transform: translate(4px, 4px);
     -o-transform: translate(4px, 4px);
     transform: translate(4px, 4px);
+    -webkit-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b;
+    -moz-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b;
+    -ms-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b;
+    -o-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b;
     box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b; }
 
 button.twitter, .button.twitter, input[type=submit].twitter {
   background: #00aced;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   border: 0;
+  -webkit-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
+  -moz-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
+  -ms-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
+  -o-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
   box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
   color: white;
   font-family: "futura-pt", sans-serif;
@@ -206,6 +238,10 @@ button.twitter, .button.twitter, input[type=submit].twitter {
     -ms-transform: translate(4px, 4px);
     -o-transform: translate(4px, 4px);
     transform: translate(4px, 4px);
+    -webkit-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1;
+    -moz-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1;
+    -ms-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1;
+    -o-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1;
     box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1; }
 
 button i, .button i, input[type=submit] i {
@@ -454,7 +490,7 @@ time {
     padding: 20px 40px; }
 
   .page-body {
-    padding: 1em; }
+    padding: 1.5em 1em; }
 
   .constrain {
     max-width: 500px; }
@@ -540,3 +576,72 @@ time {
 
   .page-footer .links a {
     margin: 0 10px; } }
+/**
+ * Don't show fonts while TypeKit loads
+ */
+.wf-loading .page-header a,
+.wf-loading .page-footer a,
+.wf-loading .page-footer p {
+  color: #c6c6c6 !important;
+  background: #c6c6c6 !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important; }
+
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading h4,
+.wf-loading h5,
+.wf-loading p,
+.wf-loading a,
+.wf-loading time,
+.wf-loading label,
+.wf-loading li {
+  color: #e6e6e6 !important;
+  background: #e6e6e6 !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important; }
+
+.wf-loading .alternate h2,
+.wf-loading .alternate h3,
+.wf-loading .alternate h4,
+.wf-loading .alternate h5,
+.wf-loading .alternate p,
+.wf-loading .alternate a,
+.wf-loading .alternate time,
+.wf-loading .alternate label,
+.wf-loading .alternate li {
+  color: #d5d5d5 !important;
+  background: #d5d5d5 !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important; }
+
+.wf-loading pre,
+.wf-loading pre span {
+  color: #333333 !important; }
+
+.wf-loading button,
+.wf-loading .button,
+.wf-loading input[type=submit] {
+  color: #da5b54 !important;
+  background: #da5b54 !important; }
+
+.wf-loading button.facebook,
+.wf-loading .button.facebook,
+.wf-loading input[type=submit].facebook {
+  color: #3b5998 !important;
+  background: #3b5998 !important; }
+
+.wf-loading button.twitter,
+.wf-loading .button.twitter,
+.wf-loading input[type=submit].twitter {
+  color: #00aced !important;
+  background: #00aced !important; }

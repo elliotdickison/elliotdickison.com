@@ -3,7 +3,7 @@ $fg-light: #999;
 $bg-light: #fff;
 $bg-dark: #dfdfdf;
 $bg-medium: mix($bg-light, $bg-dark, 50%);
-$highlight: #da5b54;
+$theme: #da5b54;
 $link: #40b0f0;
 $facebook: #3b5998;	
 $twitter: #00aced;
@@ -19,7 +19,7 @@ $prefixes: webkit moz ms o;
 
 @mixin button($fg-color, $bg-color, $height: 6, $active-height: 2){
 	background: $bg-color;
-	border-radius: 3px;
+	@include prefixed-property(border-radius, 3px);
 	border: 0;
 
 	$shadows: ();
@@ -27,7 +27,7 @@ $prefixes: webkit moz ms o;
 		$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
 		$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
 	}
-	box-shadow: $shadows;
+	@include prefixed-property(box-shadow, $shadows);
 
 	color: $fg-color;
 	font-family: "futura-pt", sans-serif;
@@ -45,7 +45,7 @@ $prefixes: webkit moz ms o;
 			$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
 			$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
 		}
-		box-shadow: $shadows;
+		@include prefixed-property(box-shadow, $shadows);
 	}
 }
 
@@ -77,12 +77,12 @@ $prefixes: webkit moz ms o;
 }
 
 ::selection {
-	background: $highlight;
+	background: $theme;
 	color: $bg-light;
 }
 
 ::-moz-selection {
-	background: $highlight; /* Firefox */
+	background: $theme; /* Firefox */
 	color: $bg-light;
 }
 
@@ -101,7 +101,7 @@ img {
 	position: fixed;
 	top: 0; right: 0; left: 0;
 	height: 5px;
-	background: $highlight;
+	background: $theme;
 	z-index: 999;
 }
 
@@ -116,7 +116,7 @@ a {
 }
 
 a:hover {
-	color: $highlight;
+	color: $theme;
 }
 
 a.loading,
@@ -220,7 +220,7 @@ input[type=submit] {
 }
 
 button, .button, input[type=submit] {
-	@include button($bg-light, $highlight);
+	@include button($bg-light, $theme);
 
 	display: inline-block;
 	line-height: 100%;
@@ -260,11 +260,11 @@ time {
 }
 
 .page-header a:hover {
-	color: $highlight;
+	color: $theme;
 }
 
 .page-header .selected {
-	color: $highlight;
+	color: $theme;
 }
 
 .page-footer {
@@ -281,7 +281,7 @@ time {
 }
 
 .page-footer .links a:hover {
-	color: $highlight;
+	color: $theme;
 }
 
 .left {
@@ -402,7 +402,7 @@ time {
 }
 
 .comment .number:hover {
-	color: $highlight;
+	color: $theme;
 }
 
 .comment time {
@@ -547,7 +547,7 @@ time {
 	}
 
 	.page-body {
-		padding: 1em;
+		padding: 1.5em 1em;
 	}
 
 	.constrain {
@@ -661,4 +661,70 @@ time {
 	.page-footer .links a {
 		margin: 0 10px;
 	}
+}
+
+/**
+ * Don't show fonts while TypeKit loads
+ */
+
+.wf-loading .page-header a,
+.wf-loading .page-footer a,
+.wf-loading .page-footer p {
+	color: darken($bg-dark, 10%) !important;
+	background: darken($bg-dark, 10%) !important;
+	@include prefixed-property(transition, none !important);
+}
+
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading h4,
+.wf-loading h5,
+.wf-loading p,
+.wf-loading a,
+.wf-loading time,
+.wf-loading label,
+.wf-loading li {
+	color: darken($bg-light, 10%) !important;
+	background: darken($bg-light, 10%) !important;
+	@include prefixed-property(transition, none !important);
+}
+
+.wf-loading .alternate h2,
+.wf-loading .alternate h3,
+.wf-loading .alternate h4,
+.wf-loading .alternate h5,
+.wf-loading .alternate p,
+.wf-loading .alternate a,
+.wf-loading .alternate time,
+.wf-loading .alternate label,
+.wf-loading .alternate li {
+	color: darken($bg-medium, 10%) !important;
+	background: darken($bg-medium, 10%) !important;
+	@include prefixed-property(transition, none !important);
+}
+
+.wf-loading pre,
+.wf-loading pre span {
+	color: $fg-dark !important;
+}
+
+.wf-loading button,
+.wf-loading .button,
+.wf-loading input[type=submit] {
+	color: $theme !important;
+	background: $theme !important;
+}
+
+.wf-loading button.facebook,
+.wf-loading .button.facebook,
+.wf-loading input[type=submit].facebook {
+	color: $facebook !important;
+	background: $facebook !important;
+}
+
+.wf-loading button.twitter,
+.wf-loading .button.twitter,
+.wf-loading input[type=submit].twitter {
+	color: $twitter !important;
+	background: $twitter !important;
 }

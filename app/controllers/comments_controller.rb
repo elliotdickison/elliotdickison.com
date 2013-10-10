@@ -40,6 +40,6 @@ end
 
 delete '/comments/:id', :auth => :admin do
   @comment = Comment.find(params[:id])
-  @comment.destroy
+  @comment.destroy if @comment
   redirect "#{@comment.post.link}#comments"
 end

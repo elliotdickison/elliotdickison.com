@@ -17,6 +17,7 @@ end
 get '/blog/*/*' do |year, reference_id|
   @selected_tab = :blog
   @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", year, reference_id).first
+  halt 404 if !@post
   @page_title = @post.reference_id
   erb :'posts/show'
 end
@@ -47,11 +48,13 @@ end
 get '/posts/:id', :auth => :admin do
   @selected_tab = :blog
   @post = Post.find(params[:id])
+  halt 404 if !@post
   erb :'posts/show'
 end
 
 put '/posts/:id', :auth => :admin do
   @post = Post.find(params[:id])
+  halt 404 if !@post
   if @post.update_attributes(params[:post])
     @post.publish if params[:publish] == 'on'
     erb :'posts/show'
@@ -71,5 +74,6 @@ end
 get '/posts/:id/edit', :auth => :admin do
   @selected_tab = :blog
   @post = Post.find(params[:id])
+  halt 404 if !@post
   erb :'posts/form'
 end
