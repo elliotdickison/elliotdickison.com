@@ -17,6 +17,6 @@ class EmailValidator < ActiveModel::EachValidator
     rescue Exception => e   
       r = false
     end
-    record.errors[attribute] << (options[:message] || ' must be a valid email address') unless r
+    record.errors[attribute] << (options[:message] || ' must be valid') unless r
   end
 end
