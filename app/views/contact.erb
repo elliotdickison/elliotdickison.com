@@ -1,8 +1,8 @@
 <% @message ||= Message.new %>
-<div class="contact constrain">
+<div class="contact center">
 	<%= get_message 'contact_form' %>
 	<h2>Say Hello!</h2>
-	<p>Feel free to contact me using the form below, I'd like to hear from you.</p>
+	<p>Contact me using the form below, I'd like to hear from you.</p>
 	<form action="/contact" method="post">
 		<label for="message_name">Name</label><br />
 		<input id="message_name" name="message[name]" type="text" value="<%= @message.name %>" />

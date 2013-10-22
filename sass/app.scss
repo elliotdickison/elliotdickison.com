@@ -1,9 +1,10 @@
 $fg-dark: #333;
 $fg-light: #999;
 $bg-light: #fff;
-$bg-dark: #dfdfdf;
+$bg-dark: #e5e5e5;
 $bg-medium: mix($bg-light, $bg-dark, 50%);
 $theme: #da5b54;
+$notice: #ffc;
 $link: #40b0f0;
 $facebook: #3b5998;	
 $twitter: #00aced;
@@ -90,7 +91,7 @@ body {
 	font-family: "ff-tisa-web-pro", serif;
 	font-size: 22px;
 	color: $fg-dark;
-	padding-top: 5px;
+	padding-top: 4px;
 }
 
 img {
@@ -100,7 +101,7 @@ img {
 .top-bar {
 	position: fixed;
 	top: 0; right: 0; left: 0;
-	height: 5px;
+	height: 4px;
 	background: $theme;
 	z-index: 999;
 }
@@ -151,7 +152,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-	font-size: 2.4em;
+	font-size: 2.2em;
 	font-weight: normal;
 }
 
@@ -164,7 +165,6 @@ h3 {
 	font-family: "futura-pt", sans-serif;
 	font-size: 1.7em;
 	padding: 1em 0 0.5em 0;
-	text-align: center;
 }
 
 h4 {
@@ -294,9 +294,14 @@ time {
 	margin-left: 15px;
 }
 
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .message {
-	background: #ffc;
-	border: 1px solid #eeb;
+	background: $notice;
+	border: 1px solid $bg-dark;
 	padding: 10px 20px;
 	border-radius: 5px;
 	margin-bottom: 30px;
@@ -304,20 +309,13 @@ time {
 
 .page-body {
 	min-height: 400px;
-	padding: 2em 1em;
+	padding: 3em 1em;
 	
 }
 
-.constrain {
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .post {
-	border-bottom: 3px dashed $bg-dark;
 	clear: both;
-	margin-top: 1em;
-	padding-bottom: 2em;
+	margin: 0 auto;
 }
 
 .post:first-child {
@@ -354,18 +352,21 @@ time {
 .load-more {
 	display: block;
 	font-size: 1.1em;
-	margin-top: 1.8em;
 	text-align: center;
 	width: 100%;
-}
-
-#comment_form h3 {
-	text-align: left;
 }
 
 .sad {
 	color: $fg-light;
 	font-size: 1.1em;
+	text-align: center;
+}
+
+.separator {
+	color: $fg-light;
+	display: block !important;
+	font-size: 2em;
+	margin: 1.5em 0 !important;
 	text-align: center;
 }
 
@@ -443,6 +444,19 @@ time {
 		float: left;
 	}
 
+	h1 i {
+		color: #fff;
+		float: left;
+		width: 70px !important;
+		height: 70px !important;
+		line-height: 70px !important;
+		text-align: center;
+		background: #da5b54;
+		border-radius: 50%;
+		margin: 18px 18px 0 0 !important;
+		padding: 4px 4px 0 0;
+	}
+
 	nav {
 		float: right;
 	}
@@ -460,7 +474,7 @@ time {
 		border-right: 25px solid transparent; 
 	}
 
-	.constrain {
+	.center {
 		max-width: 600px;
 	}
 
@@ -550,7 +564,7 @@ time {
 		padding: 1.5em 1em;
 	}
 
-	.constrain {
+	.center {
 		max-width: 500px;
 	}
 
@@ -661,70 +675,4 @@ time {
 	.page-footer .links a {
 		margin: 0 10px;
 	}
-}
-
-/**
- * Don't show fonts while TypeKit loads
- */
-
-.wf-loading .page-header a,
-.wf-loading .page-footer a,
-.wf-loading .page-footer p {
-	color: darken($bg-dark, 10%) !important;
-	background: darken($bg-dark, 10%) !important;
-	@include prefixed-property(transition, none !important);
-}
-
-.wf-loading h2,
-.wf-loading h3,
-.wf-loading h4,
-.wf-loading h5,
-.wf-loading p,
-.wf-loading a,
-.wf-loading time,
-.wf-loading label,
-.wf-loading li {
-	color: darken($bg-light, 10%) !important;
-	background: darken($bg-light, 10%) !important;
-	@include prefixed-property(transition, none !important);
-}
-
-.wf-loading .alternate h2,
-.wf-loading .alternate h3,
-.wf-loading .alternate h4,
-.wf-loading .alternate h5,
-.wf-loading .alternate p,
-.wf-loading .alternate a,
-.wf-loading .alternate time,
-.wf-loading .alternate label,
-.wf-loading .alternate li {
-	color: darken($bg-medium, 10%) !important;
-	background: darken($bg-medium, 10%) !important;
-	@include prefixed-property(transition, none !important);
-}
-
-.wf-loading pre,
-.wf-loading pre span {
-	color: $fg-dark !important;
-}
-
-.wf-loading button,
-.wf-loading .button,
-.wf-loading input[type=submit] {
-	color: $theme !important;
-	background: $theme !important;
-}
-
-.wf-loading button.facebook,
-.wf-loading .button.facebook,
-.wf-loading input[type=submit].facebook {
-	color: $facebook !important;
-	background: $facebook !important;
-}
-
-.wf-loading button.twitter,
-.wf-loading .button.twitter,
-.wf-loading input[type=submit].twitter {
-	color: $twitter !important;
-	background: $twitter !important;
 }

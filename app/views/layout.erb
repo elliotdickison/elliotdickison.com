@@ -1,4 +1,4 @@
-<% @page_title = "elliotjam.es" << (@page_title ? "/#{@page_title.downcase}" : '') %>
+<% @page_title = (@page_title ? "#{@page_title.downcase} | " : '') << request.host %>
 <% links = ['blog', 'code', 'about', 'contact'] %>
 <!DOCTYPE html>
 <!--

@@ -1,11 +1,13 @@
-<% @posts.each do |post|
+<% available_icons = ['bug', 'anchor', 'beaker', 'bolt', 'coffee', 'gamepad', 'puzzle-piece', 'trophy', 'umbrella'] %>
+<% @icons = available_icons.shuffle %>
+<% @posts.each_with_index do |post, index|
 	comment_count = post.comments.count
 	comment_text = case comment_count
 		when 0 then 'No Comments'
 		when 1 then '1 Comment'
 		else "#{comment_count} Comments"
 	end %>
-	<article class="post constrain">
+	<article class="post center">
 		<%= erb :'posts/post', locals: {post: post} %>
 		<footer class="cf">
 			<a class="button left" href="<%= post.link %>#comments"><i class="icon-comment"></i> <%= comment_text %></a>
@@ -13,7 +15,10 @@
 			<a class="button facebook left no-text-mobile" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i><span> Share</span></a>
 		</footer>
 	</article>
+	<%= '<i class="separator icon-' << @icons.pop << '"></i>' if index + 1 < @posts.length %>
+	<% @icons = available_icons.shuffle if !@icons || @icons.length == 0 %>
 <% end %>
 <% if @show_more_link %>
+	<%= '<i class="separator icon-' << @icons.pop << '"></i>' %>
 	<a class="load-more js-ajax-replace" href="/blog?page=<%= @current_page + 1 %>"><i class="icon-plus-sign"></i> Load more posts</a>
 <% end %>
