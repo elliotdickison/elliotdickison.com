@@ -1,8 +1,8 @@
 $fg-dark: #333;
 $fg-light: #999;
 $bg-light: #fff;
-$bg-dark: #e5e5e5;
-$bg-medium: mix($bg-light, $bg-dark, 50%);
+$bg-medium: darken($bg-light, 5%);
+$bg-dark: darken($bg-light, 10%);
 $theme: #da5b54;
 $notice: #ffc;
 $link: #40b0f0;
@@ -98,6 +98,10 @@ img {
 	display: block;
 }
 
+figcaption {
+	text-align: right;
+}
+
 .top-bar {
 	position: fixed;
 	top: 0; right: 0; left: 0;
@@ -164,7 +168,7 @@ h2 {
 h3 {
 	font-family: "futura-pt", sans-serif;
 	font-size: 1.7em;
-	padding: 1em 0 0.5em 0;
+	padding: 0 0 0.5em 0;
 }
 
 h4 {
@@ -178,7 +182,10 @@ h5 {
 	font-size: 1.2em;
 }
 
+h1 a,
 h2 a,
+h3 a,
+h4 a,
 h5 a {
 	color: inherit;
 }
@@ -239,10 +246,6 @@ button.twitter, .button.twitter, input[type=submit].twitter {
 
 button i, .button i, input[type=submit] i {
 	padding-right: 5px;
-}
-
-nav li {
-	position: relative;
 }
 
 time {
@@ -309,7 +312,7 @@ time {
 
 .page-body {
 	min-height: 400px;
-	padding: 3em 1em;
+	padding: 2em 1em;
 	
 }
 
@@ -320,11 +323,6 @@ time {
 
 .post:first-child {
 	margin-top: 0
-}
-
-.post:last-child {
-	border-bottom: none;
-	padding-bottom: 0;
 }
 
 .post .body,
@@ -344,7 +342,8 @@ time {
 	font-weight: bold;
 }
 
-.post img {
+.post img,
+.code img {
 	display: block;
 	width: 100%;
 }
@@ -359,7 +358,6 @@ time {
 .sad {
 	color: $fg-light;
 	font-size: 1.1em;
-	text-align: center;
 }
 
 .separator {
@@ -368,6 +366,15 @@ time {
 	font-size: 2em;
 	margin: 1.5em 0 !important;
 	text-align: center;
+}
+
+#comments {
+	margin-top: 1.5em;
+	padding-top: 1em;
+}
+
+#comment_form {
+	padding-top: 1em;
 }
 
 .comment {
@@ -410,13 +417,12 @@ time {
 	display: block;
 }
 
-.about img {
-	border-radius: 50%;
+.code p {
+	margin-bottom: 1em;
 }
 
-.about h2 {
-	margin-bottom: 30px;
-	text-align: center;
+.about img {
+	border-radius: 50%;
 }
 
 .prettyprint {
@@ -461,10 +467,15 @@ time {
 		float: right;
 	}
 
+	nav li {
+		display: inline-block;
+		position: relative;
+	}
+
 	nav .selected:after {
 		content: '';
 		position: absolute;
-		bottom: -34px;
+		bottom: 0;
 		left: 50%;
 		margin-left: -25px;
 		width: 0; 
@@ -498,6 +509,11 @@ time {
 		float: left;
 	}
 
+	.about {
+		max-width: 700px;
+	}
+
+	.about h3,
 	.about p {
 		margin-left: 250px;
 	}
@@ -530,10 +546,15 @@ time {
 		line-height: 48px;
 	}
 
+	nav li {
+		display: inline-block;
+		position: relative;
+	}
+
 	nav .selected:after {
 		content: '';
 		position: absolute;
-		bottom: -25px;
+		bottom: 0;
 		left: 50%;
 		margin-left: -20px;
 		width: 0; 
@@ -574,6 +595,7 @@ time {
 		float: left;
 	}
 
+	.about h3,
 	.about p {
 		margin-left: 180px;
 	}
@@ -624,7 +646,7 @@ time {
 	}
 
 	nav li a:hover {
-		background: #ccc;
+		background: darken($bg-dark, 10%);
 	}
 
 	button, .button, input[type=submit] {
@@ -649,10 +671,6 @@ time {
 		width: 130px;
 		height: 130px;
 		margin: 0 auto 20px auto;
-	}
-
-	.about h2 {
-		text-align: center;
 	}
 
 	.button.no-text-mobile {
