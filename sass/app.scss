@@ -96,9 +96,11 @@ body {
 
 img {
 	display: block;
+	width: 100%;
 }
 
 figcaption {
+	color: $fg-light;
 	text-align: right;
 }
 
@@ -111,7 +113,7 @@ figcaption {
 }
 
 p {
-	margin: 0;
+	margin: 0 0 1em 0;
 }
 
 a {
@@ -124,8 +126,8 @@ a:hover {
 	color: $theme;
 }
 
-a.loading,
-a.loading:hover {
+.loading,
+.loading:hover {
 	color: $fg-light;
 	cursor: default;
 	transition: none;
@@ -342,17 +344,17 @@ time {
 	font-weight: bold;
 }
 
-.post img,
-.code img {
-	display: block;
-	width: 100%;
-}
-
 .load-more {
 	display: block;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	text-align: center;
 	width: 100%;
+	margin-bottom: 1em;
+}
+
+.load-more img {
+	width: 48px; height: 48px;
+	margin: 0 auto;
 }
 
 .sad {
@@ -417,12 +419,17 @@ time {
 	display: block;
 }
 
-.code p {
-	margin-bottom: 1em;
+.profile-pic {
+	margin-top: 1em;
 }
 
-.about img {
+.profile-pic img {
 	border-radius: 50%;
+	margin: 0 auto;
+}
+
+.profile-pic figcaption {
+	text-align: center;
 }
 
 .prettyprint {
@@ -503,19 +510,9 @@ time {
 		padding: 20px 60px;
 	}
 
-	.about img {
+	.profile-pic img {
 		width: 200px;
 		height: 200px;
-		float: left;
-	}
-
-	.about {
-		max-width: 700px;
-	}
-
-	.about h3,
-	.about p {
-		margin-left: 250px;
 	}
 
 	.page-footer {
@@ -548,6 +545,7 @@ time {
 
 	nav li {
 		display: inline-block;
+		padding-bottom: 16px;
 		position: relative;
 	}
 
@@ -569,7 +567,7 @@ time {
 	}
 
 	.page-header {
-		padding: 1em 0;
+		padding: 1em 0 0 0;
 		text-align: center;
 	}
 
@@ -589,15 +587,9 @@ time {
 		max-width: 500px;
 	}
 
-	.about img {
+	.profile-pic img {
 		width: 150px;
 		height: 150px;
-		float: left;
-	}
-
-	.about h3,
-	.about p {
-		margin-left: 180px;
 	}
 
 	.page-footer .links {
@@ -667,10 +659,9 @@ time {
 		padding: 20px;
 	}
 
-	.about img {
+	.profile-pic img {
 		width: 130px;
 		height: 130px;
-		margin: 0 auto 20px auto;
 	}
 
 	.button.no-text-mobile {

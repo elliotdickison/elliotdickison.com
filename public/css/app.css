@@ -40,9 +40,11 @@ body {
   padding-top: 4px; }
 
 img {
-  display: block; }
+  display: block;
+  width: 100%; }
 
 figcaption {
+  color: #999999;
   text-align: right; }
 
 .top-bar {
@@ -55,7 +57,7 @@ figcaption {
   z-index: 999; }
 
 p {
-  margin: 0; }
+  margin: 0 0 1em 0; }
 
 a {
   color: #40b0f0;
@@ -69,8 +71,8 @@ a {
 a:hover {
   color: #da5b54; }
 
-a.loading,
-a.loading:hover {
+.loading,
+.loading:hover {
   color: #999999;
   cursor: default;
   transition: none; }
@@ -326,16 +328,17 @@ time {
 .post .body a {
   font-weight: bold; }
 
-.post img,
-.code img {
-  display: block;
-  width: 100%; }
-
 .load-more {
   display: block;
-  font-size: 1.1em;
+  font-size: 1.2em;
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 1em; }
+
+.load-more img {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto; }
 
 .sad {
   color: #999999;
@@ -387,11 +390,15 @@ time {
 .comment time {
   display: block; }
 
-.code p {
-  margin-bottom: 1em; }
+.profile-pic {
+  margin-top: 1em; }
 
-.about img {
-  border-radius: 50%; }
+.profile-pic img {
+  border-radius: 50%;
+  margin: 0 auto; }
+
+.profile-pic figcaption {
+  text-align: center; }
 
 .prettyprint {
   border-radius: 5px;
@@ -458,17 +465,9 @@ time {
   .browse-happy {
     padding: 20px 60px; }
 
-  .about img {
+  .profile-pic img {
     width: 200px;
-    height: 200px;
-    float: left; }
-
-  .about {
-    max-width: 700px; }
-
-  .about h3,
-  .about p {
-    margin-left: 250px; }
+    height: 200px; }
 
   .page-footer {
     line-height: 60px; }
@@ -491,6 +490,7 @@ time {
 
   nav li {
     display: inline-block;
+    padding-bottom: 16px;
     position: relative; }
 
   nav .selected:after {
@@ -509,7 +509,7 @@ time {
     padding: 5px 11px; }
 
   .page-header {
-    padding: 1em 0;
+    padding: 1em 0 0 0;
     text-align: center; }
 
   .menu-toggle {
@@ -524,14 +524,9 @@ time {
   .center {
     max-width: 500px; }
 
-  .about img {
+  .profile-pic img {
     width: 150px;
-    height: 150px;
-    float: left; }
-
-  .about h3,
-  .about p {
-    margin-left: 180px; }
+    height: 150px; }
 
   .page-footer .links {
     margin-top: 1em; }
@@ -583,10 +578,9 @@ time {
   .browse-happy {
     padding: 20px; }
 
-  .about img {
+  .profile-pic img {
     width: 130px;
-    height: 130px;
-    margin: 0 auto 20px auto; }
+    height: 130px; }
 
   .button.no-text-mobile {
     width: 20px;
