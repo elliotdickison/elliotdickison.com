@@ -26,16 +26,22 @@ function getUrlFriendly(text, trim) {
 
 $(function(){
 	$('a.js-ajax-replace').on('click', function(evt){
-		var $link = $(this);
+		var $link = $(this),
+			href = $link.attr('href'),
+			$div = 
+				$('<div />', {
+					"class": $link.attr('class')+" loading"
+				})
+				.html('<img src="/img/tomato.gif" alt="look ma, a tomato!" />Just a moment...');
 
-		$link.text('Loading...').addClass('loading');
-		
+		$link.replaceWith($div);
+
 		$.ajax({
 			"type": "GET",
-			"url": $link.attr('href')
+			"url": href
 		})
 		.done(function(data){
-			$link.replaceWith(data);
+			$div.replaceWith(data);
 		});
 
 		evt.preventDefault();

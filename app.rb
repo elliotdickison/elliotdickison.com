@@ -1,10 +1,8 @@
 # TODO
 # test ie... (block below ie8?)
-# idaho link
-# pretty print sloow
-# fix medium width nav arrow
 
 # SOME DAY...
+# pretty print sloow
 # timezone
 # clickable images in posts
 # offer rss feed
