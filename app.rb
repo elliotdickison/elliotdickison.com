@@ -111,7 +111,7 @@ helpers do
     end
 
     if message
-      '<div class="message">' << message << '<a href="#" class="js-close right">Close</a></div>'
+      '<div class="message cf">' << message << '<a href="#" class="js-close right">Close</a></div>'
     else
       ''
     end
