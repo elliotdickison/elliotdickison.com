@@ -451,157 +451,6 @@ time {
 	margin-bottom: 0.5em;
 }
 
-@media all and (min-width: 971px) {
-
-	h1 {
-		float: left;
-	}
-
-	h1 i {
-		color: #fff;
-		float: left;
-		width: 70px !important;
-		height: 70px !important;
-		line-height: 70px !important;
-		text-align: center;
-		background: #da5b54;
-		border-radius: 50%;
-		margin: 18px 18px 0 0 !important;
-		padding: 4px 4px 0 0;
-		zoom: 1;
-	}
-
-	nav {
-		float: right;
-	}
-
-	nav li {
-		display: inline-block;
-		position: relative;
-	}
-
-	nav .selected:after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		margin-left: -25px;
-		width: 0; 
-		height: 0;
-		border-left: 25px solid transparent;
-		border-bottom: 25px solid $bg-light; 
-		border-right: 25px solid transparent; 
-	}
-
-	.center {
-		max-width: 600px;
-	}
-
-	.page-header {
-		height: 5em;
-		line-height: 5em;
-		padding: 0 2em;
-	}
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.browse-happy {
-		padding: 20px 60px;
-	}
-
-	.profile-pic img {
-		width: 200px;
-		height: 200px;
-	}
-
-	.page-footer {
-		line-height: 60px;
-	}
-
-	.page-footer .meta {
-		float: left;
-	}
-
-	.page-footer .links a {
-		float: right;
-		margin-left: 40px;
-	}
-}
-
-@media all and (max-width: 970px) and (min-width: 461px) {
-
-	body {
-		font-size: 18px;
-	}
-
-	h1 {
-		font-size: 2.1em;
-	}
-
-	nav {
-		line-height: 48px;
-	}
-
-	nav li {
-		display: inline-block;
-		padding-bottom: 16px;
-		position: relative;
-	}
-
-	nav .selected:after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		margin-left: -20px;
-		width: 0; 
-		height: 0; 
-		border-left: 20px solid transparent;
-		border-bottom: 20px solid $bg-light; 
-		border-right: 20px solid transparent; 
-	}
-
-	button, .button, input[type=submit] {
-		padding: 5px 11px;
-	}
-
-	.page-header {
-		padding: 1em 0 0 0;
-		text-align: center;
-	}
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.browse-happy {
-		padding: 20px 40px;
-	}
-
-	.page-body {
-		padding: 1.5em 1em;
-	}
-
-	.center {
-		max-width: 500px;
-	}
-
-	.profile-pic img {
-		width: 150px;
-		height: 150px;
-	}
-
-	.page-footer .links {
-		margin-top: 1em;
-	}
-
-	.page-footer .links a {
-		margin: 0 10px;
-	}
-}
-
 @media all and (max-width: 460px) {
 
 	body {
@@ -684,5 +533,162 @@ time {
 
 	.page-footer .links a {
 		margin: 0 10px;
+	}
+}
+
+@media all and (max-width: 970px) and (min-width: 461px) {
+
+	body {
+		font-size: 18px;
+	}
+
+	h1 {
+		font-size: 2.1em;
+	}
+
+	nav {
+		line-height: 48px;
+	}
+
+	nav li {
+		display: inline-block;
+		padding-bottom: 16px;
+		position: relative;
+	}
+
+	nav .selected:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -20px;
+		width: 0; 
+		height: 0; 
+		border-left: 20px solid transparent;
+		border-bottom: 20px solid $bg-light; 
+		border-right: 20px solid transparent; 
+	}
+
+	button, .button, input[type=submit] {
+		padding: 5px 11px;
+	}
+
+	.page-header {
+		padding: 1em 0 0 0;
+		text-align: center;
+	}
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.browse-happy {
+		padding: 20px 40px;
+	}
+
+	.page-body {
+		padding: 1.5em 1em;
+	}
+
+	.center {
+		max-width: 500px;
+	}
+
+	.profile-pic img {
+		width: 150px;
+		height: 150px;
+	}
+
+	.page-footer .links {
+		margin-top: 1em;
+	}
+
+	.page-footer .links a {
+		margin: 0 10px;
+	}
+}
+
+@media all and (min-width: 971px) {
+
+	h1 {
+		float: left;
+	}
+
+	h1 i {
+		color: #fff;
+		float: left;
+		width: 70px !important;
+		height: 70px !important;
+		line-height: 70px !important;
+		text-align: center;
+		background: #da5b54;
+		border-radius: 50%;
+		margin: 18px 18px 0 0 !important;
+		padding: 4px 4px 0 0;
+	}
+
+	nav {
+		float: right;
+	}
+
+	nav li {
+		display: inline-block;
+		position: relative;
+	}
+
+	nav .selected:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -25px;
+		width: 0; 
+		height: 0;
+		border-left: 25px solid transparent;
+		border-bottom: 25px solid $bg-light; 
+		border-right: 25px solid transparent; 
+	}
+
+	.center {
+		max-width: 600px;
+	}
+
+	.page-header {
+		height: 5em;
+		line-height: 5em;
+		padding: 0 2em;
+	}
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.browse-happy {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		padding: 30px;
+		z-index: 999;
+		background: #FFF;
+	}
+
+	.profile-pic img {
+		width: 200px;
+		height: 200px;
+	}
+
+	.page-footer {
+		line-height: 60px;
+	}
+
+	.page-footer .meta {
+		float: left;
+	}
+
+	.page-footer .links a {
+		float: right;
+		margin-left: 40px;
 	}
 }
