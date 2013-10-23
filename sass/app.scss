@@ -304,6 +304,10 @@ time {
 	margin-right: auto;
 }
 
+.inline {
+	display: inline-block;
+}
+
 .message {
 	background: $notice;
 	border: 1px solid $bg-dark;

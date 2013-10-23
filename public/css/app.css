@@ -297,6 +297,9 @@ time {
   margin-left: auto;
   margin-right: auto; }
 
+.inline {
+  display: inline-block; }
+
 .message {
   background: #ffffcc;
   border: 1px solid #e6e6e6;

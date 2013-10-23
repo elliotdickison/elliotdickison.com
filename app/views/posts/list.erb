@@ -1,3 +1,11 @@
 <% @posts.each do |post| %>
-	<%= "<a href='/posts/#{post.id}'>#{post.id}. #{post.title}</a>" %><br />
+	<%= "<a href='/posts/#{post.id}'>#{post.id}. #{post.title}</a>" %>
+	<form action="/posts/<%= post.id %>/edit" method="get" class="inline">
+	  <input type="submit" value="edit" />
+	</form>
+	<form action="/posts/<%= post.id %>" method="post" class="inline">
+	  <input type="hidden" name="_method" value="delete" /> 
+	  <input type="submit" value="delete" onclick="return confirm('Are you sure?');" />
+	</form>
+	<br />
 <% end %>

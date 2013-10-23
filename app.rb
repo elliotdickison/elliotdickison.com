@@ -1,8 +1,8 @@
-# TODO
-# test ie... (block below ie8?)
+# TODO ASAP
+# don't destroy posts... just flag them as deleted
 
-# SOME DAY...
-# pretty print sloow
+# TODO SOME DAY...
+# host pretty print locally
 # timezone
 # clickable images in posts
 # offer rss feed
@@ -12,7 +12,6 @@
 # implement asset bundler
 # add better admin links
 # clean up css -> mobile first!
-# implement html5 & hardboiled markup (header/footer/section/rel)
 # fix indentation (2 spaces?)
 # create a github repo
 # convert from classic to modular app
@@ -21,8 +20,6 @@
 # give user ownership of posts, files, etc.
 # tourguide & notify
 # reroute after login
-# error headers/display
-# better facebook/twitter share meta data
 
 # app.rb
 require 'sinatra'
