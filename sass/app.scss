@@ -276,13 +276,12 @@ time {
 	background: $bg-dark;
 	font-family: "adelle", sans-serif;
 	letter-spacing: 1px;
-	padding: 1em 2em;
 	text-align: center;
 }
 
 .page-footer .links a {
 	color: $fg-light;
-	font-size: 2.7em;
+	font-size: 2.5em;
 }
 
 .page-footer .links a:hover {
@@ -419,7 +418,7 @@ time {
 }
 
 .profile-pic {
-	margin-top: 1em;
+	margin-top: 2em;
 }
 
 .profile-pic img {
@@ -495,9 +494,18 @@ time {
 	}
 
 	.page-header {
+		height: 40px;
 		line-height: 40px;
 		padding: 1.3em 1em;
 		text-align: center;
+	}
+
+	.page-footer {
+		padding: 1em;
+	}
+
+	.page-footer .meta {
+		margin-bottom: 1em;
 	}
 
 	.page-body {
@@ -524,14 +532,6 @@ time {
 
 	.button.no-text-mobile span {
 		display: none;
-	}
-
-	.page-footer .links {
-		margin-top: 1em;
-	}
-
-	.page-footer .links a {
-		margin: 0 10px;
 	}
 }
 
@@ -577,6 +577,14 @@ time {
 		text-align: center;
 	}
 
+	.page-footer {
+		padding: 1em;
+	}
+
+	.page-footer .meta {
+		margin-bottom: 1em;
+	}
+
 	.menu-toggle {
 		display: none;
 	}
@@ -596,10 +604,6 @@ time {
 	.profile-pic img {
 		width: 150px;
 		height: 150px;
-	}
-
-	.page-footer .links {
-		margin-top: 1em;
 	}
 
 	.page-footer .links a {
@@ -649,10 +653,11 @@ time {
 	}
 
 	.center {
-		max-width: 600px;
+		max-width: 650px;
 	}
 
-	.page-header {
+	.page-header,
+	.page-footer {
 		height: 5em;
 		line-height: 5em;
 		padding: 0 2em;
@@ -678,16 +683,13 @@ time {
 		height: 200px;
 	}
 
-	.page-footer {
-		line-height: 60px;
-	}
-
 	.page-footer .meta {
 		float: left;
 	}
 
 	.page-footer .links a {
 		float: right;
+		line-height: 2em;
 		margin-left: 40px;
 	}
 }

@@ -275,12 +275,11 @@ time {
   background: #e6e6e6;
   font-family: "adelle", sans-serif;
   letter-spacing: 1px;
-  padding: 1em 2em;
   text-align: center; }
 
 .page-footer .links a {
   color: #999999;
-  font-size: 2.7em; }
+  font-size: 2.5em; }
 
 .page-footer .links a:hover {
   color: #da5b54; }
@@ -390,7 +389,7 @@ time {
   display: block; }
 
 .profile-pic {
-  margin-top: 1em; }
+  margin-top: 2em; }
 
 .profile-pic img {
   border-radius: 50%;
@@ -450,9 +449,16 @@ time {
     padding: 5px 11px; }
 
   .page-header {
+    height: 40px;
     line-height: 40px;
     padding: 1.3em 1em;
     text-align: center; }
+
+  .page-footer {
+    padding: 1em; }
+
+  .page-footer .meta {
+    margin-bottom: 1em; }
 
   .page-body {
     padding: 0.8em; }
@@ -472,13 +478,7 @@ time {
     padding-right: 0; }
 
   .button.no-text-mobile span {
-    display: none; }
-
-  .page-footer .links {
-    margin-top: 1em; }
-
-  .page-footer .links a {
-    margin: 0 10px; } }
+    display: none; } }
 @media all and (max-width: 970px) and (min-width: 461px) {
   body {
     font-size: 18px; }
@@ -513,6 +513,12 @@ time {
     padding: 1em 0 0 0;
     text-align: center; }
 
+  .page-footer {
+    padding: 1em; }
+
+  .page-footer .meta {
+    margin-bottom: 1em; }
+
   .menu-toggle {
     display: none; }
 
@@ -528,9 +534,6 @@ time {
   .profile-pic img {
     width: 150px;
     height: 150px; }
-
-  .page-footer .links {
-    margin-top: 1em; }
 
   .page-footer .links a {
     margin: 0 10px; } }
@@ -570,9 +573,10 @@ time {
     border-right: 25px solid transparent; }
 
   .center {
-    max-width: 600px; }
+    max-width: 650px; }
 
-  .page-header {
+  .page-header,
+  .page-footer {
     height: 5em;
     line-height: 5em;
     padding: 0 2em; }
@@ -594,12 +598,10 @@ time {
     width: 200px;
     height: 200px; }
 
-  .page-footer {
-    line-height: 60px; }
-
   .page-footer .meta {
     float: left; }
 
   .page-footer .links a {
     float: right;
+    line-height: 2em;
     margin-left: 40px; } }
