@@ -1,5 +1,6 @@
 # TODO ASAP
 # don't destroy posts... just flag them as deleted
+#rss
 
 # TODO SOME DAY...
 # host pretty print locally
