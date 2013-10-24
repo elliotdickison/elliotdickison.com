@@ -328,9 +328,6 @@ time {
 .post footer {
   margin-top: 2em; }
 
-.post .body a {
-  font-weight: bold; }
-
 .load-more {
   display: block;
   font-size: 1.2em;
@@ -344,8 +341,7 @@ time {
   margin: 0 auto; }
 
 .sad {
-  color: #999999;
-  font-size: 1.1em; }
+  color: #999999; }
 
 .separator {
   color: #999999;
