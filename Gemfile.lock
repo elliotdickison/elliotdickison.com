@@ -30,6 +30,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.9)
+    newrelic_rpm (3.6.5.130)
     pg (0.17.0)
     polyglot (0.3.3)
     pony (1.5.1)
@@ -82,6 +83,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  newrelic_rpm
   pg
   pony
   rdiscount
