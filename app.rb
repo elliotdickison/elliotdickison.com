@@ -3,7 +3,6 @@
 #rss
 
 # TODO SOME DAY...
-# host pretty print locally
 # timezone
 # clickable images in posts
 # offer rss feed
