@@ -398,13 +398,20 @@ time {
 .profile-pic figcaption {
   text-align: center; }
 
+.prettyprint-header {
+  background: #e6e6e6;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 0;
+  padding: 0.2em 1em; }
+
 .prettyprint {
-  border-radius: 5px;
   background: #333333;
-  overflow-x: auto;
+  border-radius: 0 0 5px 5px;
+  color: white;
   font-size: 0.8em;
-  padding: 1em;
-  color: white; }
+  margin-top: 0 !important;
+  overflow-x: auto;
+  padding: 1em; }
 
 .footnote {
   color: #999999;

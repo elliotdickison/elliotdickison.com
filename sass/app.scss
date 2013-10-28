@@ -430,13 +430,21 @@ time {
 	text-align: center;
 }
 
+.prettyprint-header {
+	background: $bg-dark;
+	border-radius: 5px 5px 0 0;
+	margin-bottom: 0;
+	padding: 0.2em 1em;
+}
+
 .prettyprint {
-	border-radius: 5px;
 	background: $fg-dark;
-	overflow-x: auto;
-	font-size: 0.8em;
-	padding: 1em;
+	border-radius: 0 0 5px 5px;
 	color: $bg-light;
+	font-size: 0.8em;
+	margin-top: 0 !important;
+	overflow-x: auto;
+	padding: 1em;
 }
 
 .footnote {
