@@ -11,7 +11,7 @@ get '/blog' do
 
   @posts = Post.where('published_at IS NOT NULL').order('published_at DESC').offset(page_offset).limit(settings.posts_per_page)
 
-	erb :'posts/index', layout: @current_page == 0
+	erb :'posts/index', layout: !request.xhr?
 end
 
 get '/blog/*/*' do |year, reference_id|
