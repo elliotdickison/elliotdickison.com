@@ -32,7 +32,17 @@ $(function(){
 				$('<div />', {
 					"class": $link.attr('class')+" loading"
 				})
-				.html('<img src="/img/tomato.gif" alt="look ma, a tomato!" />Just a moment...');
+				.html('<img src="/img/tomato.gif" alt="look ma, a tomato!" />Just a moment...'),
+			data,
+			delay = true;
+
+		// Show the loading for a minimum of 1 second (w/o delaying the ajax request)
+		setTimeout(function(){
+			if(data){
+				$div.replaceWith(data);	
+			}
+			delay = false;
+		}, 1000);
 
 		$link.replaceWith($div);
 
@@ -40,8 +50,11 @@ $(function(){
 			"type": "GET",
 			"url": href
 		})
-		.done(function(data){
-			$div.replaceWith(data);
+		.done(function(response){
+			data = response;
+			if(!delay){
+				$div.replaceWith(data);	
+			}
 		});
 
 		evt.preventDefault();
