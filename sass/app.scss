@@ -1,8 +1,11 @@
-$fg-dark: #333;
 $fg-light: #999;
+$fg-dark: #333;
+
 $bg-light: #fff;
-$bg-medium: darken($bg-light, 5%);
+$bg-medium: darken($bg-light, 7%);
 $bg-dark: darken($bg-light, 10%);
+$bg-darkest: darken($bg-light, 15%);
+
 $theme: #da5b54;
 $notice: #ffc;
 $link: #40b0f0;
@@ -430,11 +433,12 @@ time {
 }
 
 .prettyprint-header {
-	background: $bg-dark;
+	background: $bg-darkest;
 	border-radius: 5px 5px 0 0;
-	color: $fg-light;
+	color: $fg-dark;
+	font-family: Adelle;
 	margin-bottom: 0;
-	padding: 0 1em 0.2em 1em;
+	padding: 0.5em 1em;
 }
 
 .prettyprint {
@@ -564,7 +568,9 @@ time {
 		display: none;
 	}
 
-	.comment {
+	.comment,
+	.prettyprint-header,
+	.prettyprint {
 		border-radius: 0;
 		margin-left: -1em;
 		margin-right: -1em;
