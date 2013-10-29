@@ -361,7 +361,7 @@ time {
   padding: 1em; }
 
 .comment.alternate {
-  background: #f2f2f2;
+  background: #ededed;
   border-radius: 5px; }
 
 .comment .avatar {
@@ -398,11 +398,12 @@ time {
   text-align: center; }
 
 .prettyprint-header {
-  background: #e6e6e6;
+  background: #d9d9d9;
   border-radius: 5px 5px 0 0;
-  color: #999999;
+  color: #333333;
+  font-family: Adelle;
   margin-bottom: 0;
-  padding: 0 1em 0.2em 1em; }
+  padding: 0.5em 1em; }
 
 .prettyprint {
   background: #333333;
@@ -504,7 +505,9 @@ time {
   .button.no-text-mobile span {
     display: none; }
 
-  .comment {
+  .comment,
+  .prettyprint-header,
+  .prettyprint {
     border-radius: 0;
     margin-left: -1em;
     margin-right: -1em; } }
