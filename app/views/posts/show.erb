@@ -1,7 +1,9 @@
 <% post ||= @post %>
 <% comments = post.comments.order('created_at ASC') %>
+<div class="center">
+	<a href="/blog"><i class="icon-double-angle-left"></i> Back to all posts</a>
+</div>
 <article class="post center">
-	<a href="/blog" class="back-link"><i class="icon-double-angle-left"></i> Back to all posts</a>
 	<%= erb :'posts/post' %>
 	<footer class="cf">
 		<a class="button twitter left" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i> Tweet</a>

@@ -22,6 +22,13 @@ get '/blog/*/*' do |year, reference_id|
   erb :'posts/show'
 end
 
+get '/blog/archive' do
+  @page_title = 'Archive'
+  @selected_tab = :blog
+  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
+  erb :'posts/archive'
+end
+
 post '/posts', :auth => :admin do
   @post = Post.new(params[:post])
   if @post.save
@@ -33,7 +40,7 @@ post '/posts', :auth => :admin do
 end
 
 get '/posts', :auth => :admin do
-  @posts = Post.all.order('id ASC')
+  @posts = Post.all.order('id DESC')
   @selected_tab = :blog
   @page_title = 'All Posts'
   erb :'posts/list'

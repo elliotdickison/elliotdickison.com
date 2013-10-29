@@ -32,7 +32,7 @@ $(function(){
 				$('<div />', {
 					"class": $link.attr('class')+" loading"
 				})
-				.html('<img src="/img/tomato.gif" alt="look ma, a tomato!" />Just a moment...'),
+				.html('<img src="/img/tomato.gif" alt="look ma, a tomato!" />Just a moment, please...'),
 			data,
 			delay = true;
 
