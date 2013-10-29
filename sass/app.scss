@@ -194,7 +194,7 @@ h5 a {
 
 blockquote {
 	color: $fg-light;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	margin: 0 1.5em;
 	padding-left: 1.5em;
 }
@@ -345,10 +345,9 @@ time {
 
 .load-more {
 	display: block;
-	font-size: 1.2em;
 	text-align: center;
 	width: 100%;
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
 }
 
 .load-more img {
@@ -433,6 +432,7 @@ time {
 .prettyprint-header {
 	background: $bg-dark;
 	border-radius: 5px 5px 0 0;
+	color: $fg-light;
 	margin-bottom: 0;
 	padding: 0.2em 1em;
 }
@@ -454,6 +454,30 @@ time {
 
 .contact p {
 	margin-bottom: 0.5em;
+}
+
+.archive section {
+	margin-top: 3em;
+}
+
+.archive section:first-child {
+	margin-top: 0;
+}
+
+.archive header {
+	float: left;
+}
+
+.archive h2 {
+	color: $fg-light;
+}
+
+.archive ul {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: right;
 }
 
 @media all and (max-width: 460px) {
