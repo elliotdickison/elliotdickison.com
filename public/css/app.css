@@ -34,9 +34,9 @@
   color: white; }
 
 body {
+  color: #333333;
   font-family: "ff-tisa-web-pro", serif;
   font-size: 22px;
-  color: #333333;
   padding-top: 4px; }
 
 img {
@@ -402,7 +402,7 @@ time {
   border-radius: 5px 5px 0 0;
   color: #999999;
   margin-bottom: 0;
-  padding: 0.2em 1em; }
+  padding: 0 1em 0.2em 1em; }
 
 .prettyprint {
   background: #333333;
@@ -429,7 +429,7 @@ time {
 .archive header {
   float: left; }
 
-.archive h2 {
+.archive header h2 {
   color: #999999; }
 
 .archive ul {

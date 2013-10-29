@@ -88,9 +88,9 @@ $prefixes: webkit moz ms o;
 }
 
 body {
+	color: $fg-dark;
 	font-family: "ff-tisa-web-pro", serif;
 	font-size: 22px;
-	color: $fg-dark;
 	padding-top: 4px;
 }
 
@@ -434,7 +434,7 @@ time {
 	border-radius: 5px 5px 0 0;
 	color: $fg-light;
 	margin-bottom: 0;
-	padding: 0.2em 1em;
+	padding: 0 1em 0.2em 1em;
 }
 
 .prettyprint {
@@ -468,7 +468,7 @@ time {
 	float: left;
 }
 
-.archive h2 {
+.archive header h2 {
 	color: $fg-light;
 }
 
