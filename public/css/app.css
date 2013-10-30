@@ -112,7 +112,7 @@ h3 {
 h4 {
   font-family: "futura-pt", sans-serif;
   font-size: 1.5em;
-  margin-bottom: -0.5em; }
+  margin-bottom: 0.5em; }
 
 h5 {
   font-family: "futura-pt", sans-serif;
@@ -121,7 +121,8 @@ h5 {
 h1 a,
 h2 a,
 h3 a,
-h4 a {
+h4 a,
+h5 a {
   color: inherit; }
 
 blockquote {
@@ -309,58 +310,18 @@ time {
   min-height: 400px;
   padding: 2em 1em; }
 
-.scroll-anchor {
-  color: #40b0f0;
-  float: right;
-  font-weight: normal;
-  visibility: hidden; }
-
-.scroll-anchor:hover {
-  color: #da5b54; }
-
-.scroll-destination:hover .scroll-anchor {
-  visibility: visible; }
-
-.scroll-anchor-1 {
-  color: #40b0f0;
-  float: right;
-  font-weight: normal;
-  visibility: hidden; }
-
-.scroll-anchor-1:hover {
-  color: #da5b54; }
-
-.scroll-destination-1:hover .scroll-anchor-1 {
-  visibility: visible; }
-
-.scroll-anchor-2 {
-  color: #40b0f0;
-  float: right;
-  font-weight: normal;
-  visibility: hidden; }
-
-.scroll-anchor-2:hover {
-  color: #da5b54; }
-
-.scroll-destination-2:hover .scroll-anchor-2 {
-  visibility: visible; }
-
 .post {
   clear: both;
   margin: 0 auto; }
 
-.post:first-child {
-  margin-top: 0; }
+.post header {
+  margin-bottom: 1.5em; }
 
-.post .body,
-.post .body > * {
-  margin-top: 1.5em; }
-
-.post .body > *:first-child {
-  margin-top: 0; }
-
-.post footer {
-  margin-top: 2em; }
+.post .body p,
+.post .body img,
+.post .body pre,
+.post .body blockquote {
+  margin-bottom: 2em; }
 
 .load-more {
   display: block;
@@ -467,6 +428,42 @@ time {
   padding: 0;
   text-align: right; }
 
+.scroll-anchor {
+  color: #40b0f0;
+  float: right;
+  font-weight: normal;
+  visibility: hidden; }
+
+.scroll-anchor:hover {
+  color: #da5b54; }
+
+.scroll-destination:hover .scroll-anchor {
+  visibility: visible; }
+
+.scroll-anchor-1 {
+  color: #40b0f0;
+  float: right;
+  font-weight: normal;
+  visibility: hidden; }
+
+.scroll-anchor-1:hover {
+  color: #da5b54; }
+
+.scroll-destination-1:hover .scroll-anchor-1 {
+  visibility: visible; }
+
+.scroll-anchor-2 {
+  color: #40b0f0;
+  float: right;
+  font-weight: normal;
+  visibility: hidden; }
+
+.scroll-anchor-2:hover {
+  color: #da5b54; }
+
+.scroll-destination-2:hover .scroll-anchor-2 {
+  visibility: visible; }
+
 @media all and (max-width: 460px) {
   body {
     font-size: 16px; }
@@ -537,7 +534,16 @@ time {
   .prettyprint {
     border-radius: 0;
     margin-left: -1em;
-    margin-right: -1em; } }
+    margin-right: -1em; }
+
+  .scroll-anchor {
+    display: none !important; }
+
+  .scroll-anchor-1 {
+    display: none !important; }
+
+  .scroll-anchor-2 {
+    display: none !important; } }
 @media all and (max-width: 970px) and (min-width: 461px) {
   body {
     font-size: 18px; }
