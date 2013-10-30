@@ -457,6 +457,11 @@ time {
 	float: left;
 }
 
+.archive header h4 {
+	padding: 0;
+	margin: 0 0 -0.5em 0;
+}
+
 .archive header h2 {
 	color: $fg-light;
 }
@@ -469,22 +474,19 @@ time {
 	text-align: right;
 }
 
-@for $i from 0 through 2 {
-	$suffix: if($i == 0, null, -#{$i});
-	.scroll-anchor#{$suffix} {
-		color: $link;
-		float: right;
-		font-weight: normal;
-		visibility: hidden;
-	}
+.scroll-anchor {
+	color: $link;
+	float: right;
+	font-weight: normal;
+	visibility: hidden;
+}
 
-	.scroll-anchor#{$suffix}:hover {
-		color: $theme;
-	}
+.scroll-anchor:hover {
+	color: $theme;
+}
 
-	.scroll-destination#{$suffix}:hover .scroll-anchor#{$suffix} {
-		visibility: visible;
-	}
+.scroll-destination:hover .scroll-anchor {
+	visibility: visible;
 }
 
 @media all and (max-width: 460px) {
@@ -579,11 +581,8 @@ time {
 		margin-right: -1em;
 	}
 
-	@for $i from 0 through 2 {
-		$suffix: if($i == 0, null, -#{$i});
-		.scroll-anchor#{$suffix} {
-			display: none !important;
-		}
+	.scroll-anchor {
+		display: none !important;
 	}
 }
 

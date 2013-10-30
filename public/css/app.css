@@ -419,6 +419,10 @@ time {
 .archive header {
   float: left; }
 
+.archive header h4 {
+  padding: 0;
+  margin: 0 0 -0.5em 0; }
+
 .archive header h2 {
   color: #999999; }
 
@@ -439,30 +443,6 @@ time {
   color: #da5b54; }
 
 .scroll-destination:hover .scroll-anchor {
-  visibility: visible; }
-
-.scroll-anchor-1 {
-  color: #40b0f0;
-  float: right;
-  font-weight: normal;
-  visibility: hidden; }
-
-.scroll-anchor-1:hover {
-  color: #da5b54; }
-
-.scroll-destination-1:hover .scroll-anchor-1 {
-  visibility: visible; }
-
-.scroll-anchor-2 {
-  color: #40b0f0;
-  float: right;
-  font-weight: normal;
-  visibility: hidden; }
-
-.scroll-anchor-2:hover {
-  color: #da5b54; }
-
-.scroll-destination-2:hover .scroll-anchor-2 {
   visibility: visible; }
 
 @media all and (max-width: 460px) {
@@ -538,12 +518,6 @@ time {
     margin-right: -1em; }
 
   .scroll-anchor {
-    display: none !important; }
-
-  .scroll-anchor-1 {
-    display: none !important; }
-
-  .scroll-anchor-2 {
     display: none !important; } }
 @media all and (max-width: 970px) and (min-width: 461px) {
   body {
