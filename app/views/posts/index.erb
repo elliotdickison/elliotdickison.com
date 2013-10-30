@@ -9,7 +9,7 @@
 		else "#{comment_count} Comments"
 	end %>
 	<article class="post center">
-		<%= erb :'posts/post', locals: {post: post} %>
+		<%= erb :'posts/post', locals: {post: post, title_link: true} %>
 		<footer class="cf">
 			<a class="button left" href="<%= post.link %>#comments"><i class="icon-comment"></i> <%= comment_text %></a>
 			<a class="button twitter left no-text-mobile" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i><span> Tweet</span></a>

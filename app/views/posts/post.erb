@@ -1,6 +1,6 @@
 <% post ||= @post %>
 <header>
-	<h2><a href="<%= post.link %>"><%= post.title %></a></h2>
+	<h2><%= (defined? title_link) && title_link ? ('<a href="' << post.link << '">' << post.title << '</a>') : post.title %></h2>
 	<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><i class="icon-time"> </i><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
 </header>
 <div class="body"><%= post %></div>

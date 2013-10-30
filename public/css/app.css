@@ -121,8 +121,7 @@ h5 {
 h1 a,
 h2 a,
 h3 a,
-h4 a,
-h5 a {
+h4 a {
   color: inherit; }
 
 blockquote {
@@ -310,6 +309,18 @@ time {
   min-height: 400px;
   padding: 2em 1em; }
 
+.scroll-anchor {
+  color: #40b0f0;
+  float: right;
+  font-weight: normal;
+  visibility: hidden; }
+
+.scroll-anchor:hover {
+  color: #da5b54; }
+
+.scroll-destination:hover .scroll-anchor {
+  visibility: visible; }
+
 .post {
   clear: both;
   margin: 0 auto; }
@@ -352,7 +363,7 @@ time {
   margin-top: 1em;
   padding-top: 1.5em; }
 
-#comment_form {
+#comment-form {
   padding-top: 1em; }
 
 .comment {
@@ -375,14 +386,6 @@ time {
 
 .comment .body {
   margin-left: 4.6em; }
-
-.comment .number {
-  color: #40b0f0;
-  float: right;
-  font-weight: normal; }
-
-.comment .number:hover {
-  color: #da5b54; }
 
 .comment time {
   display: block; }
