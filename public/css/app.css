@@ -321,6 +321,30 @@ time {
 .scroll-destination:hover .scroll-anchor {
   visibility: visible; }
 
+.scroll-anchor-1 {
+  color: #40b0f0;
+  float: right;
+  font-weight: normal;
+  visibility: hidden; }
+
+.scroll-anchor-1:hover {
+  color: #da5b54; }
+
+.scroll-destination-1:hover .scroll-anchor-1 {
+  visibility: visible; }
+
+.scroll-anchor-2 {
+  color: #40b0f0;
+  float: right;
+  font-weight: normal;
+  visibility: hidden; }
+
+.scroll-anchor-2:hover {
+  color: #da5b54; }
+
+.scroll-destination-2:hover .scroll-anchor-2 {
+  visibility: visible; }
+
 .post {
   clear: both;
   margin: 0 auto; }

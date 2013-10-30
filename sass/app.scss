@@ -323,19 +323,22 @@ time {
 	
 }
 
-.scroll-anchor {
-	color: $link;
-	float: right;
-	font-weight: normal;
-	visibility: hidden;
-}
+@for $i from 0 through 2 {
+	$suffix: if($i == 0, null, -#{$i});
+	.scroll-anchor#{$suffix} {
+		color: $link;
+		float: right;
+		font-weight: normal;
+		visibility: hidden;
+	}
 
-.scroll-anchor:hover {
-	color: $theme;
-}
+	.scroll-anchor#{$suffix}:hover {
+		color: $theme;
+	}
 
-.scroll-destination:hover .scroll-anchor {
-	visibility: visible;
+	.scroll-destination#{$suffix}:hover .scroll-anchor#{$suffix} {
+		visibility: visible;
+	}
 }
 
 .post {

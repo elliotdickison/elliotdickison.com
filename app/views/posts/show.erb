@@ -10,15 +10,15 @@
 		<a class="button facebook left" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i> Share</a>
 	</footer>
 </article>
-<div id="comments" class="center">
-	<h3 class="scroll-destination"><i class="icon-comments"> </i>Comments <a href="#comments" class="scroll-anchor">#comments</a></h3>
+<div id="comments" class="center scroll-destination-1">
+	<h3><i class="icon-comments"> </i>Comments <a href="#comments" class="scroll-anchor-1">#comments</a></h3>
 	<%= '<div class="sad">Sad, no one has commented yet. A pity comment from you, quisáz?</div>' if comments.empty? %>
 	<% comments.each_with_index do |comment, i| %>
 		<%= erb :'comments/comment', locals: {comment: comment, alternate: i.even? } %>
 	<% end %>
 </div>
-<div id="comment-form" class="center">
-	<h3 class="scroll-destination">Leave your own! <a href="#comment-form" class="scroll-anchor">#comment-form</a></h3>
+<div id="comment-form" class="center scroll-destination">
+	<h3>Leave your own! <a href="#comment-form" class="scroll-anchor">#comment-form</a></h3>
 	<%= get_message 'comment_form' %>
 	<%= erb :'comments/form', locals: {post: post} %>
 </div>
