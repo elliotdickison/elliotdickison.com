@@ -190,8 +190,7 @@ h5 {
 h1 a,
 h2 a,
 h3 a,
-h4 a,
-h5 a {
+h4 a {
 	color: inherit;
 }
 
@@ -324,6 +323,21 @@ time {
 	
 }
 
+.scroll-anchor {
+	color: $link;
+	float: right;
+	font-weight: normal;
+	visibility: hidden;
+}
+
+.scroll-anchor:hover {
+	color: $theme;
+}
+
+.scroll-destination:hover .scroll-anchor {
+	visibility: visible;
+}
+
 .post {
 	clear: both;
 	margin: 0 auto;
@@ -375,7 +389,7 @@ time {
 	padding-top: 1.5em;
 }
 
-#comment_form {
+#comment-form {
 	padding-top: 1em;
 }
 
@@ -403,16 +417,6 @@ time {
 
 .comment .body {
 	margin-left: 4.6em;
-}
-
-.comment .number {
-	color: $link;
-	float: right;
-	font-weight: normal;
-}
-
-.comment .number:hover {
-	color: $theme;
 }
 
 .comment time {

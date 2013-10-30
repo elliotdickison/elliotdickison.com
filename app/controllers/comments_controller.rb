@@ -34,7 +34,7 @@ post '/comments' do
     set_tmp_cookie params[:comment]
 
     @post = Post.find(params[:comment][:post_id])
-    redirect "#{@post.link}#comment_form"
+    redirect "#{@post.link}#comment-form"
   end
 end
 
