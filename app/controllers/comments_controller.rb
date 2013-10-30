@@ -21,7 +21,7 @@ post '/comments' do
       # Fail silently if we can't send an email
     end
 
-    redirect "#{@comment.post.link}#comment#{@comment.id}"
+    redirect "#{@comment.post.link}#comment-#{@comment.id}"
   else
     error_message = generic_error_message
   end
