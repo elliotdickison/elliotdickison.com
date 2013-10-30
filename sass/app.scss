@@ -179,7 +179,7 @@ h3 {
 h4 {
 	font-family: "futura-pt", sans-serif;
 	font-size: 1.5em;
-	margin-bottom: -0.5em;
+	margin-bottom: 0.5em;
 }
 
 h5 {
@@ -190,7 +190,8 @@ h5 {
 h1 a,
 h2 a,
 h3 a,
-h4 a {
+h4 a,
+h5 a {
 	color: inherit;
 }
 
@@ -323,44 +324,20 @@ time {
 	
 }
 
-@for $i from 0 through 2 {
-	$suffix: if($i == 0, null, -#{$i});
-	.scroll-anchor#{$suffix} {
-		color: $link;
-		float: right;
-		font-weight: normal;
-		visibility: hidden;
-	}
-
-	.scroll-anchor#{$suffix}:hover {
-		color: $theme;
-	}
-
-	.scroll-destination#{$suffix}:hover .scroll-anchor#{$suffix} {
-		visibility: visible;
-	}
-}
-
 .post {
 	clear: both;
 	margin: 0 auto;
 }
 
-.post:first-child {
-	margin-top: 0
+.post header {
+	margin-bottom: 1.5em;
 }
 
-.post .body,
-.post .body > * {
-	margin-top: 1.5em;
-}
-
-.post .body > *:first-child {
-	margin-top: 0;
-}
-
-.post footer {
-	margin-top: 2em;
+.post .body p,
+.post .body img,
+.post .body pre,
+.post .body blockquote {
+	margin-bottom: 2em;
 }
 
 .load-more {
@@ -491,6 +468,24 @@ time {
 	text-align: right;
 }
 
+@for $i from 0 through 2 {
+	$suffix: if($i == 0, null, -#{$i});
+	.scroll-anchor#{$suffix} {
+		color: $link;
+		float: right;
+		font-weight: normal;
+		visibility: hidden;
+	}
+
+	.scroll-anchor#{$suffix}:hover {
+		color: $theme;
+	}
+
+	.scroll-destination#{$suffix}:hover .scroll-anchor#{$suffix} {
+		visibility: visible;
+	}
+}
+
 @media all and (max-width: 460px) {
 
 	body {
@@ -581,6 +576,13 @@ time {
 		border-radius: 0;
 		margin-left: -1em;
 		margin-right: -1em;
+	}
+
+	@for $i from 0 through 2 {
+		$suffix: if($i == 0, null, -#{$i});
+		.scroll-anchor#{$suffix} {
+			display: none !important;
+		}
 	}
 }
 
