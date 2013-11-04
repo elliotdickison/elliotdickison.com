@@ -10,6 +10,8 @@ xml.rss :version => "2.0" do
         xml.title post.title
         xml.link "#{request.scheme}://#{request.host}#{post.link}"
         xml.description post.body
+          .gsub(/(href="\/)/, "href=\"#{request.scheme}://#{request.host}/")
+          .gsub(/(href="#)/, "href=\"#{request.scheme}://#{request.host}#{post.link}#")
         xml.pubDate Time.parse(post.published_at.to_s).rfc822()
         xml.guid "#{request.scheme}://#{request.host}#{post.link}"
       end
