@@ -5,18 +5,14 @@
 # TODO SOME DAY...
 # timezone
 # clickable images in posts
-# offer rss feed
-# post tags (remember rel-tag microformat)
 # better admin controls
 # cache user_files in tmp folder
 # implement asset bundler
 # add better admin links
-# clean up css -> mobile first!
 # fix indentation (2 spaces?)
 # create a github repo
 # convert from classic to modular app
 # validate post reference id uniqueness
-# blog archive
 # give user ownership of posts, files, etc.
 # tourguide & notify
 # reroute after login
