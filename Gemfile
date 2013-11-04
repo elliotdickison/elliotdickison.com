@@ -10,6 +10,7 @@ gem 'sinatra-subdomain'
 gem 'rdiscount'
 gem 'sinatra-contrib'
 gem 'newrelic_rpm'
+gem 'builder'
 
 group :development do
   gem 'tux'
