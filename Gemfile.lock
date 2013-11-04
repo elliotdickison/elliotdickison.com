@@ -80,6 +80,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  builder
   newrelic_rpm
   pg
   pony

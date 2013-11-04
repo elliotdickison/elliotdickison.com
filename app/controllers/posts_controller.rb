@@ -2,6 +2,11 @@ get '/' do
   redirect '/blog'
 end
 
+get '/rss' do
+  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
+  builder :'posts/rss'
+end
+
 get '/blog' do
   @page_title = 'Blog'
   @selected_tab = :blog

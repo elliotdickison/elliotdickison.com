@@ -22,13 +22,12 @@
 # reroute after login
 
 # app.rb
+
+# Minimum requires for rake
 require 'sinatra'
 require 'sinatra/activerecord'
-require 'sinatra/subdomain'
-require 'sinatra/cookies'
 require 'digest/md5'
 require 'pony'
-require 'uri'
 
 # Set the database
 set :database, ENV['DATABASE_URL'] || 'postgresql://elliot.dickison:iamaskier@localhost/elliot.dickison'
