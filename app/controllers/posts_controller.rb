@@ -2,9 +2,9 @@ get '/' do
   redirect '/blog'
 end
 
-get '/rss' do
+get '/feed' do
   @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
-  builder :'posts/rss'
+  builder :'posts/feed'
 end
 
 get '/blog' do
