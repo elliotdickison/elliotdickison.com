@@ -1,6 +1,6 @@
 <% available_icons = ['bug', 'anchor', 'beaker', 'bolt', 'coffee', 'gamepad', 'puzzle-piece', 'trophy', 'umbrella', 'plane', 'food', 'leaf'] %>
 <% @icons = available_icons.shuffle %>
-<%= '<div class="center"><a href="/blog/archive"><i class="icon-archive"> </i>Archive</a></div>' if not request.xhr? %>
+<%= '<div class="center cf"><a href="/blog/archive" class="left"><i class="icon-archive"></i> Archive</a><a href="/blog/tags" class="left"><i class="icon-tags"></i> Tags</a></div>' if not request.xhr? %>
 <% @posts.each_with_index do |post, index|
 	comment_count = post.comments.count
 	comment_text = case comment_count

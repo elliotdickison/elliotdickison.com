@@ -43,18 +43,13 @@ img {
   display: block;
   width: 100%; }
 
+ul {
+  margin: 0;
+  padding: 0; }
+
 figcaption {
   color: #999999;
   text-align: right; }
-
-.top-bar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 4px;
-  background: #da5b54;
-  z-index: 999; }
 
 p {
   margin: 0 0 1em 0; }
@@ -259,6 +254,18 @@ time {
   color: #999999;
   font-family: "futura-pt", sans-serif; }
 
+.top-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: #da5b54;
+  z-index: 999; }
+
+.tagging {
+  font-family: "futura-pt", sans-serif; }
+
 .page-header {
   background: #e6e6e6;
   font-family: "adelle", sans-serif; }
@@ -287,11 +294,11 @@ time {
 
 .left {
   float: left;
-  margin-right: 15px; }
+  margin-right: 1em; }
 
 .right {
   float: right;
-  margin-left: 15px; }
+  margin-left: 1em; }
 
 .center {
   margin-left: auto;
@@ -390,7 +397,7 @@ time {
   background: #d9d9d9;
   border-radius: 5px 5px 0 0;
   color: #333333;
-  font-family: Adelle;
+  font-family: "adelle", sans-serif;
   margin-bottom: 0;
   padding: 0.5em 1em; }
 
@@ -409,6 +416,9 @@ time {
 
 .contact p {
   margin-bottom: 0.5em; }
+
+.archive {
+  margin-top: 1em; }
 
 .archive section {
   margin-top: 3em; }
@@ -429,13 +439,15 @@ time {
 .archive ul {
   float: right;
   list-style: none;
-  margin: 0;
-  padding: 0;
   text-align: right; }
+
+.tags {
+  list-style: none;
+  font-size: 1.2em;
+  margin-top: 1em; }
 
 .scroll-anchor {
   color: #40b0f0;
-  float: right;
   font-weight: normal;
   visibility: hidden; }
 
@@ -444,6 +456,9 @@ time {
 
 .scroll-destination:hover .scroll-anchor {
   visibility: visible; }
+
+.comment .scroll-anchor {
+  float: right; }
 
 @media all and (max-width: 460px) {
   body {

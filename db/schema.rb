@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030185441) do
+ActiveRecord::Schema.define(version: 20131102031229) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20131030185441) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type"], name: "index_taggings_on_tag_id_and_taggable_id_and_taggable_type", unique: true, using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "name"

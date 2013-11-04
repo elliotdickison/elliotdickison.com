@@ -21,8 +21,6 @@ GEM
     backports (3.3.3)
     bond (0.4.3)
     builder (3.1.4)
-    haml (4.0.3)
-      tilt
     i18n (0.6.5)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -82,7 +80,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  haml
   newrelic_rpm
   pg
   pony
