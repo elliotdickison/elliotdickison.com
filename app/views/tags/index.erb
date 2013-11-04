@@ -1,0 +1,9 @@
+<div class="center">
+	<a href="/blog"><i class="icon-double-angle-left"></i> Blog</a>
+	<h2>Tags</h2>
+</div>
+<ul class="center tags cf">
+	<% @tags.each do |tag| %>
+		<li class="left"><a href="/blog/tags/<%= tag.id %>"><i class="icon-tag"></i> <%= tag.name %></a></li>
+	<% end %>
+</ul>
