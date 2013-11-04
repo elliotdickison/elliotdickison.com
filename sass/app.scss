@@ -494,6 +494,7 @@ time {
 .scroll-anchor {
 	color: $link;
 	font-weight: normal;
+	float: right;
 	visibility: hidden;
 }
 
@@ -503,10 +504,6 @@ time {
 
 .scroll-destination:hover .scroll-anchor {
 	visibility: visible;
-}
-
-.comment .scroll-anchor {
-	float: right;
 }
 
 @media all and (max-width: 460px) {
