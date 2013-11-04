@@ -14,9 +14,9 @@ get '/blog' do
 	erb :'posts/index', layout: !request.xhr?
 end
 
-get '/blog/*/*' do |year, reference_id|
+get %r{/blog/([0-9]+)/(.*)} do
   @selected_tab = :blog
-  @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", year, reference_id).first
+  @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", params[:captures].first, params[:captures].last).first
   halt 404 if !@post
   @page_title = @post.reference_id
   erb :'posts/show'
@@ -64,6 +64,12 @@ put '/posts/:id', :auth => :admin do
   halt 404 if !@post
   if @post.update_attributes(params[:post])
     @post.publish if params[:publish] == 'on'
+    if params[:tags]
+      @post.tags = params[:tags].split(',').map do |tag|
+        Tag.find_by_name(tag) || Tag.create({name: tag})
+      end
+      @post.save
+    end
     erb :'posts/show'
   else
     redirect "/posts/#{@post.id}/edit"

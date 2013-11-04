@@ -1,7 +1,7 @@
 <% post ||= @post %>
 <% comments = post.comments.order('created_at ASC') %>
 <div class="center">
-	<a href="/blog"><i class="icon-double-angle-left"></i> Back to all posts</a>
+	<a href="/blog"><i class="icon-double-angle-left"></i> All posts</a>
 </div>
 <article class="post center">
 	<%= erb :'posts/post' %>
