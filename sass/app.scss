@@ -194,15 +194,24 @@ h5 a {
 }
 
 blockquote {
-	color: $fg-light;
-	font-size: 1.2em;
-	margin: 0 1.5em;
-	padding-left: 1.5em;
+  background: $bg-medium;
+  border-left: 10px solid $fg-light;
+  margin: 1.5em 0;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
 }
 
-blockquote i {
-	float: left;
-	margin-left: -1.5em;
+blockquote:before {
+  color: $fg-light;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.1em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
 }
 
 label {
