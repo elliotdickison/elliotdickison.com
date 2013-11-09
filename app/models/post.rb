@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   end
 
   def to_s
-    self.body
+    RDiscount.new(self.body, :smart).to_html
   end
 
   def link

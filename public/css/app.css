@@ -122,14 +122,22 @@ h5 a {
   color: inherit; }
 
 blockquote {
-  color: #999999;
-  font-size: 1.2em;
-  margin: 0 1.5em;
-  padding-left: 1.5em; }
+  background: #ededed;
+  border-left: 10px solid #999999;
+  margin: 1.5em 0;
+  padding: 0.5em 10px;
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
 
-blockquote i {
-  float: left;
-  margin-left: -1.5em; }
+blockquote:before {
+  color: #999999;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.1em;
+  vertical-align: -0.4em; }
+
+blockquote p {
+  display: inline; }
 
 label {
   color: #999999;
