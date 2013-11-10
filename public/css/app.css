@@ -424,6 +424,7 @@ time {
 
 .footnote {
   color: #999999;
+  display: block;
   font-size: 0.8em; }
 
 .contact p {
