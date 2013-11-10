@@ -415,8 +415,12 @@ time {
   color: white;
   font-size: 0.8em;
   margin-top: 0 !important;
-  overflow-x: auto;
-  padding: 1em; }
+  overflow: auto;
+  padding: 1em;
+  white-space: pre !important;
+  -ms-word-break: normal !important;
+  word-break: normal !important;
+  word-wrap: normal !important; }
 
 .footnote {
   color: #999999;

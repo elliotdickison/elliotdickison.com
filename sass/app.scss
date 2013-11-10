@@ -450,8 +450,12 @@ time {
 	color: $bg-light;
 	font-size: 0.8em;
 	margin-top: 0 !important;
-	overflow-x: auto;
+	overflow: auto;
 	padding: 1em;
+	white-space: pre !important;
+	-ms-word-break: normal !important;
+	word-break: normal !important;
+	word-wrap: normal !important;
 }
 
 .footnote {
