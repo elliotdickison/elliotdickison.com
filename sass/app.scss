@@ -125,13 +125,6 @@ a:hover {
 	color: $theme;
 }
 
-.loading,
-.loading:hover {
-	color: $fg-light;
-	cursor: default;
-	transition: none;
-}
-
 nav {
 	font-size: 1.5em;
 }
@@ -213,6 +206,10 @@ blockquote p {
   display: inline;
 }
 
+form {
+	max-width: 950px;
+}
+
 label {
 	color: $fg-light;
 	font-family: "futura-pt", sans-serif;
@@ -280,6 +277,13 @@ time {
 	height: 4px;
 	background: $theme;
 	z-index: 999;
+}
+
+.loading,
+.loading:hover {
+	color: $fg-light;
+	cursor: default;
+	transition: none;
 }
 
 .tagging {
