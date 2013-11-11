@@ -23,7 +23,6 @@ $prefixes: webkit moz ms o;
 
 @mixin button($fg-color, $bg-color, $height: 6, $active-height: 2){
 	background: $bg-color;
-	@include prefixed-property(border-radius, 3px);
 	border: 0;
 
 	$shadows: ();
@@ -176,7 +175,6 @@ h3 {
 h4 {
 	font-family: "futura-pt", sans-serif;
 	font-size: 1.5em;
-	margin-top: -1em;
 	padding: 1em 0 0.5em 0;
 }
 
@@ -195,9 +193,9 @@ h5 a {
 
 blockquote {
   background: $bg-medium;
-  border-left: 10px solid $fg-light;
+  border-left: 8px solid $fg-light;
   margin: 1.5em 0;
-  padding: 0.5em 10px;
+  padding: 0.6em;
   quotes: "\201C""\201D""\2018""\2019";
 }
 
@@ -223,15 +221,24 @@ input[type=text],
 input[type=email],
 input[type=password],
 textarea {
-	border-radius: 5px;
-	border: 1px solid $fg-light;
+	background: $bg-medium;
+	border: none;
 	box-sizing: border-box;
 	display: block;
 	font-family: "ff-tisa-web-pro", serif;
 	font-size: 1em;
 	margin: 0 0 0.5em 0;
-	padding: 5px 10px;
+	padding: 0.5em 0.8em;
+	border-left: 4px solid $bg-darkest;
 	width: 100%;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+textarea:focus {
+	border-left: 4px solid $theme;
+	outline: none;
 }
 
 input[type=submit] {
@@ -243,6 +250,7 @@ button, .button, input[type=submit] {
 
 	display: inline-block;
 	line-height: 100%;
+	margin-right: 0.8em;
 	padding: 6px 12px;
 	position: relative;
 	text-decoration: none;
@@ -275,6 +283,7 @@ time {
 
 .tagging {
 	font-family: "futura-pt", sans-serif;
+	margin-left: 0.5em;
 }
 
 .page-header {
@@ -333,7 +342,6 @@ time {
 	background: $notice;
 	border: 1px solid $bg-dark;
 	padding: 10px 20px;
-	border-radius: 5px;
 	margin-bottom: 30px;
 }
 
@@ -383,6 +391,10 @@ time {
 	text-align: center;
 }
 
+.top-links {
+	margin-bottom: 1.5em;
+}
+
 #comments {
 	margin-top: 1em;
 	padding-top: 1.5em;
@@ -400,14 +412,13 @@ time {
 
 .comment.alternate {
 	background: $bg-medium;
-	border-radius: 5px;
 }
 
 .comment .avatar {
 	float: left;
 	width: 3.6em;
 	height: 3.6em;
-	border-radius: 2.3em;
+	border-radius: 50%;
 }
 
 .comment header {
@@ -435,18 +446,8 @@ time {
 	text-align: center;
 }
 
-.prettyprint-header {
-	background: $bg-darkest;
-	border-radius: 5px 5px 0 0;
-	color: $fg-dark;
-	font-family: "adelle", sans-serif;
-	margin-bottom: 0;
-	padding: 0.5em 1em;
-}
-
 .prettyprint {
 	background: $fg-dark;
-	border-radius: 0 0 5px 5px;
 	color: $bg-light;
 	font-size: 0.8em;
 	margin-top: 0 !important;
@@ -456,6 +457,23 @@ time {
 	-ms-word-break: normal !important;
 	word-break: normal !important;
 	word-wrap: normal !important;
+}
+
+.prettyprint.labeled {
+	padding-top: 3em;
+}
+
+.prettyprint.labeled.lang-js:before {
+	content: 'JavaScript';
+	display: block;
+	background: $bg-darkest;
+	color: $fg-dark;
+	margin: -3em -1em 0 -1em;
+	padding: 0 1em;
+	height: 2em;
+	line-height: 2em;
+	position: absolute;
+	font-weight: bold;
 }
 
 .footnote {
@@ -608,9 +626,7 @@ p .footnote {
 	}
 
 	.comment,
-	.prettyprint-header,
 	.prettyprint {
-		border-radius: 0;
 		margin-left: -1em;
 		margin-right: -1em;
 	}

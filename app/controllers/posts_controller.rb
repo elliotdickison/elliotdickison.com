@@ -3,7 +3,7 @@ get '/' do
 end
 
 get '/feed' do
-  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
+  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC').limit(10)
   builder :'posts/feed'
 end
 

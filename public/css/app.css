@@ -107,7 +107,6 @@ h3 {
 h4 {
   font-family: "futura-pt", sans-serif;
   font-size: 1.5em;
-  margin-top: -1em;
   padding: 1em 0 0.5em 0; }
 
 h5 {
@@ -123,9 +122,9 @@ h5 a {
 
 blockquote {
   background: #ededed;
-  border-left: 10px solid #999999;
+  border-left: 8px solid #999999;
   margin: 1.5em 0;
-  padding: 0.5em 10px;
+  padding: 0.6em;
   quotes: "\201C" "\201D" "\2018" "\2019"; }
 
 blockquote:before {
@@ -147,26 +146,29 @@ input[type=text],
 input[type=email],
 input[type=password],
 textarea {
-  border-radius: 5px;
-  border: 1px solid #999999;
+  background: #ededed;
+  border: none;
   box-sizing: border-box;
   display: block;
   font-family: "ff-tisa-web-pro", serif;
   font-size: 1em;
   margin: 0 0 0.5em 0;
-  padding: 5px 10px;
+  padding: 0.5em 0.8em;
+  border-left: 4px solid #d9d9d9;
   width: 100%; }
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+textarea:focus {
+  border-left: 4px solid #da5b54;
+  outline: none; }
 
 input[type=submit] {
   margin-top: 1em; }
 
 button, .button, input[type=submit] {
   background: #da5b54;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
   border: 0;
   -webkit-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   -moz-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
@@ -178,6 +180,7 @@ button, .button, input[type=submit] {
   margin-bottom: 6px;
   display: inline-block;
   line-height: 100%;
+  margin-right: 0.8em;
   padding: 6px 12px;
   position: relative;
   text-decoration: none; }
@@ -197,11 +200,6 @@ button, .button, input[type=submit] {
 
 button.facebook, .button.facebook, input[type=submit].facebook {
   background: #3b5998;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
   border: 0;
   -webkit-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
   -moz-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
@@ -227,11 +225,6 @@ button.facebook, .button.facebook, input[type=submit].facebook {
 
 button.twitter, .button.twitter, input[type=submit].twitter {
   background: #00aced;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
   border: 0;
   -webkit-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
   -moz-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
@@ -272,7 +265,8 @@ time {
   z-index: 999; }
 
 .tagging {
-  font-family: "futura-pt", sans-serif; }
+  font-family: "futura-pt", sans-serif;
+  margin-left: 0.5em; }
 
 .page-header {
   background: #e6e6e6;
@@ -319,7 +313,6 @@ time {
   background: #ffffcc;
   border: 1px solid #e6e6e6;
   padding: 10px 20px;
-  border-radius: 5px;
   margin-bottom: 30px; }
 
 .page-body {
@@ -360,6 +353,9 @@ time {
   margin: 1.5em 0 !important;
   text-align: center; }
 
+.top-links {
+  margin-bottom: 1.5em; }
+
 #comments {
   margin-top: 1em;
   padding-top: 1.5em; }
@@ -373,14 +369,13 @@ time {
   padding: 1em; }
 
 .comment.alternate {
-  background: #ededed;
-  border-radius: 5px; }
+  background: #ededed; }
 
 .comment .avatar {
   float: left;
   width: 3.6em;
   height: 3.6em;
-  border-radius: 2.3em; }
+  border-radius: 50%; }
 
 .comment header {
   margin: 0 0 1em 4.6em; }
@@ -401,17 +396,8 @@ time {
 .profile-pic figcaption {
   text-align: center; }
 
-.prettyprint-header {
-  background: #d9d9d9;
-  border-radius: 5px 5px 0 0;
-  color: #333333;
-  font-family: "adelle", sans-serif;
-  margin-bottom: 0;
-  padding: 0.5em 1em; }
-
 .prettyprint {
   background: #333333;
-  border-radius: 0 0 5px 5px;
   color: white;
   font-size: 0.8em;
   margin-top: 0 !important;
@@ -421,6 +407,21 @@ time {
   -ms-word-break: normal !important;
   word-break: normal !important;
   word-wrap: normal !important; }
+
+.prettyprint.labeled {
+  padding-top: 3em; }
+
+.prettyprint.labeled.lang-js:before {
+  content: 'JavaScript';
+  display: block;
+  background: #d9d9d9;
+  color: #333333;
+  margin: -3em -1em 0 -1em;
+  padding: 0 1em;
+  height: 2em;
+  line-height: 2em;
+  position: absolute;
+  font-weight: bold; }
 
 .footnote {
   color: #999999;
@@ -539,9 +540,7 @@ p .footnote {
     display: none; }
 
   .comment,
-  .prettyprint-header,
   .prettyprint {
-    border-radius: 0;
     margin-left: -1em;
     margin-right: -1em; }
 
