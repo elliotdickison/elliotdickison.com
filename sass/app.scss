@@ -227,7 +227,7 @@ textarea {
 	font-size: 1em;
 	margin: 0 0 0.5em 0;
 	padding: 0.5em 0.8em;
-	border-left: 4px solid $bg-darkest;
+	border-left: 6px solid $bg-darkest;
 	width: 100%;
 }
 
@@ -235,7 +235,7 @@ input[type=text]:focus,
 input[type=email]:focus,
 input[type=password]:focus,
 textarea:focus {
-	border-left: 4px solid $theme;
+	border-color: $theme;
 	outline: none;
 }
 
