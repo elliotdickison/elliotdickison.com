@@ -536,10 +536,7 @@ p .footnote {
   .comment,
   .prettyprint {
     margin-left: -1em;
-    margin-right: -1em; }
-
-  .scroll-anchor {
-    display: none !important; } }
+    margin-right: -1em; } }
 @media all and (max-width: 970px) and (min-width: 461px) {
   body {
     font-size: 18px; }
