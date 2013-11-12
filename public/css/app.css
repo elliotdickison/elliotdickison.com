@@ -116,7 +116,7 @@ h5 a {
   color: inherit; }
 
 blockquote {
-  background: #f0f0f0;
+  background: #ededed;
   border-left: 8px solid #999999;
   margin: 1.5em 0;
   padding: 0.6em;
@@ -144,7 +144,7 @@ input[type=text],
 input[type=email],
 input[type=password],
 textarea {
-  background: #f0f0f0;
+  background: #ededed;
   border: none;
   box-sizing: border-box;
   display: block;
@@ -373,7 +373,7 @@ time {
   padding: 1em; }
 
 .comment.alternate {
-  background: #f0f0f0; }
+  background: #ededed; }
 
 .comment .avatar {
   float: left;
