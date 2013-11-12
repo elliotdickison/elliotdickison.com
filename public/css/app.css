@@ -111,8 +111,7 @@ h5 {
 h1 a,
 h2 a,
 h3 a,
-h4 a,
-h5 a {
+h4 a {
   color: inherit; }
 
 blockquote {
@@ -384,6 +383,9 @@ time {
 .comment header {
   margin: 0 0 1em 4.6em; }
 
+.comment header a.right {
+  font-weight: normal; }
+
 .comment .body {
   margin-left: 4.6em; }
 
@@ -465,18 +467,6 @@ p .footnote {
 .tags {
   list-style: none;
   margin-top: 1em; }
-
-.scroll-anchor {
-  color: #40b0f0;
-  font-weight: normal;
-  float: right;
-  visibility: hidden; }
-
-.scroll-anchor:hover {
-  color: #da5b54; }
-
-.scroll-destination:hover .scroll-anchor {
-  visibility: visible; }
 
 @media all and (max-width: 460px) {
   body {
