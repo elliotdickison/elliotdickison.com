@@ -13,7 +13,7 @@
 	<h3><i class="icon-comments"></i> Comments</h3>
 	<%= '<div class="sad">Sad, no one has commented yet. A pity comment from you, quisáz?</div>' if comments.empty? %>
 	<% comments.each_with_index do |comment, i| %>
-		<%= erb :'comments/comment', locals: {comment: comment, alternate: i.even? } %>
+		<%= erb :'comments/comment', locals: {comment: comment, alternate: i.even?, comment_number: i + 1} %>
 	<% end %>
 </div>
 <div id="comment-form" class="center">
