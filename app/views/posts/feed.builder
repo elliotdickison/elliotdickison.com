@@ -9,7 +9,7 @@ xml.rss :version => "2.0" do
 
       # Convert markdown to html and replace relative links with absolute ones
       post_body = RDiscount.new(post.body, :smart).to_html
-      post_body
+      post_body = post_body
         .gsub(/(href="\/)/, "href=\"#{request.scheme}://#{request.host}/")
         .gsub(/(href="#)/, "href=\"#{request.scheme}://#{request.host}#{post.link}#")
 
