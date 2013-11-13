@@ -218,7 +218,10 @@ input[type=text],
 input[type=email],
 input[type=password],
 textarea {
+	-webkit-appearance: none;
 	background: $bg-medium;
+	border-left: 6px solid $bg-darkest;
+	border-radius: 0;
 	border: none;
 	box-sizing: border-box;
 	display: block;
@@ -226,7 +229,6 @@ textarea {
 	font-size: 1em;
 	margin: 0 0 0.5em 0;
 	padding: 0.5em 0.8em;
-	border-left: 6px solid $bg-darkest;
 	width: 100%;
 }
 
@@ -239,6 +241,7 @@ textarea:focus {
 }
 
 input[type=submit] {
+	-webkit-appearance: none;
 	margin-top: 1em;
 }
 
