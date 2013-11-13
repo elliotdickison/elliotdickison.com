@@ -12,7 +12,7 @@
   <label for="tags">Tags</label>
   <input id="tags" name="tags" type="text" value="<%= @post.tags.inject([]) { |names, tag| names << tag.name}.join(',') %>" />
   <label for="post_body">Body</label>
-  <textarea id="post_body" name="post[body]" rows="20"><%= @post.body %></textarea>
+  <textarea id="post_body" name="post[body]" rows="20"><%= Rack::Utils.escape_html @post.body %></textarea>
   <% unless @post.published_at %>
   	<label for="post_publish">Publish</label>
   	<input id="post_publish" name="publish" type="checkbox" /><br />
