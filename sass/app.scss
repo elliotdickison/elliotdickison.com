@@ -220,9 +220,10 @@ input[type=password],
 textarea {
 	-webkit-appearance: none;
 	background: $bg-medium;
-	border-left: 6px solid $bg-darkest;
+	border-color: $bg-darkest;
 	border-radius: 0;
-	border: none;
+	border-style: solid;
+	border-width: 0 0 0 6px;
 	box-sizing: border-box;
 	display: block;
 	font-family: "ff-tisa-web-pro", serif;
