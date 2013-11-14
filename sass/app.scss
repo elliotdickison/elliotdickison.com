@@ -50,6 +50,22 @@ $prefixes: webkit moz ms o;
 		}
 		@include prefixed-property(box-shadow, $shadows);
 	}
+
+	&:after {
+	  content: "";
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: -#{$height}px;
+	  bottom: -#{$height}px;
+	}
+
+	&:active:after {
+	  top: -#{$height - $active-height}px;
+	  left: -#{$height - $active-height}px;
+	  right: -#{$active-height}px;
+	  bottom: -#{$active-height}px;
+	}
 }
 
 /**
