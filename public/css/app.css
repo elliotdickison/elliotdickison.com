@@ -198,6 +198,18 @@ button, .button, input[type=submit] {
     -ms-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
     -o-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
     box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039; }
+  button:after, .button:after, input[type=submit]:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -6px;
+    bottom: -6px; }
+  button:active:after, .button:active:after, input[type=submit]:active:after {
+    top: -4px;
+    left: -4px;
+    right: -2px;
+    bottom: -2px; }
 
 button.facebook, .button.facebook, input[type=submit].facebook {
   background: #3b5998;
@@ -223,6 +235,18 @@ button.facebook, .button.facebook, input[type=submit].facebook {
     -ms-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b;
     -o-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b;
     box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b; }
+  button.facebook:after, .button.facebook:after, input[type=submit].facebook:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -6px;
+    bottom: -6px; }
+  button.facebook:active:after, .button.facebook:active:after, input[type=submit].facebook:active:after {
+    top: -4px;
+    left: -4px;
+    right: -2px;
+    bottom: -2px; }
 
 button.twitter, .button.twitter, input[type=submit].twitter {
   background: #00aced;
@@ -248,6 +272,18 @@ button.twitter, .button.twitter, input[type=submit].twitter {
     -ms-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1;
     -o-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1;
     box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1; }
+  button.twitter:after, .button.twitter:after, input[type=submit].twitter:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -6px;
+    bottom: -6px; }
+  button.twitter:active:after, .button.twitter:active:after, input[type=submit].twitter:active:after {
+    top: -4px;
+    left: -4px;
+    right: -2px;
+    bottom: -2px; }
 
 button i, .button i, input[type=submit] i {
   padding-right: 5px; }
