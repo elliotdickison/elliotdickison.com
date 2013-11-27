@@ -469,6 +469,18 @@ time {
   position: absolute;
   font-weight: bold; }
 
+.prettyprint.labeled.lang-php:before {
+  content: 'PHP';
+  display: block;
+  background: #d9d9d9;
+  color: #333333;
+  margin: -3em -1em 0 -1em;
+  padding: 0 1em;
+  height: 2em;
+  line-height: 2em;
+  position: absolute;
+  font-weight: bold; }
+
 .footnote {
   color: #999999;
   display: block;
