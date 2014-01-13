@@ -103,7 +103,8 @@ h4 {
   font-family: "futura-pt", sans-serif;
   font-size: 1.5em;
   margin-top: -0.5em;
-  padding: 1em 0 0.5em 0; }
+  padding: 1em 0 0.5em 0;
+  text-transform: capitalize; }
 
 h5 {
   font-family: "futura-pt", sans-serif;
@@ -655,9 +656,9 @@ p .footnote {
   h1 i {
     color: #fff;
     float: left;
-    width: 70px !important;
-    height: 70px !important;
-    line-height: 70px !important;
+    width: 60px !important;
+    height: 60px !important;
+    line-height: 60px !important;
     text-align: center;
     background: #da5b54;
     border-radius: 50%;
