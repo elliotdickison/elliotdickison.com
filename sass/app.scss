@@ -9,8 +9,10 @@ $bg-darkest: darken($bg-light, 15%);
 $theme: #da5b54;
 $notice: #ffc;
 $link: #40b0f0;
-$facebook: #3b5998;	
+$facebook: #3b5998;
 $twitter: #00aced;
+
+$header-font-stack: "brandon-grotesque", sans-serif;
 
 $prefixes: webkit moz ms o;
 
@@ -33,7 +35,7 @@ $prefixes: webkit moz ms o;
 	@include prefixed-property(box-shadow, $shadows);
 
 	color: $fg-color;
-	font-family: "futura-pt", sans-serif;
+	font-family: $header-font-stack;
 	margin-bottom: #{$height}px;
 
 	&:hover {
@@ -42,7 +44,7 @@ $prefixes: webkit moz ms o;
 
 	&:active {
 		@include prefixed-property(transform, translate(#{$height - $active-height}px, #{$height - $active-height}px));
-		
+
 		$shadows: ();
 		@for $i from 1 through $active-height {
 			$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
@@ -171,27 +173,25 @@ h1 {
 }
 
 h2 {
-	font-family: "futura-pt", sans-serif;
-	font-size: 2em;
-	text-transform: capitalize;
+	font-family: $header-font-stack;
+	font-size: 1.9em;
 }
 
 h3 {
-	font-family: "futura-pt", sans-serif;
+	font-family: $header-font-stack;
 	font-size: 1.7em;
 	padding: 0 0 0.5em 0;
 }
 
 h4 {
-	font-family: "futura-pt", sans-serif;
+	font-family: $header-font-stack;
 	font-size: 1.5em;
 	margin-top: -0.5em;
 	padding: 1em 0 0.5em 0;
-	text-transform: capitalize;
 }
 
 h5 {
-	font-family: "futura-pt", sans-serif;
+	font-family: $header-font-stack;
 	font-size: 1.2em;
 }
 
@@ -229,7 +229,7 @@ form {
 
 label {
 	color: $fg-light;
-	font-family: "futura-pt", sans-serif;
+	font-family: $header-font-stack;
 }
 
 input[type=text],
@@ -289,7 +289,7 @@ button i, .button i, input[type=submit] i {
 
 time {
 	color: $fg-light;
-	font-family: "futura-pt", sans-serif;
+	font-family: $header-font-stack;
 }
 
 .top-bar {
@@ -308,7 +308,7 @@ time {
 }
 
 .tagging {
-	font-family: "futura-pt", sans-serif;
+	font-family: $header-font-stack;
 	margin-left: 0.5em;
 }
 
@@ -374,7 +374,7 @@ time {
 .page-body {
 	min-height: 400px;
 	padding: 2em 1em;
-	
+
 }
 
 .post {
@@ -686,11 +686,11 @@ p .footnote {
 		bottom: 0;
 		left: 50%;
 		margin-left: -20px;
-		width: 0; 
-		height: 0; 
+		width: 0;
+		height: 0;
 		border-left: 20px solid transparent;
-		border-bottom: 20px solid $bg-light; 
-		border-right: 20px solid transparent; 
+		border-bottom: 20px solid $bg-light;
+		border-right: 20px solid transparent;
 	}
 
 	button, .button, input[type=submit] {
@@ -770,11 +770,11 @@ p .footnote {
 		bottom: 0;
 		left: 50%;
 		margin-left: -25px;
-		width: 0; 
+		width: 0;
 		height: 0;
 		border-left: 25px solid transparent;
-		border-bottom: 25px solid $bg-light; 
-		border-right: 25px solid transparent; 
+		border-bottom: 25px solid $bg-light;
+		border-right: 25px solid transparent;
 	}
 
 	.center {
