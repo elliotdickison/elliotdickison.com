@@ -90,24 +90,22 @@ h1 {
   font-weight: normal; }
 
 h2 {
-  font-family: "futura-pt", sans-serif;
-  font-size: 2em;
-  text-transform: capitalize; }
+  font-family: "brandon-grotesque", sans-serif;
+  font-size: 1.9em; }
 
 h3 {
-  font-family: "futura-pt", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   font-size: 1.7em;
   padding: 0 0 0.5em 0; }
 
 h4 {
-  font-family: "futura-pt", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   font-size: 1.5em;
   margin-top: -0.5em;
-  padding: 1em 0 0.5em 0;
-  text-transform: capitalize; }
+  padding: 1em 0 0.5em 0; }
 
 h5 {
-  font-family: "futura-pt", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   font-size: 1.2em; }
 
 h1 a,
@@ -139,7 +137,7 @@ form {
 
 label {
   color: #999999;
-  font-family: "futura-pt", sans-serif; }
+  font-family: "brandon-grotesque", sans-serif; }
 
 input[type=text],
 input[type=email],
@@ -179,7 +177,7 @@ button, .button, input[type=submit] {
   -o-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   color: white;
-  font-family: "futura-pt", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   margin-bottom: 6px;
   display: inline-block;
   line-height: 100%;
@@ -222,7 +220,7 @@ button.facebook, .button.facebook, input[type=submit].facebook {
   -o-box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
   box-shadow: 1px 0px #293244, 0px 1px #35466b, 2px 1px #293244, 1px 2px #35466b, 3px 2px #293244, 2px 3px #35466b, 4px 3px #293244, 3px 4px #35466b, 5px 4px #293244, 4px 5px #35466b, 6px 5px #293244, 5px 6px #35466b;
   color: white;
-  font-family: "futura-pt", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   margin-bottom: 6px; }
   button.facebook:hover, .button.facebook:hover, input[type=submit].facebook:hover {
     color: white; }
@@ -259,7 +257,7 @@ button.twitter, .button.twitter, input[type=submit].twitter {
   -o-box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
   box-shadow: 1px 0px #0d5c7a, 0px 1px #0983b1, 2px 1px #0d5c7a, 1px 2px #0983b1, 3px 2px #0d5c7a, 2px 3px #0983b1, 4px 3px #0d5c7a, 3px 4px #0983b1, 5px 4px #0d5c7a, 4px 5px #0983b1, 6px 5px #0d5c7a, 5px 6px #0983b1;
   color: white;
-  font-family: "futura-pt", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   margin-bottom: 6px; }
   button.twitter:hover, .button.twitter:hover, input[type=submit].twitter:hover {
     color: white; }
@@ -292,7 +290,7 @@ button i, .button i, input[type=submit] i {
 
 time {
   color: #999999;
-  font-family: "futura-pt", sans-serif; }
+  font-family: "brandon-grotesque", sans-serif; }
 
 .top-bar {
   position: fixed;
@@ -310,7 +308,7 @@ time {
   transition: none; }
 
 .tagging {
-  font-family: "futura-pt", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   margin-left: 0.5em; }
 
 .page-header {
@@ -508,7 +506,7 @@ p .footnote {
 
 .archive header h4 {
   padding: 0;
-  margin: 0 0 -0.5em 0; }
+  margin: 0; }
 
 .archive header h2 {
   color: #999999; }
