@@ -24,7 +24,41 @@ function getUrlFriendly(text, trim) {
 	return text;
 }
 
-$(function(){
+function setupHeader(){
+	var $header = $('.js-cool-header'),
+		$nav = $header.find('nav'),
+		header_height = $header.outerHeight(),
+		nav_height = $nav.outerHeight(),
+		bg_offset_initial = -(header_height);
+
+	window.onscroll = function(){
+	   	var offset = window.pageYOffset,
+	   		nav_opacity = 1 - (offset / (header_height - (nav_height * 2)));
+
+	   	// Show/hide the navigation, but don't do it more often than necessary
+		if(nav_opacity < 0 && (typeof(hidden) == 'undefined' || !hidden)){
+			$nav.hide();
+			hidden = true;
+		}
+		else if(nav_opacity > 0 && (typeof(hidden) == 'undefined' || hidden)){
+			$nav.show();
+			hidden = false;
+		}
+
+		if(nav_opacity > 0 && !hidden){
+			$nav.css('opacity', nav_opacity);
+		}
+
+		// Parallax it!
+		if(offset < header_height){
+			$header.css('background-position', 'center '+(bg_offset_initial + (offset / 2))+'px');
+		}
+	}
+
+	$(window).scroll();
+}
+
+function setupLinks(){
 	$('a.js-ajax-replace').on('click', function(evt){
 		var $link = $(this),
 			href = $link.attr('href'),
@@ -65,4 +99,11 @@ $(function(){
 
 		evt.preventDefault();
 	});
+}
+
+$(function(){
+
+	setupHeader();
+
+	setupLinks();
 });

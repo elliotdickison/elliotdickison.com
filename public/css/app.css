@@ -33,11 +33,14 @@
   /* Firefox */
   color: white; }
 
+html {
+  height: 100%; }
+
 body {
   color: #333333;
   font-family: "ff-tisa-web-pro", serif;
   font-size: 20px;
-  padding-top: 4px; }
+  height: 100%; }
 
 img {
   display: block;
@@ -67,7 +70,7 @@ a:hover {
   color: #da5b54; }
 
 nav {
-  font-size: 1.5em; }
+  font-size: 1.2em; }
 
 nav ul,
 nav li {
@@ -86,8 +89,7 @@ h1, h2, h3, h4, h5 {
   margin: 0; }
 
 h1 {
-  font-size: 2.2em;
-  font-weight: normal; }
+  font-size: 2em; }
 
 h2 {
   font-family: "brandon-grotesque", sans-serif;
@@ -292,15 +294,6 @@ time {
   color: #999999;
   font-family: "brandon-grotesque", sans-serif; }
 
-.top-bar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 4px;
-  background: #da5b54;
-  z-index: 999; }
-
 .loading,
 .loading:hover {
   color: #999999;
@@ -312,16 +305,17 @@ time {
   margin-left: 0.5em; }
 
 .page-header {
-  background: #e6e6e6;
-  font-family: "adelle", sans-serif; }
+  background-image: url(/img/background.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  color: #fff;
+  font-family: "brandon-grotesque", sans-serif;
+  position: relative; }
 
 .page-header a {
   color: inherit; }
 
 .page-header a:hover {
-  color: #da5b54; }
-
-.page-header .selected {
   color: #da5b54; }
 
 .page-footer {
@@ -524,8 +518,7 @@ p .footnote {
   body {
     font-size: 16px; }
 
-  h1 {
-    font-size: 2.2em;
+  .home {
     float: left; }
 
   nav {
@@ -593,9 +586,6 @@ p .footnote {
   body {
     font-size: 18px; }
 
-  h1 {
-    font-size: 2.1em; }
-
   nav {
     line-height: 48px; }
 
@@ -639,7 +629,7 @@ p .footnote {
     padding: 1.5em 1em; }
 
   .center {
-    max-width: 500px; }
+    max-width: 600px; }
 
   .profile-pic img {
     width: 150px;
@@ -648,44 +638,41 @@ p .footnote {
   .page-footer .links a {
     margin: 0 10px; } }
 @media all and (min-width: 971px) {
-  h1 {
-    float: left; }
-
-  h1 i {
-    color: #fff;
-    float: left;
-    width: 60px !important;
-    height: 60px !important;
-    line-height: 60px !important;
-    text-align: center;
-    background: #da5b54;
-    border-radius: 50%;
-    margin: 18px 18px 0 0 !important;
-    padding: 4px 4px 0 0; }
-
   nav {
-    float: right; }
+    padding: 10px 0;
+    position: fixed;
+    text-align: center;
+    width: 100%; }
+
+  nav li:first-child {
+    font-size: 1.5em; }
+
+  nav li:first-child:after {
+    content: '|';
+    padding-left: 0.66em; }
 
   nav li {
     display: inline-block;
     position: relative; }
 
-  nav .selected:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
+  nav .selected {
+    border-bottom: 3px solid white; }
+
+  h1 {
+    bottom: 10px;
+    font-size: 3em;
+    font-weight: bold;
     left: 50%;
-    margin-left: -25px;
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-bottom: 25px solid white;
-    border-right: 25px solid transparent; }
+    margin-left: -350px;
+    position: absolute;
+    width: 700px; }
 
   .center {
-    max-width: 650px; }
+    max-width: 700px; }
 
-  .page-header,
+  .page-header {
+    height: 50%; }
+
   .page-footer {
     height: 5em;
     line-height: 5em;

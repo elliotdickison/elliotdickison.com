@@ -1,4 +1,4 @@
-<% @page_title = (@page_title ? "#{@page_title.downcase} | " : '') << request.host %>
+<% @page_title ||= '' %>
 <% links = ['blog', 'code', 'about', 'contact'] %>
 <!DOCTYPE html>
 <!--
@@ -18,7 +18,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><%= @page_title %></title>
+        <title><%= (@page_title.size ? "#{@page_title} | " : '') << request.host %></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="/img/favicon.png" />
@@ -34,20 +34,18 @@
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body ontouchstart>
-        <div class="top-bar"></div>
-        <header class="page-header cf">
-            <h1>
-                <a href="/blog"><i class="icon-rocket"></i> elliot james</a>
-            </h1>
+        <header class="page-header js-cool-header cf">
             <nav>
                 <a href="#" class="menu-toggle" onclick="toggleMenu(event)"><i class="icon-reorder"></i></a>
-                <ul id="js-menu"><%=
+                <ul id="js-menu">
+                    <li><a href="/blog">elliot james</a></li><%=
                     links.inject('') do |str, page|
                         klass = @selected_tab == page.to_sym ? 'selected' : ''
                         str << "<li class='#{klass}'><a href='/#{page}'>#{page}</a></li>"
                     end
                 %></ul>
             </nav>
+            <h1><%= @page_title %></h1>
         </header>
         <!--[if lt IE 8]>
             <div class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>

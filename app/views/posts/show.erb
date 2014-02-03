@@ -1,8 +1,6 @@
 <% post ||= @post %>
 <% comments = post.comments.order('created_at ASC') %>
-<div class="center top-links">
-	<a href="/blog" class="button"><i class="icon-double-angle-left"></i> All posts</a>
-</div>
+<% @no_title = true %>
 <article class="post center">
 	<%= erb :'posts/post' %>
 	<footer class="cf">
