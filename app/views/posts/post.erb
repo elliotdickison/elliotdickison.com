@@ -1,6 +1,6 @@
 <% post ||= @post %>
 <header class="cf">
-	<h2><%= (defined? title_link) && title_link ? ('<a href="' << post.link << '">' << post.title << '</a>') : post.title %></h2>
+	<%= '<h2>' << ((defined? title_link) && title_link ? ('<a href="' << post.link << '">' << post.title << '</a>') : post.title) << '</h2>' unless @no_title %>
 	<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><i class="icon-time"> </i><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
 	<% post.tags.each do |tag| %>
 		<%= "<a href='#{tag.link}' rel='tag' class='tagging'><i class='icon-tag'></i> #{tag.name}</a>" %>

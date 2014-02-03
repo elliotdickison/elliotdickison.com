@@ -23,7 +23,7 @@ get %r{/blog/([0-9]+)/(.*)} do
   @selected_tab = :blog
   @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", params[:captures].first, params[:captures].last).first
   halt 404 if !@post
-  @page_title = @post.reference_id
+  @page_title = @post.title
   erb :'posts/show'
 end
 

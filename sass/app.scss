@@ -107,11 +107,15 @@ $prefixes: webkit moz ms o;
 	color: $bg-light;
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	color: $fg-dark;
 	font-family: "ff-tisa-web-pro", serif;
 	font-size: 20px;
-	padding-top: 4px;
+	height: 100%;
 }
 
 img {
@@ -144,7 +148,7 @@ a:hover {
 }
 
 nav {
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
 
 nav ul,
@@ -168,8 +172,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-	font-size: 2.2em;
-	font-weight: normal;
+	font-size: 2em;
 }
 
 h2 {
@@ -292,14 +295,6 @@ time {
 	font-family: $header-font-stack;
 }
 
-.top-bar {
-	position: fixed;
-	top: 0; right: 0; left: 0;
-	height: 4px;
-	background: $theme;
-	z-index: 999;
-}
-
 .loading,
 .loading:hover {
 	color: $fg-light;
@@ -313,8 +308,12 @@ time {
 }
 
 .page-header {
-	background: $bg-dark;
-	font-family: "adelle", sans-serif;
+	background-image: url(/img/background.jpg);
+	background-position: 50% 50%;
+	background-size: cover;
+	color: #fff;
+	font-family: "brandon-grotesque", sans-serif;
+	position: relative;
 }
 
 .page-header a {
@@ -322,10 +321,6 @@ time {
 }
 
 .page-header a:hover {
-	color: $theme;
-}
-
-.page-header .selected {
 	color: $theme;
 }
 
@@ -575,8 +570,7 @@ p .footnote {
 		font-size: 16px;
 	}
 
-	h1 {
-		font-size: 2.2em;
+	.home {
 		float: left;
 	}
 
@@ -666,10 +660,6 @@ p .footnote {
 		font-size: 18px;
 	}
 
-	h1 {
-		font-size: 2.1em;
-	}
-
 	nav {
 		line-height: 48px;
 	}
@@ -723,7 +713,7 @@ p .footnote {
 	}
 
 	.center {
-		max-width: 500px;
+		max-width: 600px;
 	}
 
 	.profile-pic img {
@@ -738,25 +728,20 @@ p .footnote {
 
 @media all and (min-width: 971px) {
 
-	h1 {
-		float: left;
-	}
-
-	h1 i {
-		color: #fff;
-		float: left;
-		width: 60px !important;
-		height: 60px !important;
-		line-height: 60px !important;
-		text-align: center;
-		background: #da5b54;
-		border-radius: 50%;
-		margin: 18px 18px 0 0 !important;
-		padding: 4px 4px 0 0;
-	}
-
 	nav {
-		float: right;
+		padding: 10px 0;
+		position: fixed;
+		text-align: center;
+		width: 100%;
+	}
+
+	nav li:first-child {
+		font-size: 1.5em;
+	}
+
+	nav li:first-child:after {
+		content: '|';
+		padding-left: 0.66em;
 	}
 
 	nav li {
@@ -764,24 +749,28 @@ p .footnote {
 		position: relative;
 	}
 
-	nav .selected:after {
-		content: '';
-		position: absolute;
-		bottom: 0;
+	nav .selected {
+		border-bottom: 3px solid $bg-light;
+	}
+
+	h1 {
+		bottom: 10px;
+		font-size: 3em;
+		font-weight: bold;
 		left: 50%;
-		margin-left: -25px;
-		width: 0;
-		height: 0;
-		border-left: 25px solid transparent;
-		border-bottom: 25px solid $bg-light;
-		border-right: 25px solid transparent;
+		margin-left: -350px;
+		position: absolute;
+		width: 700px;
 	}
 
 	.center {
-		max-width: 650px;
+		max-width: 700px;
 	}
 
-	.page-header,
+	.page-header {
+		height: 50%;
+	}
+
 	.page-footer {
 		height: 5em;
 		line-height: 5em;
