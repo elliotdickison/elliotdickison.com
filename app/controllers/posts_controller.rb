@@ -28,7 +28,7 @@ get %r{/blog/([0-9]+)/(.*)} do
 end
 
 get '/blog/archive' do
-  @page_title = 'Archive'
+  @page_title = '<i class="icon-archive"></i> Archive'
   @selected_tab = :blog
   @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
   erb :'posts/archive'

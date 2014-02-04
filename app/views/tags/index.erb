@@ -1,7 +1,3 @@
-<div class="center top-links">
-	<a href="/blog" class="button"><i class="icon-double-angle-left"></i> Blog</a>
-</div>
-<h2 class="center">Tags</h2>
 <ul class="center tags cf">
 	<% @tags.each do |tag| %>
 		<li class="left"><a href="/blog/tags/<%= tag.id %>" ref="tag"><i class="icon-tag"></i> <%= tag.name %></a></li>
