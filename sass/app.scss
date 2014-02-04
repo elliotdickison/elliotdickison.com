@@ -240,6 +240,7 @@ input[type=email],
 input[type=password],
 textarea {
 	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 	background: $bg-medium;
 	border-color: $bg-darkest;
 	border-radius: 0;
@@ -308,12 +309,13 @@ time {
 }
 
 .page-header {
-	background-image: url(/img/background.jpg);
+	background-image: url(/img/background2.jpg);
 	background-position: 50% 50%;
 	background-size: cover;
 	color: #fff;
 	font-family: "brandon-grotesque", sans-serif;
 	position: relative;
+	text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .page-header a {
@@ -731,15 +733,16 @@ p .footnote {
 	nav {
 		padding: 10px 0;
 		position: fixed;
-		text-align: center;
-		width: 100%;
+		left: 25px;
 	}
 
 	nav li:first-child {
+		color: $theme;
 		font-size: 1.5em;
 	}
 
 	nav li:first-child:after {
+		color: $bg-light;
 		content: '|';
 		padding-left: 0.66em;
 	}
@@ -747,10 +750,6 @@ p .footnote {
 	nav li {
 		display: inline-block;
 		position: relative;
-	}
-
-	nav .selected {
-		border-bottom: 3px solid $bg-light;
 	}
 
 	h1 {

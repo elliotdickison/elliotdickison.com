@@ -29,18 +29,19 @@ function setupHeader(){
 		$nav = $header.find('nav'),
 		header_height = $header.outerHeight(),
 		nav_height = $nav.outerHeight(),
-		bg_offset_initial = -(header_height);
+		bg_offset_initial = -header_height * 1.1,
+		hidden = null;
 
 	window.onscroll = function(){
 	   	var offset = window.pageYOffset,
 	   		nav_opacity = 1 - (offset / (header_height - (nav_height * 2)));
 
 	   	// Show/hide the navigation, but don't do it more often than necessary
-		if(nav_opacity < 0 && (typeof(hidden) == 'undefined' || !hidden)){
+		if(nav_opacity < 0 && !hidden){
 			$nav.hide();
 			hidden = true;
 		}
-		else if(nav_opacity > 0 && (typeof(hidden) == 'undefined' || hidden)){
+		else if(nav_opacity > 0 && (hidden == null || hidden)){
 			$nav.show();
 			hidden = false;
 		}
