@@ -19,6 +19,15 @@ class Post < ActiveRecord::Base
     RDiscount.new(self.body, :smart).to_html
   end
 
+  def to_short_s
+    short = self.body
+      .split(/\n/)
+      .map { |chunk| chunk.strip }
+      .keep_if { |chunk| chunk.length > 0 && !chunk.start_with?('#') }
+      .first
+    RDiscount.new(short, :smart).to_html
+  end
+
   def link
     if self.published_at
   	  "/blog/#{self.published_at.strftime('%Y')}/#{self.reference_id}"

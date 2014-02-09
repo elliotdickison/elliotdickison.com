@@ -1,6 +1,5 @@
 <% post ||= @post %>
 <% comments = post.comments.order('created_at ASC') %>
-<% @no_title = true %>
 <article class="post center">
 	<%= erb :'posts/post' %>
 	<footer class="cf">
