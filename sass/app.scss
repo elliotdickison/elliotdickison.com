@@ -300,7 +300,7 @@ time {
 .loading:hover {
 	color: $fg-light;
 	cursor: default;
-	transition: none;
+	@include prefixed-property(transition, none);
 }
 
 .tagging {
@@ -308,14 +308,9 @@ time {
 	margin-left: 0.5em;
 }
 
-.page-header {
-	background-image: url(/img/background2.jpg);
-	background-position: 50% 50%;
-	background-size: cover;
-	color: #fff;
+.page-header,
+.page-footer {
 	font-family: "brandon-grotesque", sans-serif;
-	position: relative;
-	text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .page-header a {
@@ -327,15 +322,8 @@ time {
 }
 
 .page-footer {
-	background: $bg-dark;
-	font-family: "adelle", sans-serif;
-	letter-spacing: 1px;
-	text-align: center;
-}
-
-.page-footer .links a {
-	color: $fg-light;
-	font-size: 2.5em;
+	font-size: 1.3em;
+	text-transform: lowercase;
 }
 
 .page-footer .links a:hover {
@@ -383,6 +371,23 @@ time {
 	margin-bottom: 1.5em;
 }
 
+.post.short {
+	@include prefixed-property(transition, background 0.2s linear);
+	background: $bg-medium;
+	cursor: pointer;
+	margin-bottom: 2em;
+	padding: 2em;
+}
+
+.post.short:hover {
+	background: $bg-light;
+}
+
+.post.short header,
+.post.short .body p {
+	margin-bottom: 1em;
+}
+
 .post .body p,
 .post .body img,
 .post .body pre,
@@ -394,7 +399,6 @@ time {
 	display: block;
 	text-align: center;
 	width: 100%;
-	margin-bottom: 1.5em;
 }
 
 .load-more img {
@@ -406,16 +410,8 @@ time {
 	color: $fg-light;
 }
 
-.separator {
-	color: $fg-light;
-	display: block !important;
-	font-size: 2em;
-	margin: 1.5em 0 !important;
-	text-align: center;
-}
-
 .top-links {
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 }
 
 #comments {
@@ -566,7 +562,7 @@ p .footnote {
 	margin-top: 1em;
 }
 
-@media all and (max-width: 460px) {
+@media all and (max-width: 859px) {
 
 	body {
 		font-size: 16px;
@@ -583,26 +579,36 @@ p .footnote {
 	nav ul {
 		line-height: 48px;
 		margin-top: 20px;
-		display: none;
 		text-align: center;
 	}
 
-	nav ul.show {
-		display: block;
-	}
-
 	nav li {
-		display: block;
+		display: none;
 		margin: 0;
 	}
 
+	nav .show li {
+		display: block;	
+	}
+
 	nav li a {
+		@include prefixed-property(transition, #{"color 0.2s linear, background 0.2s linear"});
 		display: block;
-		transition: color 0.2s linear, background 0.2s linear;
 	}
 
 	nav li a:hover {
 		background: darken($bg-dark, 10%);
+	}
+
+	nav li:first-child {
+		left: 0;
+		position: absolute;
+		top: 0;
+		display: block;
+	}
+
+	nav li:first-child a:hover {
+		background: inherit;
 	}
 
 	button, .button, input[type=submit] {
@@ -611,16 +617,24 @@ p .footnote {
 
 	.page-header {
 		line-height: 40px;
-		padding: 1.3em 1em;
+		padding: 1em;
 		text-align: center;
+		font-size: 1.2em;
 	}
 
 	.page-footer {
+		font-size: 1.5em;
 		padding: 1em;
+		text-align: center;
 	}
 
 	.page-footer .meta {
 		margin-bottom: 1em;
+	}
+
+	.page-footer .links a {
+		font-size: 1.5em;
+		padding: 0 10px;
 	}
 
 	.page-body {
@@ -656,83 +670,11 @@ p .footnote {
 	}
 }
 
-@media all and (max-width: 970px) and (min-width: 461px) {
-
-	body {
-		font-size: 18px;
-	}
-
-	nav {
-		line-height: 48px;
-	}
-
-	nav li {
-		display: inline-block;
-		padding-bottom: 16px;
-		position: relative;
-	}
-
-	nav .selected:after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		margin-left: -20px;
-		width: 0;
-		height: 0;
-		border-left: 20px solid transparent;
-		border-bottom: 20px solid $bg-light;
-		border-right: 20px solid transparent;
-	}
-
-	button, .button, input[type=submit] {
-		padding: 5px 11px;
-	}
-
-	.page-header {
-		padding: 1em 0 0 0;
-		text-align: center;
-	}
-
-	.page-footer {
-		padding: 1em;
-	}
-
-	.page-footer .meta {
-		margin-bottom: 1em;
-	}
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.browse-happy {
-		padding: 20px 40px;
-	}
-
-	.page-body {
-		padding: 1.5em 1em;
-	}
-
-	.center {
-		max-width: 600px;
-	}
-
-	.profile-pic img {
-		width: 150px;
-		height: 150px;
-	}
-
-	.page-footer .links a {
-		margin: 0 10px;
-	}
-}
-
-@media all and (min-width: 971px) {
+@media all and (min-width: 860px) {
 
 	nav {
 		padding: 10px 0;
-		position: fixed;
+		position: absolute;
 		left: 25px;
 	}
 
@@ -766,13 +708,24 @@ p .footnote {
 		max-width: 700px;
 	}
 
+	.page-header,
+	.page-footer {
+		background-image: url(/img/background2.jpg);
+		background-position: 50% -380px;
+		background-size: cover;
+		color: #fff;
+		position: relative;
+		text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+	}
+
 	.page-header {
 		height: 50%;
+		max-height: 400px;
 	}
 
 	.page-footer {
-		height: 5em;
-		line-height: 5em;
+		height: 200px;
+		line-height: 200px;
 		padding: 0 2em;
 	}
 
@@ -801,8 +754,9 @@ p .footnote {
 	}
 
 	.page-footer .links a {
+		color: $bg-light;
 		float: right;
-		line-height: 2em;
+		font-size: 2.5em;
 		margin-left: 40px;
 	}
 }

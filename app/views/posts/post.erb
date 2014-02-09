@@ -1,9 +1,10 @@
 <% post ||= @post %>
+<% short ||= false %>
 <header class="cf">
-	<%= '<h2>' << ((defined? title_link) && title_link ? ('<a href="' << post.link << '">' << post.title << '</a>') : post.title) << '</h2>' unless @no_title %>
+	<%= "<h2>#{post.title}</h2>" if short %>
 	<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><i class="icon-time"> </i><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
 	<% post.tags.each do |tag| %>
 		<%= "<a href='#{tag.link}' rel='tag' class='tagging'><i class='icon-tag'></i> #{tag.name}</a>" %>
 	<% end %>
 </header>
-<div class="body"><%= post %></div>
+<div class="body"><%= short ? post.to_short_s : post %></div>

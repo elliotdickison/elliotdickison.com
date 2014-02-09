@@ -1,5 +1,3 @@
-<% available_icons = ['bug', 'anchor', 'beaker', 'bolt', 'coffee', 'gamepad', 'puzzle-piece', 'trophy', 'umbrella', 'plane', 'food', 'leaf'] %>
-<% @icons = available_icons.shuffle %>
 <%= '<div class="center cf top-links"><a href="/blog/archive" class="button"><i class="icon-archive"></i> Archive</a><a href="/blog/tags" class="button"><i class="icon-tags"></i> Tags</a></div>' if not request.xhr? %>
 <% @posts.each_with_index do |post, index|
 	comment_count = post.comments.count
@@ -8,17 +6,15 @@
 		when 1 then '1 Comment'
 		else "#{comment_count} Comments"
 	end %>
-	<article class="post center">
-		<%= erb :'posts/post', locals: {post: post, title_link: true} %>
+	<article class="post short center">
+		<%= erb :'posts/post', locals: {post: post, short: true} %>
 		<footer class="cf">
-			<a class="button" href="<%= post.link %>#comments"><i class="icon-comment"></i> <%= comment_text %></a><a class="button twitter no-text-mobile" href="<%= twitter_share_link post.link %>" target="_blank"><i class="icon-twitter"></i><span> Tweet</span></a><a class="button facebook no-text-mobile" href="<%= facebook_share_link post.link %>" target="_blank"><i class="icon-facebook"></i><span> Share</span></a>
+			<a href="<%= post.link %>">Read More</a>
+			<a href="<%= post.link %>#comments" class="right"><i class="icon-comment"></i> <%= comment_text %></a>
 		</footer>
 	</article>
-	<%= '<i class="separator icon-' << @icons.pop << '"></i>' if index + 1 < @posts.length %>
-	<% @icons = available_icons.shuffle if !@icons || @icons.length == 0 %>
 <% end %>
 <% if @show_more_link %>
-	<%= '<i class="separator icon-' << @icons.pop << '"></i>' %>
 	<a class="load-more js-ajax-replace" href="/blog?page=<%= @current_page + 1 %>"><i class="icon-plus-sign"></i> Load more posts</a>
 <% end %>
 <script src="/prettify/prettify.js"></script>
