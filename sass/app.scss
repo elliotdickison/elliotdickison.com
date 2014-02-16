@@ -15,7 +15,7 @@ $header-font-stack: "brandon-grotesque", sans-serif;
 
 $prefixes: webkit moz ms o;
 
-@mixin prefixed-property($property, $value){
+@mixin prefix($property, $value){
     @each $prefix in $prefixes {
         -#{$prefix}-#{$property}: #{$value};
     }
@@ -31,7 +31,7 @@ $prefixes: webkit moz ms o;
 		$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
 		$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
 	}
-	@include prefixed-property(box-shadow, $shadows);
+	@include prefix(box-shadow, $shadows);
 
 	color: $fg-color;
 	font-family: $header-font-stack;
@@ -42,14 +42,14 @@ $prefixes: webkit moz ms o;
 	}
 
 	&:active {
-		@include prefixed-property(transform, translate(#{$height - $active-height}px, #{$height - $active-height}px));
+		@include prefix(transform, translate(#{$height - $active-height}px, #{$height - $active-height}px));
 
 		$shadows: ();
 		@for $i from 1 through $active-height {
 			$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
 			$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
 		}
-		@include prefixed-property(box-shadow, $shadows);
+		@include prefix(box-shadow, $shadows);
 	}
 
 	&:after {
@@ -139,7 +139,7 @@ p {
 a {
 	color: $link;
 	text-decoration: none;
-	@include prefixed-property(transition, color 0.2s linear);
+	@include prefix(transition, color 0.2s linear);
 }
 
 a:hover {
@@ -240,12 +240,12 @@ input[type=password],
 textarea {
 	-webkit-appearance: none;
 	-webkit-border-radius: 0;
+	@include prefix(box-sizing, border-box);
 	background: $bg-medium;
 	border-color: $bg-dark;
 	border-radius: 0;
 	border-style: solid;
 	border-width: 0 0 0 6px;
-	box-sizing: border-box;
 	display: block;
 	font-family: "ff-tisa-web-pro", serif;
 	font-size: 1em;
@@ -299,7 +299,7 @@ time {
 .loading:hover {
 	color: $fg-light;
 	cursor: default;
-	@include prefixed-property(transition, none);
+	@include prefix(transition, none);
 }
 
 .tagging {
@@ -588,7 +588,7 @@ p .footnote {
 	}
 
 	nav li a {
-		@include prefixed-property(transition, #{"color 0.2s linear, background 0.2s linear"});
+		@include prefix(transition, #{"color 0.2s linear, background 0.2s linear"});
 		display: block;
 		font-size: 1.3em;
 	}
@@ -635,7 +635,7 @@ p .footnote {
 	}
 
 	.post.short {
-		@include prefixed-property(box-sizing, border-box);
+		@include prefix(box-sizing, border-box);
 		padding: 1em;
 	}
 
@@ -713,8 +713,8 @@ p .footnote {
 	}
 
 	.page-header {
-		@include prefixed-property(background-size, cover);
-		@include prefixed-property(text-shadow, 0 0 15px rgba(0, 0, 0, 0.3));
+		@include prefix(background-size, cover);
+		@include prefix(text-shadow, 0 0 15px rgba(0, 0, 0, 0.3));
 		background-color: $bg-dark;
 		color: #fff;
 		height: 50%;
@@ -744,8 +744,8 @@ p .footnote {
 	}
 
 	.post.short {
-		@include prefixed-property(transition, background 0.2s linear);
-		box-sizing: border-box;
+		@include prefix(transition, background 0.2s linear);
+		@include prefix(box-sizing, border-box);
 		padding: 2em;
 	}
 
