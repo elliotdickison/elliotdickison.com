@@ -555,7 +555,7 @@ p .footnote {
 	margin-top: 1em;
 }
 
-@media all and (max-width: 779px) {
+@media all and (max-width: 839px) {
 
 	body {
 		font-size: 16px;
@@ -598,10 +598,11 @@ p .footnote {
 	}
 
 	nav li:first-child {
+		color: $theme;
+		display: block;
 		left: 1em;
 		position: absolute;
 		top: 1em;
-		display: block;
 	}
 
 	nav li:first-child a {
@@ -631,7 +632,11 @@ p .footnote {
 
 	h1,
 	.center {
-		max-width: 500px;
+		max-width: 550px;
+	}
+
+	.page-body {
+		padding-top: 1em;
 	}
 
 	.post.short {
@@ -674,7 +679,7 @@ p .footnote {
 	}
 }
 
-@media all and (min-width: 780px) {
+@media all and (min-width: 840px) {
 
 	nav {
 		padding: 10px 0;
