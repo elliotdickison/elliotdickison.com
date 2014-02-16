@@ -29,30 +29,26 @@ function setupHeader(){
 		window_width = $window.width(),
 		$header = $('.js-cool-header'),
 		$nav = $header.find('nav'),
-		$footer,
-		header_height, footer_height, nav_height,
-		footer_threshold, header_bg_offset, footer_bg_offset,
+		header_height, nav_height,
+		header_bg_offset,
 		nav_hidden;
 
 	$window.unbind('scroll');
 
-	if(window_width < 860){
-		$nav.css('position', 'relative');
-	}
-	else {
-		$footer = $('.js-cool-footer');
-		
+	if(window_width >= 780){
 		header_height = $header.outerHeight();
-		footer_height = $footer.height();
 		nav_height = $nav.outerHeight();
 
-		footer_threshold = $(document).height() - $window.height() - footer_height;
-		
-		// These'll fix the background image at the same location behind the main nav regardless of window size
+		// This'll fix the background image at the same location behind the main nav regardless of window size
 		header_bg_offset = -420 * (window_width / 1280);
-		footer_bg_offset = -250 * (window_width / 1280); 
 		
 		nav_hidden = false;
+
+		// Do this here so the header image doesn't jump around before js is loaded
+		$header.css({
+			"background-image": "url(/img/background2.jpg)",
+			"background-position": "50% "+header_bg_offset+"px"
+		});
 
 		$nav.css('position', 'fixed');
 
@@ -82,13 +78,6 @@ function setupHeader(){
 					// Parallax the header
 					$header.css('background-position', 'center '+(header_bg_offset + (offset / 2))+'px');
 				}
-
-				// Animate the footer
-				if(offset > footer_threshold){
-					
-					// Parallax the footer
-					$footer.css('background-position', 'center '+(footer_bg_offset + (offset / 2))+'px');
-				}
 			})
 			.trigger('scroll');
 	}
@@ -102,9 +91,9 @@ function setupLinks(){
 				$('<div />', {
 					"class": $link.attr('class')+" loading"
 				})
-				.html('<img src="/img/tomato.gif" alt="look ma, a tomato!" />Just a moment, please...'),
-			data,
-			delay = true;
+				.html('<img src="/img/tomato.gif" alt="Look ma, a tomato!" />Look ma, a tomato!'),
+			delay = true,
+			data;
 
 		// Show the loading for a minimum of 1 second (w/o delaying the ajax request)
 		setTimeout(function(){

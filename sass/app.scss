@@ -3,8 +3,7 @@ $fg-dark: #333;
 
 $bg-light: #fff;
 $bg-medium: darken($bg-light, 7%);
-$bg-dark: darken($bg-light, 10%);
-$bg-darkest: darken($bg-light, 15%);
+$bg-dark: darken($bg-light, 15%);
 
 $theme: #da5b54;
 $notice: #ffc;
@@ -242,7 +241,7 @@ textarea {
 	-webkit-appearance: none;
 	-webkit-border-radius: 0;
 	background: $bg-medium;
-	border-color: $bg-darkest;
+	border-color: $bg-dark;
 	border-radius: 0;
 	border-style: solid;
 	border-width: 0 0 0 6px;
@@ -322,12 +321,17 @@ time {
 }
 
 .page-footer {
-	font-size: 1.3em;
+	padding: 1em;
 	text-transform: lowercase;
+	background: $bg-medium;
 }
 
-.page-footer .links a:hover {
-	color: $theme;
+.page-footer ul {
+	list-style: none;
+}
+
+.page-footer ul li {
+	display: inline;
 }
 
 .left {
@@ -357,9 +361,8 @@ time {
 }
 
 .page-body {
-	min-height: 400px;
+	min-height: 50%;
 	padding: 2em 1em;
-
 }
 
 .post {
@@ -372,15 +375,8 @@ time {
 }
 
 .post.short {
-	@include prefixed-property(transition, background 0.2s linear);
 	background: $bg-medium;
-	cursor: pointer;
-	margin-bottom: 2em;
-	padding: 2em;
-}
-
-.post.short:hover {
-	background: $bg-light;
+	margin-top: 2em;
 }
 
 .post.short header,
@@ -397,6 +393,7 @@ time {
 
 .load-more {
 	display: block;
+	margin-top: 2em;
 	text-align: center;
 	width: 100%;
 }
@@ -408,10 +405,6 @@ time {
 
 .sad {
 	color: $fg-light;
-}
-
-.top-links {
-	margin-bottom: 2em;
 }
 
 #comments {
@@ -489,7 +482,7 @@ time {
 .prettyprint.labeled.lang-js:before {
 	content: 'JavaScript';
 	display: block;
-	background: $bg-darkest;
+	background: $bg-dark;
 	color: $fg-dark;
 	margin: -3em -1em 0 -1em;
 	padding: 0 1em;
@@ -502,7 +495,7 @@ time {
 .prettyprint.labeled.lang-php:before {
 	content: 'PHP';
 	display: block;
-	background: $bg-darkest;
+	background: $bg-dark;
 	color: $fg-dark;
 	margin: -3em -1em 0 -1em;
 	padding: 0 1em;
@@ -562,7 +555,7 @@ p .footnote {
 	margin-top: 1em;
 }
 
-@media all and (max-width: 859px) {
+@media all and (max-width: 779px) {
 
 	body {
 		font-size: 16px;
@@ -573,6 +566,9 @@ p .footnote {
 	}
 
 	nav {
+		background: $bg-medium;
+		padding: 1em;
+		position: relative !important;
 		text-align: right;
 	}
 
@@ -594,21 +590,30 @@ p .footnote {
 	nav li a {
 		@include prefixed-property(transition, #{"color 0.2s linear, background 0.2s linear"});
 		display: block;
+		font-size: 1.3em;
 	}
 
 	nav li a:hover {
-		background: darken($bg-dark, 10%);
+		background: $bg-dark;
 	}
 
 	nav li:first-child {
-		left: 0;
+		left: 1em;
 		position: absolute;
-		top: 0;
+		top: 1em;
 		display: block;
+	}
+
+	nav li:first-child a {
+		border-bottom: none;
 	}
 
 	nav li:first-child a:hover {
 		background: inherit;
+	}
+
+	nav li:nth-child(2) {
+		margin-top: 1em;
 	}
 
 	button, .button, input[type=submit] {
@@ -616,29 +621,22 @@ p .footnote {
 	}
 
 	.page-header {
-		line-height: 40px;
+		background-image: none !important;
+	}
+
+	h1 {
+		margin: 1em auto 0 auto;
+		padding: 0 0.5em;
+	}
+
+	h1,
+	.center {
+		max-width: 500px;
+	}
+
+	.post.short {
+		@include prefixed-property(box-sizing, border-box);
 		padding: 1em;
-		text-align: center;
-		font-size: 1.2em;
-	}
-
-	.page-footer {
-		font-size: 1.5em;
-		padding: 1em;
-		text-align: center;
-	}
-
-	.page-footer .meta {
-		margin-bottom: 1em;
-	}
-
-	.page-footer .links a {
-		font-size: 1.5em;
-		padding: 0 10px;
-	}
-
-	.page-body {
-		padding: 0.8em;
 	}
 
 	.browse-happy {
@@ -650,17 +648,23 @@ p .footnote {
 		height: 130px;
 	}
 
-	.button.no-text-mobile {
-		width: 20px;
+	.not-on-mobile {
+		display: none;
+	}
+
+	.page-footer {
 		text-align: center;
 	}
 
-	.button.no-text-mobile i {
-		padding-right: 0;
+	.page-footer ul {
+		display: block;
+		float: none;
+		margin-top: 0.5em;
 	}
 
-	.button.no-text-mobile span {
-		display: none;
+	.page-footer ul li {
+		border-left: none;
+		padding: 0 0.5em;
 	}
 
 	.comment,
@@ -670,7 +674,7 @@ p .footnote {
 	}
 }
 
-@media all and (min-width: 860px) {
+@media all and (min-width: 780px) {
 
 	nav {
 		padding: 10px 0;
@@ -708,25 +712,15 @@ p .footnote {
 		max-width: 700px;
 	}
 
-	.page-header,
-	.page-footer {
-		background-image: url(/img/background2.jpg);
-		background-position: 50% -380px;
-		background-size: cover;
-		color: #fff;
-		position: relative;
-		text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-	}
-
 	.page-header {
+		@include prefixed-property(background-size, cover);
+		@include prefixed-property(text-shadow, 0 0 15px rgba(0, 0, 0, 0.3));
+		background-color: $bg-dark;
+		color: #fff;
 		height: 50%;
-		max-height: 400px;
-	}
-
-	.page-footer {
-		height: 200px;
-		line-height: 200px;
-		padding: 0 2em;
+		max-height: 500px;
+		min-height: 200px;
+		position: relative;
 	}
 
 	.menu-toggle {
@@ -749,14 +743,35 @@ p .footnote {
 		height: 200px;
 	}
 
-	.page-footer .meta {
+	.post.short {
+		@include prefixed-property(transition, background 0.2s linear);
+		box-sizing: border-box;
+		padding: 2em;
+	}
+
+	.post.short:hover {
+		background: $bg-light;
+	}
+
+	.page-footer {
+		text-align: left;
+	}
+
+	.page-footer div {
 		float: left;
 	}
 
-	.page-footer .links a {
-		color: $bg-light;
+	.page-footer ul {
 		float: right;
-		font-size: 2.5em;
-		margin-left: 40px;
+	}
+
+	.page-footer ul li {
+		display: inline;
+		padding: 0 1em;
+	}
+
+	.page-footer ul li i {
+		color: $fg-dark;
+		margin-right: 0.5em;
 	}
 }
