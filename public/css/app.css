@@ -324,9 +324,10 @@ time {
   color: #da5b54; }
 
 .page-footer {
+  background: #333333;
+  color: white;
   padding: 1em;
-  text-transform: lowercase;
-  background: #ededed; }
+  text-transform: lowercase; }
 
 .page-footer ul {
   list-style: none; }
@@ -600,9 +601,6 @@ p .footnote {
     width: 130px;
     height: 130px; }
 
-  .not-on-mobile {
-    display: none; }
-
   .page-footer {
     text-align: center; }
 
@@ -618,7 +616,10 @@ p .footnote {
   .comment,
   .prettyprint {
     margin-left: -1em;
-    margin-right: -1em; } }
+    margin-right: -1em; }
+
+  .not-on-mobile {
+    display: none !important; } }
 @media all and (min-width: 840px) {
   nav {
     padding: 10px 0;
@@ -711,9 +712,14 @@ p .footnote {
     float: right; }
 
   .page-footer ul li {
-    display: inline;
-    padding: 0 1em; }
+    display: inline; }
 
-  .page-footer ul li i {
-    color: #333333;
-    margin-right: 0.5em; } }
+  .page-footer ul li:before {
+    content: '|';
+    margin: 0 0.5em; }
+
+  .page-footer ul li:first-child:before {
+    content: ''; }
+
+  .mobile-only {
+    display: none !important; } }
