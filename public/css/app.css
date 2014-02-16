@@ -613,11 +613,6 @@ p .footnote {
     border-left: none;
     padding: 0 0.5em; }
 
-  .comment,
-  .prettyprint {
-    margin-left: -1em;
-    margin-right: -1em; }
-
   .not-on-mobile {
     display: none !important; } }
 @media all and (min-width: 840px) {
