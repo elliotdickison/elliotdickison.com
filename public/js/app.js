@@ -34,8 +34,9 @@ function setupHeader(){
 		nav_hidden;
 
 	$window.unbind('scroll');
+	$nav.css('position', 'absolute');
 
-	if(window_width >= 780){
+	if(window_width >= 840){
 		header_height = $header.outerHeight();
 		nav_height = $nav.outerHeight();
 
