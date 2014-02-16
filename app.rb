@@ -25,7 +25,7 @@ require 'digest/md5'
 require 'pony'
 
 # Set the database
-set :database, ENV['DATABASE_URL'] || 'postgresql://elliot.dickison:iamaskier@localhost/elliot.dickison'
+set :database, ENV['DATABASE_URL']
 
 # Set the views folder
 set :views, Proc.new { File.join(root, 'app', 'views') }
