@@ -515,7 +515,7 @@ p .footnote {
   list-style: none;
   margin-top: 1em; }
 
-@media all and (max-width: 779px) {
+@media all and (max-width: 839px) {
   body {
     font-size: 16px; }
 
@@ -553,10 +553,11 @@ p .footnote {
     background: #d9d9d9; }
 
   nav li:first-child {
+    color: #da5b54;
+    display: block;
     left: 1em;
     position: absolute;
-    top: 1em;
-    display: block; }
+    top: 1em; }
 
   nav li:first-child a {
     border-bottom: none; }
@@ -579,7 +580,10 @@ p .footnote {
 
   h1,
   .center {
-    max-width: 500px; }
+    max-width: 550px; }
+
+  .page-body {
+    padding-top: 1em; }
 
   .post.short {
     -webkit-box-sizing: border-box;
@@ -615,7 +619,7 @@ p .footnote {
   .prettyprint {
     margin-left: -1em;
     margin-right: -1em; } }
-@media all and (min-width: 780px) {
+@media all and (min-width: 840px) {
   nav {
     padding: 10px 0;
     position: absolute;
