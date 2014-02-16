@@ -54,16 +54,14 @@
             <%= get_message %>
             <%= yield %>
         </div>
-        <footer class="page-footer js-cool-footer cf">
-            <div class="meta">
-                Hand Made in <a href="https://maps.google.com/maps?q=idaho&hl=en&ll=45.228481,-113.884277&spn=9.608764,19.6875&sll=46.734919,-117.001305&sspn=0.073062,0.153809&hnear=Idaho&t=m&z=6" target="idahogmap">Idaho</a>
-            </div>
-            <div class="links">
-                <a href="//instagram.com/<%= settings.instagram_id %>" class="icon-instagram" title="instagram"></a>
-                <a href="//twitter.com/<%= settings.twitter_id %>" class="icon-twitter" title="twitter"></a>
-                <a href="//github.com/<%= settings.github_id %>" class="icon-github" title="github"></a>
-                <a type="application/rss+xml" rel="alternate" href="/feed" class="icon-rss" title="rss"></a>
-            </div>
+        <footer class="page-footer cf">
+            <div>Hand Made in <a href="//500px.com/search?utf8=%E2%9C%93&page=1&q=Idaho&type=photos&media_type=any&category=Landscapes&order=votes&license_type=-1">Idaho</a> by <a href="/about">Elliot</a></div>
+            <ul>
+                <li><a href="//instagram.com/<%= settings.instagram_id %>" title="instagram"><i class="icon-instagram"></i><span class="not-on-mobile">Instagram</span</a></li>
+                <li><a href="//twitter.com/<%= settings.twitter_id %>" title="twitter"><i class="icon-twitter"></i><span class="not-on-mobile">Twitter</span</a></li>
+                <li><a href="//github.com/<%= settings.github_id %>" title="github"><i class="icon-github"></i><span class="not-on-mobile">Github</span</a></li>
+                <li><a type="application/rss+xml" rel="alternate" href="/feed" title="rss"><i class="icon-rss"></i><span class="not-on-mobile">Rss</span</a></li>
+            </ul>
         </footer>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="/js/app.js"></script>

@@ -320,11 +320,15 @@ time {
   color: #da5b54; }
 
 .page-footer {
-  font-size: 1.3em;
-  text-transform: lowercase; }
+  padding: 1em;
+  text-transform: lowercase;
+  background: #ededed; }
 
-.page-footer .links a:hover {
-  color: #da5b54; }
+.page-footer ul {
+  list-style: none; }
+
+.page-footer ul li {
+  display: inline; }
 
 .left {
   float: left;
@@ -343,12 +347,12 @@ time {
 
 .message {
   background: #ffffcc;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #d9d9d9;
   padding: 10px 20px;
   margin-bottom: 30px; }
 
 .page-body {
-  min-height: 400px;
+  min-height: 50%;
   padding: 2em 1em; }
 
 .post {
@@ -359,18 +363,8 @@ time {
   margin-bottom: 1.5em; }
 
 .post.short {
-  -webkit-transition: background 0.2s linear;
-  -moz-transition: background 0.2s linear;
-  -ms-transition: background 0.2s linear;
-  -o-transition: background 0.2s linear;
-  transition: background 0.2s linear;
   background: #ededed;
-  cursor: pointer;
-  margin-bottom: 2em;
-  padding: 2em; }
-
-.post.short:hover {
-  background: white; }
+  margin-top: 2em; }
 
 .post.short header,
 .post.short .body p {
@@ -384,6 +378,7 @@ time {
 
 .load-more {
   display: block;
+  margin-top: 2em;
   text-align: center;
   width: 100%; }
 
@@ -394,9 +389,6 @@ time {
 
 .sad {
   color: #999999; }
-
-.top-links {
-  margin-bottom: 2em; }
 
 #comments {
   margin-top: 1em;
@@ -519,7 +511,7 @@ p .footnote {
   list-style: none;
   margin-top: 1em; }
 
-@media all and (max-width: 859px) {
+@media all and (max-width: 779px) {
   body {
     font-size: 16px; }
 
@@ -527,6 +519,9 @@ p .footnote {
     float: left; }
 
   nav {
+    background: #ededed;
+    padding: 1em;
+    position: relative !important;
     text-align: right; }
 
   nav ul {
@@ -547,43 +542,48 @@ p .footnote {
     -ms-transition: color 0.2s linear, background 0.2s linear;
     -o-transition: color 0.2s linear, background 0.2s linear;
     transition: color 0.2s linear, background 0.2s linear;
-    display: block; }
+    display: block;
+    font-size: 1.3em; }
 
   nav li a:hover {
-    background: #cccccc; }
+    background: #d9d9d9; }
 
   nav li:first-child {
-    left: 0;
+    left: 1em;
     position: absolute;
-    top: 0;
+    top: 1em;
     display: block; }
+
+  nav li:first-child a {
+    border-bottom: none; }
 
   nav li:first-child a:hover {
     background: inherit; }
+
+  nav li:nth-child(2) {
+    margin-top: 1em; }
 
   button, .button, input[type=submit] {
     padding: 5px 11px; }
 
   .page-header {
-    line-height: 40px;
-    padding: 1em;
-    text-align: center;
-    font-size: 1.2em; }
+    background-image: none !important; }
 
-  .page-footer {
-    font-size: 1.5em;
-    padding: 1em;
-    text-align: center; }
+  h1 {
+    margin: 1em auto 0 auto;
+    padding: 0 0.5em; }
 
-  .page-footer .meta {
-    margin-bottom: 1em; }
+  h1,
+  .center {
+    max-width: 500px; }
 
-  .page-footer .links a {
-    font-size: 1.5em;
-    padding: 0 10px; }
-
-  .page-body {
-    padding: 0.8em; }
+  .post.short {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1em; }
 
   .browse-happy {
     padding: 20px; }
@@ -592,21 +592,26 @@ p .footnote {
     width: 130px;
     height: 130px; }
 
-  .button.no-text-mobile {
-    width: 20px;
+  .not-on-mobile {
+    display: none; }
+
+  .page-footer {
     text-align: center; }
 
-  .button.no-text-mobile i {
-    padding-right: 0; }
+  .page-footer ul {
+    display: block;
+    float: none;
+    margin-top: 0.5em; }
 
-  .button.no-text-mobile span {
-    display: none; }
+  .page-footer ul li {
+    border-left: none;
+    padding: 0 0.5em; }
 
   .comment,
   .prettyprint {
     margin-left: -1em;
     margin-right: -1em; } }
-@media all and (min-width: 860px) {
+@media all and (min-width: 780px) {
   nav {
     padding: 10px 0;
     position: absolute;
@@ -637,23 +642,23 @@ p .footnote {
   .center {
     max-width: 700px; }
 
-  .page-header,
-  .page-footer {
-    background-image: url(/img/background2.jpg);
-    background-position: 50% -380px;
-    background-size: cover;
-    color: #fff;
-    position: relative;
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3); }
-
   .page-header {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -ms-text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -o-text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background-color: #d9d9d9;
+    color: #fff;
     height: 50%;
-    max-height: 400px; }
-
-  .page-footer {
-    height: 200px;
-    line-height: 200px;
-    padding: 0 2em; }
+    max-height: 500px;
+    min-height: 200px;
+    position: relative; }
 
   .menu-toggle {
     display: none; }
@@ -672,11 +677,31 @@ p .footnote {
     width: 200px;
     height: 200px; }
 
-  .page-footer .meta {
+  .post.short {
+    -webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -ms-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+    box-sizing: border-box;
+    padding: 2em; }
+
+  .post.short:hover {
+    background: white; }
+
+  .page-footer {
+    text-align: left; }
+
+  .page-footer div {
     float: left; }
 
-  .page-footer .links a {
-    color: white;
-    float: right;
-    font-size: 2.5em;
-    margin-left: 40px; } }
+  .page-footer ul {
+    float: right; }
+
+  .page-footer ul li {
+    display: inline;
+    padding: 0 1em; }
+
+  .page-footer ul li i {
+    color: #333333;
+    margin-right: 0.5em; } }
