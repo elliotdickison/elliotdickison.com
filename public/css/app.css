@@ -147,12 +147,16 @@ input[type=password],
 textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
   background: #ededed;
   border-color: #d9d9d9;
   border-radius: 0;
   border-style: solid;
   border-width: 0 0 0 6px;
-  box-sizing: border-box;
   display: block;
   font-family: "ff-tisa-web-pro", serif;
   font-size: 1em;
@@ -683,6 +687,10 @@ p .footnote {
     -ms-transition: background 0.2s linear;
     -o-transition: background 0.2s linear;
     transition: background 0.2s linear;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
     box-sizing: border-box;
     padding: 2em; }
 
