@@ -15,7 +15,7 @@ set :views, Proc.new { File.join(root, 'app', 'views') }
 enable :sessions
 
 # Config
-config_file 'config.yml'
+config_file '/config/sinatra.yml'
 configure do
   set :send_mail, settings.environment == :production
 end

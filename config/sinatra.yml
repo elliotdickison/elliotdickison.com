@@ -1,0 +1,12 @@
+
+# Just for contact links
+github_id: 'elliotjames'
+twitter_id: 'elliotdickison'
+instagram_id: '_elliotjames_'
+contact_email: 'ejdickison@gmail.com'
+
+# How many posts should be shown per page in the blog?
+posts_per_page: 5
+
+# For when we don't actually know what went wrong...
+generic_error_message: 'Sorry, seems a critter has chewed through the wires someplace. Please try again later.'
