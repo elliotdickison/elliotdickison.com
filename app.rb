@@ -14,14 +14,10 @@ set :views, Proc.new { File.join(root, 'app', 'views') }
 # Turn on sessions
 enable :sessions
 
+# Config
+config_file 'config.yml'
 configure do
-  set :github_id, 'elliotjames'
-  set :twitter_id, 'elliotdickison'
-  set :instagram_id, '_elliotjames_'
-  set :posts_per_page, 5
-  set :contact_email, 'ejdickison@gmail.com'
   set :send_mail, settings.environment == :production
-  set :generic_error_message, 'Sorry, seems a mouse has chewed through the wires someplace. Please try again later.'
 end
 
 # Setup pony mail
