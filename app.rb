@@ -2,6 +2,7 @@
 # Minimum requires for rake
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/config_file'
 require 'digest/md5'
 require 'pony'
 
@@ -15,7 +16,7 @@ set :views, Proc.new { File.join(root, 'app', 'views') }
 enable :sessions
 
 # Config
-config_file '/config/sinatra.yml'
+config_file 'config/sinatra.yml'
 configure do
   set :send_mail, settings.environment == :production
 end
