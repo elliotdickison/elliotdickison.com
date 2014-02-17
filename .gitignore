@@ -2,6 +2,10 @@
 ###################
 *.yml
 
+# Temporary files #
+###################
+tmp/
+
 # Compiled source #
 ###################
 *.com
