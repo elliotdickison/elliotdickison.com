@@ -4,15 +4,15 @@
     <input type="hidden" name="_method" value="put" />
   <% end %>
   <label for="post_title">Title</label>
-  <input id="post_title" name="post[title]" type="text" value="<%= @post.title %>" <%= 'onkeyup="enforceUrlFriendly(this, document.getElementById(\'post_reference_id\'))"' unless @post.published_at %>/>
+  <input id="post_title" name="post[title]" type="text" value="<%= @post.title %>"<%= ' onkeyup="enforceUrlFriendly(this, document.getElementById(\'post_reference_id\'))"' unless @post.published_at %> required />
   <% unless @post.published_at %>
   	<label for="post_reference_id">Reference Id</label>
-  	<input id="post_reference_id" name="post[reference_id]" type="text" onkeyup="enforceUrlFriendly(this, this, false)" onblur="enforceUrlFriendly(this, this)" value="<%= @post.reference_id %>" />
+  	<input id="post_reference_id" name="post[reference_id]" type="text" onkeyup="enforceUrlFriendly(this, this, false)" onblur="enforceUrlFriendly(this, this)" value="<%= @post.reference_id %>" required />
   <% end %>
   <label for="tags">Tags</label>
   <input id="tags" name="tags" type="text" value="<%= @post.tags.inject([]) { |names, tag| names << tag.name}.join(', ') %>" />
   <label for="post_body">Body</label>
-  <textarea id="post_body" name="post[body]" rows="20"><%= Rack::Utils.escape_html @post.body %></textarea>
+  <textarea id="post_body" name="post[body]" rows="20" required ><%= Rack::Utils.escape_html @post.body %></textarea>
   <% unless @post.published_at %>
   	<label for="post_publish">Publish</label>
   	<input id="post_publish" name="publish" type="checkbox" /><br />

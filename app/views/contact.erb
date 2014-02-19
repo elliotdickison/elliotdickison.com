@@ -5,11 +5,11 @@
 	<p><a href="mailto:ejdickison@gmail.com">Shoot me an email</a> or fill out the form below and hit &#8220;Send&#8221;.</p>
 	<form action="/contact" method="post">
 		<label for="message_name">Name</label><br />
-		<input id="message_name" name="message[name]" type="text" value="<%= @message.name %>" />
+		<input id="message_name" name="message[name]" type="text" value="<%= @message.name %>" required />
 		<label for="message_email">Email</label><br />
-		<input id="message_email" name="message[email]" type="email" value="<%= @message.email %>" />
+		<input id="message_email" name="message[email]" type="email" value="<%= @message.email %>" required />
 		<label for="message_body">Message</label><br />
-		<textarea id="message_body" name="message[body]" rows="10"><%= @message.body %></textarea>
+		<textarea id="message_body" name="message[body]" rows="10" required ><%= @message.body %></textarea>
 		<input type="submit" value="Send" />
 	</form>
 </div>
