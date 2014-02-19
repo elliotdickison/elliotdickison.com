@@ -238,8 +238,8 @@ textarea {
 	resize: vertical;
 }
 
-input,
-textarea {
+input[type=button],
+input[type=submit] {
 	-webkit-appearance: none;
 	-webkit-border-radius: 0;
 }
