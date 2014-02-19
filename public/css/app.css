@@ -141,12 +141,18 @@ label {
   color: #999999;
   font-family: "brandon-grotesque", sans-serif; }
 
+textarea {
+  resize: vertical; }
+
+input,
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0; }
+
 input[type=text],
 input[type=email],
 input[type=password],
 textarea {
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -172,7 +178,6 @@ textarea:focus {
   outline: none; }
 
 input[type=submit] {
-  -webkit-appearance: none;
   margin-top: 1em; }
 
 button, .button, input[type=submit] {

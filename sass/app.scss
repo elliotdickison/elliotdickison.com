@@ -234,12 +234,20 @@ label {
 	font-family: $header-font-stack;
 }
 
+textarea {
+	resize: vertical;
+}
+
+input,
+textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+}
+
 input[type=text],
 input[type=email],
 input[type=password],
 textarea {
-	-webkit-appearance: none;
-	-webkit-border-radius: 0;
 	@include prefix(box-sizing, border-box);
 	background: $bg-medium;
 	border-color: $bg-dark;
@@ -263,7 +271,6 @@ textarea:focus {
 }
 
 input[type=submit] {
-	-webkit-appearance: none;
 	margin-top: 1em;
 }
 
