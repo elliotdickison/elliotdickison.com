@@ -152,6 +152,7 @@ input[type=submit] {
 input[type=text],
 input[type=email],
 input[type=password],
+input[type=search],
 textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -173,12 +174,49 @@ textarea {
 input[type=text]:focus,
 input[type=email]:focus,
 input[type=password]:focus,
+input[type=search]:focus,
 textarea:focus {
   border-color: #da5b54;
   outline: none; }
 
 input[type=submit] {
   margin-top: 1em; }
+
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none; }
+
+input[type=search] {
+  -webkit-appearance: textfield; }
+
+.crazy-search {
+  background: #ededed;
+  float: right;
+  height: 41px;
+  position: relative;
+  width: 300px; }
+
+.crazy-search input[type=search] {
+  background: transparent;
+  font-family: "brandon-grotesque", sans-serif;
+  height: 41px;
+  padding: 10px 10px 10px 35px;
+  position: absolute;
+  z-index: 2; }
+
+.crazy-search:before {
+  -webkit-font-smoothing: antialiased;
+  content: "\f002";
+  font-family: FontAwesome;
+  font-style: normal !important;
+  font-weight: normal !important;
+  left: 15px;
+  position: absolute;
+  text-decoration: inherit;
+  top: 10px;
+  z-index: 1; }
 
 button, .button, input[type=submit] {
   background: #da5b54;

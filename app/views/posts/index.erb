@@ -1,4 +1,12 @@
-<%= '<div class="center cf top-links"><a href="/blog/archive" class="button"><i class="icon-archive"></i> Archive</a><a href="/blog/tags" class="button"><i class="icon-tags"></i> Tags</a></div>' if not request.xhr? %>
+<% if not request.xhr? %>
+	<div class="center cf top-links">
+		<a href="/blog/archive" class="button"><i class="icon-archive"></i> Archive</a>
+		<a href="/blog/tags" class="button"><i class="icon-tags"></i> Tags</a>
+		<div class="crazy-search">
+			<input type="search" placeholder="Search" value="" />
+		</div>
+	</div>
+<% end %>
 <% @posts.each_with_index do |post, index|
 	comment_count = post.comments.count
 	comment_text = case comment_count
