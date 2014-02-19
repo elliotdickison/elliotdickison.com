@@ -54,12 +54,14 @@ end
 get '/posts/new', :auth => :admin do
   @selected_tab = :blog
   @post = Post.new
+  @page_title = 'New Post'
   erb :'posts/form'
 end
 
 get '/posts/:id', :auth => :admin do
   @selected_tab = :blog
   @post = Post.find(params[:id])
+  @page_title = @post.title
   halt 404 if !@post
   erb :'posts/show'
 end
@@ -92,6 +94,7 @@ end
 get '/posts/:id/edit', :auth => :admin do
   @selected_tab = :blog
   @post = Post.find(params[:id])
+  @page_title = "Edit #{@post.title}"
   halt 404 if !@post
   erb :'posts/form'
 end
