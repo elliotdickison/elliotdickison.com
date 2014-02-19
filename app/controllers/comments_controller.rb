@@ -27,6 +27,7 @@ post '/comments' do
   end
   
   if error_message
+    
     # Pass the error message along via a cookie
     set_tmp_cookie message: error_message, message_target: 'comment_form'
 

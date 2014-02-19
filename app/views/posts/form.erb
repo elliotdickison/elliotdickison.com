@@ -10,7 +10,7 @@
   	<input id="post_reference_id" name="post[reference_id]" type="text" onkeyup="enforceUrlFriendly(this, this, false)" onblur="enforceUrlFriendly(this, this)" value="<%= @post.reference_id %>" />
   <% end %>
   <label for="tags">Tags</label>
-  <input id="tags" name="tags" type="text" value="<%= @post.tags.inject([]) { |names, tag| names << tag.name}.join(',') %>" />
+  <input id="tags" name="tags" type="text" value="<%= @post.tags.inject([]) { |names, tag| names << tag.name}.join(', ') %>" />
   <label for="post_body">Body</label>
   <textarea id="post_body" name="post[body]" rows="20"><%= Rack::Utils.escape_html @post.body %></textarea>
   <% unless @post.published_at %>

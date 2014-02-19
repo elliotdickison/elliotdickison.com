@@ -34,16 +34,6 @@ get '/blog/archive' do
   erb :'posts/archive'
 end
 
-post '/posts', :auth => :admin do
-  @post = Post.new(params[:post])
-  if @post.save
-    @post.publish if params[:publish] == 'on'
-    redirect "/posts/#{@post.id}"
-  else
-    redirect '/posts/new'
-  end
-end
-
 get '/posts', :auth => :admin do
   @posts = Post.all.order('id DESC')
   @selected_tab = :blog
@@ -66,19 +56,38 @@ get '/posts/:id', :auth => :admin do
   erb :'posts/show'
 end
 
-put '/posts/:id', :auth => :admin do
-  @post = Post.find(params[:id])
-  halt 404 if !@post
-  if @post.update_attributes(params[:post])
-    @post.publish if params[:publish] == 'on'
+post '/posts', :auth => :admin do
+  @post = Post.new(params[:post])
+  if @post.save
+    @post.publish! if params[:publish] == 'on'
     if params[:tags]
       @post.tags = params[:tags].split(',').map do |tag|
+        tag = tag.strip
         Tag.find_by_name(tag) || Tag.create({name: tag})
       end
       @post.save
     end
-    erb :'posts/show'
+    redirect "/posts/#{@post.id}"
   else
+    redirect '/posts/new'
+  end
+end
+
+put '/posts/:id', :auth => :admin do
+  @post = Post.find(params[:id])
+  halt 404 if !@post
+  if @post.update_attributes(params[:post])
+    @post.publish! if params[:publish] == 'on'
+    if params[:tags]
+      @post.tags = params[:tags].split(',').map do |tag|
+        tag = tag.strip
+        Tag.find_by_name(tag) || Tag.create({name: tag})
+      end
+      @post.save
+    end
+    redirect "/posts/#{@post.id}"
+  else
+    set_tmp_cookie message: settings.generic_error_message
     redirect "/posts/#{@post.id}/edit"
   end
 end

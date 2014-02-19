@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
     self.reference_id = reference_id.downcase.gsub(/(')/, '').gsub(/([^a-z0-9])/, '-').gsub(/(--+)/, '-').gsub(/^(-*)|(-*)$/, '') if attribute_present?('reference_id')
   end
 
-  def publish
+  def publish!
     self.touch :published_at unless self.published_at
   end
 
