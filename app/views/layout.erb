@@ -19,14 +19,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="google-site-verification" content="CsKxQ5xeJkM4VvDiowc4HWQEH9OzAegv-jfkWkUVuL8" />
-        <meta name="description" content="">
+        <meta name="description" content="The personal website of Elliot Dickison. A bit lame, really.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <title><%= (@page_title.size ? "#{@page_title.gsub(%r{</?[^>]+?>}, '').strip} | " : '') << request.host %></title>
+        
+        <link rel="author" href="https://plus.google.com/u/0/+ElliotDickison/posts" />
         <link rel="icon" type="image/png" href="/img/favicon.png" />
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="/css/fontawesome.css">
         <link rel="stylesheet" href="/prettify/prettify.css" />
+        
         <!--[if lte IE 8]>
             <script type="text/javascript" src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script type="text/javascript" src="/js/respond.js"></script>
