@@ -1,4 +1,4 @@
-function toggleMenu(evt) {
+function toggleMenu(evt){
 	var menu = document.getElementById('js-menu');
 
 	menu.className = menu.className == 'show' ? '' : 'show';
@@ -6,7 +6,7 @@ function toggleMenu(evt) {
 	evt.preventDefault();
 }
 
-function enforceUrlFriendly(input_elem, output_elem, trim) {
+function enforceUrlFriendly(input_elem, output_elem, trim){
 	var friendly = getUrlFriendly(input_elem.value, trim);
 
 	if (output_elem.value !== friendly) {
@@ -14,7 +14,7 @@ function enforceUrlFriendly(input_elem, output_elem, trim) {
 	}
 }
 
-function getUrlFriendly(text, trim) {
+function getUrlFriendly(text, trim){
 	text = text.toLowerCase().replace(/(')/g, '').replace(/([^a-z0-9])/g, '-').replace(/(--+)/g, '-');
 
 	if (typeof trim == 'undefined' || trim) {
@@ -51,7 +51,9 @@ function setupHeader(){
 			"background-position": "50% "+header_bg_offset+"px"
 		});
 
-		$nav.css('position', 'fixed');
+		$nav
+			.css('position', 'fixed')
+			.show();
 
 		$window
 			.bind('scroll', function(){

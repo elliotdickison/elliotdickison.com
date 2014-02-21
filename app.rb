@@ -21,6 +21,9 @@ configure do
   set :send_mail, settings.environment == :production
 end
 
+set :logging, true
+set :dump_errors, true
+
 # Setup pony mail
 Pony.options = case settings.environment
 when :development
