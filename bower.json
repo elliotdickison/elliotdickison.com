@@ -1,0 +1,7 @@
+{
+  "name": "elliotjam.es",
+  "version": "1.0.0",
+  "dependencies": {
+    "q": "latest"
+  }
+}
