@@ -1,0 +1,10 @@
+{
+  "name": "elliotjam.es",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-sass": "latest"
+  }
+}
