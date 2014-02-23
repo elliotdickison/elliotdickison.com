@@ -2,6 +2,10 @@
 ###################
 tmp/
 
+# Dev only files #
+##################
+node_modules/
+
 # Compiled source #
 ###################
 *.com
