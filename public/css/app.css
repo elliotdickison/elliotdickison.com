@@ -37,7 +37,7 @@ html {
   height: 100%; }
 
 body {
-  color: #333333;
+  color: #999999;
   font-family: "ff-tisa-web-pro", serif;
   font-size: 20px;
   height: 100%; }
@@ -329,7 +329,7 @@ time {
   color: #da5b54; }
 
 .page-footer {
-  background: #333333;
+  background: #999999;
   color: white;
   padding: 1em;
   text-transform: lowercase; }
@@ -445,7 +445,7 @@ time {
   text-align: center; }
 
 .prettyprint {
-  background: #333333;
+  background: #999999;
   color: white;
   font-size: 0.8em;
   margin-top: 0 !important;
@@ -463,7 +463,7 @@ time {
   content: 'JavaScript';
   display: block;
   background: #d9d9d9;
-  color: #333333;
+  color: #999999;
   margin: -3em -1em 0 -1em;
   padding: 0 1em;
   height: 2em;
@@ -475,7 +475,7 @@ time {
   content: 'PHP';
   display: block;
   background: #d9d9d9;
-  color: #333333;
+  color: #999999;
   margin: -3em -1em 0 -1em;
   padding: 0 1em;
   height: 2em;

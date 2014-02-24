@@ -11,13 +11,30 @@ module.exports = function(grunt) {
         src: 'public/js/app.js',
         dest: 'public/build/app.min.js'
       }
+    },
+    sass: {
+      options: {
+        cacheLocation: 'tmp/sass_cache'
+      },
+      dist: {
+        files: {
+          'public/css/app.css' : 'public/css/app.scss'
+        }
+      }
+    },
+    watch: {
+      css: {
+        files: 'public/css/*.scss',
+        tasks: ['sass']
+      }
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-uglify'); // Minify schtuff
+  grunt.loadNpmTasks('grunt-contrib-sass'); // CSS with superpowers
+  grunt.loadNpmTasks('grunt-contrib-watch'); // Sass --watch
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['uglify', 'watch']);
 
 };
