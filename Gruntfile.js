@@ -34,17 +34,26 @@ module.exports = function(grunt) {
       },
       uses_defaults: ['public/js/app.js']
     },
+    command: {
+      run_cmd: {
+        cmd: 'touch tmp/restart.txt'
+      }
+    },
     watch: {
       css: {
         files: 'public/css/*.scss',
         tasks: ['sass']
       },
-      scripts: {
+      js: {
         options: {
           spawn: false,
         },
         files: 'public/js/*.js',
         tasks: ['jshint', 'uglify']
+      },
+      app: {
+        files: ['**/*.rb', 'Gemfile'],
+        tasks: ['command']
       }
     }
   });
@@ -53,6 +62,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify'); // Minify schtuff
   grunt.loadNpmTasks('grunt-contrib-sass'); // CSS with superpowers
   grunt.loadNpmTasks('grunt-contrib-watch'); // Sass --watch
+  grunt.loadNpmTasks('grunt-contrib-commands'); // Run shell commands
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);
