@@ -55,10 +55,10 @@ function setupHeader(){
 
 		$window
 			.bind('scroll', function(){
-			   	var offset = window.pageYOffset,
-			   		nav_opacity = 1 - (offset / (header_height - (nav_height * 2)));
+				var offset = window.pageYOffset,
+					nav_opacity = 1 - (offset / (header_height - (nav_height * 2)));
 
-			   	// Show/hide the navigation, but don't do it more often than necessary (DOM changes are sloow)
+				// Show/hide the navigation, but don't do it more often than necessary (DOM changes are sloow)
 				if(nav_opacity < 0 && !nav_hidden){
 					$nav.hide();
 					nav_hidden = true;

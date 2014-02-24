@@ -22,14 +22,34 @@ module.exports = function(grunt) {
         }
       }
     },
+    jshint: {
+      options: {
+        curly: true,
+        eqnull: true,
+        browser: true,
+        smarttabs: true,
+        globals: {
+          jQuery: true
+        },
+      },
+      uses_defaults: ['public/js/app.js']
+    },
     watch: {
       css: {
         files: 'public/css/*.scss',
         tasks: ['sass']
+      },
+      scripts: {
+        options: {
+          spawn: false,
+        },
+        files: 'public/js/*.js',
+        tasks: ['jshint']
       }
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-jshint'); // JSHint!
   grunt.loadNpmTasks('grunt-contrib-uglify'); // Minify schtuff
   grunt.loadNpmTasks('grunt-contrib-sass'); // CSS with superpowers
   grunt.loadNpmTasks('grunt-contrib-watch'); // Sass --watch
