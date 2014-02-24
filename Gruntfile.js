@@ -44,7 +44,7 @@ module.exports = function(grunt) {
           spawn: false,
         },
         files: 'public/js/*.js',
-        tasks: ['jshint']
+        tasks: ['jshint', 'uglify']
       }
     }
   });
@@ -55,6 +55,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch'); // Sass --watch
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'watch']);
+  grunt.registerTask('default', ['watch']);
 
 };
