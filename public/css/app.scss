@@ -182,7 +182,6 @@ h2 {
 h3 {
 	font-family: $header-font-stack;
 	font-size: 1.7em;
-	padding: 0 0 0.5em 0;
 }
 
 h4 {
@@ -426,13 +425,15 @@ time {
 }
 
 .comment {
-	margin: 1em 0;
+	@include prefix(transition, background 0.2s linear);
+	background: $bg-medium;
+	margin: 2em 0;
 	min-height: 3.6em;
 	padding: 1em;
 }
 
-.comment.alternate {
-	background: $bg-medium;
+.comment:hover {
+	background: $bg-light;
 }
 
 .comment .avatar {
