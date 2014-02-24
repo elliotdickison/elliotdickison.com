@@ -29,27 +29,23 @@ function setupHeader(){
 		window_width = $window.width(),
 		$header = $('.js-cool-header'),
 		$nav = $header.find('nav'),
-		header_height, nav_height,
-		header_bg_offset,
-		nav_hidden;
+		nav_hidden = false,
+		header_height, nav_height;
 
+	// Get rid of whatever is currently bound two window.onScroll
 	$window.unbind('scroll');
-	$nav.css('position', 'absolute');
 
+	// Ensure that the nav is visible and positioned absolutely (so it doesn't jump down over any content)
+	$nav.css({
+		"display": "block",
+		"opacity": "1",
+		"position": "absolute"
+	});
+
+	// 840 is the minimum width for the layout that uses this header... can be found in app.scss
 	if(window_width >= 840){
 		header_height = $header.outerHeight();
 		nav_height = $nav.outerHeight();
-
-		// This'll fix the background image at the same location behind the main nav regardless of window size
-		header_bg_offset = -420 * (window_width / 1280);
-		
-		nav_hidden = false;
-
-		// Do this here so the header image doesn't jump around before js is loaded
-		$header.css({
-			"background-image": "url(/img/background2.jpg)",
-			"background-position": "50% "+header_bg_offset+"px"
-		});
 
 		$nav.css('position', 'fixed');
 
@@ -74,10 +70,10 @@ function setupHeader(){
 					// Update the navigation opacity
 					if(nav_opacity > 0 && !nav_hidden){
 						$nav.css('opacity', nav_opacity);
-					}	
+					}
 
 					// Parallax the header
-					$header.css('background-position', 'center '+(header_bg_offset + (offset / 2))+'px');
+					$header.css('background-position', '50% '+(offset / 2)+'px');
 				}
 			})
 			.trigger('scroll');

@@ -596,9 +596,6 @@ p .footnote {
   button, .button, input[type=submit] {
     padding: 5px 11px; }
 
-  .page-header {
-    background-image: none !important; }
-
   h1 {
     margin: 1em auto 0 auto;
     padding: 0 0.5em; }
@@ -681,7 +678,8 @@ p .footnote {
     -ms-text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     -o-text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    background-color: #d9d9d9;
+    background-image: url("/img/background.jpg");
+    background-position: 50% 0px;
     color: #fff;
     height: 50%;
     max-height: 340px;
