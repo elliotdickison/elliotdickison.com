@@ -14,11 +14,11 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
         },
-        files: 'public/js/*.js',
+        files: 'public/script/*.js',
         tasks: ['jshint', 'uglify', 'concat:js'],
       },
       sass: {
-        files: 'public/css/*.scss',
+        files: 'public/style/*.scss',
         tasks: ['sass', 'concat:css'],
       },
     },
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
           jQuery: true,
         },
       },
-      uses_defaults: ['public/js/app.js'],
+      uses_defaults: ['public/script/app.js'],
     },
 
     uglify: {
@@ -47,8 +47,8 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
       },
       build: {
-        src: 'public/js/app.js',
-        dest: 'public/build/app.min.js',
+        src: 'public/script/app.js',
+        dest: 'public/build/js/app.min.js',
       },
     },
 
@@ -57,19 +57,25 @@ module.exports = function(grunt) {
         cacheLocation: 'tmp/sass_cache',
       },
       dist: {
-        files: {
-          'public/css/app.css' : 'public/css/app.scss',
-        },
+        files: [
+          {
+            expand: true,
+            cwd: "public/style",
+            src: ["**/*.scss"],
+            dest: "public/build/css",
+            ext: ".css"
+          },
+        ],
       },
     },
 
     concat: {
       js: {
-        src: 'public/js/*.min.js',
-        dest: 'public/build/all.min.js'
+        src: 'public/build/js/*.js',
+        dest: 'public/build/all.js'
       },
       css: {
-        src: ['public/css/normalize.css', 'public/css/fontawesome.css', 'public/prettify/prettify.css', 'public/css/app.css'],
+        src: ['public/build/css/normalize.css', 'public/build/css/fontawesome.css', 'public/vendor/prettify/prettify.css', 'public/build/css/app.css'],
         dest: 'public/build/all.css'
       }  
     },

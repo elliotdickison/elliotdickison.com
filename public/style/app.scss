@@ -301,6 +301,11 @@ time {
 	font-family: $header-font-stack;
 }
 
+.login {
+	width: 400px;
+	margin: 100px auto;
+}
+
 .loading,
 .loading:hover {
 	color: $fg-light;

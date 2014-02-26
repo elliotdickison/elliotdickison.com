@@ -303,6 +303,10 @@ time {
   color: #999999;
   font-family: "brandon-grotesque", sans-serif; }
 
+.login {
+  width: 400px;
+  margin: 100px auto; }
+
 .loading,
 .loading:hover {
   color: #999999;
