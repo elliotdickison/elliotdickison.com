@@ -65,6 +65,7 @@ module.exports = function(grunt) {
             dest: "public/build/css",
             ext: ".css"
           },
+          {'public/build/css/font-awesome.css' : 'public/vendor/font-awesome/scss/font-awesome.scss'}
         ],
       },
     },
@@ -75,7 +76,7 @@ module.exports = function(grunt) {
         dest: 'public/build/all.js'
       },
       css: {
-        src: ['public/build/css/normalize.css', 'public/build/css/fontawesome.css', 'public/vendor/prettify/prettify.css', 'public/build/css/app.css'],
+        src: ['public/build/css/normalize.css', 'public/build/css/font-awesome.css', 'public/vendor/prettify/prettify.css', 'public/build/css/app.css'],
         dest: 'public/build/all.css'
       }  
     },
