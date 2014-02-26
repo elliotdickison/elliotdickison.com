@@ -19,10 +19,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="google-site-verification" content="CsKxQ5xeJkM4VvDiowc4HWQEH9OzAegv-jfkWkUVuL8" />
-        <meta name="description" content="The personal website of Elliot Dickison. A bit lame, really.">
+        <meta name="description" content="Elliot James Dickison – web developer, skier, father, christian">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <title><%= (@page_title.size ? "#{@page_title.gsub(%r{</?[^>]+?>}, '').strip} | " : '') << request.host %></title>
+        <title><%= (@page_title.size ? "#{@page_title.gsub(%r{</?[^>]+?>}, '').strip} | " : '') << 'Elliot James Dickison' %></title>
         
         <link rel="author" href="https://plus.google.com/u/0/+ElliotDickison/posts" />
         <link rel="icon" type="image/png" href="/img/favicon.png" />
@@ -60,7 +60,7 @@
             <%= yield %>
         </div>
         <footer class="page-footer cf">
-            <div>Hand Made in <a href="//500px.com/search?utf8=%E2%9C%93&page=1&q=Idaho&type=photos&media_type=any&category=Landscapes&order=votes&license_type=-1">Idaho</a> by <a href="/about">Elliot</a></div>
+            <div>Hand Made in <a href="//500px.com/search?utf8=%E2%9C%93&page=1&q=Idaho&type=photos&media_type=any&category=Landscapes&order=votes&license_type=-1">Idaho</a> by <a href="/about">Elliot James Dickison</a></div>
             <ul>
                 <li><a href="//github.com/<%= settings.github_id %>" title="github"><i class="icon-github mobile-only"></i><span class="not-on-mobile">Github</span></a></li>
                 <li><a href="//twitter.com/<%= settings.twitter_id %>" title="twitter"><i class="icon-twitter mobile-only"></i><span class="not-on-mobile">Twitter</span></a></li>

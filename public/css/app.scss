@@ -734,6 +734,7 @@ p .footnote {
 	.page-header {
 		@include prefix(background-size, cover);
 		@include prefix(text-shadow, 0 0 15px rgba(0, 0, 0, 0.3));
+		background-color: $bg-medium;
 		background-image: url("/img/background.jpg");
 		background-position: 50% 0px;
 		color: #fff;
