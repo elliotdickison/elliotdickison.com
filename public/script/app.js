@@ -6,11 +6,11 @@ function toggleMenu(evt) {
 	evt.preventDefault();
 }
 
-function enforceUrlFriendly(input_elem, output_elem, trim) {
-	var friendly = getUrlFriendly(input_elem.value, trim);
+function enforceUrlFriendly(inputElement, outputElement, trim) {
+	var friendly = getUrlFriendly(inputElement.value, trim);
 
-	if (output_elem.value !== friendly) {
-		output_elem.value = friendly;
+	if (outputElement.value !== friendly) {
+		outputElement.value = friendly;
 	}
 }
 
@@ -26,11 +26,11 @@ function getUrlFriendly(text, trim) {
 
 function setupHeader(){
 	var $window = $(window),
-		window_width = $window.width(),
+		windowWidth = $window.width(),
 		$header = $('.js-cool-header'),
 		$nav = $header.find('nav'),
-		nav_hidden = false,
-		header_height, nav_height;
+		navIsHidden = false,
+		headerHeight, navHeight;
 
 	// Get rid of whatever is currently bound two window.onScroll
 	$window.unbind('scroll');
@@ -43,33 +43,33 @@ function setupHeader(){
 	});
 
 	// 840 is the minimum width for the layout that uses this header... can be found in app.scss
-	if(window_width >= 840){
-		header_height = $header.outerHeight();
-		nav_height = $nav.outerHeight();
+	if(windowWidth >= 840){
+		headerHeight = $header.outerHeight();
+		navHeight = $nav.outerHeight();
 
 		$nav.css('position', 'fixed');
 
 		$window
 			.bind('scroll', function(){
 				var offset = window.pageYOffset,
-					nav_opacity = 1 - (offset / (header_height - (nav_height * 2)));
+					navOpacity = 1 - (offset / (headerHeight - (navHeight * 2)));
 
 				// Show/hide the navigation, but don't do it more often than necessary (DOM changes are sloow)
-				if(nav_opacity < 0 && !nav_hidden){
+				if(navOpacity < 0 && !navIsHidden){
 					$nav.hide();
-					nav_hidden = true;
+					navIsHidden = true;
 				}
-				else if(nav_opacity > 0 && nav_hidden){
+				else if(navOpacity > 0 && navIsHidden){
 					$nav.show();
-					nav_hidden = false;
+					navIsHidden = false;
 				}
 
 				// Animate the header
-				if(offset < header_height){
+				if(offset < headerHeight){
 
 					// Update the navigation opacity
-					if(nav_opacity > 0 && !nav_hidden){
-						$nav.css('opacity', nav_opacity);
+					if(navOpacity > 0 && !navIsHidden){
+						$nav.css('opacity', navOpacity);
 					}
 
 					// Parallax the header
@@ -124,12 +124,12 @@ function setupLinks(){
 }
 
 $(function(){
-	var setup_header_timeout;
+	var setupHeaderTimeout;
 
 	$(window)
 		.bind('resize', function(){
-			clearTimeout(setup_header_timeout);
-			setup_header_timeout = setTimeout(function(){
+			clearTimeout(setupHeaderTimeout);
+			setupHeaderTimeout = setTimeout(function(){
 				setupHeader();
 			}, 100);
 		})
