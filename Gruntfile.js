@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       },
       sass: {
         files: 'public/style/*.scss',
-        tasks: ['sass', 'concat:css'],
+        tasks: ['sass', 'cssmin', 'concat:css'],
       },
     },
 
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: 'public/script/app.js',
-        dest: 'public/build/js/app.min.js',
+        dest: 'public/build/app.min.js',
       },
     },
 
@@ -60,23 +60,40 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: "public/style",
-            src: ["**/*.scss"],
-            dest: "public/build/css",
-            ext: ".css"
+            cwd: 'public/style',
+            src: ['**/*.scss'],
+            dest: 'public/build/',
+            ext: '.css'
           },
-          {'public/build/css/font-awesome.css' : 'public/vendor/font-awesome/scss/font-awesome.scss'}
+          {'public/build/font-awesome.css' : 'public/vendor/font-awesome/scss/font-awesome.scss'}
         ],
       },
     },
 
+    cssmin: {
+      build: {
+        expand: true,
+        cwd: 'public/build/',
+        src: ['*.css', '!*.min.css', '!all.css'],
+        dest: 'public/build/',
+        ext: '.min.css'
+      },
+      prettify: {
+        expand: true,
+        cwd: 'public/vendor/prettify/',
+        src: ['*.css', '!*.min.css'],
+        dest: 'public/build/',
+        ext: '.min.css'
+      }
+    },
+
     concat: {
       js: {
-        src: 'public/build/js/*.js',
+        src: ['public/vendor/jquery/dist/jquery.min.js', 'public/build/*.min.js'],
         dest: 'public/build/all.js'
       },
       css: {
-        src: ['public/build/css/normalize.css', 'public/build/css/font-awesome.css', 'public/vendor/prettify/prettify.css', 'public/build/css/app.css'],
+        src: ['public/build/normalize.min.css', 'public/build/css/font-awesome.min.css', 'public/build/css/prettify.min.css', 'public/build/css/app.min.css'],
         dest: 'public/build/all.css'
       }  
     },
@@ -88,6 +105,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint'); // JSHint!
   grunt.loadNpmTasks('grunt-contrib-uglify'); // Minify schtuff
   grunt.loadNpmTasks('grunt-contrib-sass'); // CSS with superpowers
+  grunt.loadNpmTasks('grunt-contrib-cssmin'); // Minify
   grunt.loadNpmTasks('grunt-contrib-concat'); // JSHint!
   
 
