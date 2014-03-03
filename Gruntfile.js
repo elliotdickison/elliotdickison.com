@@ -46,9 +46,10 @@ module.exports = function(grunt) {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
       },
-      build: {
-        src: 'public/script/app.js',
-        dest: 'public/build/app.min.js',
+      files: {
+        'public/build/jquery.min.js': 'public/vendor/jquery/dist/jquery.js',
+        'public/build/q.min.js': 'public/vendor/q/q.js',
+        'public/build/app.min.js': 'public/script/app.js',
       },
     },
 
@@ -89,7 +90,7 @@ module.exports = function(grunt) {
 
     concat: {
       js: {
-        src: ['public/vendor/jquery/dist/jquery.min.js', 'public/build/*.min.js'],
+        src: ['public/build/jquery.min.js', 'public/build/q.min.js', 'public/build/app.min.js'],
         dest: 'public/build/all.js'
       },
       css: {
