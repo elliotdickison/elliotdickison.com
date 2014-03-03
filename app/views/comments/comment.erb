@@ -6,7 +6,7 @@
 	<%= comment.website.blank? ? '' : '</a>' %>
 	<header>
 		<h5><%= comment.website.blank? ? comment.commenter : "<a href='#{comment.website}' target='_blank'>#{comment.commenter}</a>" %><a class="right" href="#comment-<%= comment.id %>">#<%= comment_number %></a></h5>
-		<time datetime="<%= comment.created_at.strftime("%Y-%m-%d") %>"><i class="icon-time"></i> <%= comment.created_at.strftime("%B %-d, %Y") %></time>
+		<time datetime="<%= comment.created_at.strftime("%Y-%m-%d") %>"><i class="fa fa-clock-o"></i> <%= comment.created_at.strftime("%B %-d, %Y") %></time>
 	</header>
 	<div class="body"><%= comment %></div>
 	<% if admin_mode? %>
