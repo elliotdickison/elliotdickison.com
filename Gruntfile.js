@@ -93,7 +93,7 @@ module.exports = function(grunt) {
         dest: 'public/build/all.js'
       },
       css: {
-        src: ['public/build/normalize.min.css', 'public/build/css/font-awesome.min.css', 'public/build/css/prettify.min.css', 'public/build/css/app.min.css'],
+        src: ['public/build/normalize.min.css', 'public/build/font-awesome.min.css', 'public/build/prettify.min.css', 'public/build/app.min.css'],
         dest: 'public/build/all.css'
       }  
     },
