@@ -19,6 +19,15 @@ get '/blog' do
 	erb :'posts/index', layout: !request.xhr?
 end
 
+get '/blog/search/:q' do
+  @page_title = 'Blog'
+  @selected_tab = :blog
+  
+  @posts = Post.where('LOWER(title) LIKE ?', "%#{params[:q].downcase}%").order('published_at DESC').limit(25)
+
+  erb :'posts/search', layout: nil
+end
+
 get %r{/blog/([0-9]+)/(.*)} do
   @selected_tab = :blog
   @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", params[:captures].first, params[:captures].last).first

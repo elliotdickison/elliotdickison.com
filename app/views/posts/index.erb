@@ -7,21 +7,23 @@
 		</div>
 	</div>
 <% end %>
-<% @posts.each_with_index do |post, index|
-	comment_count = post.comments.count
-	comment_text = case comment_count
-		when 0 then 'No Comments'
-		when 1 then '1 Comment'
-		else "#{comment_count} Comments"
-	end %>
-	<article class="post short center">
-		<%= erb :'posts/post', locals: {post: post, short: true} %>
-		<footer class="cf">
-			<a href="<%= post.link %>">Read More</a>
-			<a href="<%= post.link %>#comments" class="right"><i class="fa fa-comment"></i> <%= comment_text %></a>
-		</footer>
-	</article>
-<% end %>
-<% if @show_more_link %>
-	<a class="load-more js-ajax-replace" href="/blog?page=<%= @current_page + 1 %>"><i class="fa fa-plus-circle"></i> Load more posts</a>
-<% end %>
+<span class="js-blog-content">
+	<% @posts.each_with_index do |post, index|
+		comment_count = post.comments.count
+		comment_text = case comment_count
+			when 0 then 'No Comments'
+			when 1 then '1 Comment'
+			else "#{comment_count} Comments"
+		end %>
+		<article class="post short center">
+			<%= erb :'posts/post', locals: {post: post, short: true} %>
+			<footer class="cf">
+				<a href="<%= post.link %>">Read More</a>
+				<a href="<%= post.link %>#comments" class="right"><i class="fa fa-comment"></i> <%= comment_text %></a>
+			</footer>
+		</article>
+	<% end %>
+	<% if @show_more_link %>
+		<a class="load-more js-ajax-replace" href="/blog?page=<%= @current_page + 1 %>"><i class="fa fa-plus-circle"></i> Load more posts</a>
+	<% end %>
+</span>

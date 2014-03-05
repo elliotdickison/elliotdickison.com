@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+	<article class="post short center">
+		<%= erb :'posts/post', locals: {post: post, short: true} %>
+	</article>
+<% end %>

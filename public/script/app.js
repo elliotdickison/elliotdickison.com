@@ -138,4 +138,6 @@ $(function(){
 		.trigger('resize');
 
 	setupLinks();
+
+	setupSearch();
 });
