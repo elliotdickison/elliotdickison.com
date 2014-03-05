@@ -43,7 +43,7 @@ function setupHeader(){
 	});
 
 	// 840 is the minimum width for the layout that uses this header... can be found in app.scss
-	if(windowWidth >= 840){
+	if(windowWidth >= 780){
 		headerHeight = $header.outerHeight();
 		navHeight = $nav.outerHeight();
 

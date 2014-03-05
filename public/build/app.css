@@ -70,7 +70,7 @@ a:hover {
   color: #da5b54; }
 
 nav {
-  font-size: 1.2em; }
+  font-size: 1.3em; }
 
 nav ul,
 nav li {
@@ -422,6 +422,9 @@ time {
 .post.short .body p {
   margin-bottom: 1em; }
 
+.post.short footer {
+  font-family: "brandon-grotesque", sans-serif; }
+
 .post .body p,
 .post .body img,
 .post .body pre,
@@ -583,7 +586,7 @@ p .footnote {
   top: 0;
   width: 100% !important; }
 
-@media all and (max-width: 839px) {
+@media all and (max-width: 779px) {
   body {
     font-size: 16px; }
 
@@ -640,7 +643,7 @@ p .footnote {
     padding: 5px 11px; }
 
   h1 {
-    margin: 1em auto 0 auto;
+    margin: 0.5em auto 0 auto;
     padding: 0 0.5em; }
 
   h1,
@@ -648,7 +651,7 @@ p .footnote {
     max-width: 550px; }
 
   .page-body {
-    padding-top: 1em; }
+    padding: 1em; }
 
   .post.short {
     -webkit-box-sizing: border-box;
@@ -656,7 +659,11 @@ p .footnote {
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
+    margin-top: 1em;
     padding: 1em; }
+
+  .load-more {
+    margin-top: 1em; }
 
   .browse-happy {
     padding: 20px; }
@@ -679,7 +686,7 @@ p .footnote {
 
   .not-on-mobile {
     display: none !important; } }
-@media all and (min-width: 840px) {
+@media all and (min-width: 780px) {
   nav {
     padding: 10px 0;
     position: absolute;
@@ -727,7 +734,7 @@ p .footnote {
     color: #fff;
     height: 50%;
     max-height: 340px;
-    min-height: 200px;
+    min-height: 240px;
     position: relative; }
 
   .menu-toggle {

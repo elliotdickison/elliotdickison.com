@@ -147,7 +147,7 @@ a:hover {
 }
 
 nav {
-	font-size: 1.2em;
+	font-size: 1.3em;
 }
 
 nav ul,
@@ -440,6 +440,10 @@ time {
 	margin-bottom: 1em;
 }
 
+.post.short footer {
+	font-family: $header-font-stack;
+}
+
 .post .body p,
 .post .body img,
 .post .body pre,
@@ -628,7 +632,7 @@ p .footnote {
 	width: 100% !important;
 }
 
-@media all and (max-width: 839px) {
+@media all and (max-width: 779px) {
 
 	body {
 		font-size: 16px;
@@ -695,7 +699,7 @@ p .footnote {
 	}
 
 	h1 {
-		margin: 1em auto 0 auto;
+		margin: 0.5em auto 0 auto;
 		padding: 0 0.5em;
 	}
 
@@ -705,12 +709,17 @@ p .footnote {
 	}
 
 	.page-body {
-		padding-top: 1em;
+		padding: 1em;
 	}
 
 	.post.short {
 		@include prefix(box-sizing, border-box);
+		margin-top: 1em;
 		padding: 1em;
+	}
+
+	.load-more {
+		margin-top: 1em;
 	}
 
 	.browse-happy {
@@ -742,7 +751,7 @@ p .footnote {
 	}
 }
 
-@media all and (min-width: 840px) {
+@media all and (min-width: 780px) {
 
 	nav {
 		padding: 10px 0;
@@ -789,7 +798,7 @@ p .footnote {
 		color: #fff;
 		height: 50%;
 		max-height: 340px;
-		min-height: 200px;
+		min-height: 240px;
 		position: relative;
 	}
 
