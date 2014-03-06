@@ -23,9 +23,10 @@ get '/blog/search/:q' do
   @page_title = 'Blog'
   @selected_tab = :blog
   
-  @posts = Post.where('LOWER(title) LIKE ?', "%#{params[:q].downcase}%").order('published_at DESC').limit(25)
+  terms = params[:q].split(' ').select { |term| not term.empty? }
+  @posts = Post.where('LOWER(title) ~* :regexp OR LOWER(body) ~* :regexp', regexp: "(#{terms.join('.*')})").order('published_at DESC').limit(25)
 
-  erb :'posts/search', layout: nil
+  erb :'posts/search', layout: !request.xhr?
 end
 
 get %r{/blog/([0-9]+)/(.*)} do
