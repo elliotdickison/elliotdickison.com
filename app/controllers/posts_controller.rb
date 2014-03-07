@@ -22,6 +22,7 @@ end
 get '/blog/search/:q' do
   @page_title = 'Blog'
   @selected_tab = :blog
+  @searching = true
   
   terms = params[:q].split(' ').select { |term| not term.empty? }
 

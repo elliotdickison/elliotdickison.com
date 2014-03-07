@@ -218,6 +218,23 @@ input[type=search] {
   top: 11px;
   z-index: 1; }
 
+.crazy-search a {
+  color: #cccccc;
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 17px;
+  z-index: 3;
+  display: none; }
+
+.crazy-search a:hover {
+  color: #999999; }
+
+.searching .crazy-search a {
+  display: block; }
+
 button, .button, input[type=submit] {
   background: #da5b54;
   border: 0;
@@ -399,7 +416,7 @@ time {
 
 .message {
   background: #ffffcc;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #ffff99;
   padding: 10px 20px;
   margin-bottom: 30px; }
 
@@ -512,33 +529,6 @@ time {
   -ms-word-break: normal !important;
   word-break: normal !important;
   word-wrap: normal !important; }
-
-.prettyprint.labeled {
-  padding-top: 3em; }
-
-.prettyprint.labeled.lang-js:before {
-  content: 'JavaScript';
-  display: block;
-  background: #d9d9d9;
-  color: #333333;
-  margin: -3em -1em 0 -1em;
-  padding: 0 1em;
-  height: 2em;
-  line-height: 2em;
-  position: absolute;
-  font-weight: bold; }
-
-.prettyprint.labeled.lang-php:before {
-  content: 'PHP';
-  display: block;
-  background: #d9d9d9;
-  color: #333333;
-  margin: -3em -1em 0 -1em;
-  padding: 0 1em;
-  height: 2em;
-  line-height: 2em;
-  position: absolute;
-  font-weight: bold; }
 
 .footnote {
   color: #999999;

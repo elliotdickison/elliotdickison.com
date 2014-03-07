@@ -26,6 +26,17 @@ function setupSearch(){
 				exitSearchMode();
 			}
 		});
+
+	$('.js-clear-search')
+		.off('click')
+		.on('click', function(evt){
+			$(this)
+				.siblings('input[type=search]')
+				.val('')
+				.trigger('input');
+
+			evt.preventDefault();
+		});
 }
 
 function search(term){
@@ -38,9 +49,16 @@ function search(term){
 }
 
 function enterSearchMode(){
-	$('body').addClass('search-mode');
+	$('body').addClass('searching');
 }
 
 function exitSearchMode(){
-	$('body').removeClass('search-mode');
+	$('body').removeClass('searching');
+
+	$.ajax({
+		url: '/blog',
+		success: function(data){
+			$('.js-blog-content').html(data);
+		}
+	});
 }
