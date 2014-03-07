@@ -26,7 +26,13 @@ get '/blog/search/:q' do
   terms = params[:q].split(' ').select { |term| not term.empty? }
 
   # Match based on post content
-  @posts = Post.where('LOWER(title) ~* :regexp OR LOWER(body) ~* :regexp', regexp: "(#{terms.join('.*')})").order('published_at DESC').limit(25)
+  @posts = Post.where('title ~* :regexp OR body ~* :regexp', regexp: "(#{terms.join('.*')})").order('published_at DESC')
+
+  # Match based on tag
+  @tags = Tag.where('LOWER(name) IN (?)', "#{terms.join("', '").downcase}")
+  @tags.each do |tag|
+    @posts.concat tag.posts.order('published_at DESC')
+  end
 
   erb :'posts/search', layout: !request.xhr?
 end
