@@ -448,6 +448,28 @@ time {
 .post.short footer {
   font-family: "brandon-grotesque", sans-serif; }
 
+.searching .post.short {
+  background: none;
+  padding: 0; }
+
+.searching .post.short header {
+  margin-bottom: 0; }
+
+.searching .post.short h2 {
+  margin-bottom: -10px; }
+
+.searching .post.short h2 a {
+  color: #40b0f0; }
+
+.searching .post.short h2 a:hover {
+  color: #da5b54; }
+
+.searching .post.short .body p {
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
 .post .body p,
 .post .body img,
 .post .body pre,

@@ -473,6 +473,34 @@ time {
 	font-family: $header-font-stack;
 }
 
+.searching .post.short {
+	background: none;
+	padding: 0;
+}
+
+.searching .post.short header {
+	margin-bottom: 0;
+}
+
+.searching .post.short h2 {
+	margin-bottom: -10px;
+}
+
+.searching .post.short h2 a {
+	color: $link;
+}
+
+.searching .post.short h2 a:hover {
+	color: $theme;
+}
+
+.searching .post.short .body p {
+	margin-bottom: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .post .body p,
 .post .body img,
 .post .body pre,

@@ -16,14 +16,18 @@ function setupSearch(){
 			var term = this.value;
 
 			if(term){
-				enterSearchMode();
-
 				debounce('search', 300, function(){
 					search(term);
 				});	
 			}
 			else {
-				exitSearchMode();
+				$.ajax({
+					url: '/blog',
+					success: function(data){
+						exitSearchMode();
+						$('.js-blog-content').html(data);
+					}
+				});
 			}
 		});
 
@@ -43,6 +47,9 @@ function search(term){
 	$.ajax({
 		url: '/blog/search/'+encodeURIComponent(term.toLowerCase()),
 		success: function(data){
+
+			enterSearchMode();
+
 			$('.js-blog-content').html(data);
 		}
 	});
@@ -54,11 +61,4 @@ function enterSearchMode(){
 
 function exitSearchMode(){
 	$('body').removeClass('searching');
-
-	$.ajax({
-		url: '/blog',
-		success: function(data){
-			$('.js-blog-content').html(data);
-		}
-	});
 }
