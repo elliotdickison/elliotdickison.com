@@ -422,6 +422,12 @@ time {
 .post.short .body p {
   margin-bottom: 1em; }
 
+.post.short .tagging {
+  color: #999999; }
+
+.post.short .tagging:hover {
+  color: #da5b54; }
+
 .post.short footer {
   font-family: "brandon-grotesque", sans-serif; }
 

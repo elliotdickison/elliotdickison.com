@@ -440,6 +440,14 @@ time {
 	margin-bottom: 1em;
 }
 
+.post.short .tagging {
+	color: $fg-light;
+}
+
+.post.short .tagging:hover {
+	color: $theme;
+}
+
 .post.short footer {
 	font-family: $header-font-stack;
 }

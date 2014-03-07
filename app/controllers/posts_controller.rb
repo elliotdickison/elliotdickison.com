@@ -24,6 +24,8 @@ get '/blog/search/:q' do
   @selected_tab = :blog
   
   terms = params[:q].split(' ').select { |term| not term.empty? }
+
+  # Match based on post content
   @posts = Post.where('LOWER(title) ~* :regexp OR LOWER(body) ~* :regexp', regexp: "(#{terms.join('.*')})").order('published_at DESC').limit(25)
 
   erb :'posts/search', layout: !request.xhr?

@@ -5,6 +5,6 @@
 	<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><i class="fa fa-clock-o"></i> <%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
 	<% post.tags.each do |tag| %>
 		<%= "<a href='#{tag.link}' rel='tag' class='tagging'><i class='fa fa-tag'></i> #{tag.name}</a>" %>
-	<% end unless short %>
+	<% end %>
 </header>
 <div class="body"><%= short ? post.to_short_s : post %></div>

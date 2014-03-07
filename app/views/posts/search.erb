@@ -1,5 +1,25 @@
-<% @posts.each do |post| %>
+<% if not request.xhr? %>
+	<div class="center cf top-links">
+		<a href="/blog/archive" class="button"><i class="fa fa-archive"></i> Archive</a>
+		<a href="/blog/tags" class="button"><i class="fa fa-tags"></i> Tags</a>
+		<div class="crazy-search">
+			<input type="search" placeholder="Search" value="<%= params[:q] %>" />
+		</div>
+	</div>
+	<span class="js-blog-content">
+<%
+end
+
+@posts.each do |post|
+%>
 	<article class="post short center">
 		<%= erb :'posts/post', locals: {post: post, short: true} %>
 	</article>
+
+<%
+end
+
+if not request.xhr?
+%>
+	</span>
 <% end %>
