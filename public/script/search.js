@@ -45,7 +45,7 @@ function setupSearch(){
 
 function search(term){
 	$.ajax({
-		url: '/blog/search/'+encodeURIComponent(term.toLowerCase()),
+		url: '/blog/search/'+encodeURIComponent(term),
 		success: function(data){
 
 			enterSearchMode();
