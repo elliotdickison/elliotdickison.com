@@ -35,15 +35,15 @@ get '/blog/search' do
     .select { |term| not term.empty? }
     .map { |term| Regexp.escape(term) }
     .join('.*')
-  @posts = Post.where('title ~* (:regexp) OR body ~* (:regexp)', regexp: regexp_term).order('published_at DESC')
+  @posts = Post.where('published_at IS NOT NULL').where('title ~* (:regexp) OR body ~* (:regexp)', regexp: regexp_term).order('published_at DESC')
 
   # Match based on tag
   @tags = Tag.where('LOWER(name) = ?', @search_term.downcase)
   @tags.each do |tag|
-    @posts.concat tag.posts.order('published_at DESC')
+    @posts.concat tag.posts.where('published_at IS NOT NULL').order('published_at DESC')
   end
 
-  @posts.uniq! { |post| post.id }
+  @posts = @posts.uniq { |post| post.id }
 
   erb :'posts/search', layout: !request.xhr?
 end
