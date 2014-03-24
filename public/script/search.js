@@ -25,7 +25,7 @@ function setupSearch(){
 					url: '/blog',
 					success: function(data){
 						exitSearchMode();
-						$('.js-blog-content').html(data);
+						$('.js-blog-content').replaceWith(data);
 					}
 				});
 			}
@@ -50,7 +50,7 @@ function search(term){
 
 			enterSearchMode();
 
-			$('.js-blog-content').html(data);
+			$('.js-blog-content').replaceWith(data);
 		}
 	});
 }

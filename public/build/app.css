@@ -471,6 +471,9 @@ time {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
+.no-results {
+  margin-top: 1em; }
+
 .post .body p,
 .post .body img,
 .post .body pre,
