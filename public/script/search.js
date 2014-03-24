@@ -21,7 +21,9 @@ function setupSearch(){
 				});	
 			}
 			else {
-				$.ajax({
+				abortSearch();
+
+				search_xhr = $.ajax({
 					url: '/blog',
 					success: function(data){
 						exitSearchMode();
@@ -44,7 +46,9 @@ function setupSearch(){
 }
 
 function search(term){
-	$.ajax({
+	abortSearch();
+
+	search_xhr = $.ajax({
 		url: '/blog/search/'+encodeURIComponent(term),
 		success: function(data){
 
@@ -61,4 +65,16 @@ function enterSearchMode(){
 
 function exitSearchMode(){
 	$('body').removeClass('searching');
+}
+
+function abortSearch(){
+
+	// Kill any abortable xhr
+	if(typeof(search_xhr) != 'undefined' && search_xhr.abort){
+		search_xhr.abort();
+		search_xhr = undefined;
+	}
+
+	// Make sure we aren't debouncing anything
+	debounce('search', 0, $.noop);
 }
