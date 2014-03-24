@@ -5,6 +5,7 @@ require 'sinatra/activerecord'
 require 'sinatra/config_file'
 require 'digest/md5'
 require 'pony'
+require 'log_buddy'
 
 # Set the database
 set :database, ENV['DATABASE_URL']
@@ -21,28 +22,34 @@ configure do
   set :send_mail, settings.environment == :production
 end
 
-set :logging, true
-set :dump_errors, true
+# Dump errors
+set :dump_errors, true if settings.environment == :development
+
+# Debug logging
+LogBuddy.init(
+  :logger => Logger.new("./tmp/debug.log"),
+  :disabled => settings.environment == :production  
+)
 
 # Setup pony mail
 Pony.options = case settings.environment
-when :development
-  {
-    via: :sendmail
-  }
-when :production
-  {
-    :via => :smtp,
-    :via_options => {
-      :address => 'smtp.sendgrid.net',
-      :port => '587',
-      :domain => 'heroku.com',
-      :user_name => ENV['SENDGRID_USERNAME'],
-      :password => ENV['SENDGRID_PASSWORD'],
-      :authentication => :plain,
-      :enable_starttls_auto => true
+  when :development
+    {
+      via: :sendmail
     }
-  }
+  when :production
+    {
+      :via => :smtp,
+      :via_options => {
+        :address => 'smtp.sendgrid.net',
+        :port => '587',
+        :domain => 'heroku.com',
+        :user_name => ENV['SENDGRID_USERNAME'],
+        :password => ENV['SENDGRID_PASSWORD'],
+        :authentication => :plain,
+        :enable_starttls_auto => true
+      }
+    }
 end
 
 set :auth do |type|

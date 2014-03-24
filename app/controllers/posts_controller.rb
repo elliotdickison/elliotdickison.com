@@ -21,21 +21,24 @@ end
 
 
 get '/blog/search' do
-  @search_term = params[:q]
+  @search_term = params[:q].strip
   @page_title = 'Blog'
   @selected_tab = :blog
   @searching = true
   
-  terms = @search_term.split(' ').select { |term| not term.empty? }
+  terms = 
 
-  # Match based on post content
-  regexp_terms = terms
+  # HACK: Match using regexp
+  # TODO: Look into fulltext searching
+  regexp_term = @search_term
+    .split(' ')
+    .select { |term| not term.empty? }
     .map { |term| Regexp.escape(term) }
     .join('.*')
-  @posts = Post.where('title ~* :regexp OR body ~* :regexp', regexp: "(#{regexp_terms})").order('published_at DESC')
+  @posts = Post.where('title ~* (:regexp) OR body ~* (:regexp)', regexp: regexp_term).order('published_at DESC')
 
   # Match based on tag
-  @tags = Tag.where('LOWER(name) IN (?)', "#{terms.join("', '").downcase}")
+  @tags = Tag.where('LOWER(name) = ?', @search_term.downcase)
   @tags.each do |tag|
     @posts.concat tag.posts.order('published_at DESC')
   end

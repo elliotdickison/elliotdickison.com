@@ -14,4 +14,5 @@ gem 'builder'
 
 group :development do
   gem 'tux'
+  gem 'log_buddy'
 end
