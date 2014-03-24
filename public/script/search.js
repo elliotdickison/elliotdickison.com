@@ -38,7 +38,10 @@ function search(term){
 	abortSearch();
 
 	search_xhr = $.ajax({
-		url: '/blog/search/'+encodeURIComponent(term),
+		url: '/blog/search',
+		data: {
+			q: term
+		},
 		success: function(data){
 
 			enterSearchMode();

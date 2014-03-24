@@ -20,8 +20,8 @@ get '/blog' do
 end
 
 
-get %r{/blog/search/(.+)} do
-  @search_term = params[:captures].first
+get '/blog/search' do
+  @search_term = params[:q]
   @page_title = 'Blog'
   @selected_tab = :blog
   @searching = true
