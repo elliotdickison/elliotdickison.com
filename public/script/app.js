@@ -1,3 +1,14 @@
+function debounce(key, interval, callback){
+	window.bouncing = window.bouncing || {};
+
+	if(window.bouncing[key]){
+		clearTimeout(window.bouncing[key]);
+		delete window.bouncing[key];
+	}
+
+	window.bouncing[key] = setTimeout(callback, interval);
+}
+
 function toggleMenu(evt){
 	var menu = document.getElementById('js-menu');
 

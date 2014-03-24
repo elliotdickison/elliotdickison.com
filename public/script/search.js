@@ -1,14 +1,3 @@
-function debounce(key, interval, callback){
-	window.bouncing = window.bouncing || {};
-
-	if(window.bouncing[key]){
-		clearTimeout(window.bouncing[key]);
-		delete window.bouncing[key];
-	}
-
-	window.bouncing[key] = setTimeout(callback, interval);
-}
-
 function setupSearch(){
 	$('input[type=search]')
 		.off('input')
