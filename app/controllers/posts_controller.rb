@@ -19,15 +19,20 @@ get '/blog' do
 	erb :'posts/index', layout: !request.xhr?
 end
 
-get '/blog/search/:q' do
+
+get %r{/blog/search/(.+)} do
+  @search_term = params[:captures].first
   @page_title = 'Blog'
   @selected_tab = :blog
   @searching = true
   
-  terms = params[:q].split(' ').select { |term| not term.empty? }
+  terms = @search_term.split(' ').select { |term| not term.empty? }
 
   # Match based on post content
-  @posts = Post.where('title ~* :regexp OR body ~* :regexp', regexp: "(#{terms.join('.*')})").order('published_at DESC')
+  regexp_terms = terms
+    .map { |term| Regexp.escape(term) }
+    .join('.*')
+  @posts = Post.where('title ~* :regexp OR body ~* :regexp', regexp: "(#{regexp_terms})").order('published_at DESC')
 
   # Match based on tag
   @tags = Tag.where('LOWER(name) IN (?)', "#{terms.join("', '").downcase}")
@@ -38,7 +43,7 @@ get '/blog/search/:q' do
   erb :'posts/search', layout: !request.xhr?
 end
 
-get %r{/blog/([0-9]+)/(.*)} do
+get %r{/blog/([0-9]{4})/(.+)} do
   @selected_tab = :blog
   @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", params[:captures].first, params[:captures].last).first
   halt 404 if !@post

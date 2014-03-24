@@ -3,14 +3,14 @@
 		<a href="/blog/archive" class="button"><i class="fa fa-archive"></i> Archive</a>
 		<a href="/blog/tags" class="button"><i class="fa fa-tags"></i> Tags</a>
 		<div class="crazy-search">
-			<input type="search" placeholder="Search" value="<%= params[:q] %>" />
+			<input type="search" placeholder="Search" value="<%= @search_term %>" />
 			<a href="#" class="fa fa-times-circle js-clear-search"></a>
 		</div>
 	</div>
 <% end %>
 <span class="js-blog-content">
 	<% if @posts.blank? %>
-		<div class="sad center no-results">Sorry, your search <strong>&ldquo;<%= params[:q] %>&rdquo;</strong> did not match any results. You might try browsing the <a href="/blog/archive">archive</a>.</div>
+		<div class="sad center no-results">Sorry, your search <strong>&ldquo;<%= @search_term %>&rdquo;</strong> did not match any results. You might try browsing the <a href="/blog/archive">archive</a>.</div>
 	<%
 	else
 		@posts.each do |post|
