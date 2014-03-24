@@ -201,7 +201,7 @@ input[type=search] {
   background: transparent;
   font-family: "brandon-grotesque", sans-serif;
   height: 41px;
-  padding: 0 10px 0 35px;
+  padding: 0 35px;
   position: absolute;
   z-index: 2; }
 
