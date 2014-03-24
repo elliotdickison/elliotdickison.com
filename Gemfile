@@ -11,8 +11,8 @@ gem 'rdiscount'
 gem 'sinatra-contrib'
 gem 'newrelic_rpm'
 gem 'builder'
+gem 'log_buddy'
 
 group :development do
   gem 'tux'
-  gem 'log_buddy'
 end
