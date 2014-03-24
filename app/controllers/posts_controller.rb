@@ -43,6 +43,8 @@ get '/blog/search' do
     @posts.concat tag.posts.order('published_at DESC')
   end
 
+  @posts.uniq! { |post| post.id }
+
   erb :'posts/search', layout: !request.xhr?
 end
 
