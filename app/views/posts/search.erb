@@ -8,19 +8,17 @@
 		</div>
 	</div>
 <% end %>
-
 <span class="js-blog-content">
 	<% if @posts.blank? %>
 		<div class="sad center no-results">Sorry, your search <strong>&ldquo;<%= params[:q] %>&rdquo;</strong> did not match any results. You might try browsing the <a href="/blog/archive">archive</a>.</div>
 	<%
 	else
 		@posts.each do |post|
-		%>
+			%>
 			<article class="post short center">
 				<%= erb :'posts/post', locals: {post: post, short: true} %>
 			</article>
-
-		<%
+			<%
 		end
 	end
 	%>
