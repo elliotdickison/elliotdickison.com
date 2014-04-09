@@ -9,8 +9,18 @@
 	<tbody>
 		<% @files.each do |file| %>
 			<tr>
-				<td><%= file.id %></td>
-				<td><a href="/files/<%=file%>"><%= file %></td>
+				<td>
+					<%= file.id %>
+				</td>
+				<td>
+					<a href="/files/<%= file %>"><%= file %>
+					</td>
+				<td>
+					<form action="/files/<%= file.id %>" method="post" onsubmit="return confirm('Are you sure?');">
+						<input name="_method" type="hidden" value="delete" />
+						<input type="submit" value="Delete" />
+					</form>
+				</td>
 			</tr>
 		<% end %>
 	<tbody>

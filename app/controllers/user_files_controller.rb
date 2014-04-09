@@ -35,3 +35,18 @@ get '/files/:name.:extension' do
   cache_control :public, :must_revalidate, max_age: 604800
   @file.content
 end
+
+get '/files/:id', :auth => :admin do
+  @file = UserFile.find(params[:id])
+  halt 404 if !@file
+  
+  content_type mime_type(@file.extension)
+  cache_control :public, :must_revalidate, max_age: 604800
+  @file.content
+end
+
+delete '/files/:id', :auth => :admin do
+  @file = UserFile.find(params[:id])
+  @file.destroy if @file
+  redirect '/files'
+end
