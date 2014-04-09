@@ -54,13 +54,13 @@ end
 
 set :auth do |type|
   condition do
-    redirect '/', 303 unless send("#{type}_mode?")
+    redirect('/login') unless send("#{type}_mode?")
   end
 end
 
 helpers do
   def admin_mode?
-    @user && @user.is_admin? && subdomain == 'admin'
+    @user && @user.is_admin?
   end
 
   def facebook_share_link(link)
@@ -115,11 +115,7 @@ end
 before do
 
   begin
-    if settings.environment == :development
-      @user = User.first
-    else
-      @user = User.find(session[:user_id])
-    end
+    @user = User.find(session[:user_id])
   rescue ActiveRecord::RecordNotFound
     @user = nil
   end

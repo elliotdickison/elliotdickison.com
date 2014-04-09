@@ -2,6 +2,12 @@ get '/login' do
   erb :login, layout: nil
 end
 
+get '/logout' do
+	@user = nil
+	session.clear
+	redirect '/'
+end
+
 post '/login' do
   @user = User.authenticate(params[:name], params[:password])
   if @user
