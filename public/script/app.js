@@ -41,7 +41,7 @@ function setupHeader(){
 		$header = $('.js-cool-header'),
 		$nav = $header.find('nav'),
 		navIsHidden = false,
-		headerHeight, navHeight;
+		headerHeight, navHeight, headerTextHeight;
 
 	// Get rid of whatever is currently bound two window.onScroll
 	$window.unbind('scroll');
@@ -57,6 +57,7 @@ function setupHeader(){
 	if(windowWidth >= 780){
 		headerHeight = $header.outerHeight();
 		navHeight = $nav.outerHeight();
+		headerTextHeight = $header.find('h1').outerHeight();
 
 		$nav
 			.css('position', 'fixed')
@@ -65,7 +66,7 @@ function setupHeader(){
 		$window
 			.bind('scroll', function(){
 				var offset = window.pageYOffset,
-					navOpacity = 1 - (offset / (headerHeight - (navHeight * 2)));
+					navOpacity = 1 - (offset / (headerHeight - (navHeight + headerTextHeight)));
 
 				// Show/hide the navigation, but don't do it more often than necessary (DOM changes are sloow)
 				if(navOpacity < 0 && !navIsHidden){
