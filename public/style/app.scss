@@ -459,6 +459,16 @@ time {
 			padding: 0.5em 0;
 		}
 
+		h1 .context-link {
+			color: $link;
+			float: right;
+			text-transform: lowercase;
+		}
+
+		h1 .context-link:hover {
+			color: $theme;
+		}
+
 		/* Space content nicely */
 		p,
 		img,

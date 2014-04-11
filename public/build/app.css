@@ -429,6 +429,13 @@ time {
       font-size: 1.5em;
       margin: 0;
       padding: 0.5em 0; }
+    .post .body h1 .context-link {
+      color: #40b0f0;
+      float: right;
+      font-size: 0.8em;
+      line-height: 2.2rem; }
+    .post .body h1 .context-link:hover {
+      color: #da5b54; }
     .post .body p,
     .post .body img,
     .post .body pre,
