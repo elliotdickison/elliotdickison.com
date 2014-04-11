@@ -4,6 +4,8 @@ get '/blog/tags' do
   @tags = Tag
   	.joins('JOIN taggings ON tags.id = taggings.tag_id AND taggings.taggable_type = \'Post\'')
   	.joins('JOIN posts ON posts.id = taggings.taggable_id AND posts.published_at IS NOT NULL')
+  	.group('tags.id')
+  	.order('tags.name ASC')
   erb :'tags/index'
 end
 
