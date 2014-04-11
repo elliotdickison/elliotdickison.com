@@ -149,21 +149,21 @@ a:hover {
 
 nav {
 	font-size: 1.3em;
-}
 
-nav ul,
-nav li {
-	display: inline;
-	margin: 0;
-	padding: 0;
-}
+	ul,
+	li {
+		display: inline;
+		margin: 0;
+		padding: 0;
+	}
 
-nav li {
-	margin-left: 1em;
-}
+	li {
+		margin-left: 1em;
+	}
 
-nav li:first-child {
-	margin-left: 0;
+	li:first-child {
+		margin-left: 0;
+	}
 }
 
 h1, h2, h3, h4, h5 {
@@ -188,8 +188,7 @@ h3 {
 h4 {
 	font-family: $header-font-stack;
 	font-size: 1.5em;
-	margin-top: -0.5em;
-	padding: 1em 0 0.5em 0;
+	padding: 0.5em 0;
 }
 
 h5 {
@@ -293,45 +292,45 @@ input[type=search] {
 	height: 41px;
 	position: relative;
 	width: 300px;
-}
 
-.crazy-search input[type=search] {
-	background: transparent;
-	font-family: $header-font-stack;
-	height: 41px;
-	padding: 0 35px;
-	position: absolute;
-	z-index: 2;
-}
+	&:before {
+		-webkit-font-smoothing: antialiased;
+		content: "\f002";
+		font-family: FontAwesome;
+		font-style: normal !important;
+		font-weight: normal !important;
+		left: 15px;
+		font-size: 18px;
+		position: absolute;
+		text-decoration: inherit;
+		top: 11px;
+		z-index: 1;
+	}
 
-.crazy-search:before {
-	-webkit-font-smoothing: antialiased;
-	content: "\f002";
-	font-family: FontAwesome;
-	font-style: normal !important;
-	font-weight: normal !important;
-	left: 15px;
-	font-size: 18px;
-	position: absolute;
-	text-decoration: inherit;
-	top: 11px;
-	z-index: 1;
-}
+	input[type=search] {
+		background: transparent;
+		font-family: $header-font-stack;
+		height: 41px;
+		padding: 0 35px;
+		position: absolute;
+		z-index: 2;
+	}
 
-.crazy-search a {
-	color: $fg-lightest;
-	height: 20px;
-	line-height: 20px;
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	width: 17px;
-	z-index: 3;
-	display: none;
-}
+	a {
+		color: $fg-lightest;
+		height: 20px;
+		line-height: 20px;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		width: 17px;
+		z-index: 3;
+		display: none;
+	}
 
-.crazy-search a:hover {
-	color: $fg-light;
+	a:hover {
+		color: $fg-light;
+	}
 }
 
 .searching .crazy-search a {
@@ -445,73 +444,85 @@ time {
 .post {
 	clear: both;
 	margin: 0 auto;
-}
 
-.post header {
-	margin-bottom: 1.5em;
+	header {
+		margin-bottom: 1.5em;
+	}
+
+	.body {
+
+		/* Redefine header text for post content */
+		h1, h2, h3, h4, h5 {
+			font-family: $header-font-stack;
+			font-size: 1.5em;
+			margin: 0;
+			padding: 0.5em 0;
+		}
+
+		/* Space content nicely */
+		p,
+		img,
+		pre,
+		blockquote,
+		.video-container {
+			margin-bottom: 2em;
+		}
+	}
 }
 
 .post.short {
 	background: $bg-medium;
 	margin-top: 2em;
-}
 
-.post.short header,
-.post.short .body p {
-	margin-bottom: 1em;
-}
+	header,
+	.body p {
+		margin-bottom: 1em;
+	}
 
-.post.short .tagging {
-	color: $fg-light;
-}
+	.tagging {
+		color: $fg-light;
+	}
 
-.post.short .tagging:hover {
-	color: $theme;
-}
+	.tagging:hover {
+		color: $theme;
+	}
 
-.post.short footer {
-	font-family: $header-font-stack;
+	footer {
+		font-family: $header-font-stack;
+	}
 }
 
 .searching .post.short {
 	background: none;
 	padding: 0;
-}
 
-.searching .post.short header {
-	margin-bottom: 0;
-}
+	header {
+		margin-bottom: 0;
+	}
 
-.searching .post.short h2 {
-	font-size: 1.5em;
-	margin-bottom: -5px;
-}
+	h2 {
+		font-size: 1.5em;
+		margin-bottom: -5px;
+	}
 
-.searching .post.short h2 a {
-	color: $link;
-}
+	h2 a {
+		color: $link;
+	}
 
-.searching .post.short h2 a:hover {
-	color: $theme;
-}
+	h2 a:hover {
+		color: $theme;
+	}
 
-.searching .post.short .body p {
-	margin-bottom: 0;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	.body p {
+		margin-bottom: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 }
 
 .no-results {
 	margin-top: 1em;
-}
-
-.post .body p,
-.post .body img,
-.post .body pre,
-.post .body blockquote,
-.post .body .video-container {
-	margin-bottom: 2em;
 }
 
 .load-more {
@@ -545,33 +556,33 @@ time {
 	margin: 2em 0;
 	min-height: 3.6em;
 	padding: 1em;
-}
 
-.comment:hover {
-	background: $bg-light;
-}
+	&:hover {
+		background: $bg-light;
+	}
 
-.comment .avatar {
-	float: left;
-	width: 3.6em;
-	height: 3.6em;
-	border-radius: 50%;
-}
+	.avatar {
+		float: left;
+		width: 3.6em;
+		height: 3.6em;
+		border-radius: 50%;
+	}
 
-.comment header {
-	margin: 0 0 1em 4.6em;
-}
+	header {
+		margin: 0 0 1em 4.6em;
+	}
 
-.comment header a.right {
-	font-weight: normal;
-}
+	header a.right {
+		font-weight: normal;
+	}
 
-.comment .body {
-	margin-left: 4.6em;
-}
+	.body {
+		margin-left: 4.6em;
+	}
 
-.comment time {
-	display: block;
+	time {
+		display: block;
+	}
 }
 
 .profile-pic {
@@ -616,33 +627,33 @@ p .footnote {
 
 .archive {
 	margin-top: 1em;
-}
 
-.archive section {
-	margin-top: 3em;
-}
+	section {
+		margin-top: 3em;
+	}
 
-.archive section:first-child {
-	margin-top: 0;
-}
+	section:first-child {
+		margin-top: 0;
+	}
 
-.archive header {
-	float: left;
-}
+	header {
+		float: left;
+	}
 
-.archive header h4 {
-	padding: 0;
-	margin: 0;
-}
+	header h4 {
+		padding: 0;
+		margin: 0;
+	}
 
-.archive header h2 {
-	color: $fg-light;
-}
+	header h2 {
+		color: $fg-light;
+	}
 
-.archive ul {
-	float: right;
-	list-style: none;
-	text-align: right;
+	ul {
+		float: right;
+		list-style: none;
+		text-align: right;
+	}
 }
 
 .tags {
@@ -679,52 +690,52 @@ p .footnote {
 		padding: 1em;
 		position: relative !important;
 		text-align: right;
-	}
 
-	nav ul {
-		line-height: 48px;
-		margin-top: 20px;
-		text-align: center;
-	}
+		ul {
+			line-height: 48px;
+			margin-top: 20px;
+			text-align: center;
+		}
 
-	nav li {
-		display: none;
-		margin: 0;
-	}
+		li {
+			display: none;
+			margin: 0;
+		}
 
-	nav .show li {
-		display: block;	
-	}
+		.show li {
+			display: block;	
+		}
 
-	nav li a {
-		@include prefix(transition, #{"color 0.2s linear, background 0.2s linear"});
-		display: block;
-		font-size: 1.3em;
-	}
+		li a {
+			@include prefix(transition, #{"color 0.2s linear, background 0.2s linear"});
+			display: block;
+			font-size: 1.3em;
+		}
 
-	nav li a:hover {
-		background: $bg-dark;
-	}
+		li a:hover {
+			background: $bg-dark;
+		}
 
-	nav li:first-child {
-		color: $theme;
-		display: block;
-		left: 1em;
-		position: absolute;
-		top: 1em;
-	}
+		li:first-child {
+			color: $theme;
+			display: block;
+			left: 1em;
+			position: absolute;
+			top: 1em;
+		}
 
-	nav li:first-child a {
-		border-bottom: none;
-		font-size: 1.7em;
-	}
+		li:first-child a {
+			border-bottom: none;
+			font-size: 1.7em;
+		}
 
-	nav li:first-child a:hover {
-		background: inherit;
-	}
+		li:first-child a:hover {
+			background: inherit;
+		}
 
-	nav li:nth-child(2) {
-		margin-top: 1em;
+		li:nth-child(2) {
+			margin-top: 1em;
+		}
 	}
 
 	button, .button, input[type=submit] {
@@ -810,22 +821,22 @@ p .footnote {
 		padding: 10px 0;
 		position: absolute;
 		left: 25px;
-	}
 
-	nav li:first-child {
-		color: $theme;
-		font-size: 1.5em;
-	}
+		li:first-child {
+			color: $theme;
+			font-size: 1.5em;
+		}
 
-	nav li:first-child:after {
-		color: $bg-light;
-		content: '|';
-		padding-left: 0.66em;
-	}
+		li:first-child:after {
+			color: $bg-light;
+			content: '|';
+			padding-left: 0.66em;
+		}
 
-	nav li {
-		display: inline-block;
-		position: relative;
+		li {
+			display: inline-block;
+			position: relative;
+		}
 	}
 
 	h1 {
@@ -887,27 +898,27 @@ p .footnote {
 
 	.page-footer {
 		text-align: left;
-	}
 
-	.page-footer div {
-		float: left;
-	}
+		div {
+			float: left;
+		}
 
-	.page-footer ul {
-		float: right;
-	}
+		ul {
+			float: right;
 
-	.page-footer ul li {
-		display: inline;
-	}
+			li {
+				display: inline;
+			}
 
-	.page-footer ul li:before {
-		content: '|';
-		margin: 0 0.5em;
-	}
+			li:before {
+				content: '|';
+				margin: 0 0.5em;
+			}
 
-	.page-footer ul li:first-child:before {
-		content: '';
+			li:first-child:before {
+				content: '';
+			}
+		}
 	}
 
 	.mobile-only {
