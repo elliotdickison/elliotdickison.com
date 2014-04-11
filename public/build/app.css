@@ -633,11 +633,11 @@ p .footnote {
   button, .button, input[type=submit] {
     padding: 5px 11px; }
 
-  h1 {
+  .page-header h1 {
     margin: 0.5em auto 0 auto;
     padding: 0 0.5em; }
 
-  h1,
+  .page-header h1,
   .center {
     max-width: 550px; }
 
@@ -709,7 +709,7 @@ p .footnote {
       display: inline-block;
       position: relative; }
 
-  h1 {
+  .page-header h1 {
     bottom: 10px;
     font-size: 3em;
     font-weight: bold;
