@@ -1,7 +1,9 @@
 get '/blog/tags' do
   @page_title = '<i class="fa fa-tags"></i> Tags'
   @selected_tab = :blog
-  @tags = Tag.all
+  @tags = Tag
+  	.joins('JOIN taggings ON tags.id = taggings.tag_id AND taggings.taggable_type = \'Post\'')
+  	.joins('JOIN posts ON posts.id = taggings.taggable_id AND posts.published_at IS NOT NULL')
   erb :'tags/index'
 end
 
