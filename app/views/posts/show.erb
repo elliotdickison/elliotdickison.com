@@ -8,7 +8,7 @@
 </article>
 <div id="comments" class="center">
 	<h3><i class="fa fa-comments"></i> Comments</h3>
-	<%= '<div class="sad">Sad, no one has commented yet. A pity comment from you, quizás?</div>' if comments.empty? %>
+	<%= '<div class="sad">No comments.</div>' if comments.empty? %>
 	<% comments.each_with_index do |comment, i| %>
 		<%= erb :'comments/comment', locals: {comment: comment, alternate: i.even?, comment_number: i + 1} %>
 	<% end %>
