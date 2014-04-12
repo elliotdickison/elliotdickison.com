@@ -432,7 +432,9 @@ time {
     .post .body h1 .context-link {
       color: #40b0f0;
       float: right;
-      text-transform: lowercase; }
+      font-size: 0.8em;
+      text-transform: lowercase;
+      margin-top: 0.2em; }
     .post .body h1 .context-link:hover {
       color: #da5b54; }
     .post .body p,
