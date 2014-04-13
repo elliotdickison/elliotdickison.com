@@ -2,7 +2,7 @@
 <div class="contact center">
 	<%= get_message 'contact_form' %>
 	<h3>Say Hello.</h3>
-	<p><a href="mailto:ejdickison@gmail.com">Shoot me an email</a> or fill out the form below and hit &#8220;Send&#8221;.</p>
+	<p><a href="mailto:ejdickison@gmail.com">Shoot me an email</a> or fill out the form below.</p>
 	<form action="/contact" method="post">
 		<label for="message_name">Name</label><br />
 		<input id="message_name" name="message[name]" type="text" value="<%= @message.name %>" required />
