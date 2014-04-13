@@ -459,24 +459,13 @@ time {
 			padding: 0.5em 0;
 		}
 
-		h1 .context-link {
-			color: $link;
-			float: right;
-			font-size: 0.8em;
-			text-transform: lowercase;
-			margin-top: 0.2em;
-		}
-
-		h1 .context-link:hover {
-			color: $theme;
-		}
-
 		/* Space content nicely */
-		p,
-		img,
-		pre,
-		blockquote,
-		.video-container {
+		& > .video-container,
+		& > blockquote,
+		& > figure,
+		& > img,
+		& > p,
+		& > pre {
 			margin-bottom: 2em;
 		}
 	}
