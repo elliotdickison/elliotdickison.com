@@ -429,7 +429,7 @@ time {
       font-size: 1.5em;
       margin: 0;
       padding: 0.5em 0; }
-    .post .body > .video-container, .post .body > blockquote, .post .body > figure, .post .body > img, .post .body > p, .post .body > pre {
+    .post .body > .video-container, .post .body > blockquote, .post .body > div, .post .body > figure, .post .body > img, .post .body > p, .post .body > pre {
       margin-bottom: 2em; }
 
 .post.short {
