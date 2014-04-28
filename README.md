@@ -1,4 +1,4 @@
 elliotjam.es
 ============
 
-My personal website... nothing interesting here, move along.
+My [personal website](http://elliotjam.es)... nothing interesting here, move along.
