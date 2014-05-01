@@ -14,7 +14,7 @@ post '/comments' do
   		  	from: "#{@comment.commenter} <#{@comment.email}>",
   		  	to: settings.contact_email,
   		  	subject: "Comment #{@comment.id} at elliotjam.es",
-  		    body: "#{@comment.body}\n\#{request.host}/posts/#{@comment.post.id}#comment#{@comment.id}"
+  		    body: "#{@comment}\n\#{request.host}/posts/#{@comment.post.id}#comment#{@comment.id}"
   		  })
     	end
     rescue

@@ -11,8 +11,8 @@ class Comment < ActiveRecord::Base
     self.website = 'http://' << website if attribute_present?('website') and not website.blank? and not website.start_with?('http')
   end
 
-  def body
-    RDiscount.new(read_attribute(:body), :smart, :filter_html).to_html
+  before_save do
+    self.rendered_body = RDiscount.new(self.body, :smart, :filter_html).to_html
   end
 
   def gravatar_src
@@ -20,6 +20,6 @@ class Comment < ActiveRecord::Base
   end
 
   def to_s
-    self.body
+    rendered_body || ''
   end
 end

@@ -11,21 +11,24 @@ class Post < ActiveRecord::Base
     self.reference_id = reference_id.downcase.gsub(/(')/, '').gsub(/([^a-z0-9])/, '-').gsub(/(--+)/, '-').gsub(/^(-*)|(-*)$/, '') if attribute_present?('reference_id')
   end
 
+  before_save do
+    self.rendered_body = RDiscount.new(self.body, :smart).to_html
+  end
+
   def publish!
     self.touch :published_at unless self.published_at
   end
 
   def to_s
-    RDiscount.new(self.body, :smart).to_html
+    self.rendered_body || ''
   end
 
   def to_short_s
-    short = self.body
+    self.rendered_body
       .split(/\n/)
       .map { |chunk| chunk.strip }
-      .keep_if { |chunk| chunk.length > 0 && !chunk.start_with?('#') }
+      .keep_if { |chunk| chunk.length > 0 && chunk.start_with?('<p>') }
       .first
-    RDiscount.new(short, :smart).to_html
   end
 
   def link
