@@ -1,12 +1,4 @@
 
-# Minimum requires for rake
-require 'sinatra'
-require 'sinatra/activerecord'
-require 'sinatra/config_file'
-require 'digest/md5'
-require 'pony'
-require 'log_buddy'
-
 # Set the database
 set :database, ENV['DATABASE_URL']
 
