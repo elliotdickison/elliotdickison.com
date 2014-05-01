@@ -9,6 +9,6 @@
     "commit": "88063c0bb323717517ff0362454efa3dea897f3b"
   },
   "_source": "git://github.com/kriskowal/q.git",
-  "_target": "*",
+  "_target": "1.0.0",
   "_originalSource": "q"
 }

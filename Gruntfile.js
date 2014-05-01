@@ -82,13 +82,6 @@ module.exports = function(grunt) {
         dest: 'public/build/',
         ext: '.min.css'
       },
-      prettify: {
-        expand: true,
-        cwd: 'public/vendor/prettify/',
-        src: ['*.css', '!*.min.css'],
-        dest: 'public/build/',
-        ext: '.min.css'
-      }
     },
 
     concat: {
@@ -97,7 +90,7 @@ module.exports = function(grunt) {
         dest: 'public/build/all.js'
       },
       css: {
-        src: ['public/build/normalize.min.css', 'public/build/font-awesome.min.css', 'public/build/prettify.min.css', 'public/build/app.min.css'],
+        src: ['public/build/normalize.min.css', 'public/build/font-awesome.min.css', 'public/build/app.min.css'],
         dest: 'public/build/all.css'
       }  
     },
