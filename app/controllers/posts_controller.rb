@@ -19,6 +19,20 @@ get '/blog' do
 	erb :'posts/index', layout: !request.xhr?
 end
 
+get %r{/blog/([0-9]{4})/(.+)} do
+  @selected_tab = :blog
+  @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", params[:captures].first, params[:captures].last).first
+  halt 404 if !@post
+  @page_title = @post.title
+  erb :'posts/show'
+end
+
+get '/blog/archive' do
+  @page_title = '<i class="fa fa-archive"></i> Archive'
+  @selected_tab = :blog
+  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
+  erb :'posts/archive'
+end
 
 get '/blog/search' do
   @search_term = params[:q].strip
@@ -26,8 +40,6 @@ get '/blog/search' do
   @selected_tab = :blog
   @searching = true
   
-  terms = 
-
   # HACK: Match using regexp
   # TODO: Look into fulltext searching
   regexp_term = @search_term
@@ -46,21 +58,6 @@ get '/blog/search' do
   @posts = @posts.uniq { |post| post.id }
 
   erb :'posts/search', layout: !request.xhr?
-end
-
-get %r{/blog/([0-9]{4})/(.+)} do
-  @selected_tab = :blog
-  @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", params[:captures].first, params[:captures].last).first
-  halt 404 if !@post
-  @page_title = @post.title
-  erb :'posts/show'
-end
-
-get '/blog/archive' do
-  @page_title = '<i class="fa fa-archive"></i> Archive'
-  @selected_tab = :blog
-  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
-  erb :'posts/archive'
 end
 
 get '/posts', :auth => :admin do
@@ -86,9 +83,17 @@ get '/posts/:id', :auth => :admin do
 end
 
 post '/posts', :auth => :admin do
+
+  # Create the post
   @post = Post.new(params[:post])
+
+  # If the new post was created successfully...
   if @post.save
+
+    # Publish it if requested
     @post.publish! if params[:publish] == 'on'
+
+    # Tag it
     if params[:tags]
       @post.tags = params[:tags].split(',').map do |tag|
         tag = tag.strip
@@ -96,8 +101,15 @@ post '/posts', :auth => :admin do
       end
       @post.save
     end
+
+    # View it
     redirect "/posts/#{@post.id}"
   else
+
+    # Show a generic error message (passed via cookie)
+    set_tmp_cookie message: settings.generic_error_message
+
+    # Head back to the form...
     redirect '/posts/new'
   end
 end
@@ -105,8 +117,14 @@ end
 put '/posts/:id', :auth => :admin do
   @post = Post.find(params[:id])
   halt 404 if !@post
+
+  # Update the post with all of the vanilla attributes (title, body, etc.)
   if @post.update_attributes(params[:post])
+
+    # Publish the post if requested
     @post.publish! if params[:publish] == 'on'
+      
+    # Tag the post
     if params[:tags]
       @post.tags = params[:tags].split(',').map do |tag|
         tag = tag.strip
@@ -114,9 +132,15 @@ put '/posts/:id', :auth => :admin do
       end
       @post.save
     end
+
+    # Redirect to the post
     redirect "/posts/#{@post.id}"
   else
+
+    # Show a generic error message (passed via cookie)
     set_tmp_cookie message: settings.generic_error_message
+
+    # Head back to the form
     redirect "/posts/#{@post.id}/edit"
   end
 end

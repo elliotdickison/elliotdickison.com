@@ -6,7 +6,7 @@ class UrlValidator < ActiveModel::EachValidator
   def url_valid?(url)
     begin
     	url = URI.parse(url)
-    	url.host.include? '.' and (url.kind_of?(URI::HTTP) or url.kind_of?(URI::HTTPS))
+    	url.host.include? '.' # About the dumest validation possible...
     rescue
     	false
     end

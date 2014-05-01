@@ -3,6 +3,6 @@ class UserFile < ActiveRecord::Base
   validates :extension, presence: true
 
   def to_s
-    "#{self.name}.#{self.extension}"
+    "#{name}.#{extension}"
   end
 end

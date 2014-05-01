@@ -4,6 +4,6 @@ class Message < ActiveRecord::Base
   validates :body, presence: true
 
   def to_s
-    self.body
+    body
   end
 end

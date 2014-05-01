@@ -8,15 +8,15 @@ class Comment < ActiveRecord::Base
 
   before_validation do
     self.commenter = Rack::Utils.escape_html commenter if attribute_present?('commenter')
-    self.website = 'http://' << website if attribute_present?('website') and not website.blank? and not website.start_with?('http')
+    self.website = '//' << website if attribute_present?('website') and not website.blank? and not website.include?('//')
   end
 
   before_save do
-    self.rendered_body = RDiscount.new(self.body, :smart, :filter_html).to_html
+    self.rendered_body = RDiscount.new(body, :smart, :filter_html).to_html
   end
 
   def gravatar_src
-  	'http://www.gravatar.com/avatar/' << Digest::MD5.hexdigest(self.email.downcase) << '?d=retro'
+  	'http://www.gravatar.com/avatar/' << Digest::MD5.hexdigest(email.downcase) << '?d=retro'
   end
 
   def to_s

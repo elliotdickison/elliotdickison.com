@@ -9,10 +9,10 @@ class Tag < ActiveRecord::Base
   end
 
   def find_by_name(name)
-    self.find(:all, :conditions => ["name = ?", name])
+    find(:all, :conditions => ["name = ?", name])
   end
 
   def link
-    "/blog/tags/#{self.id}"
+    "/blog/tags/#{id}"
   end
 end

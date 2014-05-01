@@ -12,19 +12,19 @@ class Post < ActiveRecord::Base
   end
 
   before_save do
-    self.rendered_body = RDiscount.new(self.body, :smart).to_html
+    self.rendered_body = RDiscount.new(body, :smart).to_html
   end
 
   def publish!
-    self.touch :published_at unless self.published_at
+    touch :published_at unless published_at
   end
 
   def to_s
-    self.rendered_body || ''
+    rendered_body || ''
   end
 
   def to_short_s
-    self.rendered_body
+    rendered_body
       .split(/\n/)
       .map { |chunk| chunk.strip }
       .keep_if { |chunk| chunk.length > 0 && chunk.start_with?('<p>') }
@@ -32,10 +32,10 @@ class Post < ActiveRecord::Base
   end
 
   def link
-    if self.published_at
-  	  "/blog/#{self.published_at.strftime('%Y')}/#{self.reference_id}"
+    if published_at
+  	  "/blog/#{published_at.strftime('%Y')}/#{reference_id}"
     else
-      "/posts/#{self.id}"
+      "/posts/#{id}"
     end
   end
 end
