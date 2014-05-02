@@ -1,11 +1,13 @@
 .highlight {
   background-color: #49483e;
   font-size: 0.8em;
-  padding: 1em;
-  line-height: 1.4em; }
+  line-height: 1.4em;
+  overflow: auto;
+  padding: 1em; }
 
 .highlight pre {
-  margin: 0; }
+  margin: 0;
+  white-space: nowrap; }
 
 /* Line Number */
 .lineno {

@@ -51,7 +51,11 @@ class HtmlWithGoodies < Redcarpet::Render::HTML
   def block_code(code, language)
     require 'pygments'
     
-    Pygments.highlight code, options: {lexer: language, linenos: "inline"}
+    Pygments.highlight code, options: {
+      lexer: language,
+      linenos: "inline",
+      lineseparator: "<br>"
+    }
   end
 end
 
