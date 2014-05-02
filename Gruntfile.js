@@ -90,7 +90,7 @@ module.exports = function(grunt) {
         dest: 'public/build/all.js'
       },
       css: {
-        src: ['public/build/normalize.min.css', 'public/build/font-awesome.min.css', 'public/build/app.min.css'],
+        src: ['public/build/normalize.min.css', 'public/build/font-awesome.min.css', 'public/build/pygments.min.css', 'public/build/app.min.css'],
         dest: 'public/build/all.css'
       }  
     },

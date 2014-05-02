@@ -52,6 +52,12 @@ end
 
 class HtmlWithGoodies < Redcarpet::Render::HTML
   include Redcarpet::Render::SmartyPants
+
+  def block_code(code, language)
+    require 'pygmentize'
+    
+    Pygmentize.process(code, language)
+  end
 end
 
 helpers do
