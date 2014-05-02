@@ -34,7 +34,10 @@ GEM
     polyglot (0.3.3)
     pony (1.5.1)
       mail (>= 2.0)
-    pygmentize (0.0.3)
+    posix-spawn (0.3.8)
+    pygments.rb (0.5.4)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -76,6 +79,7 @@ GEM
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
     tzinfo (0.3.37)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -86,7 +90,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   pony
-  pygmentize
+  pygments.rb
   rake
   redcarpet
   sinatra

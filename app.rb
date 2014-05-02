@@ -54,9 +54,9 @@ class HtmlWithGoodies < Redcarpet::Render::HTML
   include Redcarpet::Render::SmartyPants
 
   def block_code(code, language)
-    require 'pygmentize'
+    require 'pygments'
     
-    Pygmentize.process(code, language)
+    Pygments.highlight code, options: {lexer: language, lineachors: "line"}
   end
 end
 

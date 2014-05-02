@@ -1,6 +1,5 @@
 require 'log_buddy'
 require 'pony'
-require 'pygmentize'
 require 'redcarpet'
 require 'sinatra'
 require 'sinatra/activerecord'
