@@ -50,6 +50,10 @@ set :auth do |type|
   end
 end
 
+class HtmlWithGoodies < Redcarpet::Render::HTML
+  include Redcarpet::Render::SmartyPants
+end
+
 helpers do
   def admin_mode?
     @user && @user.is_admin?

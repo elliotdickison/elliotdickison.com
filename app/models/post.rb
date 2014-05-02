@@ -12,7 +12,8 @@ class Post < ActiveRecord::Base
   end
 
   before_save do
-    self.rendered_body = RDiscount.new(body, :smart).to_html
+    redcarpet = Redcarpet::Markdown.new HtmlWithGoodies, {fenced_code_blocks: true}
+    self.rendered_body = redcarpet.render body
   end
 
   def publish!

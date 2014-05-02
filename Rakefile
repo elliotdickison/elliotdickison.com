@@ -1,6 +1,6 @@
 require 'log_buddy'
 require 'pony'
-require 'rdiscount'
+require 'redcarpet'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'

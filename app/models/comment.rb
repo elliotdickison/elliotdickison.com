@@ -12,7 +12,8 @@ class Comment < ActiveRecord::Base
   end
 
   before_save do
-    self.rendered_body = RDiscount.new(body, :smart, :filter_html).to_html
+    redcarpet = Redcarpet::Markdown.new HtmlWithGoodies, {filter_html: true, safe_links_only: true, no_styles: true}
+    self.rendered_body = redcarpet.render body
   end
 
   def gravatar_src
