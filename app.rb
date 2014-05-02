@@ -44,19 +44,20 @@ Pony.options = case settings.environment
     }
 end
 
-set :auth do |type|
-  condition do
-    redirect('/login') unless send("#{type}_mode?")
-  end
-end
-
+# Setup a markdown renderer (this is most likely *not* the best place to do this)
 class HtmlWithGoodies < Redcarpet::Render::HTML
   include Redcarpet::Render::SmartyPants
 
   def block_code(code, language)
     require 'pygments'
     
-    Pygments.highlight code, options: {lexer: language, lineachors: "line"}
+    Pygments.highlight code, options: {lexer: language, linenos: "inline"}
+  end
+end
+
+set :auth do |type|
+  condition do
+    redirect('/login') unless send("#{type}_mode?")
   end
 end
 
