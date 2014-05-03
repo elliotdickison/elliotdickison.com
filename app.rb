@@ -145,8 +145,6 @@ Dir['./app/models/*.rb'].each {|file| require file }
 # Require all controllers
 Dir['./app/controllers/*.rb'].each {|file| require file }
 
-# MISC
-
 get '/code' do
   @page_title = 'Code'
   @selected_tab = :code
