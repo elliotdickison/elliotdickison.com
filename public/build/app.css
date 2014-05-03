@@ -713,9 +713,7 @@ p .footnote {
     background-image: url("/img/background.jpg");
     background-position: 50% 0px;
     color: #fff;
-    height: 50%;
-    max-height: 340px;
-    min-height: 240px;
+    height: 300px;
     position: relative; }
 
   .menu-toggle {
