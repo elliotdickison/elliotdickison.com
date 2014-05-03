@@ -89,21 +89,14 @@ $prefixes: webkit moz ms o;
     clear: both;
 }
 
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.lt-ie8 .cf {
-    *zoom: 1;
-}
-
 ::selection {
 	background: $theme;
 	color: $bg-light;
 }
 
+/* Firefox */
 ::-moz-selection {
-	background: $theme; /* Firefox */
+	background: $theme;
 	color: $bg-light;
 }
 

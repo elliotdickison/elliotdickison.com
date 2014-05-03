@@ -17,20 +17,13 @@
 .cf:after {
   clear: both; }
 
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.lt-ie8 .cf {
-  *zoom: 1; }
-
 ::selection {
   background: #da5b54;
   color: white; }
 
+/* Firefox */
 ::-moz-selection {
   background: #da5b54;
-  /* Firefox */
   color: white; }
 
 html {
