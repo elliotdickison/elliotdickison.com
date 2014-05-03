@@ -11,7 +11,14 @@
 
 /* Line Number */
 .lineno {
-  color: #8c8a77; }
+  border-right: 2px solid;
+  color: #8c8a77;
+  display: block;
+  float: left;
+  margin-right: 20px;
+  padding-right: 10px;
+  text-align: right;
+  width: 20px; }
 
 /* Comment */
 .c {
