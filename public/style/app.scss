@@ -661,7 +661,7 @@ p .footnote {
 
 	nav {
 		background: $bg-medium;
-		padding: 1em;
+		padding: 0.7em 1em;
 		position: relative !important;
 		text-align: right;
 
@@ -691,11 +691,11 @@ p .footnote {
 		}
 
 		li:first-child {
-			color: $theme;
+			color: $fg-dark;
 			display: block;
 			left: 1em;
 			position: absolute;
-			top: 1em;
+			top: 0.6em;
 		}
 
 		li:first-child a {
@@ -717,8 +717,12 @@ p .footnote {
 	}
 
 	.page-header h1 {
-		margin: 0.5em auto 0 auto;
-		padding: 0 0.5em;
+		background: $fg-dark;
+		color: $bg-light;
+		font-size: 1.5em;
+		max-width: 100% !important;
+		padding: 0.2em 0.5em;
+		text-align: center;
 	}
 
 	.page-header h1,
