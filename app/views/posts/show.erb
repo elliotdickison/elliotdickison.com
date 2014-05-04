@@ -2,9 +2,6 @@
 <% comments = post.comments.order('created_at ASC') %>
 <article class="post center">
 	<%= erb :'posts/post' %>
-	<footer class="cf">
-		<a class="button twitter" href="<%= twitter_share_link post.link %>" target="_blank"><i class="fa fa-twitter"></i> Tweet</a><a class="button facebook" href="<%= facebook_share_link post.link %>" target="_blank"><i class="fa fa-facebook"></i> Share</a>
-	</footer>
 </article>
 <div id="comments" class="center">
 	<h3><i class="fa fa-comments"></i> Comments</h3>

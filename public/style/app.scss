@@ -341,14 +341,6 @@ button, .button, input[type=submit] {
 	text-decoration: none;
 }
 
-button.facebook, .button.facebook, input[type=submit].facebook {
-	@include button($bg-light, $facebook);
-}
-
-button.twitter, .button.twitter, input[type=submit].twitter {
-	@include button($bg-light, $twitter);
-}
-
 button i, .button i, input[type=submit] i {
 	padding-right: 5px;
 }
