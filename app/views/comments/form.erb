@@ -14,7 +14,7 @@ body = cookies[:body] || ''
   <label for="comment_body">Comment</label>
   <textarea id="comment_body" name="comment[body]" rows="5" required ><%= body %></textarea>
   <p class="footnote">
-    Note: You can use <a href="http://daringfireball.net/projects/markdown/syntax" target="df_markdown">Markdown</a> to format your comment.
+    Note: You can use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> to format your comment.
   </p>
   <input type="hidden" name="comment[post_id]" value="<%= post.id %>" />
   <input type="submit" value="Post Comment" />
