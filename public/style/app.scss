@@ -458,20 +458,9 @@ time {
 }
 
 .post.short {
-	background: $bg-medium;
-	margin-top: 2em;
-
 	header,
 	.body p {
 		margin-bottom: 1em;
-	}
-
-	.tagging {
-		color: $fg-light;
-	}
-
-	.tagging:hover {
-		color: $theme;
 	}
 
 	footer {
@@ -736,8 +725,11 @@ p .footnote {
 
 	.post.short {
 		@include prefix(box-sizing, border-box);
+		margin-top: 3em;
+	}
+
+	.post.short:first-child {
 		margin-top: 1em;
-		padding: 1em;
 	}
 
 	.load-more {
@@ -863,8 +855,10 @@ p .footnote {
 	}
 
 	.post.short {
-		@include prefix(transition, background 0.2s linear);
 		@include prefix(box-sizing, border-box);
+		@include prefix(transition, background 0.2s linear);
+		background: $bg-medium;
+		margin-top: 2em;
 		padding: 2em;
 	}
 

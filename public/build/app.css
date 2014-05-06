@@ -351,18 +351,11 @@ time {
     .post .body > .video-container, .post .body > blockquote, .post .body > div, .post .body > figure, .post .body > img, .post .body > p, .post .body > pre {
       margin-bottom: 2em; }
 
-.post.short {
-  background: #ededed;
-  margin-top: 2em; }
-  .post.short header,
-  .post.short .body p {
-    margin-bottom: 1em; }
-  .post.short .tagging {
-    color: #999999; }
-  .post.short .tagging:hover {
-    color: #da5b54; }
-  .post.short footer {
-    font-family: "brandon-grotesque", sans-serif; }
+.post.short header,
+.post.short .body p {
+  margin-bottom: 1em; }
+.post.short footer {
+  font-family: "brandon-grotesque", sans-serif; }
 
 .searching .post.short {
   background: none;
@@ -557,8 +550,10 @@ p .footnote {
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
-    margin-top: 1em;
-    padding: 1em; }
+    margin-top: 3em; }
+
+  .post.short:first-child {
+    margin-top: 1em; }
 
   .load-more {
     margin-top: 1em; }
@@ -664,16 +659,18 @@ p .footnote {
     height: 200px; }
 
   .post.short {
-    -webkit-transition: background 0.2s linear;
-    -moz-transition: background 0.2s linear;
-    -ms-transition: background 0.2s linear;
-    -o-transition: background 0.2s linear;
-    transition: background 0.2s linear;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -ms-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+    background: #ededed;
+    margin-top: 2em;
     padding: 2em; }
 
   .post.short:hover {
