@@ -19,14 +19,6 @@ get '/blog' do
 	erb :'posts/index', layout: !request.xhr?
 end
 
-get %r{/blog/([0-9]{4})/(.+)} do
-  @selected_tab = :blog
-  @post = Post.where("date_part('year', published_at) = ? AND reference_id = ?", params[:captures].first, params[:captures].last).first
-  halt 404 if !@post
-  @page_title = @post.title
-  erb :'posts/show'
-end
-
 get '/blog/archive' do
   @page_title = '<i class="fa fa-archive"></i> Archive'
   @selected_tab = :blog
@@ -58,6 +50,19 @@ get '/blog/search' do
   @posts = @posts.uniq { |post| post.id }
 
   erb :'posts/search', layout: !request.xhr?
+end
+
+get '/blog/:reference_id' do
+  @selected_tab = :blog
+  @post = Post.where("reference_id = ?", params[:reference_id]).first
+  halt 404 if !@post
+  @page_title = @post.title
+  erb :'posts/show'
+end
+
+# Old style blog post links...
+get %r{/blog/([0-9]{4})/(.+)} do
+  redirect "/blog/#{params[:captures].last}", 301 # Moved Permanently
 end
 
 get '/posts', :auth => :admin do

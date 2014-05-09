@@ -39,7 +39,7 @@ class Post < ActiveRecord::Base
 
   def link
     if published_at
-  	  "/blog/#{published_at.strftime('%Y')}/#{reference_id}"
+  	  "/blog/#{reference_id}"
     else
       "/posts/#{id}"
     end
