@@ -103,7 +103,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify'); // Minify schtuff
   grunt.loadNpmTasks('grunt-contrib-sass'); // CSS with superpowers
   grunt.loadNpmTasks('grunt-contrib-cssmin'); // Minify
-  grunt.loadNpmTasks('grunt-contrib-concat'); // JSHint!
+  grunt.loadNpmTasks('grunt-contrib-concat'); // Concatenate everything together
   
 
   // Default task(s).

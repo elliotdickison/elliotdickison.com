@@ -3,15 +3,17 @@
 <article class="post center">
 	<%= erb :'posts/post' %>
 </article>
-<div id="comments" class="center">
-	<h3><i class="fa fa-comments"></i> Comments</h3>
-	<%= '<div class="sad">No comments.</div>' if comments.empty? %>
-	<% comments.each_with_index do |comment, i| %>
-		<%= erb :'comments/comment', locals: {comment: comment, alternate: i.even?, comment_number: i + 1} %>
-	<% end %>
-</div>
-<div id="comment-form" class="center">
-	<h3><i class="fa fa-comment"></i> New Comment</h3>
-	<%= get_message 'comment_form' %>
-	<%= erb :'comments/form', locals: {post: post} %>
-</div>
+<%
+# <div id="comments" class="center">
+# 	<h3><i class="fa fa-comments"></i> Comments</h3>
+# 	<%= '<div class="sad">No comments.</div>' if comments.empty? >
+# 	< comments.each_with_index do |comment, i| >
+# 		<= erb :'comments/comment', locals: {comment: comment, alternate: i.even?, comment_number: i + 1} >
+# 	< end >
+# </div>
+# <div id="comment-form" class="center">
+# 	<h3><i class="fa fa-comment"></i> New Comment</h3>
+# 	<= get_message 'comment_form' >
+# 	<= erb :'comments/form', locals: {post: post} >
+# </div>
+%>
