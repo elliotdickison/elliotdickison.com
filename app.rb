@@ -133,8 +133,8 @@ end
 # Require all models
 Dir['./app/models/*.rb'].each {|file| require file }
 
-# Require all controllers
-Dir['./app/controllers/*.rb'].each {|file| require file }
+# Require all routes
+Dir['./app/routes/*.rb'].each {|file| require file }
 
 get '/code' do
   @page_title = 'Code'
