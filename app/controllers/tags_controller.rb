@@ -13,5 +13,5 @@ get '/blog/tags/:id' do
   @tag = Tag.find(params[:id])
   @page_title = "<i class='fa fa-tag'></i> #{@tag.name}"
   @selected_tab = :blog
-  erb :'tags/tag'
+  erb :'tags/show'
 end

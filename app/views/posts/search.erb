@@ -11,14 +11,11 @@
 <span class="js-blog-content">
 	<% if @posts.blank? %>
 		<div class="sad center no-results">Sorry, your search <strong>&ldquo;<%= @search_term %>&rdquo;</strong> did not match any results. You might try browsing the <a href="/blog/archive">archive</a>.</div>
-	<%
-	else
+	<% end %>
+	<%=
+	unless @posts.blank?
 		@posts.each do |post|
-			%>
-			<article class="post short center">
-				<%= erb :'posts/post', locals: {post: post, short: true} %>
-			</article>
-			<%
+			erb :'posts/show', locals: {post: post, short: true}
 		end
 	end
 	%>

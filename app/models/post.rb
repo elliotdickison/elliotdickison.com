@@ -38,7 +38,7 @@ class Post < ActiveRecord::Base
 
   def link
     if published_at
-  	  "/#{@slug}"
+  	  "/#{slug}"
     else
       "/posts/#{id}"
     end
