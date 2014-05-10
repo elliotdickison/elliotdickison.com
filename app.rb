@@ -72,14 +72,6 @@ helpers do
     @user && @user.is_admin?
   end
 
-  def facebook_share_link(link)
-    'https://www.facebook.com/sharer/sharer.php?u=' << URI.escape(request.scheme + '://' + request.host + link)
-  end
-
-  def twitter_share_link(link)
-    'https://twitter.com/share?url=' << URI.escape(request.scheme + '://' + request.host + link)
-  end
-
   def nice_list(arr, separator = ', ', connector = ' and ', oxford_comma = true)
     if arr.empty?
       ''
