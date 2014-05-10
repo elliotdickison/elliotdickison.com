@@ -374,6 +374,8 @@ time {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
+  .searching .post.short footer {
+    display: none; }
 
 .no-results {
   margin-top: 1em; }
