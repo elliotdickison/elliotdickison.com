@@ -389,33 +389,6 @@ time {
   height: 48px;
   margin: 0 auto; }
 
-.sad {
-  color: #999999; }
-
-#comments {
-  margin-top: 1em;
-  padding-top: 1.5em; }
-
-#comment-form {
-  padding-top: 1em; }
-
-.comment {
-  min-height: 3.6em; }
-  .comment .avatar {
-    float: left;
-    width: 3.6em;
-    height: 3.6em;
-    border-radius: 50%; }
-  .comment header {
-    margin: 0 0 1em 4.6em; }
-  .comment header a.right {
-    font-weight: normal; }
-  .comment time {
-    display: block; }
-
-.profile-pic {
-  margin-top: 2em; }
-
 .profile-pic img {
   border-radius: 50%;
   margin: 0 auto; }
@@ -426,9 +399,7 @@ time {
 .footnote {
   color: #999999;
   display: block;
-  font-size: 0.9em; }
-
-p .footnote {
+  font-size: 0.9em;
   margin-top: 0.5em; }
 
 .contact p {
@@ -542,12 +513,6 @@ p .footnote {
 
   .post.short:first-child {
     margin-top: 1em; }
-
-  .comment {
-    margin: 2em 0 4em 0; }
-
-  .comment:last-child {
-    margin-bottom: 2em; }
 
   .load-more {
     margin-top: 1em; }
@@ -669,20 +634,6 @@ p .footnote {
 
   .post.short:hover {
     background: white; }
-
-  .comment {
-    -webkit-transition: background 0.2s linear;
-    -moz-transition: background 0.2s linear;
-    -ms-transition: background 0.2s linear;
-    -o-transition: background 0.2s linear;
-    transition: background 0.2s linear;
-    background: #ededed;
-    margin: 2em 0;
-    padding: 1em; }
-    .comment:hover {
-      background: white; }
-    .comment .body {
-      margin-left: 4.6em; }
 
   .page-footer {
     text-align: left; }

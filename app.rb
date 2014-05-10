@@ -138,9 +138,6 @@ after do
   end
 end
 
-# Require all validators
-Dir['./app/validators/*.rb'].each {|file| require file }
-
 # Require all models
 Dir['./app/models/*.rb'].each {|file| require file }
 

@@ -4,7 +4,6 @@ class Post < ActiveRecord::Base
   validates :body, presence: true
   validates :slug, presence: true
 
-  has_many :comments
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 

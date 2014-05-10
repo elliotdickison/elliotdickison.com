@@ -1,19 +1,19 @@
 <% post ||= @post %>
-<% comments = post.comments.order('created_at ASC') %>
-<article class="post center">
-	<%= erb :'posts/post' %>
+<% short ||= false %>
+<article class="post center<%= ' short' if short %>">
+	<header class="cf">
+		<%= "<h2><a href='#{post.link}'>#{post.title}</a></h2>" if short %>
+		<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><i class="fa fa-calendar-o"></i> <%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
+		<% post.tags.each do |tag| %>
+			<%= "<a href='#{tag.link}' rel='tag' class='tagging'><i class='fa fa-tag'></i> #{tag.name}</a>" %>
+		<% end unless short %>
+	</header>
+	<div class="body">
+		<%= short ? post.to_short_s : post %>
+	</div>
+	<% if short %>
+		<footer class="cf">
+			<a href="<%= post.link %>">Continue reading&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
+		</footer>
+	<% end %>
 </article>
-<%
-# <div id="comments" class="center">
-# 	<h3><i class="fa fa-comments"></i> Comments</h3>
-# 	<%= '<div class="sad">No comments.</div>' if comments.empty? >
-# 	< comments.each_with_index do |comment, i| >
-# 		<= erb :'comments/comment', locals: {comment: comment, alternate: i.even?, comment_number: i + 1} >
-# 	< end >
-# </div>
-# <div id="comment-form" class="center">
-# 	<h3><i class="fa fa-comment"></i> New Comment</h3>
-# 	<= get_message 'comment_form' >
-# 	<= erb :'comments/form', locals: {post: post} >
-# </div>
-%>

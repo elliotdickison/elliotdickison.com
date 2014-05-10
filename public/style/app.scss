@@ -513,46 +513,6 @@ time {
 	margin: 0 auto;
 }
 
-.sad {
-	color: $fg-light;
-}
-
-#comments {
-	margin-top: 1em;
-	padding-top: 1.5em;
-}
-
-#comment-form {
-	padding-top: 1em;
-}
-
-.comment {
-	min-height: 3.6em;
-
-	.avatar {
-		float: left;
-		width: 3.6em;
-		height: 3.6em;
-		border-radius: 50%;
-	}
-
-	header {
-		margin: 0 0 1em 4.6em;
-	}
-
-	header a.right {
-		font-weight: normal;
-	}
-
-	time {
-		display: block;
-	}
-}
-
-.profile-pic {
-	margin-top: 2em;
-}
-
 .profile-pic img {
 	border-radius: 50%;
 	margin: 0 auto;
@@ -562,13 +522,11 @@ time {
 	text-align: center;
 }
 
+
 .footnote {
 	color: $fg-light;
 	display: block;
 	font-size: 0.9em;
-}
-
-p .footnote {
 	margin-top: 0.5em;
 }
 
@@ -720,14 +678,6 @@ p .footnote {
 		margin-top: 1em;
 	}
 
-	.comment {
-		margin: 2em 0 4em 0;
-	}
-
-	.comment:last-child {
-		margin-bottom: 2em;
-	}
-
 	.load-more {
 		margin-top: 1em;
 	}
@@ -860,21 +810,6 @@ p .footnote {
 
 	.post.short:hover {
 		background: $bg-light;
-	}
-
-	.comment {
-		@include prefix(transition, background 0.2s linear);
-		background: $bg-medium;
-		margin: 2em 0;
-		padding: 1em;
-
-		&:hover {
-			background: $bg-light;
-		}
-
-		.body {
-			margin-left: 4.6em;
-		}
 	}
 
 	.page-footer {
