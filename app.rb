@@ -159,6 +159,20 @@ get '/about' do
   erb :about
 end
 
+# Old style blog post links...
+get %r{/blog/([0-9]{4})/(.+)} do
+  redirect "/blog/#{params[:captures].last}", 301 # Moved Permanently
+end
+
+# Throw this last so it doesn't catch any built-in routes
+get '/:slug' do
+  @selected_tab = :blog
+  @post = Post.find_by slug: params[:slug]
+  halt 404 if !@post
+  @page_title = @post.title
+  erb :'posts/show'
+end
+
 not_found do
   redirect '/404.html'
 end
