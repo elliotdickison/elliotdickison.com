@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501115840) do
+ActiveRecord::Schema.define(version: 20140510004637) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -38,10 +38,12 @@ ActiveRecord::Schema.define(version: 20140501115840) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "reference_id"
+    t.string   "slug"
     t.datetime "published_at"
     t.text     "rendered_body"
   end
+
+  add_index "posts", ["slug"], name: "index_posts_on_slug", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

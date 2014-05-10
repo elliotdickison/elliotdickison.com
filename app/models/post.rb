@@ -2,18 +2,18 @@ class Post < ActiveRecord::Base
   
   validates :title, presence: true
   validates :body, presence: true
-  validates :reference_id, presence: true
+  validates :slug, presence: true
 
   has_many :comments
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 
-  before_validation :scrub_inputs
+  before_validation :format_slug
 
   before_save :render_body
 
-  def scrub_inputs
-    self.reference_id = reference_id.downcase.gsub(/(')/, '').gsub(/([^a-z0-9])/, '-').gsub(/(--+)/, '-').gsub(/^(-*)|(-*)$/, '') if attribute_present?('reference_id')
+  def format_slug
+    self.slug = slug.downcase.gsub(/(')/, '').gsub(/([^a-z0-9])/, '-').gsub(/(--+)/, '-').gsub(/^(-*)|(-*)$/, '') if attribute_present?('slug')
   end
 
   def render_body
@@ -39,7 +39,7 @@ class Post < ActiveRecord::Base
 
   def link
     if published_at
-  	  "/blog/#{reference_id}"
+  	  "/#{slug}"
     else
       "/posts/#{id}"
     end

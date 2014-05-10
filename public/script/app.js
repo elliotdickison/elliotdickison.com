@@ -17,15 +17,15 @@ function toggleMenu(evt){
 	evt.preventDefault();
 }
 
-function enforceUrlFriendly(inputElement, outputElement, trim) {
-	var friendly = getUrlFriendly(inputElement.value, trim);
+function enforceSlug(inputElement, outputElement, trim) {
+	var friendly = getSlug(inputElement.value, trim);
 
 	if (outputElement.value !== friendly) {
 		outputElement.value = friendly;
 	}
 }
 
-function getUrlFriendly(text, trim){
+function getSlug(text, trim){
 	text = text.toLowerCase().replace(/(')/g, '').replace(/([^a-z0-9])/g, '-').replace(/(--+)/g, '-');
 
 	if (typeof trim == 'undefined' || trim) {
