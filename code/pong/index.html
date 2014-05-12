@@ -129,7 +129,7 @@
           bvx = ball.velocity.x,
           ppy = height - computer.paddle.position.y - computer.paddle.height,
           ph = computer.paddle.height,
-          ai = ((bpy - (ppy + (ph / 2))) * (((bpy - (ppy + (ph / 2))) < bvy ? -1.5093582998294188 : bpx) < bvx ? (-0.9928945034921579 / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) : ((-1.9707725869590753 < bvx ? ((bpy - (ppy + (ph / 2))) * bvx) : -0.9928945034921579) < bvx ? ((bpy - (ppy + (ph / 2))) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) : (ppy + (ph / 2)))));
+          ai = ((((((((((((bvy + bpy) - (ppy + (ph / 2))) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy);
 
         if(ai > 1.0) {
           this.paddle.move('up');
