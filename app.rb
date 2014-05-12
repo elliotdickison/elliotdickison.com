@@ -92,8 +92,10 @@ end
 # Require all models
 Dir['./app/models/*.rb'].each {|file| require file }
 
-# Require all routes
-Dir['./app/routes/*.rb'].each {|file| require file }
+# Go to the blog by default
+get '/' do
+  redirect '/blog'
+end
 
 get '/code' do
   @page_title = 'Code'
@@ -113,8 +115,12 @@ end
 
 # Old style blog post links...
 get %r{/blog/([0-9]{4})/(.+)} do
-  redirect "/blog/#{params[:captures].last}", 301 # Moved Permanently
+  puts 
+  redirect "/#{params[:captures].last}", 301 # Moved Permanently
 end
+
+# Require all other routes
+Dir['./app/routes/*.rb'].each {|file| require file }
 
 # Throw this last so it doesn't catch any built-in routes
 get '/:slug' do

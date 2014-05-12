@@ -1,12 +1,3 @@
-get '/' do
-  redirect '/blog'
-end
-
-get '/feed' do
-  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC').limit(10)
-  builder :'posts/feed'
-end
-
 get '/blog' do
   @page_title = 'Blog'
   @selected_tab = :blog
@@ -16,7 +7,12 @@ get '/blog' do
 
   @posts = Post.where('published_at IS NOT NULL').order('published_at DESC').offset(page_offset).limit(settings.posts_per_page)
 
-	erb :'posts/index', layout: !request.xhr?
+  erb :'posts/index', layout: !request.xhr?
+end
+
+get '/feed' do
+  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC').limit(10)
+  builder :'posts/feed'
 end
 
 get '/blog/archive' do
