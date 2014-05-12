@@ -33,268 +33,269 @@
        */
 
       var animate = window.requestAnimationFrame ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame ||
-          function(callback) { window.setTimeout(callback, 1000/60) },
-        canvas = document.createElement('canvas'),
-        height = 400,
-        width = 600,
-        paddle_width = 10,
-        paddle_height = 100,
-        context = canvas.getContext('2d'),
-        speedup = 0.25,
-        max_velocity = 15.0,
-        min_velocity = 1.0,
-        pause = true;
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        function(callback) { window.setTimeout(callback, 1000/60) },
+      canvas = document.createElement('canvas'),
+      height = 400,
+      width = 600,
+      paddle_width = 10,
+      paddle_height = 100,
+      context = canvas.getContext('2d'),
+      speedup = 0.2,
+      max_velocity = 15.0,
+      min_velocity = 1.0,
+      pause = true;
 
-      canvas.width = width;
-      canvas.height = height;
+    canvas.width = width;
+    canvas.height = height;
 
-      window.onload = function() {
-        document.body.appendChild(canvas);
-        restart();
-        animate(step);
+    window.onload = function() {
+      document.body.appendChild(canvas);
+      restart();
+      animate(step);
+    };
+
+    function restart(){
+      pause = true;
+      ball.position.x = 100;
+      ball.position.y = height / 2;
+      ball.velocity.x = 3.5;
+      ball.velocity.y = 0.5;
+      computer.paddle.position.y = height / 2 - (paddle_height / 2);
+      player.paddle.position.y = height / 2 - (paddle_height / 2);
+    }
+
+    function Paddle(x, y) {
+      this.position = {
+        x: x,
+        y: y
       };
+      this.speed = 4;
+      this.width = paddle_width;
+      this.height = paddle_height;
+    }
 
-      function restart(){
-        pause = true;
-        ball.position.x = paddle_width + ball.radius;
-        ball.position.y = height / 2;
-        ball.velocity.x = 2.0;
-        ball.velocity.y = -2.0;
-        computer.paddle.position.y = height / 2 - (paddle_height / 2);
-        player.paddle.position.y = height / 2 - (paddle_height / 2);
+    Paddle.prototype.render = function() {
+      context.fillStyle = "#444";
+      context.fillRect(this.position.x, this.position.y, this.width, this.height);
+    };
+
+    Paddle.prototype.move = function(direction) {
+      this.position.y += (direction == 'up' ? -1 : 1) * this.speed;
+
+      // Clamp movement to the visible screen space
+      if(this.position.y <= 0) {
+        this.position.y = 0;
       }
-
-      function Paddle(x, y) {
-        this.position = {
-          x: x,
-          y: y
-        };
-        this.speed = 4;
-        this.width = paddle_width;
-        this.height = paddle_height;
+      else if(this.position.y + this.height >= height)
+      {
+        this.position.y = height - this.height;
       }
+    };
 
-      Paddle.prototype.render = function() {
-        context.fillStyle = "#444";
-        context.fillRect(this.position.x, this.position.y, this.width, this.height);
-      };
+    function Player() {
+       this.paddle = new Paddle(width - paddle_width, height / 2 - paddle_height / 2);
+    }
 
-      Paddle.prototype.move = function(direction) {
-        this.position.y += (direction == 'up' ? -1 : 1) * this.speed;
+    function Computer() {
+      this.paddle = new Paddle(0, height / 2 - paddle_height / 2);
+    }
 
-        // Clamp movement to the visible screen space
-        if(this.position.y <= 0) {
-          this.position.y = 0;
-        }
-        else if(this.position.y + this.height >= height)
-        {
-          this.position.y = height - this.height;
-        }
-      };
+    Player.prototype.render = function() {
+      this.paddle.render();
+    };
 
-      function Player() {
-         this.paddle = new Paddle(width - paddle_width, height / 2 - paddle_height / 2);
-      }
-
-      function Computer() {
-        this.paddle = new Paddle(0, height / 2 - paddle_height / 2);
-      }
-
-      Player.prototype.render = function() {
-        this.paddle.render();
-      };
-
-      Player.prototype.update = function() {
-        for(var key in keysDown) {
-          var value = Number(key);
-          if(value == 38) { // up arrow
-            this.paddle.move('up');
-          }
-          else if (value == 40) { // down arrow
-            this.paddle.move('down');
-          }
-        }
-      };
-
-      Computer.prototype.render = function() {
-        this.paddle.render();
-      };
-
-      Computer.prototype.update = function() {
-        var bpy = height - ball.position.y,
-          bpx = ball.position.x,
-          bvy = -1.0 * ball.velocity.y,
-          bvx = ball.velocity.x,
-          ppy = height - computer.paddle.position.y - computer.paddle.height,
-          ph = computer.paddle.height,
-          ai = ((((((((((((bvy + bpy) - (ppy + (ph / 2))) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy) + bvy);
-
-        if(ai > 1.0) {
+    Player.prototype.update = function() {
+      for(var key in keysDown) {
+        var value = Number(key);
+        if(value == 38) { // up arrow
           this.paddle.move('up');
         }
-        else if(ai < -1.0) {
+        else if (value == 40) { // down arrow
           this.paddle.move('down');
         }
-      };
+      }
+    };
 
-      function Ball(x, y) {
-        this.position = {
-          x: 0,
-          y: 0
-        };
-        this.velocity = {
-          x: 0,
-          y: 0
-        };
-        this.radius = 8;
+    Computer.prototype.render = function() {
+      this.paddle.render();
+    };
+
+    Computer.prototype.update = function() {
+      var bpy = height - ball.position.y,
+        bpx = ball.position.x,
+        bvy = -1.0 * ball.velocity.y,
+        bvx = ball.velocity.x,
+        ppy = height - computer.paddle.position.y - computer.paddle.height,
+        ph = computer.paddle.height,
+        pc = (ppy + (ph / 2)),
+        ai = ((-0.91401018171271 / (bpx != 0 ? bpx : 1)) * (((ppy + (ph / 2)) - (bvy / ((((((((ppy + (ph / 2)) - (ppy + (ph / 2))) * bpx) + ((((1.8611555441674041 + (ppy + (ph / 2))) * (1.8631527548425812 / (bpx != 0 ? bpx : 1))) + 1.65670518984546) < ((bpx < (bvx < bpy ? (ppy + (ph / 2)) : bvy) ? (bpx < bpx ? (ppy + (ph / 2)) : -1.290250082605894) : (ppy + (ph / 2))) / ((bvy / ((((bpx < ((bpx < ((ppy + (ph / 2)) + bvx) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) < bpy ? (ppy + (ph / 2)) : (bpx / (bvx != 0 ? bvx : 1))) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) * bpx) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) != 0 ? (((bpx < ((bpx < ((ppy + (ph / 2)) + bvx) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) < bpy ? (ppy + (ph / 2)) : (bpx / (bvx != 0 ? bvx : 1))) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) * bpx) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) : 1)) != 0 ? (bvy / ((((bpx < ((bpx < ((ppy + (ph / 2)) + bvx) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) < bpy ? (ppy + (ph / 2)) : (bpx / (bvx != 0 ? bvx : 1))) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) * bpx) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) != 0 ? (((bpx < ((bpx < ((ppy + (ph / 2)) + bvx) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) < bpy ? (ppy + (ph / 2)) : (bpx / (bvx != 0 ? bvx : 1))) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) * bpx) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) : 1)) : 1)) ? bvx : (bpx / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)))) + (ppy + (ph / 2))) * (1.8631527548425812 / (bpx != 0 ? bpx : 1))) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) != 0 ? (((((((ppy + (ph / 2)) - (ppy + (ph / 2))) * bpx) + ((((1.8611555441674041 + (ppy + (ph / 2))) * (1.8631527548425812 / (bpx != 0 ? bpx : 1))) + 1.65670518984546) < ((bpx < (bvx < bpy ? (ppy + (ph / 2)) : bvy) ? (bpx < bpx ? (ppy + (ph / 2)) : -1.290250082605894) : (ppy + (ph / 2))) / ((bvy / ((((bpx < ((bpx < ((ppy + (ph / 2)) + bvx) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) < bpy ? (ppy + (ph / 2)) : (bpx / (bvx != 0 ? bvx : 1))) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) * bpx) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) != 0 ? (((bpx < ((bpx < ((ppy + (ph / 2)) + bvx) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) < bpy ? (ppy + (ph / 2)) : (bpx / (bvx != 0 ? bvx : 1))) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) * bpx) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) : 1)) != 0 ? (bvy / ((((bpx < ((bpx < ((ppy + (ph / 2)) + bvx) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) < bpy ? (ppy + (ph / 2)) : (bpx / (bvx != 0 ? bvx : 1))) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) * bpx) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) != 0 ? (((bpx < ((bpx < ((ppy + (ph / 2)) + bvx) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) < bpy ? (ppy + (ph / 2)) : (bpx / (bvx != 0 ? bvx : 1))) ? (ppy + (ph / 2)) : (ppy + (ph / 2))) * bpx) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) : 1)) : 1)) ? bvx : (bpx / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)))) + (ppy + (ph / 2))) * (1.8631527548425812 / (bpx != 0 ? bpx : 1))) / ((ppy + (ph / 2)) != 0 ? (ppy + (ph / 2)) : 1)) : 1))) - bpy));
+
+      if(ai > 1.0) {
+        this.paddle.move('up');
+      }
+      else if(ai < -1.0) {
+        this.paddle.move('down');
+      }
+    };
+
+    function Ball(x, y) {
+      this.position = {
+        x: 0,
+        y: 0
+      };
+      this.velocity = {
+        x: 0,
+        y: 0
+      };
+      this.radius = 8;
+    }
+
+    Ball.prototype.render = function() {
+      context.beginPath();
+      context.arc(this.position.x, this.position.y, this.radius, 2 * Math.PI, false);
+      context.fillStyle = "#444";
+      context.fill();
+    };
+
+    Ball.prototype.update = function() {
+      var diff,
+        english,
+        paddle_offset;
+
+      this.position.x += this.velocity.x;
+      this.position.y += this.velocity.y;
+
+      // Bounce off floor
+      diff = this.position.y + this.radius - height;
+      if(diff > 0) {
+        this.position.y = height - diff - this.radius;
+        this.velocity.y *= -1.0;
       }
 
-      Ball.prototype.render = function() {
-        context.beginPath();
-        context.arc(this.position.x, this.position.y, this.radius, 2 * Math.PI, false);
-        context.fillStyle = "#444";
-        context.fill();
-      };
-
-      Ball.prototype.update = function() {
-        var diff,
-          english,
-          paddle_offset;
-
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
-
-        // Bounce off floor
-        diff = this.position.y + this.radius - height;
-        if(diff > 0) {
-          this.position.y = height - diff - this.radius;
-          this.velocity.y *= -1.0;
-        }
-
-        // Bounce off ceiling
-        diff = -1.0 * (this.position.y - this.radius);
-        if(diff > 0) {
-          this.position.y = diff + this.radius;
-          this.velocity.y *= -1.0;
-        }
-
-        // Bounce off far wall
-        // diff = ball.position.x + ball.radius - width
-        // if(diff > 0) {
-        //  ball.position.x = width - diff - ball.radius
-          
-        //  ball.velocity.x *= -1.0
-        // }
-
-        // Bounce off player
-        diff = this.position.x + this.radius - width + player.paddle.width;
-        paddle_offset = this.position.y - player.paddle.position.y;
-        if(diff > 0 && paddle_offset > 0 && paddle_offset < player.paddle.height) {
-          
-          // Flip the offset around if the ball is striking the paddle at an upward angle
-          if(this.velocity.y < 0){
-            paddle_offset = player.paddle.height - paddle_offset;
-          }
-
-          english = ((player.paddle.height - paddle_offset) / player.paddle.height) + 0.5;
-          
-          this.position.x = width - player.paddle.width - diff - this.radius;
-
-          // Put some english on it
-          this.velocity.x *= - english;
-          this.velocity.y *= (2.0 - english);
-
-          // Speed the ball up a bit
-          this.velocity.x += (this.velocity.x > 0 ? 1.0 : -1.0) * 0.5;
-          this.velocity.y += (this.velocity.y > 0 ? 1.0 : -1.0) * 0.5;
-        }
-
-        // Bounce off computer
-        diff = -1.0 * (this.position.x - this.radius - computer.paddle.width);
-        paddle_offset = this.position.y - computer.paddle.position.y;
-        if(diff > 0 && paddle_offset > 0 && paddle_offset < computer.paddle.height) {
-          
-          // Flip the offset around if the ball is striking the paddle at an upward angle
-          if(this.velocity.y < 0){
-            paddle_offset = computer.paddle.height - paddle_offset;
-          }
-
-          english = ((computer.paddle.height - paddle_offset) / computer.paddle.height) + 0.5;
-          
-          this.position.x = computer.paddle.width + diff + this.radius;
-
-          // Put some english on it
-          this.velocity.x *= (-1.0 * english);
-          this.velocity.y *= (2.0 - english);
-
-          // Speed the ball up a bit
-          this.velocity.x += (this.velocity.x > 0 ? 1.0 : -1.0) * speedup;
-          this.velocity.y += (this.velocity.y > 0 ? 1.0 : -1.0) * speedup;
-
-          // Limit velocities
-          this.velocity.x = limitVelocity(this.velocity.x);
-          this.velocity.y = limitVelocity(this.velocity.y);
-        }
-      };
-
-      function limitVelocity(velocity){
-        if(Math.abs(velocity) > max_velocity){
-          return velocity > 0 ? max_velocity : -1.0 * max_velocity;
-        }
-        else if(Math.abs(velocity) < min_velocity){
-          return velocity > 0 ? min_velocity : -1.0 * min_velocity;
-        }
-        else {
-          return velocity;
-        }
+      // Bounce off ceiling
+      diff = -1.0 * (this.position.y - this.radius);
+      if(diff > 0) {
+        this.position.y = diff + this.radius;
+        this.velocity.y *= -1.0;
       }
 
-      var player = new Player();
-      var computer = new Computer();
-      var ball = new Ball(200, 300);
+      // Bounce off far wall
+      // diff = ball.position.x + ball.radius - width
+      // if(diff > 0) {
+      //  ball.position.x = width - diff - ball.radius
+        
+      //  ball.velocity.x *= -1.0
+      // }
 
-      var step = function() {
-        update();
-        render();
-        animate(step);
-      };
-
-      var update = function() {
-
-        player.update();
-
-        if(!pause) {
-          computer.update();
-          ball.update();
-          
-          if(ball.position.x < paddle_width || ball.position.x > width - paddle_width) {
-            restart();
-          }
+      // Bounce off player
+      diff = this.position.x + this.radius - width + player.paddle.width;
+      paddle_offset = this.position.y - player.paddle.position.y;
+      if(diff > 0 && paddle_offset > 0 && paddle_offset < player.paddle.height) {
+        
+        // Flip the offset around if the ball is striking the paddle at an upward angle
+        if(this.velocity.y < 0){
+          paddle_offset = player.paddle.height - paddle_offset;
         }
-      };
 
-      var render = function() {
-        context.fillStyle = "#eee";
-        context.fillRect(0, 0, width, height);
-        player.render();
-        computer.render();
-        ball.render();
-      };
+        english = ((player.paddle.height - paddle_offset) / player.paddle.height) + 0.5;
+        
+        this.position.x = width - player.paddle.width - diff - this.radius;
 
-      var keysDown = {};
+        // Put some english on it
+        this.velocity.x *= - english;
+        this.velocity.y *= (2.0 - english);
 
-      window.addEventListener("keydown", function(event) {
-          keysDown[event.keyCode] = true;
-          if(Number(event.keyCode) == 32) {
-            pause = !pause;
-          }
-      });
+        // Speed the ball up a bit
+        this.velocity.x += (this.velocity.x > 0 ? 1.0 : -1.0) * 0.5;
+        this.velocity.y += (this.velocity.y > 0 ? 1.0 : -1.0) * 0.5;
+      }
 
-      window.addEventListener("keyup", function(event) {
-        delete keysDown[event.keyCode];
-      });
+      // Bounce off computer
+      diff = -1.0 * (this.position.x - this.radius - computer.paddle.width);
+      paddle_offset = this.position.y - computer.paddle.position.y;
+      if(diff > 0 && paddle_offset > 0 && paddle_offset < computer.paddle.height) {
+        
+        // Flip the offset around if the ball is striking the paddle at an upward angle
+        if(this.velocity.y < 0){
+          paddle_offset = computer.paddle.height - paddle_offset;
+        }
+
+        english = ((computer.paddle.height - paddle_offset) / computer.paddle.height) + 0.5;
+        
+        this.position.x = computer.paddle.width + diff + this.radius;
+
+        // Put some english on it
+        this.velocity.x *= (-1.0 * english);
+        this.velocity.y *= (2.0 - english);
+
+        // Speed the ball up a bit
+        this.velocity.x += (this.velocity.x > 0 ? 1.0 : -1.0) * speedup;
+        this.velocity.y += (this.velocity.y > 0 ? 1.0 : -1.0) * speedup;
+
+        // Limit velocities
+        this.velocity.x = limitVelocity(this.velocity.x);
+        this.velocity.y = limitVelocity(this.velocity.y);
+      }
+    };
+
+    function limitVelocity(velocity){
+      if(Math.abs(velocity) > max_velocity){
+        return velocity > 0 ? max_velocity : -1.0 * max_velocity;
+      }
+      else if(Math.abs(velocity) < min_velocity){
+        return velocity > 0 ? min_velocity : -1.0 * min_velocity;
+      }
+      else {
+        return velocity;
+      }
+    }
+
+    var player = new Player();
+    var computer = new Computer();
+    var ball = new Ball(200, 300);
+
+    var step = function() {
+      update();
+      render();
+      animate(step);
+    };
+
+    var update = function() {
+
+      player.update();
+
+      if(!pause) {
+        computer.update();
+        ball.update();
+        
+        if(ball.position.x < paddle_width || ball.position.x > width - paddle_width) {
+          restart();
+        }
+      }
+    };
+
+    var render = function() {
+      context.fillStyle = "#eee";
+      context.fillRect(0, 0, width, height);
+      player.render();
+      computer.render();
+      ball.render();
+    };
+
+    var keysDown = {};
+
+    window.addEventListener("keydown", function(event) {
+        keysDown[event.keyCode] = true;
+        if(Number(event.keyCode) == 32) {
+        pause = !pause;
+      }
+    });
+
+    window.addEventListener("keyup", function(event) {
+      delete keysDown[event.keyCode];
+    });
     </script>
   </head>
   <body>
