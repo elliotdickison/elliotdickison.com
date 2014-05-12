@@ -107,6 +107,10 @@ get '/about' do
   erb :about
 end
 
+get '/pong' do
+  File.read 'code/pong/index.html'
+end
+
 # Old style blog post links...
 get %r{/blog/([0-9]{4})/(.+)} do
   redirect "/blog/#{params[:captures].last}", 301 # Moved Permanently
