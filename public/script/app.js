@@ -35,64 +35,64 @@ function getSlug(text, trim){
 	return text;
 }
 
-function setupHeader(){
-	var $window = $(window),
-		windowWidth = $window.width(),
-		$header = $('.js-cool-header'),
-		$nav = $header.find('nav'),
-		navIsHidden = false,
-		headerHeight, navHeight, headerTextHeight;
+// function setupHeader(){
+// 	var $window = $(window),
+// 		windowWidth = $window.width(),
+// 		$header = $('.js-cool-header'),
+// 		$nav = $header.find('nav'),
+// 		navIsHidden = false,
+// 		headerHeight, navHeight, headerTextHeight;
 
-	// Get rid of whatever is currently bound two window.onScroll
-	$window.unbind('scroll');
+// 	// Get rid of whatever is currently bound two window.onScroll
+// 	$window.unbind('scroll');
 
-	// Ensure that the nav is visible and positioned absolutely (so it doesn't jump down over any content)
-	$nav.css({
-		"display": "block",
-		"opacity": "1",
-		"position": "absolute"
-	});
+// 	// Ensure that the nav is visible and positioned absolutely (so it doesn't jump down over any content)
+// 	$nav.css({
+// 		"display": "block",
+// 		"opacity": "1",
+// 		"position": "absolute"
+// 	});
 
-	// 840 is the minimum width for the layout that uses this header... can be found in app.scss
-	if(windowWidth >= 780){
-		headerHeight = $header.outerHeight();
-		navHeight = $nav.outerHeight();
-		headerTextHeight = $header.find('h1').outerHeight();
+// 	// 840 is the minimum width for the layout that uses this header... can be found in app.scss
+// 	if(windowWidth >= 780){
+// 		headerHeight = $header.outerHeight();
+// 		navHeight = $nav.outerHeight();
+// 		headerTextHeight = $header.find('h1').outerHeight();
 
-		$nav
-			.css('position', 'fixed')
-			.show();
+// 		$nav
+// 			.css('position', 'fixed')
+// 			.show();
 
-		$window
-			.bind('scroll', function(){
-				var offset = window.pageYOffset,
-					navOpacity = 1 - (offset / (headerHeight - (navHeight + headerTextHeight)));
+// 		$window
+// 			.bind('scroll', function(){
+// 				var offset = window.pageYOffset,
+// 					navOpacity = 1 - (offset / (headerHeight - (navHeight + headerTextHeight)));
 
-				// Show/hide the navigation, but don't do it more often than necessary (DOM changes are sloow)
-				if(navOpacity < 0 && !navIsHidden){
-					$nav.hide();
-					navIsHidden = true;
-				}
-				else if(navOpacity > 0 && navIsHidden){
-					$nav.show();
-					navIsHidden = false;
-				}
+// 				// Show/hide the navigation, but don't do it more often than necessary (DOM changes are sloow)
+// 				if(navOpacity < 0 && !navIsHidden){
+// 					$nav.hide();
+// 					navIsHidden = true;
+// 				}
+// 				else if(navOpacity > 0 && navIsHidden){
+// 					$nav.show();
+// 					navIsHidden = false;
+// 				}
 
-				// Animate the header
-				if(offset < headerHeight){
+// 				// Animate the header
+// 				if(offset < headerHeight){
 
-					// Update the navigation opacity
-					if(navOpacity > 0 && !navIsHidden){
-						$nav.css('opacity', navOpacity);
-					}
+// 					// Update the navigation opacity
+// 					if(navOpacity > 0 && !navIsHidden){
+// 						$nav.css('opacity', navOpacity);
+// 					}
 
-					// Parallax the header
-					$header.css('background-position', '50% '+(offset / 2)+'px');
-				}
-			})
-			.trigger('scroll');
-	}
-}
+// 					// Parallax the header
+// 					$header.css('background-position', '50% '+(offset / 2)+'px');
+// 				}
+// 			})
+// 			.trigger('scroll');
+// 	}
+// }
 
 function setupLinks(){
 	$('a.js-ajax-replace').on('click', function(evt){
@@ -138,16 +138,16 @@ function setupLinks(){
 }
 
 $(function(){
-	var setupHeaderTimeout;
+	// var setupHeaderTimeout;
 
-	$(window)
-		.bind('resize', function(){
-			clearTimeout(setupHeaderTimeout);
-			setupHeaderTimeout = setTimeout(function(){
-				setupHeader();
-			}, 100);
-		})
-		.trigger('resize');
+	// $(window)
+	// 	.bind('resize', function(){
+	// 		clearTimeout(setupHeaderTimeout);
+	// 		setupHeaderTimeout = setTimeout(function(){
+	// 			setupHeader();
+	// 		}, 100);
+	// 	})
+	// 	.trigger('resize');
 
 	setupLinks();
 

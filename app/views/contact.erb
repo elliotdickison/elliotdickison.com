@@ -1,5 +1,6 @@
 <% @message ||= Message.new %>
-<div class="contact center">
+<div class="center">
+	<h1>Contact</h1>
 	<%= get_message 'contact_form' %>
 	<p><a href="mailto:ejdickison@gmail.com">Shoot me an email</a> or fill out the form below.</p>
 	<form action="/contact" method="post">

@@ -11,8 +11,6 @@ class CommentsCreateTable < ActiveRecord::Migration
   	end
 
   	add_index :comments, :post_id
-
-  	Comment.create(commenter: "Elliot Dickison", email: "ejdickison@gmail.com", body: "Herro there! What a boring blog you have.", post: Post.find(1));
   end
 
   def down

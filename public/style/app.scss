@@ -3,7 +3,7 @@ $fg-light: #999;
 $fg-dark: #333;
 
 $bg-light: #fff;
-$bg-medium: darken($bg-light, 7%);
+$bg-medium: #f5f5f5;
 $bg-dark: darken($bg-light, 15%);
 
 $theme: #da5b54;
@@ -11,8 +11,6 @@ $notice: #ffc;
 $link: #40b0f0;
 $facebook: #3b5998;
 $twitter: #00aced;
-
-$header-font-stack: "brandon-grotesque", sans-serif;
 
 $prefixes: webkit moz ms o;
 
@@ -35,7 +33,6 @@ $prefixes: webkit moz ms o;
 	@include prefix(box-shadow, $shadows);
 
 	color: $fg-color;
-	font-family: $header-font-stack;
 	margin-bottom: #{$height}px;
 
 	&:hover {
@@ -140,53 +137,37 @@ a:hover {
 	color: $theme;
 }
 
-nav {
-	font-size: 1.3em;
-
-	ul,
-	li {
-		display: inline;
-		margin: 0;
-		padding: 0;
-	}
-
-	li {
-		margin-left: 1em;
-	}
-
-	li:first-child {
-		margin-left: 0;
-	}
+ul,
+li {
+	margin: 0;
+	padding: 0;
 }
 
 h1, h2, h3, h4, h5 {
 	font-weight: bold;
+	line-height: 100%;
 	margin: 0;
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 1.9em;
+	margin-bottom: 20px;
 }
 
 h2 {
-	font-family: $header-font-stack;
-	font-size: 1.9em;
-}
-
-h3 {
-	font-family: $header-font-stack;
 	font-size: 1.7em;
 }
 
-h4 {
-	font-family: $header-font-stack;
+h3 {
 	font-size: 1.5em;
-	padding: 0.5em 0;
+}
+
+h4 {
+	font-size: 1.3em;
 }
 
 h5 {
-	font-family: $header-font-stack;
-	font-size: 1.3em;
+	font-size: 1.1em;
 }
 
 h1 a,
@@ -223,7 +204,6 @@ form {
 
 label {
 	color: $fg-light;
-	font-family: $header-font-stack;
 }
 
 textarea {
@@ -302,7 +282,6 @@ input[type=search] {
 
 	input[type=search] {
 		background: transparent;
-		font-family: $header-font-stack;
 		height: 41px;
 		padding: 0 35px;
 		position: absolute;
@@ -347,7 +326,6 @@ button i, .button i, input[type=submit] i {
 
 time {
 	color: $fg-light;
-	font-family: $header-font-stack;
 }
 
 .login {
@@ -363,13 +341,7 @@ time {
 }
 
 .tagging {
-	font-family: $header-font-stack;
 	margin-left: 0.5em;
-}
-
-.page-header,
-.page-footer {
-	font-family: "brandon-grotesque", sans-serif;
 }
 
 .page-header a {
@@ -378,21 +350,6 @@ time {
 
 .page-header a:hover {
 	color: $theme;
-}
-
-.page-footer {
-	background: $fg-dark;
-	color: $bg-light;
-	padding: 1em;
-	text-transform: lowercase;
-}
-
-.page-footer ul {
-	list-style: none;
-}
-
-.page-footer ul li {
-	display: inline;
 }
 
 .left {
@@ -423,7 +380,6 @@ time {
 
 .page-body {
 	min-height: 50%;
-	padding: 2em 1em;
 }
 
 .post {
@@ -438,7 +394,6 @@ time {
 
 		/* Redefine header text for post content */
 		h1, h2, h3, h4, h5 {
-			font-family: $header-font-stack;
 			font-size: 1.5em;
 			margin: 0;
 			padding: 0.5em 0;
@@ -462,16 +417,9 @@ time {
 	.body p {
 		margin-bottom: 1em;
 	}
-
-	footer {
-		font-family: $header-font-stack;
-	}
 }
 
 .searching .post.short {
-	background: none;
-	padding: 0;
-
 	header {
 		margin-bottom: 0;
 	}
@@ -517,6 +465,10 @@ time {
 	margin: 0 auto;
 }
 
+.profile-pic {
+	margin-top: 40px;
+}
+
 .profile-pic img {
 	border-radius: 50%;
 	margin: 0 auto;
@@ -531,10 +483,6 @@ time {
 	display: block;
 	font-size: 0.9em;
 	margin-top: 0.5em;
-}
-
-.contact p {
-	margin-bottom: 0.5em;
 }
 
 .archive {
@@ -685,28 +633,9 @@ time {
 		margin-top: 1em;
 	}
 
-	.browse-happy {
-		padding: 20px;
-	}
-
 	.profile-pic img {
 		width: 130px;
 		height: 130px;
-	}
-
-	.page-footer {
-		text-align: center;
-	}
-
-	.page-footer ul {
-		display: block;
-		float: none;
-		margin-top: 0.5em;
-	}
-
-	.page-footer ul li {
-		border-left: none;
-		padding: 0 0.5em;
 	}
 	
 	.not-on-mobile {
@@ -736,66 +665,63 @@ time {
 
 @media all and (min-width: 780px) {
 
-	nav {
-		padding: 10px 0;
-		position: absolute;
-		left: 25px;
+	.page-header {
+		background-color: $bg-medium;
+		color: $fg-dark;
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 320px;
+		border-right: 1px solid #e8e8e8;
+		padding: 40px;
+		font-size: 18px;
+		color: #888;
+		overflow: auto;
 
-		li:first-child {
-			color: $theme;
-			font-size: 1.5em;
+		& > ul {
+			list-style: none;
 		}
 
-		li:first-child:after {
-			color: $bg-light;
-			content: '|';
-			padding-left: 0.66em;
+		& > ul > li {
+			border-bottom: 1px solid #e8e8e8;
+			margin-bottom: 20px;
+			padding-bottom: 20px;
 		}
 
-		li {
-			display: inline-block;
-			position: relative;
+		p {
+			text-align: justify;
+
+			a {
+				color: $theme;
+				font-weight: bold;
+			}
+		}
+
+		nav {
+			li {
+				display: block;
+			}
+
+			li.selected {
+				color: $theme;
+				font-weight: bold;
+			}
+		}
+
+		.menu-toggle {
+			display: none;
 		}
 	}
 
-	.page-header h1 {
-		bottom: 10px;
-		font-size: 3em;
-		font-weight: bold;
-		left: 50%;
-		margin-left: -350px;
-		position: absolute;
-		width: 700px;
+	.page-body {
+		margin-left: 400px;
+		padding: 40px;
 	}
 
 	.center {
-		max-width: 700px;
-	}
-
-	.page-header {
-		@include prefix(background-size, cover);
-		@include prefix(text-shadow, 0 0 15px rgba(0, 0, 0, 0.3));
-		background-color: $bg-medium;
-		background-image: url("/img/background.jpg");
-		background-position: 50% 0px;
-		color: #fff;
-		height: 300px;
-		position: relative;
-	}
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.browse-happy {
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		padding: 30px;
-		z-index: 999;
-		background: #FFF;
+		margin: 0 auto;
+		max-width: 600px;
 	}
 
 	.profile-pic img {
@@ -805,39 +731,15 @@ time {
 
 	.post.short {
 		@include prefix(box-sizing, border-box);
-		@include prefix(transition, background 0.2s linear);
-		background: $bg-medium;
 		margin-top: 2em;
-		padding: 2em;
-	}
-
-	.post.short:hover {
-		background: $bg-light;
 	}
 
 	.page-footer {
-		text-align: left;
-
-		div {
-			float: left;
-		}
-
-		ul {
-			float: right;
-
-			li {
-				display: inline;
-			}
-
-			li:before {
-				content: '|';
-				margin: 0 0.5em;
-			}
-
-			li:first-child:before {
-				content: '';
-			}
-		}
+		bottom: 0;
+		left: 0;
+		position: fixed;
+		text-align: center;
+		font-size: 18px;
 	}
 
 	.mobile-only {

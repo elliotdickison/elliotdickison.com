@@ -2,7 +2,7 @@
 <% short ||= false %>
 <article class="post center<%= ' short' if short %>">
 	<header class="cf">
-		<%= "<h2><a href='#{post.link}'>#{post.title}</a></h2>" if short %>
+		<%= "<h1><a href='#{post.link}'>#{post.title}</a></h1>" %>
 		<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><i class="fa fa-calendar-o"></i> <%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
 		<% post.tags.each do |tag| %>
 			<%= "<a href='#{tag.link}' rel='tag' class='tagging'><i class='fa fa-tag'></i> #{tag.name}</a>" %>

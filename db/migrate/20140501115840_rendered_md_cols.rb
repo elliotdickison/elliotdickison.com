@@ -6,10 +6,6 @@ class RenderedMdCols < ActiveRecord::Migration
   	Post.all.each do |post|
   		post.save
   	end
-
-  	Comment.all.each do |comment|
-  		comment.save
-  	end
   end
 
   def down

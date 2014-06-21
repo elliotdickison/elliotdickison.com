@@ -1,5 +1,5 @@
 <% @page_title ||= '' %>
-<% links = ['blog', 'code', 'about', 'contact'] %>
+<% links = ['blog', 'projects', 'about'] %>
 <!DOCTYPE html>
 <!--
 
@@ -33,17 +33,23 @@
     </head>
     <body ontouchstart<%= @searching ? ' class="searching"' : '' %>>
         <header class="page-header js-cool-header cf">
-            <nav>
-                <a href="#" class="menu-toggle" onclick="toggleMenu(event)"><i class="fa fa-bars"></i></a>
-                <ul id="js-menu">
-                    <li><a href="/blog">elliot james</a></li><%=
-                    links.inject('') do |str, page|
-                        klass = @selected_tab == page.to_sym ? 'selected' : ''
-                        str << "<li class='#{klass}'><a href='/#{page}'>#{page}</a></li>"
-                    end
-                %></ul>
-            </nav>
-            <h1><%= @page_title %></h1>
+            <ul>
+                <li>
+                    <p><a href="/">Elliot James Dickison</a> is a full-stack web developer, skier, and dad. He lives in the Pacific Northwest, something else word.</p>
+                </li>
+                <li>
+                    <nav>
+                        <a href="#" class="menu-toggle" onclick="toggleMenu(event)"><i class="fa fa-bars"></i></a>
+                        <ul id="js-menu">
+                            <li></li><%=
+                            links.inject('') do |str, page|
+                                klass = @selected_tab == page.to_sym ? 'selected' : ''
+                                str << "<li class='#{klass}'><a href='/#{page}'>&raquo; #{page}</a></li>"
+                            end
+                        %></ul>
+                    </nav>
+                </li>
+            </ul>
         </header>
         <!--[if lt IE 9]>
             <div class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
