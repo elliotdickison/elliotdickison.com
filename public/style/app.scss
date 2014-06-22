@@ -14,6 +14,9 @@ $twitter: #00aced;
 
 $prefixes: webkit moz ms o;
 
+$header-font: brandon-grotesque, sans-serif;
+$body-font: ff-tisa-web-pro, serif;
+
 @mixin prefix($property, $value){
     @each $prefix in $prefixes {
         -#{$prefix}-#{$property}: #{$value};
@@ -24,6 +27,9 @@ $prefixes: webkit moz ms o;
 @mixin button($fg-color, $bg-color, $height: 6, $active-height: 2){
 	background: $bg-color;
 	border: 0;
+	color: $fg-color;
+	font-family: $header-font !important;
+	margin-bottom: #{$height}px;
 
 	$shadows: ();
 	@for $i from 1 through $height {
@@ -31,9 +37,6 @@ $prefixes: webkit moz ms o;
 		$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
 	}
 	@include prefix(box-shadow, $shadows);
-
-	color: $fg-color;
-	margin-bottom: #{$height}px;
 
 	&:hover {
 		color: $fg-color;
@@ -103,8 +106,8 @@ html {
 
 body {
 	color: $fg-dark;
-	font-family: "ff-tisa-web-pro", serif;
-	font-size: 20px;
+	font-family: $body-font;
+	font-size: 19px;
 	height: 100%;
 }
 
@@ -124,6 +127,7 @@ figcaption {
 }
 
 p {
+	line-height: 34px;
 	margin: 0 0 1em 0;
 }
 
@@ -144,8 +148,8 @@ li {
 }
 
 h1, h2, h3, h4, h5 {
+	font-family: $header-font;
 	font-weight: bold;
-	line-height: 100%;
 	margin: 0;
 }
 
@@ -228,7 +232,7 @@ textarea {
 	border-style: solid;
 	border-width: 0 0 0 6px;
 	display: block;
-	font-family: "ff-tisa-web-pro", serif;
+	font-family: $body-font;
 	font-size: 1em;
 	margin: 0 0 0.5em 0;
 	padding: 0.5em 0.8em;
@@ -387,6 +391,7 @@ time {
 	margin: 0 auto;
 
 	header {
+		font-family: $header-font;
 		margin-bottom: 1.5em;
 	}
 
@@ -667,35 +672,52 @@ time {
 
 	.page-header {
 		background-color: $bg-medium;
-		color: $fg-dark;
-		position: fixed;
-		left: 0;
-		top: 0;
-		bottom: 0;
-		width: 320px;
 		border-right: 1px solid #e8e8e8;
-		padding: 40px;
-		font-size: 18px;
+		bottom: 0;
 		color: #888;
+		color: $fg-dark;
+		font-family: $header-font;
+		font-size: 18px;
+		left: 0;
+		line-height: 32px;
 		overflow: auto;
+		padding: 40px;
+		position: fixed;
+		top: 0;
+		width: 320px;
 
-		& > ul {
+		ul {
 			list-style: none;
 		}
 
 		& > ul > li {
-			border-bottom: 1px solid #e8e8e8;
-			margin-bottom: 20px;
-			padding-bottom: 20px;
+			border-top: 1px solid #e8e8e8;
+			margin-top: 20px;
+			padding-top: 20px;
+		}
+
+		& > ul > li:first-child {
+			border-top: none;
+			margin-top: 0;
+			padding-top: 0;
 		}
 
 		p {
+			margin: 0;
 			text-align: justify;
 
 			a {
 				color: $theme;
 				font-weight: bold;
 			}
+		}
+
+		.links {
+			text-transform: lowercase;
+		}
+
+		.links a {
+			color: $theme;
 		}
 
 		nav {
@@ -744,5 +766,57 @@ time {
 
 	.mobile-only {
 		display: none !important;
+	}
+}
+
+.idaho-with-love {
+	margin: 0 0 30px 22px;
+	width: 80px !important;
+	height: 80px !important;
+	position: relative;
+	font-family: $header-font;
+
+	/* 171px 263.5px */
+	.idaho {
+		-webkit-transform: translate(64.5px, 18.3px) scale(1.0);
+		transition: all 0.3s ease-in-out;
+	}
+
+	/* 111.2px 171.3px */
+	&:hover .idaho {
+		-webkit-transform: translate(94.4px, 64.4px) scale(0.65);
+	}
+
+	/* 0px 0px */
+	.heart {
+		-webkit-transform: translate(150px, 175px) scale(0);
+		transition: all 0.3s ease-in-out;
+	}
+
+	/* 321px 261px */
+	&:hover .heart {
+		-webkit-transform: translate(0.5px, 44.5px) scale(1.0);
+	}
+
+	figcaption {
+		color: $theme;
+		height: 80px;
+		left: 80px;
+		line-height: 80px;
+		opacity: 0;
+		overflow: hidden;
+		padding: 5px 0 0 20px;
+		position: absolute;
+		text-align: left;
+		text-indent: -180px;
+		top: 0;
+		transition: all 0.3s ease-in-out;
+		white-space: nowrap;
+		width: 180px;
+	}
+
+	&:hover figcaption {
+		text-indent: 0;
+		opacity: 1;
 	}
 }

@@ -49,6 +49,13 @@
                         %></ul>
                     </nav>
                 </li>
+                <li>
+                    <ul class="links">
+                        <li>Follow <a href="//twitter.com/<%= settings.twitter_id %>">@<%= settings.twitter_id %></a></li>
+                        <li>Fork <a href="//github.com/<%= settings.github_id %>">github.com/<%= settings.github_id %></a></li>
+                        <li>Subscribe <a type="application/rss+xml" rel="alternate" href="/feed" title="rss">elliotjam.es/feed</a></li>
+                    </ul>
+                </li>
             </ul>
         </header>
         <!--[if lt IE 9]>
@@ -59,12 +66,21 @@
             <%= yield %>
         </div>
         <footer class="page-footer cf">
-            <div>Hand Made in <a href="//500px.com/search?utf8=%E2%9C%93&page=1&q=Idaho&type=photos&media_type=any&category=Landscapes&order=votes&license_type=-1">Idaho</a> by <a href="/about">Elliot James Dickison</a></div>
-            <ul>
-                <li><a href="//github.com/<%= settings.github_id %>" title="github"><i class="fa fa-github mobile-only"></i><span class="not-on-mobile">Github</span></a></li>
-                <li><a href="//twitter.com/<%= settings.twitter_id %>" title="twitter"><i class="fa fa-twitter mobile-only"></i><span class="not-on-mobile">Twitter</span></a></li>
-                <li><a type="application/rss+xml" rel="alternate" href="/feed" title="rss"><i class="fa fa-rss mobile-only"></i><span class="not-on-mobile">Rss</span></a></li>
-            </ul>
+            <figure class="idaho-with-love">
+                <svg viewBox="0 0 300 300">
+                    <clipPath id="idaho-clip">
+                        <path class="idaho" d="m160.56 173.04c.054 29.662-.002 59.32.052 88.986-51.32-.179-102.41.337-153.72.011-5.817-11.607-.626-25.732-2.475-38.25-2.534-13.487 3.258-27.57.978-40.07-15.12-10.772 6.61-26.09 8.304-39.36 5.88-8.612 4.384-20.469-5.04-25.37-7.909-19.07-3.311-40.08-4.637-60.07-.056-19.31-.643-55.865.419-57.929 2.054-.926 20.222-1.714 23.07-.039 1.632 2.849-.167 38.663 9.08 49.34.071 13.783 13.751 18.488 19.733 29.11 2.937 9.454 14.337 9.758 18.14 16.811-5.753 9.763-.44 21.599-5.501 31.33-1.446 13.515 14.09 2.127 16.821 3.188 8.09 8.91 6.882 25.23 17.831 30.389 6.269 5.201 5.383 19.835 16.337 11.27 8.551-4.27 20.607 1.743 28.699-4.255 4.511-12.634 6.428 3.628 11.919 4.901"/>
+                    </clipPath>
+                    <path class="heart" fill="#da5b54" d="m248.08 5.883c-36.691-14.739-77.77-.839-98.52 31.13-20.744-31.964-61.826-45.864-98.52-31.13-41.689 16.749-61.906 64.13-45.16 105.81 16.06 39.98 143.31 139.61 143.31 139.61l.359.28.36-.28c0 0 127.25-99.63 143.31-139.61 16.752-41.687-3.466-89.06-45.16-105.81"/>
+                    <path class="idaho" fill="#da5b54" d="m160.56 173.04c.054 29.662-.002 59.32.052 88.986-51.32-.179-102.41.337-153.72.011-5.817-11.607-.626-25.732-2.475-38.25-2.534-13.487 3.258-27.57.978-40.07-15.12-10.772 6.61-26.09 8.304-39.36 5.88-8.612 4.384-20.469-5.04-25.37-7.909-19.07-3.311-40.08-4.637-60.07-.056-19.31-.643-55.865.419-57.929 2.054-.926 20.222-1.714 23.07-.039 1.632 2.849-.167 38.663 9.08 49.34.071 13.783 13.751 18.488 19.733 29.11 2.937 9.454 14.337 9.758 18.14 16.811-5.753 9.763-.44 21.599-5.501 31.33-1.446 13.515 14.09 2.127 16.821 3.188 8.09 8.91 6.882 25.23 17.831 30.389 6.269 5.201 5.383 19.835 16.337 11.27 8.551-4.27 20.607 1.743 28.699-4.255 4.511-12.634 6.428 3.628 11.919 4.901"/>
+                    <g clip-path="url(#idaho-clip)">
+                        <path class="heart" fill="#fff" d="m248.08 5.883c-36.691-14.739-77.77-.839-98.52 31.13-20.744-31.964-61.826-45.864-98.52-31.13-41.689 16.749-61.906 64.13-45.16 105.81 16.06 39.98 143.31 139.61 143.31 139.61l.359.28.36-.28c0 0 127.25-99.63 143.31-139.61 16.752-41.687-3.466-89.06-45.16-105.81"/>
+                    </g>
+                </svg>
+                <figcaption>
+                    Made with love in Idaho
+                </figcaption>
+            </figure>
         </footer>
         <script type="text/javascript" src="/build/all.js"></script>
     </body>

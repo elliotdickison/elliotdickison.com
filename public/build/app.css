@@ -31,8 +31,8 @@ html {
 
 body {
   color: #333333;
-  font-family: "ff-tisa-web-pro", serif;
-  font-size: 20px;
+  font-family: ff-tisa-web-pro, serif;
+  font-size: 19px;
   height: 100%; }
 
 img {
@@ -48,6 +48,7 @@ figcaption {
   text-align: right; }
 
 p {
+  line-height: 34px;
   margin: 0 0 1em 0; }
 
 a {
@@ -68,8 +69,8 @@ li {
   padding: 0; }
 
 h1, h2, h3, h4, h5 {
+  font-family: brandon-grotesque, sans-serif;
   font-weight: bold;
-  line-height: 100%;
   margin: 0; }
 
 h1 {
@@ -142,7 +143,7 @@ textarea {
   border-style: solid;
   border-width: 0 0 0 6px;
   display: block;
-  font-family: "ff-tisa-web-pro", serif;
+  font-family: ff-tisa-web-pro, serif;
   font-size: 1em;
   margin: 0 0 0.5em 0;
   padding: 0.5em 0.8em;
@@ -211,13 +212,14 @@ input[type=search] {
 button, .button, input[type=submit] {
   background: #da5b54;
   border: 0;
+  color: white;
+  font-family: brandon-grotesque, sans-serif !important;
+  margin-bottom: 6px;
   -webkit-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   -moz-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   -ms-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   -o-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
-  color: white;
-  margin-bottom: 6px;
   display: inline-block;
   line-height: 100%;
   margin-right: 0.8em;
@@ -307,6 +309,7 @@ time {
   clear: both;
   margin: 0 auto; }
   .post header {
+    font-family: brandon-grotesque, sans-serif;
     margin-bottom: 1.5em; }
   .post .body {
     /* Redefine header text for post content */
@@ -506,28 +509,39 @@ time {
 @media all and (min-width: 780px) {
   .page-header {
     background-color: whitesmoke;
-    color: #333333;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 320px;
     border-right: 1px solid #e8e8e8;
-    padding: 40px;
-    font-size: 18px;
+    bottom: 0;
     color: #888;
-    overflow: auto; }
-    .page-header > ul {
+    color: #333333;
+    font-family: brandon-grotesque, sans-serif;
+    font-size: 18px;
+    left: 0;
+    line-height: 32px;
+    overflow: auto;
+    padding: 40px;
+    position: fixed;
+    top: 0;
+    width: 320px; }
+    .page-header ul {
       list-style: none; }
     .page-header > ul > li {
-      border-bottom: 1px solid #e8e8e8;
-      margin-bottom: 20px;
-      padding-bottom: 20px; }
+      border-top: 1px solid #e8e8e8;
+      margin-top: 20px;
+      padding-top: 20px; }
+    .page-header > ul > li:first-child {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0; }
     .page-header p {
+      margin: 0;
       text-align: justify; }
       .page-header p a {
         color: #da5b54;
         font-weight: bold; }
+    .page-header .links {
+      text-transform: lowercase; }
+    .page-header .links a {
+      color: #da5b54; }
     .page-header nav li {
       display: block; }
     .page-header nav li.selected {
@@ -565,3 +579,41 @@ time {
 
   .mobile-only {
     display: none !important; } }
+.idaho-with-love {
+  margin: 0 0 30px 22px;
+  width: 80px !important;
+  height: 80px !important;
+  position: relative;
+  font-family: brandon-grotesque, sans-serif;
+  /* 171px 263.5px */
+  /* 111.2px 171.3px */
+  /* 0px 0px */
+  /* 321px 261px */ }
+  .idaho-with-love .idaho {
+    -webkit-transform: translate(64.5px, 18.3px) scale(1);
+    transition: all 0.3s ease-in-out; }
+  .idaho-with-love:hover .idaho {
+    -webkit-transform: translate(94.4px, 64.4px) scale(0.65); }
+  .idaho-with-love .heart {
+    -webkit-transform: translate(150px, 175px) scale(0);
+    transition: all 0.3s ease-in-out; }
+  .idaho-with-love:hover .heart {
+    -webkit-transform: translate(0.5px, 44.5px) scale(1); }
+  .idaho-with-love figcaption {
+    color: #da5b54;
+    height: 80px;
+    left: 80px;
+    line-height: 80px;
+    opacity: 0;
+    overflow: hidden;
+    padding: 5px 0 0 20px;
+    position: absolute;
+    text-align: left;
+    text-indent: -180px;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap;
+    width: 180px; }
+  .idaho-with-love:hover figcaption {
+    text-indent: 0;
+    opacity: 1; }
