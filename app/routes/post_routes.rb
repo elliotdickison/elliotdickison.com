@@ -1,13 +1,10 @@
 get '/blog' do
   @page_title = 'Blog'
   @selected_tab = :blog
-  @current_page = params[:page].to_i
-  page_offset = @current_page * settings.posts_per_page
-  @show_more_link = (Post.where('published_at IS NOT NULL').count.to_f / settings.posts_per_page.to_f).ceil > page_offset + 1
 
-  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC').offset(page_offset).limit(settings.posts_per_page)
+  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
 
-  erb :'posts/index', layout: !request.xhr?
+  erb :'posts/index'
 end
 
 get '/feed' do
@@ -22,37 +19,11 @@ get '/blog/archive' do
   erb :'posts/archive'
 end
 
-get '/blog/search' do
-  @search_term = params[:q].strip
-  @page_title = 'Blog'
-  @selected_tab = :blog
-  @searching = true
-  
-  # HACK: Match using regexp
-  # TODO: Look into fulltext searching
-  regexp_term = @search_term
-    .split(' ')
-    .select { |term| not term.empty? }
-    .map { |term| Regexp.escape(term) }
-    .join('.*')
-  @posts = Post.where('published_at IS NOT NULL').where('title ~* (:regexp) OR body ~* (:regexp)', regexp: regexp_term).order('published_at DESC')
-
-  # Match based on tag
-  @tags = Tag.where('LOWER(name) = ?', @search_term.downcase)
-  @tags.each do |tag|
-    @posts.concat tag.posts.where('published_at IS NOT NULL').order('published_at DESC')
-  end
-
-  @posts = @posts.uniq { |post| post.id }
-
-  erb :'posts/search', layout: !request.xhr?
-end
-
 get '/posts', :auth => :admin do
   @posts = Post.all.order('id DESC')
   @selected_tab = :blog
   @page_title = 'All Posts'
-  erb :'posts/list'
+  erb :'posts/admin'
 end
 
 get '/posts/new', :auth => :admin do

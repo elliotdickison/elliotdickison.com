@@ -28,14 +28,6 @@ class Post < ActiveRecord::Base
     rendered_body || ''
   end
 
-  def to_short_s
-    rendered_body
-      .split(/\n/)
-      .map { |chunk| chunk.strip }
-      .keep_if { |chunk| chunk.length > 0 && chunk.start_with?('<p>') }
-      .first
-  end
-
   def link
     if published_at
   	  "/#{slug}"

@@ -1,18 +1,30 @@
-<% if not request.xhr? %>
-	<div class="center cf top-links">
-		<a href="/blog/archive" class="button"><i class="fa fa-archive"></i> Archive</a>
-		<a href="/blog/tags" class="button"><i class="fa fa-tags"></i> Tags</a>
-		<div class="crazy-search">
-			<input type="search" placeholder="Search" value="" />
-			<a href="#" class="fa fa-times-circle js-clear-search"></a>
-		</div>
-	</div>
-<% end %>
-<span class="js-blog-content">
-	<% @posts.each_with_index do |post, index| %>
-		<%= erb :'posts/show', locals: {post: post, short: true} %>
-	<% end %>
-	<% if @show_more_link %>
-		<a class="load-more js-ajax-replace" href="/blog?page=<%= @current_page + 1 %>"><i class="fa fa-plus-circle"></i> Load more posts</a>
-	<% end %>
-</span>
+<%
+@year = @posts.first.published_at.strftime("%Y")
+%>
+<ul class="center post-list">
+	<li>
+		<h3><%= @year %></h3>
+		<ul>
+			<% @posts.each_with_index do |post, i|
+
+				# If we're swithing years/months then finish the current list and start a new one
+				published_year = post.published_at.strftime("%Y")
+				if !@year || published_year != @year
+					@year = published_year
+					%>
+						</ul>
+					</li>
+					<li>
+						<header>
+							<h3><%= @year %></h3>
+						</header>
+						<ul>
+				<% end %>
+				<li>
+					<a href="<%= post.link %>"><%= post.title %></a>
+					<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
+				</li>
+			<% end %>
+		</ul>
+	</li>
+</ul>

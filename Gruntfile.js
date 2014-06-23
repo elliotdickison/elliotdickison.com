@@ -34,10 +34,7 @@ module.exports = function(grunt) {
         curly: true,
         eqnull: true,
         browser: true,
-        smarttabs: true,
-        globals: {
-          jQuery: true,
-        },
+        smarttabs: true
       },
       uses_defaults: ['public/script/*.js'],
     },
@@ -46,10 +43,10 @@ module.exports = function(grunt) {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
       },
-      files: {
-        'public/build/jquery.min.js': 'public/vendor/jquery/dist/jquery.js',
-        'public/build/q.min.js': 'public/vendor/q/q.js',
-      },
+      // files: {
+      //   'public/build/jquery.min.js': 'public/vendor/jquery/dist/jquery.js',
+      //   'public/build/q.min.js': 'public/vendor/q/q.js',
+      // },
       script: {
         src : 'public/script/*.js',
         dest : 'public/build/script.min.js',
@@ -69,7 +66,7 @@ module.exports = function(grunt) {
             dest: 'public/build/',
             ext: '.css'
           },
-          {'public/build/font-awesome.css' : 'public/vendor/font-awesome/scss/font-awesome.scss'}
+          // {'public/build/font-awesome.css' : 'public/vendor/font-awesome/scss/font-awesome.scss'}
         ],
       },
     },
@@ -86,11 +83,11 @@ module.exports = function(grunt) {
 
     concat: {
       js: {
-        src: ['public/build/jquery.min.js', 'public/build/q.min.js', 'public/build/script.min.js'],
+        src: ['public/build/script.min.js'],
         dest: 'public/build/all.js'
       },
       css: {
-        src: ['public/build/normalize.min.css', 'public/build/font-awesome.min.css', 'public/build/pygments.min.css', 'public/build/app.min.css'],
+        src: ['public/build/normalize.min.css', 'public/build/pygments.min.css', 'public/build/app.min.css'],
         dest: 'public/build/all.css'
       }  
     },
