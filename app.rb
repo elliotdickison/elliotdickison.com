@@ -92,6 +92,10 @@ end
 # Require all models
 Dir['./app/models/*.rb'].each {|file| require file }
 
+# Let the Post class know what we've got for bitly settings
+Post.bitly_api_address = settings.bitly_api_address
+Post.bitly_access_token = settings.bitly_access_token
+
 # Go to the blog by default
 get '/' do
   redirect '/blog'

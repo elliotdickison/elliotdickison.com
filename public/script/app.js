@@ -9,7 +9,7 @@
 // 	window.bouncing[key] = setTimeout(callback, interval);
 // }
 
-event.prototype.preventDefault = event.prototype.preventDefault || function(){ this.returnValue = false; };
+Event.prototype.preventDefault = Event.prototype.preventDefault || function(){ this.returnValue = false; };
 
 function toggleMenu(evt){
 	var menu = document.getElementById('js-menu');

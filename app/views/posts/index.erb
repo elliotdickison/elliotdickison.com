@@ -1,10 +1,10 @@
 <%
 @year = @posts.first.published_at.strftime("%Y")
 %>
-<ul class="center post-list">
+<ul class="center">
 	<li>
-		<h3><%= @year %></h3>
-		<ul>
+		<h1><%= @year %></h1>
+		<ul class="post-list">
 			<% @posts.each_with_index do |post, i|
 
 				# If we're swithing years/months then finish the current list and start a new one
@@ -16,7 +16,7 @@
 					</li>
 					<li>
 						<header>
-							<h3><%= @year %></h3>
+							<h1><%= @year %></h1>
 						</header>
 						<ul>
 				<% end %>

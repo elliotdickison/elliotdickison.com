@@ -1,14 +1,16 @@
-<% @page_title ||= '' %>
-<% links = ['blog', 'code', 'photographs', 'about'] %>
+<%
+@page_title ||= ''
+pages = ['blog', 'code', 'photographs', 'about']
+description_markup =
+    '<a href="/">Elliot James Dickison</a><span class="desktop-only"> is a programmer, skier, husband, and dad. He lives in the Pacific Northwest, works at <a href="//twitter.com/desktopecon">@desktopecon</a>, and spends way too much time on the web.</span>'
+links_markup =
+    '<li>Follow <a href="//twitter.com/'+settings.twitter_id+'">@'+settings.twitter_id+'</a></li>
+    <li>Fork <a href="//github.com/'+settings.github_id+'">github.com/'+settings.github_id+'</a></li>
+    <li>Subscribe <a type="application/rss+xml" rel="alternate" href="/feed" title="rss">elliotjam.es/feed</a></li>'
+%>
 <!DOCTYPE html>
 <!--
 
-   __                        _                                           _ 
-   \ \  ___  ___ _   _ ___  | | _____   _____  ___   _   _  ___  _   _  / \
-    \ \/ _ \/ __| | | / __| | |/ _ \ \ / / _ \/ __| | | | |/ _ \| | | |/  /
- /\_/ /  __/\__ \ |_| \__ \ | | (_) \ V /  __/\__ \ | |_| | (_) | |_| /\_/ 
- \___/ \___||___/\__,_|___/ |_|\___/ \_/ \___||___/  \__, |\___/ \__,_\/   
-                                                     |___/                 
 
 -->
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -35,25 +37,24 @@
         <header class="page-header js-cool-header cf">
             <ul>
                 <li>
-                    <p><a href="/">Elliot James Dickison</a> is a programmer, skier, husband, and dad. He lives in the Pacific Northwest, works at <a href="#">@desktopecon</a>, and loves Jesus.</p>
+                    <p><%= description_markup %></p>
                 </li>
                 <li>
                     <nav>
-                        <a href="#" class="menu-toggle" onclick="toggleMenu(event)"><i class="fa fa-bars"></i></a>
-                        <ul id="js-menu">
+                        <label class="mobile-only" for="menu">Menu</label>
+                        <input class="hidden" type="checkbox" id="menu" />
+                        <ul>
                             <li></li><%=
-                            links.inject('') do |str, page|
+                            pages.inject('') do |str, page|
                                 klass = @selected_tab == page.to_sym ? 'selected' : ''
                                 str << "<li class='#{klass}'><a href='/#{page}'>&raquo; #{page}</a></li>"
                             end
                         %></ul>
                     </nav>
                 </li>
-                <li>
+                <li class="desktop-only">
                     <ul class="links">
-                        <li>Follow <a href="//twitter.com/<%= settings.twitter_id %>">@<%= settings.twitter_id %></a></li>
-                        <li>Fork <a href="//github.com/<%= settings.github_id %>">github.com/<%= settings.github_id %></a></li>
-                        <li>Subscribe <a type="application/rss+xml" rel="alternate" href="/feed" title="rss">elliotjam.es/feed</a></li>
+                        <%= links_markup %>
                     </ul>
                 </li>
             </ul>
@@ -66,7 +67,10 @@
             <%= yield %>
         </div>
         <footer class="page-footer cf">
-            <figure class="idaho-with-love">
+            <ul class="mobile-only links">
+                <%= links_markup %>
+            </ul>
+            <figure class="made-in-idaho">
                 <svg viewBox="0 0 300 300">
                     <clipPath id="idaho-clip">
                         <path class="idaho" d="m160.56 173.04c.054 29.662-.002 59.32.052 88.986-51.32-.179-102.41.337-153.72.011-5.817-11.607-.626-25.732-2.475-38.25-2.534-13.487 3.258-27.57.978-40.07-15.12-10.772 6.61-26.09 8.304-39.36 5.88-8.612 4.384-20.469-5.04-25.37-7.909-19.07-3.311-40.08-4.637-60.07-.056-19.31-.643-55.865.419-57.929 2.054-.926 20.222-1.714 23.07-.039 1.632 2.849-.167 38.663 9.08 49.34.071 13.783 13.751 18.488 19.733 29.11 2.937 9.454 14.337 9.758 18.14 16.811-5.753 9.763-.44 21.599-5.501 31.33-1.446 13.515 14.09 2.127 16.821 3.188 8.09 8.91 6.882 25.23 17.831 30.389 6.269 5.201 5.383 19.835 16.337 11.27 8.551-4.27 20.607 1.743 28.699-4.255 4.511-12.634 6.428 3.628 11.919 4.901"/>
@@ -78,7 +82,7 @@
                     </g>
                 </svg>
                 <figcaption>
-                    Made with love in Idaho
+                    Made in Idaho
                 </figcaption>
             </figure>
         </footer>

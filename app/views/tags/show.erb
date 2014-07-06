@@ -1,14 +1,12 @@
-<ul class="center post-list">
-	<li>
-		<h3>Tagged "<%= @tag.name %>"</h3>
-		<ul>
-			<%= "<li>There are no posts tagged under \"#{@tag.name}\".</li>" if @tag.posts.empty? %>
-			<% @tag.posts.where('published_at IS NOT NULL').order('published_at DESC').each do |post| %>
-				<li>
-					<a href="<%= post.link %>"><%= post.title %></a>
-					<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
-				</li>
-			<% end %>
-		</ul>
-	</li>
+<ul class="center">
+	<h1>Posts about <%= @tag.name %></h1>
+	<ul class="post-list">
+		<%= "<li>There are no posts tagged under \"#{@tag.name}\".</li>" if @tag.posts.empty? %>
+		<% @tag.posts.where('published_at IS NOT NULL').order('published_at DESC').each do |post| %>
+			<li>
+				<a href="<%= post.link %>"><%= post.title %></a>
+				<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
+			</li>
+		<% end %>
+	</ul>
 </ul>
