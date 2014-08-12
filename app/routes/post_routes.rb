@@ -12,13 +12,6 @@ get '/feed' do
   builder :'posts/feed'
 end
 
-get '/blog/archive' do
-  @page_title = '<i class="fa fa-archive"></i> Archive'
-  @selected_tab = :blog
-  @posts = Post.where('published_at IS NOT NULL').order('published_at DESC')
-  erb :'posts/archive'
-end
-
 get '/posts', :auth => :admin do
   @posts = Post.all.order('id DESC')
   @selected_tab = :blog

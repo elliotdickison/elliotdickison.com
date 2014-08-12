@@ -13,6 +13,6 @@ class Tag < ActiveRecord::Base
   end
 
   def link
-    "/blog/tags/#{id}"
+    "/tags/#{id}"
   end
 end

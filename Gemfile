@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 # Gemfile
+gem 'bitly'
 gem 'builder'
 gem 'log_buddy'
 gem 'newrelic_rpm'

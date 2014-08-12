@@ -1,7 +1,4 @@
 class Post < ActiveRecord::Base
-  
-  @@bitly_api_address
-  @@bitly_access_token
 
   validates :title, presence: true
   validates :body, presence: true
@@ -27,17 +24,6 @@ class Post < ActiveRecord::Base
     touch :published_at unless published_at
   end
 
-  def generate_bitly_url
-    uri = URI "#{@@bitly_api_address}/v3/user/link_save"
-    uri.query = URI.encode_www_form(
-      access_token: @@bitly_access_token,
-      longUrl: "#{request.scheme}://#{request.host}/#{slug}",
-      title: title
-    )
-    response = Net::HTTP.get_response(uri)
-    response.body if response.is_a? Net::HTTPSuccess
-  end
-
   def to_s
     rendered_body || ''
   end
@@ -48,13 +34,5 @@ class Post < ActiveRecord::Base
     else
       "/posts/#{id}"
     end
-  end
-
-  def self.bitly_api_address= address
-    @@bitly_api_address = address
-  end
-
-  def self.bitly_access_token= token
-    @@bitly_access_token = token
   end
 end

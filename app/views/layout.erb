@@ -1,12 +1,10 @@
 <%
 @page_title ||= ''
 pages = ['blog', 'code', 'photographs', 'about']
-description_markup =
-    '<a href="/">Elliot James Dickison</a><span class="desktop-only"> is a programmer, skier, husband, and dad. He lives in the Pacific Northwest, works at <a href="//twitter.com/desktopecon">@desktopecon</a>, and spends way too much time on the web.</span>'
 links_markup =
-    '<li>Follow <a href="//twitter.com/'+settings.twitter_id+'">@'+settings.twitter_id+'</a></li>
-    <li>Fork <a href="//github.com/'+settings.github_id+'">github.com/'+settings.github_id+'</a></li>
-    <li>Subscribe <a type="application/rss+xml" rel="alternate" href="/feed" title="rss">elliotjam.es/feed</a></li>'
+    '<li>Follow <a href="//twitter.com/'+settings.twitter_id+'" rel="me" title="twitter">@'+settings.twitter_id+'</a></li>
+    <li>Fork <a href="//github.com/'+settings.github_id+'" rel="me" title="github">github.com/'+settings.github_id+'</a></li>
+    <li>Subscribe <a type="application/rss+xml" rel="alternate" href="/feed" rel="me" title="rss">elliotdickison.com/feed</a></li>'
 %>
 <!DOCTYPE html>
 <!--
@@ -24,7 +22,7 @@ links_markup =
         <meta name="description" content="Elliot James Dickison – web developer, skier, father, christian">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <title><%= (@page_title.size ? "#{@page_title.gsub(%r{</?[^>]+?>}, '').strip} | " : '') << 'Elliot James Dickison' %></title>
+        <title>Elliot Dickison<%= (@page_title.size ? " | #{@page_title.gsub(%r{</?[^>]+?>}, '').strip}" : '') %></title>
         
         <link rel="author" href="https://plus.google.com/u/0/+ElliotDickison/posts" />
         <link rel="icon" type="image/png" href="/img/favicon.png" />
@@ -34,10 +32,13 @@ links_markup =
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body ontouchstart>
-        <header class="page-header js-cool-header cf">
+        <header class="page-header">
             <ul>
-                <li>
-                    <p><%= description_markup %></p>
+                <li class="desktop-only page-title">
+                    <a href="/">Elliot Dickison</a> is a programmer, skier, husband, and dad. He lives in the PNW, works at Amazon, and likes to build things for the web.
+                </li>
+                <li class="mobile-only page-title">
+                    <a href="/">Elliot Dickison</a> / <%= @selected_tab.to_s.sub(/^(\w)/) {|s| s.capitalize} %>
                 </li>
                 <li>
                     <nav>
@@ -60,7 +61,7 @@ links_markup =
             </ul>
         </header>
         <!--[if lt IE 9]>
-            <div class="browse-happy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+            <div class="browse-happy">You are using an outdated browser. Please <a href="http://browsehappy.com/?locale=en">upgrade your browser</a> to improve your experience.</div>
         <![endif]-->
         <div class="page-body">
             <%= get_message %>

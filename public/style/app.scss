@@ -1,6 +1,7 @@
 $fg-lightest: #ccc;
 $fg-light: #afafaf;
 $fg-medium: #999;
+$fg-header: #666;
 $fg-dark: #333;
 
 $bg-light: #fff;
@@ -72,6 +73,17 @@ $body-font: ff-tisa-web-pro, serif;
 	}
 }
 
+.browse-happy {
+	background: #fff;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 99999;
+	text-align: center;
+	padding-top: 200px;
+}
 /**
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
@@ -140,10 +152,6 @@ a {
 	border-bottom: 1px solid $theme;
 	color: inherit;
 	text-decoration: none;
-}
-
-a:hover {
-	color: $theme;
 }
 
 a:hover {
@@ -282,30 +290,12 @@ button, .button, input[type=submit] {
 	text-decoration: none;
 }
 
-time,
-.footnote {
-	color: $fg-light;
-	display: block;
-	font-style: italic;
-}
-
 .footnote {
 	margin-top: -1.5em;
 }
 
 .hidden {
 	display: none;
-}
-
-.post-list {
-	li {
-		margin-top: 1em;
-	}
-
-	time {
-		font-size: 0.8em;
-		margin-top: 0.2em;
-	}
 }
 
 .login {
@@ -320,13 +310,18 @@ time,
 	@include prefix(transition, none);
 }
 
-.page-header a {
-	color: inherit;
-	border-bottom: none;
-}
+.page-header,
+.page-footer {
+	font-family: $header-font;
 
-.page-header a:hover {
-	color: $theme;
+	a {
+		color: inherit;
+		border-bottom: none;
+	}
+
+	a:hover {
+		color: $theme;
+	}
 }
 
 .left {
@@ -357,6 +352,30 @@ time,
 
 .page-body {
 	min-height: 50%;
+
+	time,
+	footer,
+	.footnote {
+		color: $fg-light;
+		display: block;
+		font-size: 1em;
+		font-style: italic;
+	}
+
+	.post-list {
+		li {
+			margin-top: 1em;
+		}
+
+		time {
+			font-size: 0.8em;
+			margin-top: 0.2em;
+		}
+	}
+}
+
+.links {
+	text-transform: lowercase;
 }
 
 .post {
@@ -367,9 +386,8 @@ time,
 		margin-bottom: 1.5em;
 	}
 
-	footer {
-		color: $fg-light;
-		font-style: italic;
+	time {
+		margin-top: -0.5em;
 	}
 
 	.body {
@@ -460,11 +478,9 @@ time,
 }
 
 .made-in-idaho {
-	margin: 0 0 36px 26px;
 	width: 70px !important;
 	height: 70px !important;
 	position: relative;
-	font-family: $header-font;
 	font-size: 100%;
 
 	/* 171px 263.5px */
@@ -525,8 +541,7 @@ time,
 		border-right: 1px solid $border-medium;
 		bottom: 0;
 		color: #888;
-		color: $fg-medium;
-		font-family: $header-font;
+		color: $fg-header;
 		font-size: 18px;
 		left: 0;
 		line-height: 32px;
@@ -557,28 +572,16 @@ time,
 			padding-top: 20px;
 		}
 
-		& > ul > li:first-child {
+		.page-title {
 			border-top: none;
 			margin-top: 0;
 			padding-top: 0;
-		}
-
-		p {
-			margin: 0;
 			text-align: justify;
 
 			a {
 				color: $theme;
-			}
-
-			/* EJD */
-			& > a {
 				font-weight: bold;
 			}
-		}
-
-		.links {
-			text-transform: lowercase;
 		}
 
 		.links a {
@@ -595,17 +598,17 @@ time,
 				font-weight: bold;
 			}
 		}
+	}
 
-		.made-in-idaho {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-		}
+	.made-in-idaho {
+		bottom: 36px;
+		left: 26px;
+		position: absolute;
 	}
 
 	.page-body {
-		margin-left: 25%;
-		padding: 40px 40px 40px 120px;
+		margin-left: calc(25% + 80px);
+		padding: 40px;
 	}
 
 	.center {
@@ -640,36 +643,55 @@ time,
 		float: left;
 	}
 
+	.page-header {
+		border-bottom: 1px solid $border-medium;
+		margin: 0 1em;
+		overflow: auto;
+
+		.page-title {
+			float: left;
+			font-size: 1.1em;
+			margin: 1rem 0;
+
+			a {
+				color: $theme;
+			}
+		}
+	}
+
 	nav {
-		min-height: 40px;
-		padding: 10px;
 		font-family: $header-font;
 
 		label {
+			@include prefix(transition, color 0.2s linear);
+			color: inherit;
 			cursor: pointer;
 			display: block;
 			float: right;
-			height: 40px;
-			line-height: 40px;
-			text-transform: uppercase;
+			font-size: 1.1em;
+			margin: 1rem 0;
+		}
+
+		label:hover {
+			color: $theme;
 		}
 
 		ul {
+			border-top: 1px solid $border-medium;
+			clear: both;
 			display: none;
+			font-size: 1.1em;
+			padding: 0.5em;
+			text-align: right;
+
+			a {
+				line-height: 32px;
+			}
 		}
 
 		#menu:checked ~ ul {
 			display: block;
-		}
-	}
-
-	.page-header h1 {
-		background: $fg-dark;
-		color: $bg-light;
-		font-size: 1.5em;
-		max-width: 100% !important;
-		padding: 0.2em 0.5em;
-		text-align: center;
+		}		
 	}
 
 	.page-header h1,
@@ -681,6 +703,35 @@ time,
 		padding: 1em;
 	}
 	
+	.page-footer {
+		border-top: 1px solid $border-medium;
+		margin: 1em 1em 0 1em;
+		padding: 1em 0;
+		position: relative;
+
+		.made-in-idaho {
+			bottom: 18px;
+			left: -12px;
+			pointer-events: none; /* No room for hover stuff */
+			position: absolute;
+		}
+
+		.links {
+			color: $fg-medium;
+			float: left;
+			padding-left: 60px;
+			text-align: left;
+
+			a {
+				color: $fg-dark;
+			}
+
+			a:hover {
+				color: $theme;
+			}
+		}
+	}
+
 	.desktop-only {
 		display: none !important;
 	}

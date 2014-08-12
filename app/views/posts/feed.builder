@@ -1,15 +1,14 @@
 xml.instruct! :xml, :version => '1.0'
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Elliot's Bloorg"
+    xml.title "Elliot Dickison"
     xml.description "A sorta web development blog."
     xml.link "#{request.scheme}://#{request.host}/blog"
 
     @posts.each do |post|
 
       # Convert markdown to html and replace relative links with absolute ones
-      post_body = RDiscount.new(post.body, :smart).to_html
-      post_body = post_body
+      post_body = post.render_body
         .gsub(/(href="\/)/, "href=\"#{request.scheme}://#{request.host}/")
         .gsub(/(href="#)/, "href=\"#{request.scheme}://#{request.host}#{post.link}#")
 

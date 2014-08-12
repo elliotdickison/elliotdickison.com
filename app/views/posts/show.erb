@@ -11,7 +11,9 @@ tags = post.tags.map { |tag| "<a href='#{tag.link}' rel='tag'>#{tag.name}</a>" }
 		<%= post %>
 	</div>
 	<footer class="cf">
+		<% unless tags.empty? %>
 		<div class="left">Tagged under <%= nice_list tags %>.</div>
+		<% end %>
 		<a href="#" class="right">Comment on Twitter</a>
 	</footer>
 </article>
