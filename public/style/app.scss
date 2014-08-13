@@ -27,52 +27,6 @@ $body-font: ff-tisa-web-pro, serif;
     #{$property}: #{$value};
 }
 
-@mixin button($fg-color, $bg-color, $height: 6, $active-height: 2){
-	background: $bg-color;
-	border: 0;
-	color: $fg-color;
-	font-family: $header-font !important;
-	margin-bottom: #{$height}px;
-
-	$shadows: ();
-	@for $i from 1 through $height {
-		$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
-		$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
-	}
-	@include prefix(box-shadow, $shadows);
-
-	&:hover {
-		color: $fg-color;
-	}
-
-	&:active {
-		@include prefix(transform, translate(#{$height - $active-height}px, #{$height - $active-height}px));
-
-		$shadows: ();
-		@for $i from 1 through $active-height {
-			$shadows: append($shadows, #{$i}px #{$i - 1}px desaturate(darken($bg-color, 20%), 20%), comma);
-			$shadows: append($shadows, #{$i - 1}px #{$i}px desaturate(darken($bg-color, 10%), 10%), comma);
-		}
-		@include prefix(box-shadow, $shadows);
-	}
-
-	&:after {
-	  content: "";
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  right: -#{$height}px;
-	  bottom: -#{$height}px;
-	}
-
-	&:active:after {
-	  top: -#{$height - $active-height}px;
-	  left: -#{$height - $active-height}px;
-	  right: -#{$active-height}px;
-	  bottom: -#{$active-height}px;
-	}
-}
-
 .browse-happy {
 	background: #fff;
 	bottom: 0;
@@ -195,6 +149,7 @@ h2 a,
 h3 a,
 h4 a {
 	color: inherit;
+	border-bottom: none;
 }
 
 blockquote {
@@ -280,8 +235,6 @@ input[type=search] {
 }
 
 button, .button, input[type=submit] {
-	@include button($bg-light, $theme);
-
 	display: inline-block;
 	line-height: 100%;
 	margin-right: 0.8em;

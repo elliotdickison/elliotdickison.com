@@ -106,7 +106,8 @@ h1 a,
 h2 a,
 h3 a,
 h4 a {
-  color: inherit; }
+  color: inherit;
+  border-bottom: none; }
 
 blockquote {
   background: #f2f2f2;
@@ -183,47 +184,12 @@ input[type=search] {
   -webkit-appearance: textfield; }
 
 button, .button, input[type=submit] {
-  background: #da5b54;
-  border: 0;
-  color: white;
-  font-family: brandon-grotesque, sans-serif !important;
-  margin-bottom: 6px;
-  -webkit-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
-  -moz-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
-  -ms-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
-  -o-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
-  box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039, 3px 2px #903c38, 2px 3px #c24039, 4px 3px #903c38, 3px 4px #c24039, 5px 4px #903c38, 4px 5px #c24039, 6px 5px #903c38, 5px 6px #c24039;
   display: inline-block;
   line-height: 100%;
   margin-right: 0.8em;
   padding: 6px 12px;
   position: relative;
   text-decoration: none; }
-  button:hover, .button:hover, input[type=submit]:hover {
-    color: white; }
-  button:active, .button:active, input[type=submit]:active {
-    -webkit-transform: translate(4px, 4px);
-    -moz-transform: translate(4px, 4px);
-    -ms-transform: translate(4px, 4px);
-    -o-transform: translate(4px, 4px);
-    transform: translate(4px, 4px);
-    -webkit-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
-    -moz-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
-    -ms-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
-    -o-box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039;
-    box-shadow: 1px 0px #903c38, 0px 1px #c24039, 2px 1px #903c38, 1px 2px #c24039; }
-  button:after, .button:after, input[type=submit]:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: -6px;
-    bottom: -6px; }
-  button:active:after, .button:active:after, input[type=submit]:active:after {
-    top: -4px;
-    left: -4px;
-    right: -2px;
-    bottom: -2px; }
 
 .footnote {
   margin-top: -1.5em; }

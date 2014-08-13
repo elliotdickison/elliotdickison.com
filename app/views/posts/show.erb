@@ -1,13 +1,13 @@
 <%
 post ||= @post
-tags = post.tags.map { |tag| "<a href='#{tag.link}' rel='tag'>#{tag.name}</a>" }
+tags = post.tags.map { |tag| "<a href='#{tag.link}' rel='tag' class='p-category'>#{tag.name}</a>" }
 %>
-<article class="post center">
+<article class="post center h-entry">
 	<header class="cf">
-		<h1><%= post.title %></h1>
-		<time datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>" pubdate><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
+		<h1><a href="<%= post.link %>" class="p-name u-url"><%= post.title %></a></h1>
+		<time class="dt-published" datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d") : '' %>"><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
 	</header>
-	<div class="body">
+	<div class="body e-content">
 		<%= post %>
 	</div>
 	<footer class="cf">
