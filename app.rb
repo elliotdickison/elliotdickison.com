@@ -14,14 +14,16 @@ configure do
   set :send_mail, settings.environment == :production
 end
 
-# Dump errors
-set :dump_errors, true if settings.environment == :development
+# Errors and debugging
+if settings.environment == :development
+  
+  LogBuddy.init(
+    :logger => Logger.new("./tmp/debug.log"),
+    :disabled => settings.environment == :production  
+  )
 
-# Debug logging
-LogBuddy.init(
-  :logger => Logger.new("./tmp/debug.log"),
-  :disabled => settings.environment == :production  
-)
+  set :dump_errors, true
+end
 
 # Setup pony mail
 Pony.options = case settings.environment
