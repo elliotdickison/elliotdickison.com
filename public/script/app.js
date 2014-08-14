@@ -9,16 +9,6 @@
 // 	window.bouncing[key] = setTimeout(callback, interval);
 // }
 
-Event.prototype.preventDefault = Event.prototype.preventDefault || function(){ this.returnValue = false; };
-
-function toggleMenu(evt){
-	var menu = document.getElementById('js-menu');
-
-	menu.className = menu.className == 'show' ? '' : 'show';
-
-	evt.preventDefault();
-}
-
 function enforceSlug(inputElement, outputElement, trim) {
 	var friendly = getSlug(inputElement.value, trim);
 
