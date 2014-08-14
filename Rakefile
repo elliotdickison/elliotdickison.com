@@ -1,3 +1,4 @@
+require 'bitly'
 require 'log_buddy'
 require 'pony'
 require 'redcarpet'
