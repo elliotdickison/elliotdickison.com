@@ -4,10 +4,6 @@ github_id: 'elliotdickison'
 twitter_id: 'elliotdickison'
 contact_email: 'elliotdickison@gmail.com'
 
-# For saving links to bitly
-bitly_api_address: 'https://api-ssl.bitly.com'
-bitly_access_token: 'e0abceef1254f440afcae49bca07a3ad9c583aef'
-
 # For when we don't actually know what went wrong...
 generic_error_message: 'Sorry, seems a critter has chewed through the wires someplace. Please try again later.'
 

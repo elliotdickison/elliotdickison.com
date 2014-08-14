@@ -46,9 +46,6 @@ Pony.options = case settings.environment
     }
 end
 
-# Bitly url shortening
-Bitly.use_api_version_3
-
 # Setup a markdown renderer (this is most likely *not* the best place to do this)
 class HtmlWithGoodies < Redcarpet::Render::HTML
   include Redcarpet::Render::SmartyPants
