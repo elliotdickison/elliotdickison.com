@@ -38,7 +38,7 @@ links_markup =
         <header class="page-header">
             <ul>
                 <li class="desktop-only page-title h-card p-note">
-                    <a href="<%= request.protocol %>://<%= request.host%>" class="p-name u-url">Elliot Dickison</a> is a programmer, skier, husband, and dad. He lives in the PNW, works at <span class="p-org">Amazon</span>, and likes to build things for the web.
+                    <a href="<%= request.scheme %>://<%= request.host %>" class="p-name u-url">Elliot Dickison</a> is a programmer, skier, husband, and dad. He lives in the PNW, works at <span class="p-org">Amazon</span>, and likes to build things for the web.
                 </li>
                 <li class="mobile-only page-title">
                     <a href="/">Elliot Dickison</a> / <%= @selected_tab.to_s.sub(/^(\w)/) {|s| s.capitalize} %>
