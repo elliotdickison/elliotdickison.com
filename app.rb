@@ -53,8 +53,6 @@ class HtmlWithGoodies < Redcarpet::Render::HTML
 
   def block_code(code, language)
     require 'pygments'
-    
-    d language
     Pygments.highlight code, options: {
       lexer: language,
       startinline: true,
