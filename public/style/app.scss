@@ -337,6 +337,11 @@ button, .button, input[type=submit] {
 
 	header {
 		margin-bottom: 1.5em;
+
+		/* It's just me... */
+		a[rel=author] {
+			display: none;
+		}
 	}
 
 	time {

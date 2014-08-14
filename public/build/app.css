@@ -265,7 +265,10 @@ button, .button, input[type=submit] {
   clear: both;
   margin: 0 auto; }
   .post header {
-    margin-bottom: 1.5em; }
+    margin-bottom: 1.5em;
+    /* It's just me... */ }
+    .post header a[rel=author] {
+      display: none; }
   .post time {
     margin-top: -0.5em; }
   .post .body {
