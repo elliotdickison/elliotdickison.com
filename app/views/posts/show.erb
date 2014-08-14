@@ -5,7 +5,7 @@ tags = post.tags.map { |tag| "<a href='#{tag.link}' rel='tag' class='p-category'
 <article class="post center h-entry">
 	<header class="cf">
 		<h1><a href="<%= request.scheme %>://<%= request.host %><%= post.link %>" class="p-name u-url"><%= post.title %></a></h1>
-		<a rel="author" class="p-author h-card" href="<">Your Name</a>
+		<a rel="author" class="p-author h-card" href="<%= request.scheme %>://<%= request.host %>">Elliot Dickison</a>
 		<time class="dt-published" datetime="<%= post.published_at ? post.published_at.strftime("%Y-%m-%d %H:%M:%S %z") : '' %>"><%= post.published_at ? post.published_at.strftime("%B %-d, %Y") : 'Not published' %></time>
 	</header>
 	<div class="body e-content">
